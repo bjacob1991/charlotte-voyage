@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Charlotte — Ship's Log</title>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+  integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+<style>
+  :root{
+    --navy:#1f3a5f; --steel:#2e6e8e; --coral:#d85a30;
+    --ink:#222; --muted:#6b6b6b; --line:#e2e0d8;
+    --paper:#fbfaf6; --panel:#ffffff;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;height:100%}
+  body{
+    font-family:Georgia,'Times New Roman',serif;
+    color:var(--ink); background:var(--paper);
+    display:flex; flex-direction:column; height:100vh; overflow:hidden;
+  }
+  header{
+    flex:0 0 auto; padding:14px 22px; background:var(--navy); color:#fff;
+    display:flex; align-items:baseline; gap:16px; flex-wrap:wrap;
+  }
+  header h1{margin:0; font-size:24px; letter-spacing:2px; font-weight:700}
+  header .sub{font-size:14px; color:#c8d6e2; font-family:Arial,Helvetica,sans-serif}
+  header .dates{margin-left:auto; font-size:13px; color:#9fb6c9; font-family:Arial,Helvetica,sans-serif}
+
+  .layout{flex:1 1 auto; display:flex; min-height:0}
+  #map{flex:0 0 46%; height:100%; background:#aadaff}
+  .resizer{flex:0 0 6px; cursor:col-resize; background:var(--line)}
+  .resizer:hover{background:var(--steel)}
+
+  .log{
+    flex:1 1 54%; height:100%; overflow-y:auto; padding:0 0 40vh 0;
+    background:var(--paper); scroll-behavior:smooth;
+  }
+  .leg{
+    position:sticky; top:0; z-index:5;
+    background:var(--steel); color:#fff; padding:8px 22px;
+    font-family:Arial,Helvetica,sans-serif; font-size:13px; letter-spacing:1px;
+    border-top:2px solid #fff;
+  }
+  .stop{
+    padding:20px 22px 8px; border-bottom:1px solid var(--line);
+    scroll-margin-top:8px;
+  }
+  .stop.active{background:#fff}
+  .stop.active .stop-no{background:var(--coral)}
+  .stop-head{display:flex; align-items:center; gap:12px; margin-bottom:4px}
+  .stop-no{
+    flex:0 0 auto; width:30px; height:30px; border-radius:50%;
+    background:var(--navy); color:#fff; display:flex; align-items:center; justify-content:center;
+    font-family:Arial,Helvetica,sans-serif; font-size:15px; font-weight:700;
+  }
+  .stop-name{font-size:21px; font-weight:700; color:var(--navy); margin:0}
+
+  .scan{
+    margin:10px 0 16px; border:1px dashed #c3bfb0; border-radius:8px;
+    background:#f3f1e8; min-height:150px; display:flex; align-items:center; justify-content:center;
+    overflow:hidden; text-align:center;
+  }
+  .scan img{width:100%; height:auto; display:block}
+  .scan .ph{padding:24px; color:#9a957f; font-family:Arial,Helvetica,sans-serif; font-size:13px; line-height:1.6}
+  .scan .ph code{background:#e8e5d8; padding:1px 6px; border-radius:4px; color:#6f6a55}
+
+  .entry{margin:0 0 16px}
+  .entry-date{
+    font-family:Arial,Helvetica,sans-serif; font-size:14px; font-weight:700;
+    color:var(--steel); margin:0 0 4px;
+  }
+  .entry-body{margin:0; line-height:1.7; font-size:16px}
+  .cond{
+    margin:6px 0 0; font-style:italic; font-size:13.5px; color:var(--muted);
+    border-left:3px solid var(--line); padding-left:10px;
+  }
+  mark{background:#fdeccd; padding:0 1px}
+
+  .leaflet-marker-pin{
+    background:var(--navy); color:#fff; border:2px solid #fff; border-radius:50% 50% 50% 0;
+    width:28px; height:28px; transform:rotate(-45deg);
+    display:flex; align-items:center; justify-content:center;
+    font-family:Arial,Helvetica,sans-serif; font-weight:700; font-size:14px;
+    box-shadow:0 1px 4px rgba(0,0,0,.4); cursor:pointer;
+  }
+  .leaflet-marker-pin span{transform:rotate(45deg)}
+  .leaflet-marker-pin.active{background:var(--coral); z-index:1000!important}
+
+  @media (max-width:760px){
+    .layout{flex-direction:column}
+    #map{flex:0 0 42%; width:100%}
+    .resizer{display:none}
+    .log{flex:1 1 auto}
+  }
+</style>
+</head>
+<body>
+<header>
+  <h1>CHARLOTTE</h1>
+  <span class="sub">Ship's Log &middot; Florida &middot; The Bahamas &middot; Jamaica</span>
+  <span class="dates">Nov 20, 2001 &ndash; Jan 10, 2002</span>
+</header>
+
+<div class="layout">
+  <div id="map" role="application" aria-label="Voyage route map"></div>
+  <div class="resizer" id="resizer" role="separator" aria-orientation="vertical"></div>
+  <div class="log" id="log"></div>
+</div>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+  integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+<script>
+/* ----------------------------------------------------------------------------
+   VOYAGE DATA
+   To add a scan later: drop an image into an "images" folder next to this file,
+   named exactly as the "img" value below (e.g. images/stop-01.jpg). It will
+   replace the placeholder automatically. JPG or PNG both fine — keep the name.
+---------------------------------------------------------------------------- */
+const STOPS = [
+  { n:1, name:"Rock Harbor, Key Largo", leg:"Leg 1 — The Crossing",
+    lat:25.077, lng:-80.460, img:"images/stop-01.jpg", entries:[
+    { date:"Tuesday, November 20, 2001",
+      body:"After five months of hard work, sweating, wondering, waiting, [worrying], playing, we are finally on our way! Charlotte left Rock Harbor, Key Largo, anchorage at 6 am this morning. We cleared Molasses Reef just after sunrise and set course for Gun Cay, Bahamas. Enjoyed a 10-12 knot north[east] wind for an hour, until we sailed under a cloud bank. We have learned that a cumulus cloud bank invariably brings some kind of wind change. Of course we hoped for a favorable change but it turned more easterly and we had to turn on the iron jenny. Brian felt bad until he got rid of his breakfast. There were some incredibly rough patches of confused seas that were very uncomfortable. Luckily they were of short duration. We want Brian to enjoy his first offshore passage. He spent the day reading two books. The winds stayed light, the seas relatively calm, so except for the inconvenience of having to steer and the roar of the engine, our crossing was pleasant enough. Sighted Gun Cay lighthouse at sundown, and entered Gun Cay cut at 7:00 pm. It was easy this time with the radar illuminating the approach for us. GPS takes all the worry out of navigation. Welcome to the Bahamas! An 8-pound wahoo Thomas caught on a yellow feather 10 miles from Gun Cay was enjoyed for dinner.",
+      cond:"Wind: NE–ENE, 8 knots, diminishing to 3 knots. Distance: 70 miles in 12 hours, course 90°, motoring." }
+  ]},
+  { n:2, name:"Gun Cay", leg:"Leg 1 — The Crossing",
+    lat:25.581, lng:-79.300, img:"images/stop-02.jpg", entries:[
+    { date:"Wednesday, November 21",
+      body:"After a completely windless night — can this really be November — we decided to follow the other boats heading toward Chub Cay. Motored under main sail in light-to-nonexistent wind until noon, 8 knot NE breeze, full genoa, main, mizzen, 4.5–5 knots. The Great Bahama Bank is featureless. Lots of boats traveling east and west — like a highway. Beautiful sunny hot day. Wind picked up and Charlotte trucked at 5½–6 knots! Very comfortable sailing! Anchored ¾ mile west of NW Channel beacon at 4 pm.",
+      cond:"Distance traveled: 62 miles in 11 hours." }
+  ]},
+  { n:3, name:"Chub Cay", leg:"Leg 1 — The Crossing",
+    lat:25.417, lng:-77.891, img:"images/stop-03.jpg", entries:[
+    { date:"Thursday, November 22",
+      body:"After rolly night at NW Channel light, where a sailboat mistook us for the beacon at midnight and turned away at the last instance, we got underway at daybreak. About 15 miles to Chub Cay, light east winds, motorsailing with main only. Checked in, met Last Penny with an 11-year-old boy (!) at the dock. Brian is thrilled. Diving at [Mama] Rhoda Rock, small fish only. Anchorage not too rolly.",
+      cond:null }
+  ]},
+  { n:4, name:"Nassau", leg:"Leg 2 — Berry Islands to Nassau",
+    lat:25.044, lng:-77.350, img:"images/stop-04.jpg", entries:[
+    { date:"Friday, November 23 – Sunday, November 25",
+      body:"Motored east 3 miles to Bird Cay in big swell, 15-20 east winds. Anchorage very rolly, sleepless night! Next day over to Frazers Hog, anchorage very rolly, sleepless night. Anchor dragged in afternoon, then motor quit — an adrenaline rush! Clogged fuel line, soon fixed. We still need more sailing with lee shore. No conch, very bouncy. We are with Last Penny, Mark, Laurie and 11-year-old Mick. The boys are having a blast!",
+      cond:"Last Penny — Seamaster 35, racer/cruiser." },
+    { date:"Monday, November 26",
+      body:"Woke up to NE winds this morning, so started packing up for the trip to Nassau, 32 miles at 130°. Forecast 20 NE, big swells. Once we cleared the point of Bird Cay, the waves hit with full force. No school today! Brian was a big queasy but managed to overcome it. We furled in the genoa to the first spot and then put a reef in the main. We were sailing 6½–7 knots before the reef, but it made life more comfortable. Bashed along at 5½ knots — Last Penny could not keep up in the gusts, up to [25] knots. It was a boisterous windward sail and Charlotte did great. 6 hours to Nassau, anchored in the usual spot near the Nassau docks. A great fireworks show at 9 pm ended a good day.",
+      cond:null }
+  ]},
+  { n:5, name:"Allans Cay", leg:"Leg 3 — The Exumas to Georgetown",
+    lat:24.745, lng:-76.835, img:"images/stop-05.jpg", entries:[
+    { date:"Friday, November 30",
+      body:"NE winds again this morning, and tropical storm Olga is coming our way, so we set sail for Allans Cay in the northern Exumas. Started out with full sail, but had to reef the genoa. NNE winds, 20 knots, relatively rolly on the banks, few coral heads. As the morning progressed, some squalls came through and we had to reef the main. Great sailing — over 7 knots, running to 8.8 — Charlotte was happy! 35 miles in 5 hours — 7 knot average speed. Allans Cay is an iguana sanctuary. We will go look for some. Pretty, deserted, [25] knots wind, Charlotte flew!",
+      cond:null }
+  ]},
+  { n:6, name:"Norman's Cay", leg:"Leg 3 — The Exumas to Georgetown",
+    lat:24.612, lng:-76.816, img:"images/stop-06.jpg", entries:[
+    { date:"Tuesday, December 4",
+      body:"One uncomfortable night at Allans Cay was enough — too much current. But it was interesting to see the iguanas on the beach — lots of them just standing there with their tails in the air! Then down to High Borne Cay. Anchored off the beach on west side — beautiful but rolly. We did laundry at the cistern just inland. Moved down to Normans Cay this morning — blowing over 20 again, rough on the banks. Charlotte flew as usual — I guess we need to adjust our attitudes — this boat is not so slow, at least when the wind blows! Reefed main, reefed mizzen. Anchored off the beach again — conch and no rolling! Maybe we have finally found paradise. Thomas' back is really bothering him — it's that 45-lb CQR. Hope he will get better.",
+      cond:null }
+  ]},
+  { n:7, name:"Staniel Cay", leg:"Leg 3 — The Exumas to Georgetown",
+    lat:24.170, lng:-76.440, img:"images/stop-07.jpg", entries:[
+    { date:"Monday, December 10",
+      body:"Had a nice time at Normans Cay, windsurfing in the cove. Found lots of conch in the shallows. Met Different Drummer, Bristol 47, with Bruce & Debbie. Tropical storm Olga finally dissipated and we had 2 days of light SE winds, warmer weather. Wind turned NE last night and we are sailing to Staniel Cay — great sail, 15 knots, no seas, reefed genoa, full main & mizzen, 6.5 knots average. Charlotte sails so well! Note: Apparently Thomas' back problem was only indigestion — he is fine now — we are happy! I'm finally beginning to relax. It's great to wake up on Monday morning and not have to go to work! But of course the wind veered and we had a beat — couldn't even make our course. Anchored at Staniel Cay at 4 pm — long day.",
+      cond:null },
+    { date:"Friday, December 14, 2001",
+      body:"Had a great time in Staniel Cay! We dove Thunderball Cave, hung out at the “waiting room” at the airport, and played in a narrow cut north of Big Majors, getting swept through with the current. This morning packed down to Black Point with Last Penny and Billy on Sea Dawn.",
+      cond:null },
+    { date:"Saturday, December 15",
+      body:"Parted with Last Penny this morning — we left with Sea Dawn to [sail] down to Galliot Cay. A squally morning but we had a nice [reach off] the wind for a change. We will miss Mark, Laurie and Mick a lot — they were like family after only 3½ weeks. How time has slowed down! Weeks are long — lots can happen. We will wait here for a nice breeze to Georgetown.",
+      cond:null }
+  ]},
+  { n:8, name:"George Town", leg:"Leg 3 — The Exumas to Georgetown",
+    lat:23.502, lng:-75.770, img:"images/stop-08.jpg", entries:[
+    { date:"Tuesday, December 18",
+      body:"Motoring to Georgetown — we said we'd never do this either! But the winds are very light SE today, the front most likely won't make it, and we are ready for fresh food and booze! Want to be in [George]town for Christmas too. Left Rudder Cut at daybreak, with Sea Dawn and 18 other boats behind us. It's a superhighway out here — 20 boats in a row. Thomas caught a 4½ ft wahoo on his new rod with the homemade lure. It's a beautiful day, sliding past the islands, with the sun sparkling on the waves. Christmas in Georgetown — a few potlucks on the beach, some windsurfing, walking on the windward beach on Elizabeth Island — water colors are so beautiful! Met [Tace]lopes — Ralf, Birgit, John, Pascal, moved to land, growing their own food — great macrobiotic dinner. Moonrise on the beach, bonfire, big fireworks on New Year's Eve.",
+      cond:null }
+  ]},
+  { n:9, name:"Rum Cay", leg:"Leg 4 — Offshore to Jamaica",
+    lat:23.685, lng:-74.839, img:"images/stop-09.jpg", entries:[
+    { date:"Tuesday, January 1, 2002",
+      body:"A new year and the beginning of a new adventure for us and Charlotte. Change in plans — we are going to the Pacific now! Left Georgetown this morning, headed for Conception, cleared for Port Antonio, Jamaica. Light west winds in morning, but a squall turned them to north and now we are sailing under full sail, 4-5 knots, 8 knots or less of wind. This is the first comfortable sail we have had. What a way to start the new year!",
+      cond:null },
+    { date:"Thursday, January 3",
+      body:"South West wind — it was a bumpy night so we set sail for Rum Cay with Paul on Wind swept, Don, Sharon, Kathryn on Pelican, and David, Margy, Chris, Natalie on Dream catcher. Squally day, rainy, gusty, lee shore when we got to Rum. Was this a good idea? We did have a nice party with these folks at Conception — cruised the creek, picked up conch, the guys wrestled a big grouper. Uncomfortable night at Rum.",
+      cond:null },
+    { date:"Tuesday, January 8",
+      body:"Left Rum Cay yesterday at 4 pm — NW winds 15 knots, poled-out genoa, full main & mizzen. Beautiful sailing last night — speed 5-6 knots, downwind! Somewhat rolly but not bad. Great time in Rum with our boat friends, especially Dan on Pelican. Brian played with the little boy and 2 older girls. Fantastic diving — prettiest reefs in the Bahamas. Everyone got one big lobster. Big raftup and pot luck dinner. But the anchorage was horrible — open from SE to NW, very rolly. Light N winds today, still moving at 4-5 knots, headed for Jamaica. Passed Castle Rock lighthouse (Acklins Islands) around 10 am, now heading for a point 20 miles east of the tip of Cuba. Winds are slowly veering to the northeast. Decks are dry! Rolling is obnoxious but at least we aren't pounding. Main turning 5 knots in a 10-knot breeze. Total overcast — very light cold front!",
+      cond:null }
+  ]},
+  { n:10, name:"Port Antonio, Jamaica", leg:"Leg 4 — Offshore to Jamaica",
+    lat:18.179, lng:-76.452, img:"images/stop-10.jpg", entries:[
+    { date:"Wednesday, January 9",
+      body:"Changed course to the SW of the eastern tip of Cuba at 10 am this morning. Now in the Windward Passage and it is blowing! NW 25-30, double reefed main and genoa. We are doing 7 knots average. Broad reach — somewhat more comfortable than last night's downwind roll under reefed main only. No school today! Hope it will moderate some as we head south. Charlotte takes it quite well and is comfortable inside. Brian is kind of bored, tired of reading. Thomas and I are just tired! Squally weather, overcast, light rain.",
+      cond:null },
+    { date:"Thursday, January 10",
+      body:"Finally see the sun today! The wind calmed down once we got around Cabo Maisi on Cuba. Big confused seas in the Windward Passage. We saw the coast and mountains of Cuba all day long. First time we have come so close, thanks to GPS! Wind moderated at sundown and we didn't have to touch the sails or adjust the course all night long. No ships, so we got to catch up on our sleep. 75 miles from Port Antonio this morning, will make landfall after sundown. We are enjoying our first real offshore passage in Charlotte! Her pointy ass parts the following seas. The rolling is obnoxious, but oh well. Now cruising with full main, poled out genoa, in 15 knots NE wind, 5.5 knots average.",
+      cond:null }
+  ]}
+];
+
+/* ---------- Build the log panel ---------- */
+const logEl = document.getElementById('log');
+let currentLeg = null;
+STOPS.forEach(s=>{
+  if(s.leg !== currentLeg){
+    currentLeg = s.leg;
+    const legDiv = document.createElement('div');
+    legDiv.className = 'leg';
+    legDiv.textContent = s.leg;
+    logEl.appendChild(legDiv);
+  }
+  const stop = document.createElement('section');
+  stop.className = 'stop';
+  stop.id = 'stop-' + s.n;
+  stop.dataset.n = s.n;
+
+  const head = document.createElement('div');
+  head.className = 'stop-head';
+  head.innerHTML = '<div class="stop-no">'+s.n+'</div><h2 class="stop-name">'+s.name+'</h2>';
+  stop.appendChild(head);
+
+  const scan = document.createElement('div');
+  scan.className = 'scan';
+  const img = new Image();
+  img.alt = 'Logbook scan — ' + s.name;
+  img.onload = ()=>{ scan.innerHTML=''; scan.appendChild(img); };
+  img.onerror = ()=>{
+    scan.innerHTML = '<div class="ph">Logbook scan placeholder<br>Drop an image at <code>'+s.img+'</code><br>to display the original page here.</div>';
+  };
+  img.src = s.img;
+  stop.appendChild(scan);
+
+  s.entries.forEach(e=>{
+    const entry = document.createElement('div');
+    entry.className = 'entry';
+    let h = '<p class="entry-date">'+e.date+'</p><p class="entry-body">'+e.body+'</p>';
+    if(e.cond) h += '<p class="cond">'+e.cond+'</p>';
+    entry.innerHTML = h;
+    stop.appendChild(entry);
+  });
+  logEl.appendChild(stop);
+});
+
+/* ---------- Build the map ---------- */
+const map = L.map('map', { scrollWheelZoom:true });
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+  maxZoom:18, attribution:'&copy; OpenStreetMap contributors'
+}).addTo(map);
+
+const latlngs = STOPS.map(s=>[s.lat, s.lng]);
+L.polyline(latlngs, { color:'#185fa5', weight:2.5, dashArray:'6 6', opacity:0.85 }).addTo(map);
+map.fitBounds(latlngs, { padding:[40,40] });
+
+const markers = {};
+STOPS.forEach(s=>{
+  const icon = L.divIcon({
+    className:'', html:'<div class="leaflet-marker-pin" data-n="'+s.n+'"><span>'+s.n+'</span></div>',
+    iconSize:[28,28], iconAnchor:[14,28], popupAnchor:[0,-26]
+  });
+  const m = L.marker([s.lat, s.lng], { icon }).addTo(map);
+  m.bindTooltip(s.n+'. '+s.name, { direction:'top', offset:[0,-24] });
+  m.on('click', ()=> goToStop(s.n));
+  markers[s.n] = m;
+});
+
+/* ---------- Pin <-> log syncing ---------- */
+function setActive(n){
+  document.querySelectorAll('.stop').forEach(el=>el.classList.toggle('active', +el.dataset.n===n));
+  document.querySelectorAll('.leaflet-marker-pin').forEach(el=>el.classList.toggle('active', +el.dataset.n===n));
+}
+function goToStop(n){
+  setActive(n);
+  document.getElementById('stop-'+n).scrollIntoView({ behavior:'smooth', block:'start' });
+  markers[n].openTooltip();
+}
+
+/* Highlight the pin for whatever stop is near the top while scrolling */
+const obs = new IntersectionObserver((entries)=>{
+  entries.forEach(en=>{
+    if(en.isIntersecting) setActive(+en.target.dataset.n);
+  });
+}, { root:logEl, rootMargin:'0px 0px -70% 0px', threshold:0 });
+document.querySelectorAll('.stop').forEach(el=>obs.observe(el));
+
+setActive(1);
+
+/* ---------- Draggable divider ---------- */
+const resizer = document.getElementById('resizer');
+const mapEl = document.getElementById('map');
+let dragging = false;
+resizer.addEventListener('mousedown', ()=>{ dragging=true; document.body.style.userSelect='none'; });
+window.addEventListener('mouseup', ()=>{ dragging=false; document.body.style.userSelect=''; });
+window.addEventListener('mousemove', (e)=>{
+  if(!dragging) return;
+  const pct = Math.min(75, Math.max(25, (e.clientX / window.innerWidth) * 100));
+  mapEl.style.flex = '0 0 ' + pct + '%';
+  map.invalidateSize();
+});
+</script>
+</body>
+</html>

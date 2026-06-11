@@ -1,0 +1,238 @@
+{
+  "id": "leg-01",
+  "name": "Florida & the Bahamas",
+  "stops": [
+    {
+      "id": "stop-01",
+      "n": 1,
+      "name": "Rock Harbor, Key Largo",
+      "passage": "Florida–Bahamas Passage",
+      "lat": 25.077,
+      "lng": -80.460,
+      "photo_album": null,
+      "photos": [],
+      "entries": [
+        {
+          "date": "2001-11-20",
+          "date_display": "Tuesday, November 20, 2001",
+          "scan": "images/scans/2001-11-20.jpg",
+          "body": "After five months of hard work, sweating, wondering, waiting, [worrying], playing, we are finally on our way! Charlotte left Rock Harbor, Key Largo, anchorage at 6 am this morning. We cleared Molasses Reef just after sunrise and set course for Gun Cay, Bahamas. Enjoyed a 10-12 knot north[east] wind for an hour, until we sailed under a cloud bank. We have learned that a cumulus cloud bank invariably brings some kind of wind change. Of course we hoped for a favorable change but it turned more easterly and we had to turn on the iron jenny. Brian felt bad until he got rid of his breakfast. There were some incredibly rough patches of confused seas that were very uncomfortable. Luckily they were of short duration. We want Brian to enjoy his first offshore passage. He spent the day reading two books. The winds stayed light, the seas relatively calm, so except for the inconvenience of having to steer and the roar of the engine, our crossing was pleasant enough. Sighted Gun Cay lighthouse at sundown, and entered Gun Cay cut at 7:00 pm. It was easy this time with the radar illuminating the approach for us. GPS takes all the worry out of navigation. Welcome to the Bahamas! An 8-pound wahoo Thomas caught on a yellow feather 10 miles from Gun Cay was enjoyed for dinner.",
+          "conditions": "Wind: NE–ENE, 8 knots, diminishing to 3 knots. Distance: 70 miles in 12 hours, course 90°, motoring."
+        }
+      ]
+    },
+    {
+      "id": "stop-02",
+      "n": 2,
+      "name": "Gun Cay",
+      "passage": "Florida–Bahamas Passage",
+      "lat": 25.581,
+      "lng": -79.300,
+      "photo_album": null,
+      "photos": [],
+      "entries": [
+        {
+          "date": "2001-11-21",
+          "date_display": "Wednesday, November 21",
+          "scan": "images/scans/2001-11-21.jpg",
+          "body": "After a completely windless night — can this really be November — we decided to follow the other boats heading toward Chub Cay. Motored under main sail in light-to-nonexistent wind until noon, 8 knot NE breeze, full genoa, main, mizzen, 4.5–5 knots. The Great Bahama Bank is featureless. Lots of boats traveling east and west — like a highway. Beautiful sunny hot day. Wind picked up and Charlotte trucked at 5½–6 knots! Very comfortable sailing! Anchored ¾ mile west of NW Channel beacon at 4 pm.",
+          "conditions": "Distance traveled: 62 miles in 11 hours."
+        }
+      ]
+    },
+    {
+      "id": "stop-03",
+      "n": 3,
+      "name": "Chub Cay",
+      "passage": "Florida–Bahamas Passage",
+      "lat": 25.417,
+      "lng": -77.891,
+      "photo_album": null,
+      "photos": [],
+      "entries": [
+        {
+          "date": "2001-11-22",
+          "date_display": "Thursday, November 22",
+          "scan": "images/scans/2001-11-22.jpg",
+          "body": "After rolly night at NW Channel light, where a sailboat mistook us for the beacon at midnight and turned away at the last instance, we got underway at daybreak. About 15 miles to Chub Cay, light east winds, motorsailing with main only. Checked in, met Last Penny with an 11-year-old boy (!) at the dock. Brian is thrilled. Diving at [Mama] Rhoda Rock, small fish only. Anchorage not too rolly.",
+          "conditions": null
+        }
+      ]
+    },
+    {
+      "id": "stop-04",
+      "n": 4,
+      "name": "Nassau",
+      "passage": "Berry Islands to Nassau",
+      "lat": 25.044,
+      "lng": -77.350,
+      "photo_album": null,
+      "photos": [],
+      "entries": [
+        {
+          "date": "2001-11-23",
+          "date_display": "Friday, November 23 – Sunday, November 25",
+          "scan": "images/scans/2001-11-23.jpg",
+          "body": "Motored east 3 miles to Bird Cay in big swell, 15-20 east winds. Anchorage very rolly, sleepless night! Next day over to Frazers Hog, anchorage very rolly, sleepless night. Anchor dragged in afternoon, then motor quit — an adrenaline rush! Clogged fuel line, soon fixed. We still need more sailing with lee shore. No conch, very bouncy. We are with Last Penny, Mark, Laurie and 11-year-old Mick. The boys are having a blast!",
+          "conditions": "Last Penny — Seamaster 35, racer/cruiser."
+        },
+        {
+          "date": "2001-11-26",
+          "date_display": "Monday, November 26",
+          "scan": "images/scans/2001-11-26.jpg",
+          "body": "Woke up to NE winds this morning, so started packing up for the trip to Nassau, 32 miles at 130°. Forecast 20 NE, big swells. Once we cleared the point of Bird Cay, the waves hit with full force. No school today! Brian was a big queasy but managed to overcome it. We furled in the genoa to the first spot and then put a reef in the main. We were sailing 6½–7 knots before the reef, but it made life more comfortable. Bashed along at 5½ knots — Last Penny could not keep up in the gusts, up to [25] knots. It was a boisterous windward sail and Charlotte did great. 6 hours to Nassau, anchored in the usual spot near the Nassau docks. A great fireworks show at 9 pm ended a good day.",
+          "conditions": null
+        }
+      ]
+    },
+    {
+      "id": "stop-05",
+      "n": 5,
+      "name": "Allans Cay",
+      "passage": "The Exumas to Georgetown",
+      "lat": 24.745,
+      "lng": -76.835,
+      "photo_album": null,
+      "photos": [],
+      "entries": [
+        {
+          "date": "2001-11-30",
+          "date_display": "Friday, November 30",
+          "scan": "images/scans/2001-11-30.jpg",
+          "body": "NE winds again this morning, and tropical storm Olga is coming our way, so we set sail for Allans Cay in the northern Exumas. Started out with full sail, but had to reef the genoa. NNE winds, 20 knots, relatively rolly on the banks, few coral heads. As the morning progressed, some squalls came through and we had to reef the main. Great sailing — over 7 knots, running to 8.8 — Charlotte was happy! 35 miles in 5 hours — 7 knot average speed. Allans Cay is an iguana sanctuary. We will go look for some. Pretty, deserted, [25] knots wind, Charlotte flew!",
+          "conditions": null
+        }
+      ]
+    },
+    {
+      "id": "stop-06",
+      "n": 6,
+      "name": "Norman's Cay",
+      "passage": "The Exumas to Georgetown",
+      "lat": 24.612,
+      "lng": -76.816,
+      "photo_album": null,
+      "photos": [],
+      "entries": [
+        {
+          "date": "2001-12-04",
+          "date_display": "Tuesday, December 4",
+          "scan": "images/scans/2001-12-04.jpg",
+          "body": "One uncomfortable night at Allans Cay was enough — too much current. But it was interesting to see the iguanas on the beach — lots of them just standing there with their tails in the air! Then down to High Borne Cay. Anchored off the beach on west side — beautiful but rolly. We did laundry at the cistern just inland. Moved down to Normans Cay this morning — blowing over 20 again, rough on the banks. Charlotte flew as usual — I guess we need to adjust our attitudes — this boat is not so slow, at least when the wind blows! Reefed main, reefed mizzen. Anchored off the beach again — conch and no rolling! Maybe we have finally found paradise. Thomas' back is really bothering him — it's that 45-lb CQR. Hope he will get better.",
+          "conditions": null
+        }
+      ]
+    },
+    {
+      "id": "stop-07",
+      "n": 7,
+      "name": "Staniel Cay",
+      "passage": "The Exumas to Georgetown",
+      "lat": 24.170,
+      "lng": -76.440,
+      "photo_album": null,
+      "photos": [],
+      "entries": [
+        {
+          "date": "2001-12-10",
+          "date_display": "Monday, December 10",
+          "scan": "images/scans/2001-12-10.jpg",
+          "body": "Had a nice time at Normans Cay, windsurfing in the cove. Found lots of conch in the shallows. Met Different Drummer, Bristol 47, with Bruce & Debbie. Tropical storm Olga finally dissipated and we had 2 days of light SE winds, warmer weather. Wind turned NE last night and we are sailing to Staniel Cay — great sail, 15 knots, no seas, reefed genoa, full main & mizzen, 6.5 knots average. Charlotte sails so well! Note: Apparently Thomas' back problem was only indigestion — he is fine now — we are happy! I'm finally beginning to relax. It's great to wake up on Monday morning and not have to go to work! But of course the wind veered and we had a beat — couldn't even make our course. Anchored at Staniel Cay at 4 pm — long day.",
+          "conditions": null
+        },
+        {
+          "date": "2001-12-14",
+          "date_display": "Friday, December 14, 2001",
+          "scan": "images/scans/2001-12-14.jpg",
+          "body": "Had a great time in Staniel Cay! We dove Thunderball Cave, hung out at the “waiting room” at the airport, and played in a narrow cut north of Big Majors, getting swept through with the current. This morning packed down to Black Point with Last Penny and Billy on Sea Dawn.",
+          "conditions": null
+        },
+        {
+          "date": "2001-12-15",
+          "date_display": "Saturday, December 15",
+          "scan": "images/scans/2001-12-15.jpg",
+          "body": "Parted with Last Penny this morning — we left with Sea Dawn to [sail] down to Galliot Cay. A squally morning but we had a nice [reach off] the wind for a change. We will miss Mark, Laurie and Mick a lot — they were like family after only 3½ weeks. How time has slowed down! Weeks are long — lots can happen. We will wait here for a nice breeze to Georgetown.",
+          "conditions": null
+        }
+      ]
+    },
+    {
+      "id": "stop-08",
+      "n": 8,
+      "name": "George Town",
+      "passage": "The Exumas to Georgetown",
+      "lat": 23.502,
+      "lng": -75.770,
+      "photo_album": null,
+      "photos": [],
+      "entries": [
+        {
+          "date": "2001-12-18",
+          "date_display": "Tuesday, December 18",
+          "scan": "images/scans/2001-12-18.jpg",
+          "body": "Motoring to Georgetown — we said we'd never do this either! But the winds are very light SE today, the front most likely won't make it, and we are ready for fresh food and booze! Want to be in [George]town for Christmas too. Left Rudder Cut at daybreak, with Sea Dawn and 18 other boats behind us. It's a superhighway out here — 20 boats in a row. Thomas caught a 4½ ft wahoo on his new rod with the homemade lure. It's a beautiful day, sliding past the islands, with the sun sparkling on the waves. Christmas in Georgetown — a few potlucks on the beach, some windsurfing, walking on the windward beach on Elizabeth Island — water colors are so beautiful! Met [Tace]lopes — Ralf, Birgit, John, Pascal, moved to land, growing their own food — great macrobiotic dinner. Moonrise on the beach, bonfire, big fireworks on New Year's Eve.",
+          "conditions": null
+        }
+      ]
+    },
+    {
+      "id": "stop-09",
+      "n": 9,
+      "name": "Rum Cay",
+      "passage": "Windward Passage to Jamaica",
+      "lat": 23.685,
+      "lng": -74.839,
+      "photo_album": null,
+      "photos": [],
+      "entries": [
+        {
+          "date": "2002-01-01",
+          "date_display": "Tuesday, January 1, 2002",
+          "scan": "images/scans/2002-01-01.jpg",
+          "body": "A new year and the beginning of a new adventure for us and Charlotte. Change in plans — we are going to the Pacific now! Left Georgetown this morning, headed for Conception, cleared for Port Antonio, Jamaica. Light west winds in morning, but a squall turned them to north and now we are sailing under full sail, 4-5 knots, 8 knots or less of wind. This is the first comfortable sail we have had. What a way to start the new year!",
+          "conditions": null
+        },
+        {
+          "date": "2002-01-03",
+          "date_display": "Thursday, January 3",
+          "scan": "images/scans/2002-01-03.jpg",
+          "body": "South West wind — it was a bumpy night so we set sail for Rum Cay with Paul on Wind swept, Don, Sharon, Kathryn on Pelican, and David, Margy, Chris, Natalie on Dream catcher. Squally day, rainy, gusty, lee shore when we got to Rum. Was this a good idea? We did have a nice party with these folks at Conception — cruised the creek, picked up conch, the guys wrestled a big grouper. Uncomfortable night at Rum.",
+          "conditions": null
+        },
+        {
+          "date": "2002-01-08",
+          "date_display": "Tuesday, January 8",
+          "scan": "images/scans/2002-01-08.jpg",
+          "body": "Left Rum Cay yesterday at 4 pm — NW winds 15 knots, poled-out genoa, full main & mizzen. Beautiful sailing last night — speed 5-6 knots, downwind! Somewhat rolly but not bad. Great time in Rum with our boat friends, especially Dan on Pelican. Brian played with the little boy and 2 older girls. Fantastic diving — prettiest reefs in the Bahamas. Everyone got one big lobster. Big raftup and pot luck dinner. But the anchorage was horrible — open from SE to NW, very rolly. Light N winds today, still moving at 4-5 knots, headed for Jamaica. Passed Castle Rock lighthouse (Acklins Islands) around 10 am, now heading for a point 20 miles east of the tip of Cuba. Winds are slowly veering to the northeast. Decks are dry! Rolling is obnoxious but at least we aren't pounding. Main turning 5 knots in a 10-knot breeze. Total overcast — very light cold front!",
+          "conditions": null
+        }
+      ]
+    },
+    {
+      "id": "stop-10",
+      "n": 10,
+      "name": "Port Antonio, Jamaica",
+      "passage": "Windward Passage to Jamaica",
+      "lat": 18.179,
+      "lng": -76.452,
+      "photo_album": null,
+      "photos": [],
+      "entries": [
+        {
+          "date": "2002-01-09",
+          "date_display": "Wednesday, January 9",
+          "scan": "images/scans/2002-01-09.jpg",
+          "body": "Changed course to the SW of the eastern tip of Cuba at 10 am this morning. Now in the Windward Passage and it is blowing! NW 25-30, double reefed main and genoa. We are doing 7 knots average. Broad reach — somewhat more comfortable than last night's downwind roll under reefed main only. No school today! Hope it will moderate some as we head south. Charlotte takes it quite well and is comfortable inside. Brian is kind of bored, tired of reading. Thomas and I are just tired! Squally weather, overcast, light rain.",
+          "conditions": null
+        },
+        {
+          "date": "2002-01-10",
+          "date_display": "Thursday, January 10",
+          "scan": "images/scans/2002-01-10.jpg",
+          "body": "Finally see the sun today! The wind calmed down once we got around Cabo Maisi on Cuba. Big confused seas in the Windward Passage. We saw the coast and mountains of Cuba all day long. First time we have come so close, thanks to GPS! Wind moderated at sundown and we didn't have to touch the sails or adjust the course all night long. No ships, so we got to catch up on our sleep. 75 miles from Port Antonio this morning, will make landfall after sundown. We are enjoying our first real offshore passage in Charlotte! Her pointy ass parts the following seas. The rolling is obnoxious, but oh well. Now cruising with full main, poled out genoa, in 15 knots NE wind, 5.5 knots average.",
+          "conditions": null
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "headline": "Journey of the Sailing Vessel",
+  "vessel": "Charlotte",
+  "tagline": "Circumnavigating the Globe",
+  "years": "2001–2005",
+  "legs": [
+    { "id": "leg-01", "name": "Florida & the Bahamas", "file": "leg-01-florida-bahamas.json", "status": "in-progress" },
+    { "id": "leg-02", "name": "Caribbean & Panama", "file": "leg-02-caribbean-panama.json", "status": "planned" },
+    { "id": "leg-03", "name": "The South Pacific", "file": "leg-03-south-pacific.json", "status": "planned" },
+    { "id": "leg-04", "name": "Western Pacific & Indian Ocean", "file": "leg-04-pacific-indian.json", "status": "planned" },
+    { "id": "leg-05", "name": "South Africa & the South Atlantic", "file": "leg-05-south-africa-atlantic.json", "status": "planned" },
+    { "id": "leg-06", "name": "The Caribbean & Home", "file": "leg-06-caribbean-home.json", "status": "planned" }
+  ]
+}

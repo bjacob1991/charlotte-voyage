@@ -1,0 +1,18 @@
+# Full-resolution photo backups (never commit)
+images/originals/
+
+# Local intake / working folders
+images/photos/intake/
+
+# Old test scans (not part of this voyage)
+scan images/
+VOID/
+
+# OS & editor
+.DS_Store
+Thumbs.db
+desktop.ini
+*.swp
+*~
+.vscode/
+.idea/
