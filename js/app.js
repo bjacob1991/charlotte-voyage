@@ -13,9 +13,6 @@ const btnGalleryIndex = document.getElementById('btn-gallery-index');
 const galleryBadge = document.getElementById('gallery-badge');
 const scanLightbox = document.getElementById('scan-lightbox');
 const scanLightboxImg = document.getElementById('scan-lightbox-img');
-const vesselImageBtn = document.getElementById('vessel-image-btn');
-const vesselImage = document.getElementById('vessel-image');
-
 const ICON_CAMERA =
   '<svg viewBox="0 0 24 24" width="15" height="15" aria-hidden="true"><path fill="currentColor" d="M21 19V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2zM8.5 13.5l2.5 3 3.5-4.5 4.5 6H5l3.5-4.5z"/></svg>';
 
@@ -293,6 +290,31 @@ function buildLog(stops) {
   });
 }
 
+function buildHero(manifest) {
+  if (!manifest.vessel_image) return;
+  const alt = manifest.vessel_image_alt || (manifest.vessel || 'Charlotte') + ' at anchor';
+
+  const hero = document.createElement('section');
+  hero.className = 'hero';
+
+  const img = new Image();
+  img.className = 'hero-img';
+  img.alt = alt;
+  img.title = 'Click to enlarge';
+  img.src = manifest.vessel_image;
+  img.addEventListener('click', () => openScanLightbox(manifest.vessel_image, alt));
+  hero.appendChild(img);
+
+  if (manifest.vessel_caption) {
+    const cap = document.createElement('p');
+    cap.className = 'hero-caption';
+    cap.textContent = manifest.vessel_caption;
+    hero.appendChild(cap);
+  }
+
+  logEl.prepend(hero);
+}
+
 function setActive(n) {
   document.querySelectorAll('.stop').forEach((el) => {
     el.classList.toggle('active', +el.dataset.n === n);
@@ -362,16 +384,6 @@ async function init() {
       years ? tagline + ' \u00b7 ' + years : tagline;
     document.title = headline + ' ' + vessel + ' \u2014 ' + tagline;
 
-    if (manifest.vessel_image) {
-      const vesselAlt = manifest.vessel_image_alt || vessel + ' at anchor';
-      vesselImage.src = manifest.vessel_image;
-      vesselImage.alt = vesselAlt;
-      vesselImageBtn.hidden = false;
-      vesselImageBtn.addEventListener('click', () =>
-        openScanLightbox(manifest.vessel_image, vesselAlt)
-      );
-    }
-
     const legsToLoad = manifest.legs.filter((leg) => leg.status !== 'planned');
     const legData = await Promise.all(legsToLoad.map((leg) => loadLeg(leg.file)));
 
@@ -390,6 +402,7 @@ async function init() {
     document.getElementById('site-dates').textContent = formatDateRange(allStops);
 
     buildLog(allStops);
+    buildHero(manifest);
     updateGalleryBadge();
     VoyageMap.init('map', allStops, goToStop);
     setupScrollSync();
