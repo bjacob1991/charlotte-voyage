@@ -53,9 +53,27 @@ const VoyageMap = (function () {
     if (markers[n]) markers[n].openTooltip();
   }
 
+  function focusStop(n, immediate) {
+    if (!map || !markers[n]) return;
+    const ll = markers[n].getLatLng();
+    const dist = map.getCenter().distanceTo(ll);
+    const opts = { animate: true, duration: immediate ? 0.5 : 0.7 };
+
+    if (dist < 50000) {
+      map.panTo(ll, { animate: true, duration: 0.4 });
+    } else {
+      let zoom = 5;
+      if (dist < 800000) zoom = 6;
+      if (dist < 300000) zoom = 7;
+      if (dist < 100000) zoom = 8;
+      map.flyTo(ll, zoom, opts);
+    }
+    markers[n].openTooltip();
+  }
+
   function invalidateSize() {
     if (map) map.invalidateSize();
   }
 
-  return { init, setActive, openTooltip, invalidateSize };
+  return { init, setActive, openTooltip, focusStop, invalidateSize };
 })();

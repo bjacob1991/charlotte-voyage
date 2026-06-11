@@ -17,6 +17,7 @@ const ICON_CAMERA =
   '<svg viewBox="0 0 24 24" width="15" height="15" aria-hidden="true"><path fill="currentColor" d="M21 19V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2zM8.5 13.5l2.5 3 3.5-4.5 4.5 6H5l3.5-4.5z"/></svg>';
 
 let allStops = [];
+let mapFocusTimer = null;
 
 function escapeHtml(text) {
   const div = document.createElement('div');
@@ -218,75 +219,212 @@ document.addEventListener('keydown', (e) => {
   if (!galleryIndexOverlay.hidden) closeGalleryIndex();
 });
 
+function legStopCount(stops, legId) {
+  return stops.filter((s) => s.legId === legId).length;
+}
+
+function legDateRange(stops, legId) {
+  const dates = [];
+  stops.filter((s) => s.legId === legId).forEach((stop) => {
+    stop.entries.forEach((entry) => dates.push(entry.date));
+  });
+  if (!dates.length) return '';
+  dates.sort();
+  const opts = { month: 'short', year: 'numeric' };
+  const first = new Date(dates[0] + 'T12:00:00').toLocaleDateString('en-US', opts);
+  const last = new Date(dates[dates.length - 1] + 'T12:00:00').toLocaleDateString('en-US', opts);
+  return first === last ? first : first + ' \u2013 ' + last;
+}
+
+function passageStops(stops, legId, passage) {
+  return stops.filter((s) => s.legId === legId && s.passage === passage);
+}
+
+function passageDateRange(stops, legId, passage) {
+  const dates = [];
+  passageStops(stops, legId, passage).forEach((stop) => {
+    stop.entries.forEach((entry) => dates.push(entry.date));
+  });
+  if (!dates.length) return '';
+  dates.sort();
+  const opts = { month: 'short', day: 'numeric', year: 'numeric' };
+  const first = new Date(dates[0] + 'T12:00:00').toLocaleDateString('en-US', opts);
+  const last = new Date(dates[dates.length - 1] + 'T12:00:00').toLocaleDateString('en-US', opts);
+  return first === last ? first : first + ' \u2013 ' + last;
+}
+
+function toggleLegSection(legSection, expanded) {
+  legSection.classList.toggle('collapsed', !expanded);
+  const toggle = legSection.querySelector('.leg-toggle');
+  toggle.setAttribute('aria-expanded', expanded ? 'true' : 'false');
+}
+
+function togglePassageSection(passageSection, expanded) {
+  passageSection.classList.toggle('collapsed', !expanded);
+  const toggle = passageSection.querySelector('.passage-toggle');
+  toggle.setAttribute('aria-expanded', expanded ? 'true' : 'false');
+}
+
+function findPassageSection(legId, passage) {
+  return Array.from(document.querySelectorAll('.passage-section')).find(
+    (el) => el.dataset.legId === legId && el.dataset.passage === passage
+  );
+}
+
+function ensureLegExpanded(legId) {
+  const legSection = document.querySelector('.leg-section[data-leg-id="' + legId + '"]');
+  if (legSection) toggleLegSection(legSection, true);
+}
+
+function ensurePassageExpanded(legId, passage) {
+  ensureLegExpanded(legId);
+  const passageSection = findPassageSection(legId, passage);
+  if (passageSection) togglePassageSection(passageSection, true);
+}
+
+function buildStopSection(stop) {
+  const section = document.createElement('section');
+  section.className = 'stop';
+  section.id = 'stop-' + stop.globalN;
+  section.dataset.n = stop.globalN;
+  section.dataset.legId = stop.legId;
+  section.dataset.passage = stop.passage;
+
+  const head = document.createElement('div');
+  head.className = 'stop-head';
+  head.innerHTML =
+    '<div class="stop-no">' +
+    stop.globalN +
+    '</div><h2 class="stop-name">' +
+    escapeHtml(stop.name) +
+    '</h2>';
+  section.appendChild(head);
+
+  if (hasPhotos(stop)) {
+    const photosDiv = document.createElement('div');
+    photosDiv.className = 'stop-photos';
+    const btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = 'btn-stop-gallery';
+    btn.innerHTML = ICON_CAMERA + ' View photo gallery';
+    btn.addEventListener('click', () => openStopGallery(stop));
+    photosDiv.appendChild(btn);
+    section.appendChild(photosDiv);
+  }
+
+  stop.entries.forEach((entry) => {
+    const entryEl = document.createElement('div');
+    entryEl.className = 'entry';
+
+    const dateP = document.createElement('p');
+    dateP.className = 'entry-date';
+    dateP.textContent = entry.date_display || entry.date;
+    entryEl.appendChild(dateP);
+
+    const bodyP = document.createElement('p');
+    bodyP.className = 'entry-body';
+    bodyP.innerHTML = entry.body;
+    entryEl.appendChild(bodyP);
+
+    if (entry.conditions) {
+      const condP = document.createElement('p');
+      condP.className = 'cond';
+      condP.textContent = entry.conditions;
+      entryEl.appendChild(condP);
+    }
+
+    if (entry.scan) {
+      entryEl.appendChild(buildScanElement(entry.scan, entry.date_display || entry.date));
+    }
+
+    section.appendChild(entryEl);
+  });
+
+  return section;
+}
+
 function buildLog(stops) {
   logEl.innerHTML = '';
+  let currentLegId = null;
+  let legBody = null;
   let currentPassage = null;
+  let passageBody = null;
 
   stops.forEach((stop) => {
+    if (stop.legId !== currentLegId) {
+      currentLegId = stop.legId;
+      currentPassage = null;
+      passageBody = null;
+
+      const legSection = document.createElement('section');
+      legSection.className = 'leg-section';
+      legSection.dataset.legId = stop.legId;
+
+      const count = legStopCount(stops, stop.legId);
+      const dates = legDateRange(stops, stop.legId);
+
+      const toggle = document.createElement('button');
+      toggle.type = 'button';
+      toggle.className = 'leg-toggle';
+      toggle.setAttribute('aria-expanded', 'true');
+      toggle.innerHTML =
+        '<span class="collapse-chevron" aria-hidden="true"></span>' +
+        '<span class="leg-toggle-text">' +
+        '<span class="leg-title">' + escapeHtml(stop.legName) + '</span>' +
+        '<span class="leg-meta">' + count + ' stop' + (count === 1 ? '' : 's') +
+        (dates ? ' \u00b7 ' + dates : '') + '</span>' +
+        '</span>';
+
+      toggle.addEventListener('click', () => {
+        const expanded = legSection.classList.contains('collapsed');
+        toggleLegSection(legSection, expanded);
+      });
+
+      legBody = document.createElement('div');
+      legBody.className = 'leg-body';
+
+      legSection.appendChild(toggle);
+      legSection.appendChild(legBody);
+      logEl.appendChild(legSection);
+    }
+
     if (stop.passage !== currentPassage) {
       currentPassage = stop.passage;
-      const passageDiv = document.createElement('div');
-      passageDiv.className = 'passage';
-      passageDiv.textContent = currentPassage;
-      logEl.appendChild(passageDiv);
+      const pStops = passageStops(stops, stop.legId, stop.passage);
+      const pCount = pStops.length;
+      const pDates = passageDateRange(stops, stop.legId, stop.passage);
+
+      const passageSection = document.createElement('section');
+      passageSection.className = 'passage-section';
+      passageSection.dataset.legId = stop.legId;
+      passageSection.dataset.passage = stop.passage;
+
+      const pToggle = document.createElement('button');
+      pToggle.type = 'button';
+      pToggle.className = 'passage-toggle';
+      pToggle.setAttribute('aria-expanded', 'true');
+      pToggle.innerHTML =
+        '<span class="collapse-chevron" aria-hidden="true"></span>' +
+        '<span class="passage-toggle-text">' +
+        '<span class="passage-title">' + escapeHtml(stop.passage) + '</span>' +
+        '<span class="passage-meta">' + pCount + ' stop' + (pCount === 1 ? '' : 's') +
+        (pDates ? ' \u00b7 ' + pDates : '') + '</span>' +
+        '</span>';
+
+      pToggle.addEventListener('click', () => {
+        const expanded = passageSection.classList.contains('collapsed');
+        togglePassageSection(passageSection, expanded);
+      });
+
+      passageBody = document.createElement('div');
+      passageBody.className = 'passage-body';
+
+      passageSection.appendChild(pToggle);
+      passageSection.appendChild(passageBody);
+      legBody.appendChild(passageSection);
     }
 
-    const section = document.createElement('section');
-    section.className = 'stop';
-    section.id = 'stop-' + stop.globalN;
-    section.dataset.n = stop.globalN;
-
-    const head = document.createElement('div');
-    head.className = 'stop-head';
-    head.innerHTML =
-      '<div class="stop-no">' +
-      stop.globalN +
-      '</div><h2 class="stop-name">' +
-      escapeHtml(stop.name) +
-      '</h2>';
-    section.appendChild(head);
-
-    if (hasPhotos(stop)) {
-      const photosDiv = document.createElement('div');
-      photosDiv.className = 'stop-photos';
-      const btn = document.createElement('button');
-      btn.type = 'button';
-      btn.className = 'btn-stop-gallery';
-      btn.innerHTML = ICON_CAMERA + ' View photo gallery';
-      btn.addEventListener('click', () => openStopGallery(stop));
-      photosDiv.appendChild(btn);
-      section.appendChild(photosDiv);
-    }
-
-    stop.entries.forEach((entry) => {
-      const entryEl = document.createElement('div');
-      entryEl.className = 'entry';
-
-      const dateP = document.createElement('p');
-      dateP.className = 'entry-date';
-      dateP.textContent = entry.date_display || entry.date;
-      entryEl.appendChild(dateP);
-
-      const bodyP = document.createElement('p');
-      bodyP.className = 'entry-body';
-      bodyP.innerHTML = entry.body;
-      entryEl.appendChild(bodyP);
-
-      if (entry.conditions) {
-        const condP = document.createElement('p');
-        condP.className = 'cond';
-        condP.textContent = entry.conditions;
-        entryEl.appendChild(condP);
-      }
-
-      if (entry.scan) {
-        entryEl.appendChild(buildScanElement(entry.scan, entry.date_display || entry.date));
-      }
-
-      section.appendChild(entryEl);
-    });
-
-    logEl.appendChild(section);
+    passageBody.appendChild(buildStopSection(stop));
   });
 }
 
@@ -315,18 +453,25 @@ function buildHero(manifest) {
   logEl.prepend(hero);
 }
 
-function setActive(n) {
+function setActive(n, skipMapFocus) {
   document.querySelectorAll('.stop').forEach((el) => {
     el.classList.toggle('active', +el.dataset.n === n);
   });
   VoyageMap.setActive(n);
+
+  if (skipMapFocus) return;
+  clearTimeout(mapFocusTimer);
+  mapFocusTimer = setTimeout(() => VoyageMap.focusStop(n), 120);
 }
 
 function goToStop(n) {
-  setActive(n);
+  const stop = allStops.find((s) => s.globalN === n);
+  if (stop) ensurePassageExpanded(stop.legId, stop.passage);
+  setActive(n, true);
   const target = document.getElementById('stop-' + n);
   if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-  VoyageMap.openTooltip(n);
+  clearTimeout(mapFocusTimer);
+  VoyageMap.focusStop(n, true);
 }
 
 function setupScrollSync() {
@@ -394,7 +539,8 @@ async function init() {
         allStops.push({
           ...stop,
           globalN: globalN++,
-          legId: leg.id
+          legId: leg.id,
+          legName: leg.name
         });
       });
     });

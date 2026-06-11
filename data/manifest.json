@@ -5,7 +5,7 @@
   "years": "2001–2005",
   "vessel_image": "images/photos/web/charlotte.jpg",
   "vessel_image_alt": "Charlotte at anchor",
-  "vessel_caption": "S/V Charlotte — a 41-foot ketch, home for four years and 30,000 miles.",
+  "vessel_caption": "S/V Charlotte — Our 38-foot steel ketch, home for four years and 30,000 miles.",
   "legs": [
     { "id": "leg-01", "name": "Florida & the Bahamas", "file": "leg-01-florida-bahamas.json", "status": "in-progress" },
     { "id": "leg-02", "name": "Caribbean & Panama", "file": "leg-02-caribbean-panama.json", "status": "planned" },
