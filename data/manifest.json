@@ -3,6 +3,8 @@
   "vessel": "Charlotte",
   "tagline": "Circumnavigating the Globe",
   "years": "2001–2005",
+  "vessel_image": "images/photos/web/charlotte.jpg",
+  "vessel_image_alt": "Charlotte at anchor",
   "legs": [
     { "id": "leg-01", "name": "Florida & the Bahamas", "file": "leg-01-florida-bahamas.json", "status": "in-progress" },
     { "id": "leg-02", "name": "Caribbean & Panama", "file": "leg-02-caribbean-panama.json", "status": "planned" },
