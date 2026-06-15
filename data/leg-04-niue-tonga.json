@@ -1,0 +1,218 @@
+{
+  "id": "leg-04",
+  "name": "Niue & Tonga",
+  "stops": [
+    {
+      "id": "stop-01",
+      "n": 1,
+      "name": "Bora Bora–Niue Passage (Cooks bypassed)",
+      "passage": "Across the Western Pacific",
+      "lat": -19.0,
+      "lng": -165.0,
+      "photo_album": null,
+      "photos": [],
+      "entries": [
+        {
+          "date": "2002-07-18",
+          "date_display": "Thursday, July 18",
+          "scan": "images/scans/2002-07-18.jpg",
+          "body": "Wind finally turned more favorably and freshened around noon today. We are almost holding the course, doing around 5 knots. Thomas and Brian are over their seasickness. Good thing too — 20–30 knots coming our way! Still unsure of destination — depends on what tomorrow brings. Wind now south, maybe a bit east, 10–15, instead of SSW, 8.",
+          "conditions": "Wind: south, 10–15 knots. About 5 knots. 24-hour run — 105 miles."
+        },
+        {
+          "date": "2002-07-19",
+          "date_display": "Friday, July 19",
+          "scan": "images/scans/2002-07-19.jpg",
+          "body": "Well the wind came up yesterday around sunset and it was a wild night. Squalls with 30 knots passed by, very boisterous, little sleep. Today is calmer, 20 from SSE. We are reaching at 6 knots, not too uncomfortable. Destination Aitutaki in the Cook Islands.",
+          "conditions": "Wind: SSE, 20 knots, reaching at 6 knots. 24-hour run — 136 miles."
+        },
+        {
+          "date": "2002-07-20",
+          "date_display": "Saturday, July 20",
+          "scan": "images/scans/2002-07-20.jpg",
+          "body": "Last night was quite nice, wind let off some and we were charging along at 6–7 knots. Had a big dorado before sunset but lost it right at the boat — Thomas was very disappointed. Around 4 am Brian got doused in the aft cabin so we dumped the main altogether. Wind picked up steadily all day. Now we are down to double-reefed mizzen and staysail, still doing 5–6 knots. Blowing 25–35 SE, but the boat is pretty comfortable. It's cozy inside, no need to be outside! Waves are big, 9–12 feet, but far enough apart that they don't break.",
+          "conditions": "Wind: SE, 25–35 knots. Double-reefed mizzen and staysail, 5–6 knots. Seas 9–12 feet. 24-hour run — 136 miles."
+        },
+        {
+          "date": "2002-07-21",
+          "date_display": "Sunday, July 21",
+          "scan": "images/scans/2002-07-21.jpg",
+          "body": "Still out here — decided to bypass Aitutaki. With the 25–30 knots winds we are having, the shallow narrow cut would be boiling and Thomas didn't want to test our engine on it. We passed the island at sunrise. Guess we will continue on to Niue. Had a beautiful rain bath this morning. It's boisterous — 30 knots SE — but we are way off the wind so it's not too bad. Lets off at night. Another 5 days to go.",
+          "conditions": "Wind: SE, 30 knots, well off the wind. Bypassed Aitutaki — continuing to Niue. 24-hour run — 138 miles."
+        },
+        {
+          "date": "2002-07-22",
+          "date_display": "Monday, July 22",
+          "scan": "images/scans/2002-07-22.jpg",
+          "body": "The wind is becoming tedious now. Steady 30–35 since yesterday afternoon. Last night was rolly & bumpy, no sleep. Today we have 15-foot swell, no reason to be outside. Average speed 5.5 knots.",
+          "conditions": "Wind: steady 30–35 knots, 15-foot swell. Average 5.5 knots. 24-hour run — 132 miles."
+        },
+        {
+          "date": "2002-07-23",
+          "date_display": "Tuesday, July 23",
+          "scan": "images/scans/2002-07-23.jpg",
+          "body": "Wind finally let off last night, got the main back up, genoa poled out — yeah! Beautiful night with the full moon. Have been making good speed today. Sun is shining, everyone is happier. Got some sleep last night. Heard a good report on Niue — will be there by Thursday sundown we hope.",
+          "conditions": "Wind: eased; main back up, genoa poled out. 24-hour run — 138 miles."
+        },
+        {
+          "date": "2002-07-24",
+          "date_display": "Wednesday, July 24",
+          "scan": "images/scans/2002-07-24.jpg",
+          "body": "Great run last night, beautiful in the full moon — all sails up and flying at 7 knots for a while. We are happy to have this trip almost over. Talking to Infidien every morning — they will try to get into Aitutaki. Sorry we messed it, but Niue sounds quite interesting. Life is fun when the boat is charging along!",
+          "conditions": "All sails up, 7 knots. 24-hour run — 145 miles."
+        }
+      ]
+    },
+    {
+      "id": "stop-02",
+      "n": 2,
+      "name": "Niue",
+      "passage": "The Rock of Polynesia",
+      "lat": -19.055,
+      "lng": -169.918,
+      "photo_album": null,
+      "photos": [],
+      "entries": [
+        {
+          "date": "2002-07-25",
+          "date_display": "Thursday, July 25",
+          "scan": "images/scans/2002-07-25.jpg",
+          "body": "Saw Niue at sunrise, tied up to a mooring by 11am. Wind had turned NE. Stella with John is here, another single hander, Moonlight with Lee. Doesn't look like much is going on. Water is crystal clear.",
+          "conditions": "Landfall at Niue; tied to a mooring. Wind: turned NE."
+        },
+        {
+          "date": "2002-07-29",
+          "date_display": "Monday, July 29",
+          "scan": "images/scans/2002-07-29.jpg",
+          "body": "Well we will remember Niue for sure — extremely uncomfortable rolly anchorage. We had NW squalls for 3 days, luckily they weren't very windy. The moorings were reliable. I took a great snorkel, saw lots of coral snakes, they don't bother anyone. Brian and I had a great 40-km bike ride around the island, looked at caves, deserted villages, tiny beaches along the rocky coast. Niue is a ghost island — they are bankrupt and everyone is moving away. It has its rugged charm. We are glad to be on our way again. Beating into 15 knots SSW winds, but it's more comfortable than at anchor.",
+          "conditions": "About 5 days at Niue. Departed beating into 15 knots SSW."
+        }
+      ]
+    },
+    {
+      "id": "stop-03",
+      "n": 3,
+      "name": "Niue–Tonga Passage",
+      "passage": "Crossing into the Kingdom",
+      "lat": -19.5,
+      "lng": -172.0,
+      "photo_album": null,
+      "photos": [],
+      "entries": [
+        {
+          "date": "2002-07-30",
+          "date_display": "Tuesday, July 30",
+          "scan": "images/scans/2002-07-30.jpg",
+          "body": "Light wind but we are moving in the right direction. Last night very peaceful — we caught up on our sleep! Wind up to 12–15 now, south, still going rather high. Pleasant sailing though.",
+          "conditions": "Wind: south, 12–15 knots. 24-hour run — 106 miles."
+        }
+      ]
+    },
+    {
+      "id": "stop-04",
+      "n": 4,
+      "name": "Vava'u, Tonga (Neiafu)",
+      "passage": "The Kingdom of Tonga",
+      "lat": -18.651,
+      "lng": -173.984,
+      "photo_album": null,
+      "photos": [],
+      "entries": [
+        {
+          "date": "2002-08-01",
+          "date_display": "Thursday, August 1",
+          "scan": "images/scans/2002-08-01.jpg",
+          "body": "Lost a day — even though we have not yet crossed the International Date Line, Tonga keeps that time. Another perfect sunrise landfall. We are rounding the north coast of Vava'u, will be anchored at Neiafu in a few hours. After a nice night of sailing, wind picked up to 20–25 at sunrise. It is howling over the cliffs now! Looking forward to a peaceful anchorage and cheap beer.",
+          "conditions": "Landfall at Vava'u (Tonga keeps date-line time, so a day was lost). Wind: 20–25 knots at sunrise."
+        },
+        {
+          "date": "2002-08-27",
+          "date_display": "Tuesday, August 27",
+          "scan": "images/scans/2002-08-27.jpg",
+          "body": "Well there are peaceful anchorages here but the beer is not cheap. We will be renewing our visas today, will stay here until it's time to head for NZ. Vava'u has not been what we expected but we are getting used to the reality. It is nice not to be at sea. We met some boats with kids — Flying Cloud with Dave, Sue, boys Ben & Sam; Desert Rose with Mick, Leanne, kids Tedo, Edwina, Isabel. We have enjoyed socializing with them. Met Bob & Robin on Buster, an American steel boat. Ran into Kuelani & Aju again. We have enjoyed meeting a lot of friendly New Zealand cruisers. Diving is so-so here, wind surfing is good sometimes. There are a lot of anchorages to visit.",
+          "conditions": "Renewing visas; staying in Vava'u until the season to head for New Zealand."
+        },
+        {
+          "date": "2002-09-12",
+          "date_display": "Thursday, September 12",
+          "scan": "images/scans/2002-09-12.jpg",
+          "body": "Back in Neiafu — met some people we last saw in Bonaire 11 years ago. Kelebec — with Tanil & Annette. We went diving with them there and she had fun holding Brian. I had a wonderful birthday. Dinner on Flying Cloud, got presents from Beeca, Ollie, Yumi and finally Brian. Didn't mention Thomas' birthday — barbeque on the beach with Desert Rose and Flying Cloud — we cooked [lamb] chops and had a cake under a huge rain tree. We have been all over Vava'u, tried to dive Mariner's Cave but chickened out. Walked over some reefs to dive outside drop-off — pretty, clear blue water. Walked some beautiful soft sand beaches. Weather is improving — it is summer again! Athanor & Oric Halcum are here. Met Neil & Honey on Active Light again — going to do some software swaps. For the most part, having a really good time here — good social life.",
+          "conditions": "Birthdays celebrated; cruising all over Vava'u. Weather improving into summer."
+        },
+        {
+          "date": "2002-09-20",
+          "date_display": "Friday, September 20",
+          "scan": "images/scans/2002-09-20.jpg",
+          "body": "Finally got out of Vava'u! It was fun there, so many kids, it was hard to leave, Brian was so happy there. The whale-watching was probably the highlight of our stay. We got to swim with a dozing mother and her baby for an hour, got right up to them. These were humpbacks, about the size of our boat. It was a magical experience. Brian got to dive Mariner's Cave and Swallows Cave a 2nd time with the kids on Navarra. We ran into some old friends from our life on Lazy Lightning — Kelebec. Had a birthday barbeque for Ken-ichi, then he ripped his genoa to shreds just before they left for Fiji. We ended up selling him a spare head sail — it fit his boat perfectly. Hated to part with it, but he had to have it. We left yesterday around 5pm, perfect sail last night, beam reach, calm seas 6–7 knots. Only problem was slowing the boat down so we didn't arrive too early. Found Flying Cloud immediately of course, but Sue is leaving today with the kids to fly back to New Zealand. Bummer, but at least we can keep Dave company.",
+          "conditions": "About 7 weeks in Vava'u. Departed for the Ha'apai group. Wind: beam reach, calm seas, 6–7 knots."
+        }
+      ]
+    },
+    {
+      "id": "stop-05",
+      "n": 5,
+      "name": "Ha'apai, Tonga",
+      "passage": "The Ha'apai Group",
+      "lat": -20.08,
+      "lng": -174.76,
+      "photo_album": null,
+      "photos": [],
+      "entries": [
+        {
+          "date": "2002-09-28",
+          "date_display": "Saturday, September 28",
+          "scan": "images/scans/2002-09-28.jpg",
+          "body": "Left Uoleva — what a paradise! The beach was fantastic, could walk on soft sand for miles, crystal clear water, coconuts everywhere, no people. Having a great sail out to Ha'afeva today. Great reaching, Charlotte is [happy]! We caught 2 mahi mahi, one just before we entered the reef at Ha'afeva. Brian and I loved Uoleva — the best beach I have ever seen. Partied with Dave on Flying Cloud and his crew.",
+          "conditions": "Sailing Uoleva to Ha'afeva. Great reaching; caught two mahi mahi."
+        },
+        {
+          "date": "2002-10-01",
+          "date_display": "Tuesday, October 1",
+          "scan": "images/scans/2002-10-01.jpg",
+          "body": "After several very windy days, we ventured out and it was still very windy. Flew the 20 miles to Nomuka, then wished we hadn't left when we saw the anchorage — an open roadstead! Ha'afeva was all right, took a great walk on the beach, found lots of shells. Bought lots of bananas and papayas from some rather pushy locals. Anchored and sailed today with Flying Cloud & Aju. Allusion — Bob & Carrie (finally getting to know them). Caught another mahi mahi! Charlotte sails well on a reach with genoa and mizzen only, when the wind howls. Nomuka may be nice in a light SE wind, but in 20K E it is uncomfortable.",
+          "conditions": "Wind: E, 20 knots. Sailed 20 miles to Nomuka; genoa and mizzen only."
+        },
+        {
+          "date": "2002-10-02",
+          "date_display": "Wednesday, October 2",
+          "scan": "images/scans/2002-10-02.jpg",
+          "body": "Another perfect sail, this time lighter winds, 12–15, perfect sailing, 6 knots with the main up. Allusion & Flying Cloud were right behind. 20 miles to Kelefesia Island, totally off the beaten path, really paradise (except for the obnoxious flies)! A tiny island surrounded by reefs, with a great rock to climb, beautiful view of the crystal turquoise water. All the coconuts you want. We'll stay as long as we can.",
+          "conditions": "Wind: 12–15 knots, 6 knots with the main up. 20 miles to Kelefesia."
+        },
+        {
+          "date": "2002-10-05a",
+          "date_display": "Saturday, October 5",
+          "scan": "images/scans/2002-10-05a.jpg",
+          "body": "We enjoyed Kelefesia, while the weather was calm! The water was incredibly clear. Had a nice party on Flying Cloud, with Allusion, before they left. When the wind came up from the SE, there were breakers all around the anchorage, even in the entrance channel. It made us a bit nervous, and was kind of uncomfortable.",
+          "conditions": "About two weeks island-hopping the Ha'apai — Uoleva, Ha'afeva, Nomuka, Kelefesia. Wind came up SE with breakers around the anchorage."
+        },
+        {
+          "date": "2002-10-05b",
+          "date_display": "Saturday, October 5 (continued)",
+          "scan": "images/scans/2002-10-05b.jpg",
+          "body": "Would have liked to stay longer, but needed some sleep! Enjoyed exploring the island, picking coconuts. Left early this morning, rather hairy going past the breakers, Allusion got caught in one and slammed really hard. It was a boisterous sail to Nuku'alofa, we were side-by-side for hours. Amazing how our boats are evenly matched in speed. Nice to be in a real harbor, flat calm, next to a small motu.",
+          "conditions": "Boisterous sail to Nuku'alofa; anchored in flat calm next to a small motu."
+        }
+      ]
+    },
+    {
+      "id": "stop-06",
+      "n": 6,
+      "name": "Tongatapu (Nuku'alofa)",
+      "passage": "The Kingdom of Tonga",
+      "lat": -21.139,
+      "lng": -175.2,
+      "photo_album": null,
+      "photos": [],
+      "entries": [
+        {
+          "date": "2002-10-12",
+          "date_display": "Saturday, October 12",
+          "scan": "images/scans/2002-10-12.jpg",
+          "body": "Left Nuku'alofa this morning, it has been blowing 25+ for several days, anchorage was getting choppy. Enjoyed looking at all the Tongans in the city, studying their facial characteristics, they are such big people, good looking actually. Businessmen in traditional dress — dark gray skirts, straw mat, sandals. No one wears shoes in Tonga! City was quite run down, but fabric shops were great. It is quite rough out here, very confused seas, beam reach, rather uncomfortable. Great speed, 6+ knots. Goodbye South Pacific! We will miss you.",
+          "conditions": "Departing Tonga for New Zealand. Wind: 25+ knots, confused seas, beam reach, 6+ knots."
+        }
+      ]
+    }
+  ]
+}

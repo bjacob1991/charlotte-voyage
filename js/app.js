@@ -18,11 +18,17 @@ const ICON_CAMERA =
 
 let allStops = [];
 let mapFocusTimer = null;
+const syncLock = { fromMap: false, fromLog: false };
+const GLOBAL_ZOOM_THRESHOLD = 4;
 
 function escapeHtml(text) {
   const div = document.createElement('div');
   div.textContent = text;
   return div.innerHTML;
+}
+
+function entryDateKey(dateStr) {
+  return String(dateStr).replace(/[a-z]+$/i, '');
 }
 
 function formatDateRange(stops) {
@@ -31,9 +37,9 @@ function formatDateRange(stops) {
     stop.entries.forEach((entry) => dates.push(entry.date));
   });
   if (!dates.length) return '';
-  dates.sort();
-  const first = new Date(dates[0] + 'T12:00:00');
-  const last = new Date(dates[dates.length - 1] + 'T12:00:00');
+  dates.sort((a, b) => entryDateKey(a).localeCompare(entryDateKey(b)));
+  const first = new Date(entryDateKey(dates[0]) + 'T12:00:00');
+  const last = new Date(entryDateKey(dates[dates.length - 1]) + 'T12:00:00');
   const opts = { month: 'short', day: 'numeric', year: 'numeric' };
   if (dates[0] === dates[dates.length - 1]) {
     return first.toLocaleDateString('en-US', opts);
@@ -229,10 +235,10 @@ function legDateRange(stops, legId) {
     stop.entries.forEach((entry) => dates.push(entry.date));
   });
   if (!dates.length) return '';
-  dates.sort();
+  dates.sort((a, b) => entryDateKey(a).localeCompare(entryDateKey(b)));
   const opts = { month: 'short', year: 'numeric' };
-  const first = new Date(dates[0] + 'T12:00:00').toLocaleDateString('en-US', opts);
-  const last = new Date(dates[dates.length - 1] + 'T12:00:00').toLocaleDateString('en-US', opts);
+  const first = new Date(entryDateKey(dates[0]) + 'T12:00:00').toLocaleDateString('en-US', opts);
+  const last = new Date(entryDateKey(dates[dates.length - 1]) + 'T12:00:00').toLocaleDateString('en-US', opts);
   return first === last ? first : first + ' \u2013 ' + last;
 }
 
@@ -246,10 +252,10 @@ function passageDateRange(stops, legId, passage) {
     stop.entries.forEach((entry) => dates.push(entry.date));
   });
   if (!dates.length) return '';
-  dates.sort();
+  dates.sort((a, b) => entryDateKey(a).localeCompare(entryDateKey(b)));
   const opts = { month: 'short', day: 'numeric', year: 'numeric' };
-  const first = new Date(dates[0] + 'T12:00:00').toLocaleDateString('en-US', opts);
-  const last = new Date(dates[dates.length - 1] + 'T12:00:00').toLocaleDateString('en-US', opts);
+  const first = new Date(entryDateKey(dates[0]) + 'T12:00:00').toLocaleDateString('en-US', opts);
+  const last = new Date(entryDateKey(dates[dates.length - 1]) + 'T12:00:00').toLocaleDateString('en-US', opts);
   return first === last ? first : first + ' \u2013 ' + last;
 }
 
@@ -280,6 +286,63 @@ function ensurePassageExpanded(legId, passage) {
   ensureLegExpanded(legId);
   const passageSection = findPassageSection(legId, passage);
   if (passageSection) togglePassageSection(passageSection, true);
+}
+
+function collapseAllSections() {
+  document.querySelectorAll('.leg-section').forEach((el) => toggleLegSection(el, false));
+  document.querySelectorAll('.passage-section').forEach((el) => togglePassageSection(el, false));
+}
+
+function focusLegAndStop(stop) {
+  document.querySelectorAll('.leg-section').forEach((el) => {
+    toggleLegSection(el, el.dataset.legId === stop.legId);
+  });
+  document.querySelectorAll('.passage-section').forEach((el) => {
+    const show = el.dataset.legId === stop.legId && el.dataset.passage === stop.passage;
+    togglePassageSection(el, show);
+  });
+  setActive(stop.globalN, true);
+  const target = document.getElementById('stop-' + stop.globalN);
+  if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+function pickStopInView(zoom, bounds, center) {
+  if (!bounds || !center) return null;
+  const visible = allStops.filter((s) => bounds.contains([s.lat, s.lng]));
+  if (!visible.length) return null;
+
+  if (zoom <= GLOBAL_ZOOM_THRESHOLD) return null;
+
+  let best = visible[0];
+  let bestDist = Infinity;
+  visible.forEach((s) => {
+    const d = center.distanceTo([s.lat, s.lng]);
+    if (d < bestDist) {
+      bestDist = d;
+      best = s;
+    }
+  });
+  return best;
+}
+
+function handleMapViewChange(zoom, bounds, center) {
+  if (syncLock.fromLog) return;
+
+  syncLock.fromMap = true;
+  const stop = pickStopInView(zoom, bounds, center);
+
+  if (!stop) {
+    collapseAllSections();
+    document.querySelectorAll('.stop').forEach((el) => el.classList.remove('active'));
+    VoyageMap.clearActive();
+    syncLock.fromMap = false;
+    return;
+  }
+
+  focusLegAndStop(stop);
+  setTimeout(() => {
+    syncLock.fromMap = false;
+  }, 600);
 }
 
 function buildStopSection(stop) {
@@ -357,7 +420,7 @@ function buildLog(stops) {
       passageBody = null;
 
       const legSection = document.createElement('section');
-      legSection.className = 'leg-section';
+      legSection.className = 'leg-section collapsed';
       legSection.dataset.legId = stop.legId;
 
       const count = legStopCount(stops, stop.legId);
@@ -366,7 +429,7 @@ function buildLog(stops) {
       const toggle = document.createElement('button');
       toggle.type = 'button';
       toggle.className = 'leg-toggle';
-      toggle.setAttribute('aria-expanded', 'true');
+      toggle.setAttribute('aria-expanded', 'false');
       toggle.innerHTML =
         '<span class="collapse-chevron" aria-hidden="true"></span>' +
         '<span class="leg-toggle-text">' +
@@ -395,14 +458,14 @@ function buildLog(stops) {
       const pDates = passageDateRange(stops, stop.legId, stop.passage);
 
       const passageSection = document.createElement('section');
-      passageSection.className = 'passage-section';
+      passageSection.className = 'passage-section collapsed';
       passageSection.dataset.legId = stop.legId;
       passageSection.dataset.passage = stop.passage;
 
       const pToggle = document.createElement('button');
       pToggle.type = 'button';
       pToggle.className = 'passage-toggle';
-      pToggle.setAttribute('aria-expanded', 'true');
+      pToggle.setAttribute('aria-expanded', 'false');
       pToggle.innerHTML =
         '<span class="collapse-chevron" aria-hidden="true"></span>' +
         '<span class="passage-toggle-text">' +
@@ -455,30 +518,46 @@ function buildHero(manifest) {
 
 function setActive(n, skipMapFocus) {
   document.querySelectorAll('.stop').forEach((el) => {
-    el.classList.toggle('active', +el.dataset.n === n);
+    el.classList.toggle('active', n && +el.dataset.n === n);
   });
-  VoyageMap.setActive(n);
+  if (n) VoyageMap.setActive(n);
+  else VoyageMap.clearActive();
 
-  if (skipMapFocus) return;
+  if (skipMapFocus || !n) return;
   clearTimeout(mapFocusTimer);
-  mapFocusTimer = setTimeout(() => VoyageMap.focusStop(n), 120);
+  syncLock.fromLog = true;
+  mapFocusTimer = setTimeout(() => {
+    VoyageMap.focusStop(n);
+    setTimeout(() => {
+      syncLock.fromLog = false;
+    }, 950);
+  }, 120);
 }
 
 function goToStop(n) {
   const stop = allStops.find((s) => s.globalN === n);
-  if (stop) ensurePassageExpanded(stop.legId, stop.passage);
-  setActive(n, true);
-  const target = document.getElementById('stop-' + n);
-  if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  if (!stop) return;
+  syncLock.fromLog = true;
+  focusLegAndStop(stop);
   clearTimeout(mapFocusTimer);
   VoyageMap.focusStop(n, true);
+  setTimeout(() => {
+    syncLock.fromLog = false;
+  }, 950);
 }
 
 function setupScrollSync() {
   const obs = new IntersectionObserver(
     (entries) => {
+      if (syncLock.fromMap) return;
       entries.forEach((en) => {
-        if (en.isIntersecting) setActive(+en.target.dataset.n);
+        if (!en.isIntersecting) return;
+        const n = +en.target.dataset.n;
+        if (syncLock.fromLog) {
+          setActive(n, true);
+          return;
+        }
+        setActive(n);
       });
     },
     { root: logEl, rootMargin: '0px 0px -70% 0px', threshold: 0 }
@@ -550,10 +629,9 @@ async function init() {
     buildLog(allStops);
     buildHero(manifest);
     updateGalleryBadge();
-    VoyageMap.init('map', allStops, goToStop);
+    VoyageMap.init('map', allStops, goToStop, handleMapViewChange);
     setupScrollSync();
     setupResizer();
-    setActive(1);
   } catch (err) {
     console.error(err);
     logEl.innerHTML =

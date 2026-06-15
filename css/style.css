@@ -448,6 +448,21 @@ body {
   z-index: 1000 !important;
 }
 
+.marker-cluster-small,
+.marker-cluster-medium,
+.marker-cluster-large {
+  background-color: rgba(24, 95, 165, 0.28);
+}
+
+.marker-cluster-small div,
+.marker-cluster-medium div,
+.marker-cluster-large div {
+  background-color: var(--navy);
+  color: #fff;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 700;
+}
+
 .scan-lightbox {
   position: fixed;
   inset: 0;

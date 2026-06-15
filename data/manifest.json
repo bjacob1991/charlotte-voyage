@@ -8,10 +8,12 @@
   "vessel_caption": "S/V Charlotte — Our 38-foot steel ketch, home for four years and 30,000 miles.",
   "legs": [
     { "id": "leg-01", "name": "Florida & the Bahamas", "file": "leg-01-florida-bahamas.json", "status": "in-progress" },
-    { "id": "leg-02", "name": "Caribbean & Panama", "file": "leg-02-caribbean-panama.json", "status": "planned" },
-    { "id": "leg-03", "name": "The South Pacific", "file": "leg-03-south-pacific.json", "status": "planned" },
-    { "id": "leg-04", "name": "Western Pacific & Indian Ocean", "file": "leg-04-pacific-indian.json", "status": "planned" },
-    { "id": "leg-05", "name": "South Africa & the South Atlantic", "file": "leg-05-south-africa-atlantic.json", "status": "planned" },
-    { "id": "leg-06", "name": "The Caribbean & Home", "file": "leg-06-caribbean-home.json", "status": "planned" }
+    { "id": "leg-02", "name": "Panama & the Galápagos", "file": "leg-02-panama-galapagos.json", "status": "in-progress" },
+    { "id": "leg-03", "name": "French Polynesia", "file": "leg-03-french-polynesia.json", "status": "in-progress" },
+    { "id": "leg-04", "name": "Niue & Tonga", "file": "leg-04-niue-tonga.json", "status": "in-progress" },
+    { "id": "leg-05", "name": "New Zealand", "file": "leg-05-new-zealand.json", "status": "in-progress" },
+    { "id": "leg-06", "name": "Western Pacific & Indian Ocean", "file": "leg-06-pacific-indian.json", "status": "planned" },
+    { "id": "leg-07", "name": "South Africa & the South Atlantic", "file": "leg-07-south-africa-atlantic.json", "status": "planned" },
+    { "id": "leg-08", "name": "The Caribbean & Home", "file": "leg-08-caribbean-home.json", "status": "planned" }
   ]
 }
