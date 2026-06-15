@@ -443,7 +443,8 @@ body {
 }
 
 .leaflet-marker-pin span { transform: rotate(45deg); }
-.leaflet-marker-pin.active {
+.leaflet-marker-pin.active,
+.cluster-dot.voyage-marker.active {
   background: var(--coral);
   z-index: 1000 !important;
 }
@@ -461,6 +462,25 @@ body {
   color: #fff;
   font-family: Arial, Helvetica, sans-serif;
   font-weight: 700;
+}
+
+.cluster-dot-wrap {
+  background: transparent;
+  border: none;
+}
+
+.cluster-dot {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--navy);
+  border: 2px solid #fff;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.35);
+}
+
+.marker-dot-wrap {
+  background: transparent;
+  border: none;
 }
 
 .scan-lightbox {

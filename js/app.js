@@ -293,6 +293,38 @@ function collapseAllSections() {
   document.querySelectorAll('.passage-section').forEach((el) => togglePassageSection(el, false));
 }
 
+function syncMapFromLog(mapAction) {
+  if (syncLock.fromMap) return;
+  syncLock.fromLog = true;
+  mapAction();
+  setTimeout(() => {
+    syncLock.fromLog = false;
+  }, 950);
+}
+
+function hasExpandedLeg() {
+  return document.querySelector('.leg-section:not(.collapsed)') !== null;
+}
+
+function onLegToggled(legSection, expanded) {
+  if (expanded) {
+    const stops = allStops.filter((s) => s.legId === legSection.dataset.legId);
+    syncMapFromLog(() => VoyageMap.fitStops(stops));
+    return;
+  }
+  if (!hasExpandedLeg()) {
+    syncMapFromLog(() => VoyageMap.fitGlobalBounds());
+  }
+}
+
+function onPassageToggled(passageSection, expanded) {
+  if (!expanded) return;
+  ensureLegExpanded(passageSection.dataset.legId);
+  const { legId, passage } = passageSection.dataset;
+  const stops = allStops.filter((s) => s.legId === legId && s.passage === passage);
+  syncMapFromLog(() => VoyageMap.fitStops(stops));
+}
+
 function focusLegAndStop(stop) {
   document.querySelectorAll('.leg-section').forEach((el) => {
     toggleLegSection(el, el.dataset.legId === stop.legId);
@@ -441,6 +473,7 @@ function buildLog(stops) {
       toggle.addEventListener('click', () => {
         const expanded = legSection.classList.contains('collapsed');
         toggleLegSection(legSection, expanded);
+        onLegToggled(legSection, expanded);
       });
 
       legBody = document.createElement('div');
@@ -477,6 +510,7 @@ function buildLog(stops) {
       pToggle.addEventListener('click', () => {
         const expanded = passageSection.classList.contains('collapsed');
         togglePassageSection(passageSection, expanded);
+        onPassageToggled(passageSection, expanded);
       });
 
       passageBody = document.createElement('div');

@@ -10,45 +10,91 @@ const VoyageMap = (function () {
   let suppressViewChange = false;
 
   const ROUTE_STYLE = { color: '#185fa5', weight: 2.5, dashArray: '6 6', opacity: 0.85 };
+  const GLOBAL_ZOOM_MAX = 4;
 
-  function makeIcon(globalN) {
+  function unwrapLatLngs(latlngs) {
+    if (!latlngs.length) return [];
+    const result = [[latlngs[0][0], latlngs[0][1]]];
+    for (let i = 1; i < latlngs.length; i++) {
+      let lng = latlngs[i][1];
+      const prevLng = result[i - 1][1];
+      while (lng - prevLng > 180) lng -= 360;
+      while (lng - prevLng < -180) lng += 360;
+      result.push([latlngs[i][0], lng]);
+    }
+    return result;
+  }
+
+  function makePinIcon(globalN) {
     return L.divIcon({
       className: '',
-      html: '<div class="leaflet-marker-pin" data-n="' + globalN + '"><span>' + globalN + '</span></div>',
+      html:
+        '<div class="leaflet-marker-pin voyage-marker" data-n="' +
+        globalN +
+        '"><span>' +
+        globalN +
+        '</span></div>',
       iconSize: [28, 28],
       iconAnchor: [14, 28],
       popupAnchor: [0, -26]
     });
   }
 
-  function addRouteSegments(latlngs, layerGroup) {
-    if (latlngs.length < 2) return;
-    let segment = [latlngs[0]];
-    for (let i = 1; i < latlngs.length; i++) {
-      const prev = latlngs[i - 1];
-      const cur = latlngs[i];
-      if (Math.abs(cur[1] - prev[1]) > 180) {
-        if (segment.length > 1) L.polyline(segment, ROUTE_STYLE).addTo(layerGroup);
-        segment = [cur];
-      } else {
-        segment.push(cur);
-      }
-    }
-    if (segment.length > 1) L.polyline(segment, ROUTE_STYLE).addTo(layerGroup);
+  function makeDotIcon(globalN) {
+    return L.divIcon({
+      className: 'marker-dot-wrap',
+      html: '<div class="cluster-dot voyage-marker" data-n="' + globalN + '"></div>',
+      iconSize: [14, 14],
+      iconAnchor: [7, 7]
+    });
   }
 
-  function drawLegRoutes(stops, layerGroup) {
-    const legIds = [];
-    stops.forEach((s) => {
-      if (!legIds.includes(s.legId)) legIds.push(s.legId);
+  function isGlobalView() {
+    return map && map.getZoom() <= GLOBAL_ZOOM_MAX;
+  }
+
+  function updateMarkerIcons() {
+    const globalView = isGlobalView();
+    Object.entries(markers).forEach(([n, marker]) => {
+      marker.setIcon(globalView ? makeDotIcon(+n) : makePinIcon(+n));
     });
-    legIds.forEach((legId) => {
-      const legStops = stops.filter((s) => s.legId === legId);
-      addRouteSegments(
-        legStops.map((s) => [s.lat, s.lng]),
-        layerGroup
-      );
+  }
+
+  function drawVoyageRoute(stops, layerGroup) {
+    if (stops.length < 2) return;
+    const latlngs = unwrapLatLngs(stops.map((s) => [s.lat, s.lng]));
+    L.polyline(latlngs, ROUTE_STYLE).addTo(layerGroup);
+  }
+
+  function makeClusterIcon(cluster) {
+    const count = cluster.getChildCount();
+    const globalView = map && map.getZoom() <= GLOBAL_ZOOM_MAX;
+
+    if (globalView) {
+      return L.divIcon({
+        className: 'cluster-dot-wrap',
+        html: '<div class="cluster-dot"></div>',
+        iconSize: [14, 14],
+        iconAnchor: [7, 7]
+      });
+    }
+
+    let size = 'small';
+    if (count >= 10) size = 'medium';
+    if (count >= 20) size = 'large';
+
+    return L.divIcon({
+      html: '<div><span>' + count + '</span></div>',
+      className: 'marker-cluster marker-cluster-' + size,
+      iconSize: L.point(40, 40)
     });
+  }
+
+  function updateGlobalZoomClass() {
+    if (!map) return;
+    map.getContainer().classList.toggle('map-global-zoom', isGlobalView());
+    updateMarkerIcons();
+    if (clusterGroup) clusterGroup.refreshClusters();
   }
 
   function scheduleViewChange() {
@@ -70,17 +116,18 @@ const VoyageMap = (function () {
       attribution: '&copy; OpenStreetMap contributors'
     }).addTo(map);
 
-    drawLegRoutes(stops, map);
+    drawVoyageRoute(stops, map);
 
     clusterGroup = L.markerClusterGroup({
       maxClusterRadius: 55,
       spiderfyOnMaxZoom: true,
       showCoverageOnHover: false,
-      disableClusteringAtZoom: 11
+      disableClusteringAtZoom: 11,
+      iconCreateFunction: makeClusterIcon
     });
 
     stops.forEach((stop) => {
-      const marker = L.marker([stop.lat, stop.lng], { icon: makeIcon(stop.globalN) });
+      const marker = L.marker([stop.lat, stop.lng], { icon: makePinIcon(stop.globalN) });
       marker.bindTooltip(stop.globalN + '. ' + stop.name, { direction: 'top', offset: [0, -24] });
       marker.on('click', () => onPinClick(stop.globalN));
       markers[stop.globalN] = marker;
@@ -91,7 +138,11 @@ const VoyageMap = (function () {
     fitGlobalBounds();
 
     map.on('moveend', scheduleViewChange);
-    map.on('zoomend', scheduleViewChange);
+    map.on('zoomend', () => {
+      updateGlobalZoomClass();
+      scheduleViewChange();
+    });
+    updateGlobalZoomClass();
 
     return map;
   }
@@ -104,6 +155,27 @@ const VoyageMap = (function () {
     setTimeout(() => {
       suppressViewChange = false;
     }, 150);
+  }
+
+  function fitStops(stops) {
+    if (!map || !stops.length) return;
+    const latlngs = stops.map((s) => [s.lat, s.lng]);
+    suppressViewChange = true;
+
+    if (latlngs.length === 1) {
+      map.flyTo(latlngs[0], 7, { animate: true, duration: 0.7 });
+    } else {
+      map.flyToBounds(L.latLngBounds(latlngs), {
+        padding: [48, 48],
+        maxZoom: 8,
+        animate: true,
+        duration: 0.7
+      });
+    }
+
+    setTimeout(() => {
+      suppressViewChange = false;
+    }, 950);
   }
 
   function getBounds() {
@@ -119,7 +191,7 @@ const VoyageMap = (function () {
   }
 
   function setActive(n) {
-    document.querySelectorAll('.leaflet-marker-pin').forEach((el) => {
+    document.querySelectorAll('.voyage-marker').forEach((el) => {
       el.classList.toggle('active', n && +el.dataset.n === n);
     });
   }
@@ -160,6 +232,7 @@ const VoyageMap = (function () {
     setActive,
     clearActive,
     focusStop,
+    fitStops,
     fitGlobalBounds,
     getBounds,
     getCenter,
