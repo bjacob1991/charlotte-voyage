@@ -363,11 +363,49 @@ body {
 }
 
 .entry-date {
+  display: flex;
+  align-items: center;
+  gap: 8px;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 14px;
   font-weight: 700;
   color: var(--steel);
   margin: 0 0 4px;
+}
+
+.entry-date-at_sea .entry-kind-icon { color: var(--steel); }
+.entry-date-anchored .entry-kind-icon { color: #3d5a6e; }
+
+.entry-kind-icon {
+  flex-shrink: 0;
+  display: block;
+}
+
+.entry-kind-icon-stroke {
+  overflow: visible;
+}
+
+.entry-date-text { line-height: 1.3; }
+
+.stop-kind {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 4px 9px;
+  border-radius: 4px;
+  flex-shrink: 0;
+}
+
+.stop-kind-passage {
+  background: #e3f0f7;
+  color: var(--steel);
+}
+
+.stop-kind-anchorage {
+  background: #eceee4;
+  color: #4a5c42;
 }
 
 .entry-body {
@@ -397,6 +435,30 @@ body {
   justify-content: center;
   overflow: hidden;
   text-align: center;
+}
+
+.scan-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin: 14px 0 0;
+  align-items: flex-start;
+}
+
+.scan-row .scan {
+  margin: 0;
+  flex: 1 1 240px;
+  max-width: calc(50% - 6px);
+}
+
+.scan-row-multi .scan {
+  min-width: min(100%, 280px);
+}
+
+@media (max-width: 720px) {
+  .scan-row .scan {
+    max-width: 100%;
+  }
 }
 
 .scan img {

@@ -6,6 +6,7 @@
       "id": "stop-01",
       "n": 1,
       "name": "Jamaica–San Blas Passage",
+      "kind": "passage",
       "passage": "Windward Passage to San Blas",
       "lat": 16.0,
       "lng": -78.5,
@@ -67,9 +68,9 @@
           "conditions": "Landfall at Holandes Cays. 550-mile passage in 4½ days."
         },
         {
-          "date": "2002-02-02a",
+          "date": "2002-02-02",
           "date_display": "Saturday, February 2",
-          "scan": "images/scans/2002-02-02a.jpg",
+          "scan": "images/scans/2002-02-02.jpg",
           "body": "Enjoyed our stay in the San Blas islands — anchored at Holandes Cays, Green Island, and Chichimé. Good windsurfing at Green Island. Bought some molas, enjoyed the Kuna Indians — very gentle and friendly. They had very nice dugouts, sailed some of them. The islands were green, palm-covered, the water blue like the Bahamas, beautiful reefs, but very few fish. Met the Austrian boat Idemo with Robert, Ingrid and 5-yr Anna aboard. Had some pleasant day sails around the islands. The weather was overcast — more towards the mainland. On the outer islands, the reefs crashed constantly and everything was salty.",
           "conditions": "About 11 days in the San Blas, anchoring at Holandes Cays, Green Island, and Chichimé."
         }
@@ -86,9 +87,8 @@
       "photos": [],
       "entries": [
         {
-          "date": "2002-02-02b",
-          "date_display": "Saturday, February 2",
-          "scan": "images/scans/2002-02-02b.jpg",
+          "date": "2002-02-02",
+          "date_display": "Saturday, February 2 — departure for Portobelo",
           "body": "Left early this morning for Portobelo. 3 other boats left too. It was a superhighway along Panama's north coast! Boisterous sailing, 20–25 knots, beam reach, reefed genoa, reefed mizzen, double-reefed main. We kept up pretty well with the bigger boats. Finally got to see the green hills of the Panama coast towards the end of the trip. Coast is rocky, mostly deep to shore, but with numerous off-lying reefs. Not a place to sail at night! Portobelo is a beautiful natural harbor — plenty big for a fleet of Spanish galleons! 55 miles in 8½ hours, over 6½ knots average.",
           "conditions": "Wind: 20–25 knots, beam reach. Reefed genoa, reefed mizzen, double-reefed main. 55 miles in 8½ hours, 6½ knot average."
         }
@@ -107,7 +107,6 @@
         {
           "date": "2002-02-06",
           "date_display": "Wednesday, February 6",
-          "scan": "images/scans/2002-02-06.jpg",
           "body": "Downwind sail to Colón today — nice sail for a change, no waves on deck! The coastline is green and rugged. Entering the breakwater at Colón was exciting. Big nasty town. We loved Portobelo — most beautiful anchorage we have ever seen. Three forts guarding the entrance from all sides. We climbed to the top of one fort, took a short dinghy ride up a river. Peter's boat Tiamat was there — we met him in Brazil — but he had died two weeks before. We enjoyed the little town, felt comfortable standing around drinking beer. Now the real hustle begins.",
           "conditions": "Downwind sail to Colón."
         },
@@ -152,7 +151,6 @@
         {
           "date": "2002-03-13a",
           "date_display": "Wednesday, March 13",
-          "scan": "images/scans/2002-03-13a.jpg",
           "body": "Well Las Perlas was not exactly what we expected. Contadora was rolly and uncomfortable, so we moved 15 miles to Viveros Cay. Pretty anchorage, surrounded by beaches and little islands, but the murky water was disappointing — spearfishing out of the question. Then Thomas stepped on something in the shallow water and got the most horrific infection. He was in pain, couldn't walk for 3 days, and his foot kept getting worse. Meanwhile Brian and I enjoyed walks on the beaches at low tide and had fun scrambling around on the rocks. The shells were mostly scallops, purple and orange. Beautiful views across the islands from some shady rock under a tree. I really enjoyed the solitude there — no one but small local fishing boats, gorgeous skies at night. We finally went back to Contadora on Thurs Mar. 7 and luckily there was a doctor there. Thomas was in for 5 days of shots, heavy anti[biotics], and his foot slowly started to heal. Very nice young doctor — Cresmo [Garcia], who was interested in our plans and gave us some [medication] to take with us. We got used to touristy Contadora — really just a sleepy town — and had our routine of afternoon ice cream and beer at the local mini super. Very dry though — no water — I now wash what I can in sea water. We enjoyed our waiting time as best [we] could.",
           "conditions": "About two weeks in the Las Perlas, between Contadora and Isla Viveros, including Thomas's foot infection and treatment."
         }
@@ -162,6 +160,7 @@
       "id": "stop-07",
       "n": 7,
       "name": "Las Perlas–Galápagos Passage",
+      "kind": "passage",
       "passage": "Pacific Crossing — Galápagos",
       "lat": -0.5,
       "lng": -85.0,
@@ -171,7 +170,6 @@
         {
           "date": "2002-03-13b",
           "date_display": "Wednesday, March 13",
-          "scan": "images/scans/2002-03-13b.jpg",
           "body": "Now Thomas is almost completely healed and we are under way for the Galápagos! Left this morning, after a favorable wind report from boats on the way. We have been sailing past the Perlas all day, under full genoa and then spinnaker. 12 knots wind NNE, tiny seas, beautiful sailing, the boat is upright! Good omen this morning — we saw a perfect rainbow circle around the sun. Panama was a pleasant surprise, really enjoyed the scenery, the friendly people, the great food, the cheap beer! Could have stayed longer if that was our plan. For now, we are happy to be underway again, with a fair wind. The Pacific truly lives up to its name, at least at these latitudes!",
           "conditions": "Departing Las Perlas for the Galápagos. Wind: NNE, 12 knots, tiny seas. Full genoa, then spinnaker."
         },
@@ -265,7 +263,6 @@
         {
           "date": "2002-04-14",
           "date_display": "Sunday, April 14",
-          "scan": "images/scans/2002-04-14.jpg",
           "body": "Left Puerto Villamil yesterday afternoon, after a false start. We were chased by the Port Captain and asked to return and check out properly! No big deal — he is really a nice guy. Hard to describe the wonderful time we had at Isabela. Athanor showed up with Beeca, 10 and Ollie 8, and their parents Eddie and Eileen. All the boats from Wreck Bay eventually pulled in. Attended a wild party at Jeff & Claudia's house, American and Argentinian living here with their kids. Saw all kinds of wild life. Went to the turtle hatchery and saw turtles from 1 month to 100 years old. Found a lagoon full of pink flamingos. Took a great horseback ride to the volcano — it was really neat, riding up the outside of the mountain, then walking on the lava fields down into the crater. It was like a moonscape — mostly black but other colors when the sun shone on it. Some deep clefts were still smoking, ferns growing in them. This one had erupted in 1969. We passed another crater on horseback that is the second largest volcanic crater in the world. Very interesting day. Brian went again, with the other kids. He had such a good time, playing all day on the beach. We barely saw him! One day we went dinghying with Jean and Sherry on Reflection, helped a sick tortoise that was covered with oysters. I thought he was dead at first. Brian and I saw him again 2 days later, swimming normally and able to dive. We got very close to some penguins. Another day I actually touched one that was sitting on a rock! They were all standing there, stretching their stubby wings, wearing their black and white tuxedos! Brian and I went on an early morning walk on the lava islands and saw hundreds of iguanas, almost stepped on them. Got into a routine of walking to town at 4 pm for a delicious homemade pastry fresh from the bakery and an ice cold beer. Decided not to go to Easter Island with Greg & genoa on Candlewin — we need to stay with Athanor for Brian. We will miss those guys though. It was hard to leave Isabela, with the incredible wildlife and the renewed social life. But I was rewarded with the sight of a school of 100 dolphins yesterday before dark. They were leaping 10 feet out of the water — amazing — so many at once! Had a squall last night, good wind, then it was light, did 3 knots. Now we are motoring for a few hours to try to get into the wind. Galápagos, we love you!",
           "conditions": "About 12 days at Isabela. Departed for the Marquesas. 24-hour run — 89 miles."
         }

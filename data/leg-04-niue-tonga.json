@@ -6,6 +6,7 @@
       "id": "stop-01",
       "n": 1,
       "name": "Bora Bora–Niue Passage (Cooks bypassed)",
+      "kind": "passage",
       "passage": "Across the Western Pacific",
       "lat": -19.0,
       "lng": -165.0,
@@ -93,6 +94,7 @@
       "id": "stop-03",
       "n": 3,
       "name": "Niue–Tonga Passage",
+      "kind": "passage",
       "passage": "Crossing into the Kingdom",
       "lat": -19.5,
       "lng": -172.0,
@@ -135,7 +137,6 @@
         {
           "date": "2002-09-12",
           "date_display": "Thursday, September 12",
-          "scan": "images/scans/2002-09-12.jpg",
           "body": "Back in Neiafu — met some people we last saw in Bonaire 11 years ago. Kelebec — with Tanil & Annette. We went diving with them there and she had fun holding Brian. I had a wonderful birthday. Dinner on Flying Cloud, got presents from Beeca, Ollie, Yumi and finally Brian. Didn't mention Thomas' birthday — barbeque on the beach with Desert Rose and Flying Cloud — we cooked [lamb] chops and had a cake under a huge rain tree. We have been all over Vava'u, tried to dive Mariner's Cave but chickened out. Walked over some reefs to dive outside drop-off — pretty, clear blue water. Walked some beautiful soft sand beaches. Weather is improving — it is summer again! Athanor & Oric Halcum are here. Met Neil & Honey on Active Light again — going to do some software swaps. For the most part, having a really good time here — good social life.",
           "conditions": "Birthdays celebrated; cruising all over Vava'u. Weather improving into summer."
         },
@@ -161,7 +162,6 @@
         {
           "date": "2002-09-28",
           "date_display": "Saturday, September 28",
-          "scan": "images/scans/2002-09-28.jpg",
           "body": "Left Uoleva — what a paradise! The beach was fantastic, could walk on soft sand for miles, crystal clear water, coconuts everywhere, no people. Having a great sail out to Ha'afeva today. Great reaching, Charlotte is [happy]! We caught 2 mahi mahi, one just before we entered the reef at Ha'afeva. Brian and I loved Uoleva — the best beach I have ever seen. Partied with Dave on Flying Cloud and his crew.",
           "conditions": "Sailing Uoleva to Ha'afeva. Great reaching; caught two mahi mahi."
         },

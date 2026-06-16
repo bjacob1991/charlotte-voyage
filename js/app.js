@@ -15,8 +15,23 @@ const scanLightbox = document.getElementById('scan-lightbox');
 const scanLightboxImg = document.getElementById('scan-lightbox-img');
 const ICON_CAMERA =
   '<svg viewBox="0 0 24 24" width="15" height="15" aria-hidden="true"><path fill="currentColor" d="M21 19V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2zM8.5 13.5l2.5 3 3.5-4.5 4.5 6H5l3.5-4.5z"/></svg>';
+const ICON_AT_SEA =
+  '<svg class="entry-kind-icon entry-kind-icon-stroke" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true">' +
+  '<path d="M4 18c1.5-1 2.5 0 4 0s2.5-1 4 0 2.5 0 4 0 2.5-1 4 0" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/>' +
+  '<path d="M6 16c2-3 4-4 6-4s4 1 6 4" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linejoin="round"/>' +
+  '<path d="M12 5v11" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/>' +
+  '<path d="M12 5 19 16H5L12 5z" fill="currentColor" stroke="currentColor" stroke-width="1.25" stroke-linejoin="round"/>' +
+  '</svg>';
+const ICON_ANCHORED =
+  '<svg class="entry-kind-icon entry-kind-icon-stroke" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true">' +
+  '<circle cx="12" cy="5" r="2.25" fill="none" stroke="currentColor" stroke-width="1.75"/>' +
+  '<path d="M12 7v12" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/>' +
+  '<path d="M5 13a7 7 0 0 0 14 0" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/>' +
+  '<path d="M8 9h8" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/>' +
+  '</svg>';
 
 let allStops = [];
+let scanLayout = { entries: {} };
 let mapFocusTimer = null;
 const syncLock = { fromMap: false, fromLog: false };
 const GLOBAL_ZOOM_THRESHOLD = 4;
@@ -82,6 +97,19 @@ function buildScanElement(scanPath, label) {
   };
   img.src = scanPath;
   return scan;
+}
+
+function buildScanGroup(scans, entry) {
+  if (!scans.length) return null;
+  const row = document.createElement('div');
+  row.className = 'scan-row' + (scans.length > 1 ? ' scan-row-multi' : '');
+  scans.forEach((scanPath, index) => {
+    const label =
+      (entry.date_display || entry.date) +
+      (scans.length > 1 ? ' (page ' + (index + 1) + ' of ' + scans.length + ')' : '');
+    row.appendChild(buildScanElement(scanPath, label));
+  });
+  return row;
 }
 
 function hasPhotos(stop) {
@@ -225,10 +253,6 @@ document.addEventListener('keydown', (e) => {
   if (!galleryIndexOverlay.hidden) closeGalleryIndex();
 });
 
-function legStopCount(stops, legId) {
-  return stops.filter((s) => s.legId === legId).length;
-}
-
 function legDateRange(stops, legId) {
   const dates = [];
   stops.filter((s) => s.legId === legId).forEach((stop) => {
@@ -240,6 +264,88 @@ function legDateRange(stops, legId) {
   const first = new Date(entryDateKey(dates[0]) + 'T12:00:00').toLocaleDateString('en-US', opts);
   const last = new Date(entryDateKey(dates[dates.length - 1]) + 'T12:00:00').toLocaleDateString('en-US', opts);
   return first === last ? first : first + ' \u2013 ' + last;
+}
+
+function resolveStopKind(stop) {
+  if (stop.kind === 'passage' || stop.kind === 'anchorage') return stop.kind;
+  if (/passage/i.test(stop.name || '')) return 'passage';
+  return 'anchorage';
+}
+
+function countStopEntries(stop) {
+  return stop.entries ? stop.entries.length : 0;
+}
+
+function countEntries(stops) {
+  return stops.reduce((n, stop) => n + countStopEntries(stop), 0);
+}
+
+function countUniqueEntryDays(stops) {
+  const keys = new Set();
+  stops.forEach((stop) => {
+    stop.entries.forEach((entry) => keys.add(entryDateKey(entry.date)));
+  });
+  return keys.size;
+}
+
+function formatEntryCount(n) {
+  return n + ' log entr' + (n === 1 ? 'y' : 'ies');
+}
+
+function formatPassageMeta(stops) {
+  const entries = countEntries(stops);
+  const passages = stops.filter((s) => resolveStopKind(s) === 'passage');
+  const anchorages = stops.filter((s) => resolveStopKind(s) === 'anchorage');
+
+  if (passages.length === 1 && anchorages.length === 0) {
+    const days = countUniqueEntryDays(stops);
+    const dayLabel = days + ' day' + (days === 1 ? '' : 's') + ' at sea';
+    return dayLabel + ' \u00b7 ' + formatEntryCount(entries);
+  }
+
+  const parts = [];
+  if (passages.length) {
+    parts.push(passages.length + ' passage' + (passages.length === 1 ? '' : 's'));
+  }
+  if (anchorages.length) {
+    parts.push(anchorages.length + ' anchorage' + (anchorages.length === 1 ? '' : 's'));
+  }
+  parts.push(formatEntryCount(entries));
+  return parts.join(' \u00b7 ');
+}
+
+function formatLegMeta(stops, legId) {
+  const legStops = stops.filter((s) => s.legId === legId);
+  const segments = legStops.length;
+  const entries = countEntries(legStops);
+  return (
+    segments +
+    ' segment' +
+    (segments === 1 ? '' : 's') +
+    ' \u00b7 ' +
+    formatEntryCount(entries)
+  );
+}
+
+function resolveEntryKind(entry, stop) {
+  if (entry.kind === 'at_sea' || entry.kind === 'anchored') return entry.kind;
+  if (resolveStopKind(stop) === 'passage') return 'at_sea';
+  if (entry.conditions && /24-hour run/i.test(entry.conditions)) return 'at_sea';
+  return 'anchored';
+}
+
+function entryKindIcon(kind) {
+  return kind === 'at_sea' ? ICON_AT_SEA : ICON_ANCHORED;
+}
+
+function entryKindLabel(kind) {
+  return kind === 'at_sea' ? 'At sea' : 'Anchored';
+}
+
+function stopKindBadge(stop) {
+  const kind = resolveStopKind(stop);
+  const label = kind === 'passage' ? 'Passage' : 'Anchorage';
+  return '<span class="stop-kind stop-kind-' + kind + '">' + label + '</span>';
 }
 
 function passageStops(stops, legId, passage) {
@@ -377,6 +483,15 @@ function handleMapViewChange(zoom, bounds, center) {
   }, 600);
 }
 
+function getEntryScans(entry, legId) {
+  const key = legId + ':' + entry.date;
+  const layout = scanLayout.entries[key];
+  if (layout && layout.scans && layout.scans.length) return layout.scans;
+  if (entry.scans && entry.scans.length) return entry.scans;
+  if (entry.scan) return [entry.scan];
+  return [];
+}
+
 function buildStopSection(stop) {
   const section = document.createElement('section');
   section.className = 'stop';
@@ -392,7 +507,8 @@ function buildStopSection(stop) {
     stop.globalN +
     '</div><h2 class="stop-name">' +
     escapeHtml(stop.name) +
-    '</h2>';
+    '</h2>' +
+    stopKindBadge(stop);
   section.appendChild(head);
 
   if (hasPhotos(stop)) {
@@ -411,9 +527,15 @@ function buildStopSection(stop) {
     const entryEl = document.createElement('div');
     entryEl.className = 'entry';
 
+    const entryKind = resolveEntryKind(entry, stop);
     const dateP = document.createElement('p');
-    dateP.className = 'entry-date';
-    dateP.textContent = entry.date_display || entry.date;
+    dateP.className = 'entry-date entry-date-' + entryKind;
+    dateP.title = entryKindLabel(entryKind);
+    dateP.innerHTML =
+      entryKindIcon(entryKind) +
+      '<span class="entry-date-text">' +
+      escapeHtml(entry.date_display || entry.date) +
+      '</span>';
     entryEl.appendChild(dateP);
 
     const bodyP = document.createElement('p');
@@ -428,9 +550,9 @@ function buildStopSection(stop) {
       entryEl.appendChild(condP);
     }
 
-    if (entry.scan) {
-      entryEl.appendChild(buildScanElement(entry.scan, entry.date_display || entry.date));
-    }
+    const scans = getEntryScans(entry, stop.legId);
+    const scanGroup = buildScanGroup(scans, entry);
+    if (scanGroup) entryEl.appendChild(scanGroup);
 
     section.appendChild(entryEl);
   });
@@ -455,8 +577,8 @@ function buildLog(stops) {
       legSection.className = 'leg-section collapsed';
       legSection.dataset.legId = stop.legId;
 
-      const count = legStopCount(stops, stop.legId);
       const dates = legDateRange(stops, stop.legId);
+      const legMeta = formatLegMeta(stops, stop.legId);
 
       const toggle = document.createElement('button');
       toggle.type = 'button';
@@ -466,7 +588,7 @@ function buildLog(stops) {
         '<span class="collapse-chevron" aria-hidden="true"></span>' +
         '<span class="leg-toggle-text">' +
         '<span class="leg-title">' + escapeHtml(stop.legName) + '</span>' +
-        '<span class="leg-meta">' + count + ' stop' + (count === 1 ? '' : 's') +
+        '<span class="leg-meta">' + legMeta +
         (dates ? ' \u00b7 ' + dates : '') + '</span>' +
         '</span>';
 
@@ -487,7 +609,7 @@ function buildLog(stops) {
     if (stop.passage !== currentPassage) {
       currentPassage = stop.passage;
       const pStops = passageStops(stops, stop.legId, stop.passage);
-      const pCount = pStops.length;
+      const pMeta = formatPassageMeta(pStops);
       const pDates = passageDateRange(stops, stop.legId, stop.passage);
 
       const passageSection = document.createElement('section');
@@ -503,7 +625,7 @@ function buildLog(stops) {
         '<span class="collapse-chevron" aria-hidden="true"></span>' +
         '<span class="passage-toggle-text">' +
         '<span class="passage-title">' + escapeHtml(stop.passage) + '</span>' +
-        '<span class="passage-meta">' + pCount + ' stop' + (pCount === 1 ? '' : 's') +
+        '<span class="passage-meta">' + pMeta +
         (pDates ? ' \u00b7 ' + pDates : '') + '</span>' +
         '</span>';
 
@@ -621,16 +743,23 @@ function setupResizer() {
 }
 
 async function loadLeg(file) {
-  const res = await fetch('data/' + file);
+  const res = await fetch('data/' + file + '?v=' + Date.now(), { cache: 'no-store' });
   if (!res.ok) throw new Error('Failed to load ' + file);
+  return res.json();
+}
+
+async function loadScanLayout() {
+  const res = await fetch('data/scan-layout.json?v=' + Date.now(), { cache: 'no-store' });
+  if (!res.ok) return { entries: {} };
   return res.json();
 }
 
 async function init() {
   try {
-    const manifestRes = await fetch('data/manifest.json');
+    const manifestRes = await fetch('data/manifest.json?v=' + Date.now(), { cache: 'no-store' });
     if (!manifestRes.ok) throw new Error('Failed to load manifest');
     const manifest = await manifestRes.json();
+    scanLayout = await loadScanLayout();
 
     const vessel = manifest.vessel || 'Charlotte';
     const headline = manifest.headline || 'Journey of the Sailing Vessel';

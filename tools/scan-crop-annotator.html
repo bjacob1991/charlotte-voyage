@@ -1,0 +1,1346 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Scan Crop Annotator</title>
+  <style>
+    :root {
+      --bg: #0f172a;
+      --panel: #111827;
+      --panel-2: #1f2937;
+      --text: #e5e7eb;
+      --muted: #94a3b8;
+      --accent: #38bdf8;
+      --good: #22c55e;
+      --warn: #f59e0b;
+      --danger: #ef4444;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+    }
+    .layout {
+      display: grid;
+      grid-template-columns: minmax(360px, 1fr) 420px;
+      gap: 10px;
+      height: 100vh;
+      padding: 10px;
+    }
+    .panel {
+      background: var(--panel);
+      border: 1px solid #334155;
+      border-radius: 10px;
+      min-height: 0;
+      display: flex;
+      flex-direction: column;
+    }
+    .panel-head {
+      padding: 10px 12px;
+      border-bottom: 1px solid #334155;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .panel-head h1 {
+      margin: 0;
+      font-size: 16px;
+      font-weight: 700;
+      margin-right: 10px;
+    }
+    .btn, select, input[type="text"], input[type="number"] {
+      background: var(--panel-2);
+      color: var(--text);
+      border: 1px solid #475569;
+      border-radius: 6px;
+      font-size: 13px;
+      padding: 6px 8px;
+    }
+    .btn {
+      cursor: pointer;
+      transition: border-color 0.12s ease;
+    }
+    .btn:hover { border-color: var(--accent); }
+    .btn.good { border-color: #166534; color: #bbf7d0; }
+    .btn.warn { border-color: #854d0e; color: #fde68a; }
+    .btn.danger { border-color: #7f1d1d; color: #fecaca; }
+    .canvas-wrap {
+      flex: 1;
+      min-height: 0;
+      overflow: auto;
+      background: #020617;
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      padding: 12px;
+    }
+    #cropCanvas {
+      background: #000;
+      border: 1px solid #334155;
+      cursor: crosshair;
+    }
+    .status {
+      margin-left: auto;
+      color: var(--muted);
+      font-size: 12px;
+    }
+    .side {
+      display: grid;
+      grid-template-rows: auto auto auto 1fr auto;
+      min-height: 0;
+    }
+    .group {
+      border-bottom: 1px solid #334155;
+      padding: 10px;
+    }
+    .group h2 {
+      margin: 0 0 8px;
+      font-size: 13px;
+      color: #bfdbfe;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+    }
+    .row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+      margin-bottom: 8px;
+    }
+    .row.single { grid-template-columns: 1fr; }
+    .hint {
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.4;
+    }
+    .list {
+      min-height: 0;
+      overflow: auto;
+      padding: 8px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .item {
+      border: 1px solid #334155;
+      border-radius: 8px;
+      padding: 7px 8px;
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      gap: 8px;
+      align-items: center;
+      cursor: pointer;
+      background: #0b1220;
+    }
+    .item:hover { border-color: #475569; }
+    .item.selected { border-color: var(--accent); background: #0f2744; }
+    .item.done { border-color: #166534; background: #052e16; }
+    .item.done-file { border-color: #14532d; background: #042f1a; }
+    .item.pending { border-color: #854d0e; }
+    .item.selected.pending { border-color: var(--accent); box-shadow: 0 0 0 1px var(--accent); }
+    .item.jump-flash {
+      animation: jump-flash 1.1s ease;
+    }
+    @keyframes jump-flash {
+      0%, 100% { box-shadow: none; }
+      25%, 75% { box-shadow: 0 0 0 3px var(--accent); border-color: var(--accent); }
+    }
+    .dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 999px;
+      background: #475569;
+    }
+    .item.done .dot { background: var(--good); }
+    .item .path {
+      font-size: 12px;
+      color: #e2e8f0;
+      word-break: break-all;
+    }
+    .item .meta {
+      color: var(--muted);
+      font-size: 11px;
+    }
+    .footer {
+      padding: 8px 10px;
+      border-top: 1px solid #334155;
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .layout-field {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      margin-bottom: 8px;
+      font-size: 12px;
+    }
+    .layout-field select,
+    .layout-field input[type="text"] {
+      width: 100%;
+    }
+    .layout-field label { color: var(--muted); }
+    .kbd {
+      border: 1px solid #64748b;
+      border-radius: 4px;
+      padding: 1px 4px;
+      font-size: 11px;
+      color: #cbd5e1;
+    }
+    @media (max-width: 1200px) {
+      .layout { grid-template-columns: 1fr; height: auto; }
+      .panel { min-height: 420px; }
+      .side { min-height: 560px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="layout">
+    <section class="panel">
+      <div class="panel-head">
+        <h1>Scan Crop Annotator</h1>
+        <button class="btn good" id="btnLoadExportedPages" type="button">Load exported pages</button>
+        <input id="imageFiles" type="file" accept="image/*" multiple />
+        <select id="pageSelect"></select>
+        <button class="btn" id="btnPrevPage" type="button">Prev Page</button>
+        <button class="btn" id="btnNextPage" type="button">Next Page</button>
+        <label>Zoom <input id="zoomPct" type="number" min="20" max="250" value="100" /></label>
+        <span class="status" id="statusText">No page loaded</span>
+      </div>
+      <div class="canvas-wrap">
+        <canvas id="cropCanvas" width="1000" height="700"></canvas>
+      </div>
+      <div class="footer">
+        <div class="hint">
+          Draw box with mouse. Select target on right, then assign.
+          <span class="kbd">A</span> assign
+          <span class="kbd">Del</span> remove selected box
+          <span class="kbd">[</span>/<span class="kbd">]</span> page
+        </div>
+        <div id="coverageText" class="hint">0 / 0 assigned</div>
+      </div>
+    </section>
+
+    <aside class="panel side">
+      <div class="group">
+        <h2>Project Targets</h2>
+        <div class="row">
+          <button class="btn" id="btnLoadTargets" type="button">Reload targets from data</button>
+          <button class="btn" id="btnRescanDisk" type="button">Rescan disk</button>
+        </div>
+        <div class="row">
+          <button class="btn warn" id="btnSortUnassigned" type="button">Jump to next unassigned</button>
+        </div>
+        <div class="row single">
+          <label class="hint">Filter
+            <input id="filterInput" type="text" placeholder="e.g. 2002-03 or leg-02" />
+          </label>
+        </div>
+      </div>
+
+      <div class="group">
+        <h2>Selected Crop</h2>
+        <div class="row">
+          <button class="btn good" id="btnAssign" type="button">Assign Selected Target</button>
+          <button class="btn danger" id="btnDeleteBox" type="button">Delete Box</button>
+        </div>
+        <div class="hint" id="boxInfo">No crop selected.</div>
+      </div>
+
+      <div class="group" id="entryLayoutGroup">
+        <h2>Entry layout (A/B splits)</h2>
+        <div class="hint" id="entryLayoutHint">Select a target below to split one diary day across two logbook pages.</div>
+        <div id="entryLayoutForm" hidden>
+          <div class="hint" id="entryLayoutTitle"></div>
+          <div class="layout-field">
+            <label for="layoutPageA">Part A — logbook page</label>
+            <select id="layoutPageA"></select>
+          </div>
+          <div class="layout-field">
+            <label for="layoutPageB">Part B — logbook page</label>
+            <select id="layoutPageB"></select>
+          </div>
+          <div class="layout-field">
+            <label for="layoutNote">Note (optional)</label>
+            <input id="layoutNote" type="text" placeholder="e.g. starts p30, continues p31" />
+          </div>
+          <div class="row">
+            <button class="btn good" id="btnApplyLayout" type="button">Apply A/B split</button>
+            <button class="btn" id="btnRevertSingle" type="button">Revert to single</button>
+          </div>
+        </div>
+      </div>
+
+      <div id="targetList" class="list"></div>
+
+      <div class="group">
+        <h2>Save / Load Review</h2>
+        <div class="row">
+          <button class="btn good" id="btnExport" type="button">Export annotations JSON</button>
+          <button class="btn" id="btnImport" type="button">Import annotations JSON</button>
+        </div>
+        <div class="row">
+          <button class="btn good" id="btnExportLayout" type="button">Export scan-layout.json</button>
+          <button class="btn" id="btnImportLayout" type="button">Import scan-layout.json</button>
+        </div>
+        <input id="importFile" type="file" accept="application/json" hidden />
+        <input id="importLayoutFile" type="file" accept="application/json" hidden />
+        <div class="hint">
+          <strong>Crop boxes:</strong> save as <code>scan-crop-annotations.json</code>, then
+          <code>python scripts/crop-scans.py --annotations scan-crop-annotations.json</code>.
+          Boxes autosave in the browser.<br>
+          <strong>A/B splits:</strong> export <code>scan-layout.json</code> and save over
+          <code>data/scan-layout.json</code> so the site picks them up.
+        </div>
+      </div>
+    </aside>
+  </div>
+
+  <script>
+    const state = {
+      pages: [],
+      pageIndex: -1,
+      image: null,
+      zoom: 1,
+      drawing: null,
+      selectedBoxId: null,
+      targets: [],
+      existingScans: new Set(),
+      selectedTargetPath: null,
+      scanLayout: { entries: {} },
+      layoutOverrides: { entries: {}, removed: {} },
+      entryCatalog: {},
+      entryCatalogOrder: [],
+      annotations: {
+        version: 1,
+        createdAt: new Date().toISOString(),
+        pages: {}
+      }
+    };
+
+    const els = {
+      imageFiles: document.getElementById('imageFiles'),
+      pageSelect: document.getElementById('pageSelect'),
+      btnPrevPage: document.getElementById('btnPrevPage'),
+      btnNextPage: document.getElementById('btnNextPage'),
+      zoomPct: document.getElementById('zoomPct'),
+      statusText: document.getElementById('statusText'),
+      coverageText: document.getElementById('coverageText'),
+      btnLoadTargets: document.getElementById('btnLoadTargets'),
+      btnRescanDisk: document.getElementById('btnRescanDisk'),
+      btnLoadExportedPages: document.getElementById('btnLoadExportedPages'),
+      btnSortUnassigned: document.getElementById('btnSortUnassigned'),
+      filterInput: document.getElementById('filterInput'),
+      targetList: document.getElementById('targetList'),
+      btnAssign: document.getElementById('btnAssign'),
+      btnDeleteBox: document.getElementById('btnDeleteBox'),
+      boxInfo: document.getElementById('boxInfo'),
+      btnExport: document.getElementById('btnExport'),
+      btnImport: document.getElementById('btnImport'),
+      importFile: document.getElementById('importFile'),
+      entryLayoutHint: document.getElementById('entryLayoutHint'),
+      entryLayoutForm: document.getElementById('entryLayoutForm'),
+      entryLayoutTitle: document.getElementById('entryLayoutTitle'),
+      layoutPageA: document.getElementById('layoutPageA'),
+      layoutPageB: document.getElementById('layoutPageB'),
+      layoutNote: document.getElementById('layoutNote'),
+      btnApplyLayout: document.getElementById('btnApplyLayout'),
+      btnRevertSingle: document.getElementById('btnRevertSingle'),
+      btnExportLayout: document.getElementById('btnExportLayout'),
+      btnImportLayout: document.getElementById('btnImportLayout'),
+      importLayoutFile: document.getElementById('importLayoutFile'),
+      canvas: document.getElementById('cropCanvas')
+    };
+    const ctx = els.canvas.getContext('2d');
+
+    function pageKey(pageName) {
+      return pageName;
+    }
+
+    function getCurrentPage() {
+      return state.pages[state.pageIndex] || null;
+    }
+
+    function getBoxesForCurrentPage() {
+      const page = getCurrentPage();
+      if (!page) return [];
+      const key = pageKey(page.name);
+      if (!state.annotations.pages[key]) {
+        state.annotations.pages[key] = { image: page.name, boxes: [] };
+      }
+      return state.annotations.pages[key].boxes;
+    }
+
+    function normRect(x1, y1, x2, y2, width, height) {
+      const left = Math.min(x1, x2);
+      const top = Math.min(y1, y2);
+      const right = Math.max(x1, x2);
+      const bottom = Math.max(y1, y2);
+      return {
+        x: clamp(left / width, 0, 1),
+        y: clamp(top / height, 0, 1),
+        w: clamp((right - left) / width, 0, 1),
+        h: clamp((bottom - top) / height, 0, 1)
+      };
+    }
+
+    function denormRect(rect, width, height) {
+      return {
+        x: rect.x * width,
+        y: rect.y * height,
+        w: rect.w * width,
+        h: rect.h * height
+      };
+    }
+
+    function clamp(value, min, max) {
+      return Math.max(min, Math.min(max, value));
+    }
+
+    function boxHitTest(px, py, boxes, width, height) {
+      for (let i = boxes.length - 1; i >= 0; i--) {
+        const b = denormRect(boxes[i].rect, width, height);
+        if (px >= b.x && px <= b.x + b.w && py >= b.y && py <= b.y + b.h) return boxes[i].id;
+      }
+      return null;
+    }
+
+    function uuid() {
+      return Math.random().toString(36).slice(2, 10);
+    }
+
+    function drawCanvas() {
+      const page = getCurrentPage();
+      ctx.clearRect(0, 0, els.canvas.width, els.canvas.height);
+
+      if (!state.image || !page) {
+        ctx.fillStyle = '#0b1220';
+        ctx.fillRect(0, 0, els.canvas.width, els.canvas.height);
+        ctx.fillStyle = '#94a3b8';
+        ctx.font = '16px Arial';
+        ctx.fillText('Load page images to begin.', 20, 34);
+        return;
+      }
+
+      const w = state.image.width * state.zoom;
+      const h = state.image.height * state.zoom;
+      if (els.canvas.width !== w || els.canvas.height !== h) {
+        els.canvas.width = w;
+        els.canvas.height = h;
+      }
+      ctx.drawImage(state.image, 0, 0, w, h);
+
+      const boxes = getBoxesForCurrentPage();
+      boxes.forEach((box, idx) => {
+        const r = denormRect(box.rect, w, h);
+        const selected = box.id === state.selectedBoxId;
+        ctx.strokeStyle = selected ? '#f59e0b' : '#38bdf8';
+        ctx.fillStyle = selected ? 'rgba(245, 158, 11, 0.18)' : 'rgba(56, 189, 248, 0.18)';
+        ctx.lineWidth = selected ? 3 : 2;
+        ctx.fillRect(r.x, r.y, r.w, r.h);
+        ctx.strokeRect(r.x, r.y, r.w, r.h);
+        const label = box.scanPath ? box.scanPath.replace('images/scans/', '') : `crop-${idx + 1}`;
+        ctx.fillStyle = '#e5e7eb';
+        ctx.font = '12px Arial';
+        ctx.fillText(label, r.x + 4, Math.max(12, r.y - 5));
+      });
+
+      if (state.drawing) {
+        const d = state.drawing;
+        const r = {
+          x: Math.min(d.x1, d.x2),
+          y: Math.min(d.y1, d.y2),
+          w: Math.abs(d.x2 - d.x1),
+          h: Math.abs(d.y2 - d.y1)
+        };
+        ctx.strokeStyle = '#f59e0b';
+        ctx.fillStyle = 'rgba(245, 158, 11, 0.15)';
+        ctx.lineWidth = 2;
+        ctx.fillRect(r.x, r.y, r.w, r.h);
+        ctx.strokeRect(r.x, r.y, r.w, r.h);
+      }
+    }
+
+    function updateStatus() {
+      const page = getCurrentPage();
+      if (!page) {
+        els.statusText.textContent = 'No page loaded';
+      } else {
+        const boxes = getBoxesForCurrentPage();
+        const pageLabel = page.logbookPage ? `logbook p.${page.logbookPage} • ` : '';
+        els.statusText.textContent = `${pageLabel}${page.name} • ${boxes.length} crop box(es)`;
+      }
+      updateCoverage();
+      updateBoxInfo();
+    }
+
+    function updateCoverage() {
+      const boxed = getAssignedPaths();
+      const onDisk = state.existingScans;
+      const completed = getCompletedPaths();
+      const total = state.targets.length;
+      const diskOnly = [...onDisk].filter((p) => !boxed.has(p)).length;
+      els.coverageText.textContent =
+        `${completed.size} / ${total} done` +
+        (diskOnly ? ` (${diskOnly} on disk` + (boxed.size ? `, ${boxed.size} boxed)` : ')') : boxed.size ? ` (${boxed.size} boxed)` : '');
+    }
+
+    function updateBoxInfo() {
+      if (!state.selectedBoxId) {
+        els.boxInfo.textContent = 'No crop selected.';
+        return;
+      }
+      const box = findBoxById(state.selectedBoxId);
+      if (!box) {
+        els.boxInfo.textContent = 'No crop selected.';
+        return;
+      }
+      const r = box.rect;
+      els.boxInfo.textContent = `x=${r.x.toFixed(4)} y=${r.y.toFixed(4)} w=${r.w.toFixed(4)} h=${r.h.toFixed(4)} ${
+        box.scanPath ? ' • ' + box.scanPath : ''
+      }`;
+    }
+
+    function findBoxById(id) {
+      for (const page of Object.values(state.annotations.pages)) {
+        const hit = page.boxes.find((b) => b.id === id);
+        if (hit) return hit;
+      }
+      return null;
+    }
+
+    function setPageByIndex(idx) {
+      if (idx < 0 || idx >= state.pages.length) return;
+      state.pageIndex = idx;
+      loadCurrentImage().then(() => {
+        renderPageSelect();
+        drawCanvas();
+        updateStatus();
+        saveLocal();
+      });
+    }
+
+    function jumpToPageFile(pageFileName) {
+      if (!pageFileName || !state.pages.length) return false;
+      const idx = state.pages.findIndex((p) => p.name === pageFileName);
+      if (idx < 0) return false;
+      setPageByIndex(idx);
+      return true;
+    }
+
+    async function loadScanLayout() {
+      const cacheBust = '?v=' + Date.now();
+      const res = await fetch('../data/scan-layout.json' + cacheBust, { cache: 'no-store' });
+      if (!res.ok) return { entries: {} };
+      return res.json();
+    }
+
+    function layoutKey(legId, date) {
+      return legId + ':' + date;
+    }
+
+    function getLayoutEntry(key) {
+      if (state.layoutOverrides.removed && state.layoutOverrides.removed[key]) return null;
+      if (state.layoutOverrides.entries[key]) return state.layoutOverrides.entries[key];
+      return state.scanLayout.entries[key] || null;
+    }
+
+    function mergedLayoutDocument() {
+      const entries = { ...(state.scanLayout.entries || {}) };
+      Object.assign(entries, state.layoutOverrides.entries || {});
+      if (state.layoutOverrides.removed) {
+        Object.keys(state.layoutOverrides.removed).forEach((key) => {
+          delete entries[key];
+        });
+      }
+      return {
+        version: 1,
+        _howto:
+          'When one log entry spans multiple physical logbook pages, add a key legId:date here. pages[] aligns with scans[] by index.',
+        entries
+      };
+    }
+
+    function resolveScanPaths(entry, legId) {
+      const key = layoutKey(legId, entry.date);
+      const layout = getLayoutEntry(key);
+      if (layout && layout.scans && layout.scans.length) return layout.scans;
+      if (entry.scans && entry.scans.length) return entry.scans;
+      if (entry.scan) return [entry.scan];
+      return [];
+    }
+
+    function layoutPageForScan(legId, date, scanPath) {
+      const layout = getLayoutEntry(layoutKey(legId, date));
+      if (!layout || !layout.pages || !layout.scans) return null;
+      const idx = layout.scans.indexOf(scanPath);
+      return idx >= 0 ? layout.pages[idx] : null;
+    }
+
+    function defaultScanPathForEntry(entry) {
+      if (entry.scan) return entry.scan;
+      if (entry.scans && entry.scans.length === 1) return entry.scans[0];
+      return 'images/scans/' + entry.date.replace(/a$|b$/, '') + '.jpg';
+    }
+
+    function abScanPathsFromSingle(singlePath) {
+      const stem = singlePath.replace(/\.jpg$/i, '');
+      const base = /[ab]$/i.test(stem.slice(-1)) ? stem.slice(0, -1) : stem;
+      return [base + 'a.jpg', base + 'b.jpg'];
+    }
+
+    function fillPageSelect(selectEl, selectedFile) {
+      selectEl.innerHTML = '';
+      if (!state.pages.length) {
+        const opt = document.createElement('option');
+        opt.value = '';
+        opt.textContent = 'Load exported pages first';
+        selectEl.appendChild(opt);
+        selectEl.disabled = true;
+        return;
+      }
+      selectEl.disabled = false;
+      state.pages.forEach((p) => {
+        const opt = document.createElement('option');
+        opt.value = p.name;
+        const lb = p.logbookPage != null ? 'log p' + p.logbookPage : p.name;
+        opt.textContent = lb + ' — ' + p.name;
+        selectEl.appendChild(opt);
+      });
+      if (selectedFile && state.pages.some((p) => p.name === selectedFile)) {
+        selectEl.value = selectedFile;
+      }
+    }
+
+    function pageAfter(pageFileName) {
+      const idx = state.pages.findIndex((p) => p.name === pageFileName);
+      if (idx >= 0 && idx + 1 < state.pages.length) return state.pages[idx + 1].name;
+      return pageFileName;
+    }
+
+    function remapScanPathInBoxes(oldPath, newPath) {
+      if (!oldPath || !newPath || oldPath === newPath) return;
+      Object.values(state.annotations.pages).forEach((page) => {
+        page.boxes.forEach((box) => {
+          if (box.scanPath === oldPath) box.scanPath = newPath;
+        });
+      });
+    }
+
+    function setLayoutEntry(key, layoutEntry) {
+      state.layoutOverrides.entries[key] = layoutEntry;
+      if (state.layoutOverrides.removed) delete state.layoutOverrides.removed[key];
+      saveLayoutOverrides();
+    }
+
+    function removeLayoutEntry(key) {
+      delete state.layoutOverrides.entries[key];
+      if (!state.layoutOverrides.removed) state.layoutOverrides.removed = {};
+      state.layoutOverrides.removed[key] = true;
+      saveLayoutOverrides();
+    }
+
+    function saveLayoutOverrides() {
+      localStorage.setItem('scanCropLayoutOverrides', JSON.stringify(state.layoutOverrides));
+    }
+
+    function loadLayoutOverrides() {
+      const raw = localStorage.getItem('scanCropLayoutOverrides');
+      if (!raw) return;
+      try {
+        const parsed = JSON.parse(raw);
+        state.layoutOverrides = {
+          entries: parsed.entries || {},
+          removed: parsed.removed || {}
+        };
+      } catch (_) {}
+    }
+
+    function getSelectedTarget() {
+      if (!state.selectedTargetPath) return null;
+      return state.targets.find((t) => t.scanPath === state.selectedTargetPath) || null;
+    }
+
+    function renderEntryLayoutPanel() {
+      const target = getSelectedTarget();
+      if (!target) {
+        els.entryLayoutForm.hidden = true;
+        els.entryLayoutHint.hidden = false;
+        els.entryLayoutHint.textContent =
+          'Select a target below to split one diary day across two logbook pages.';
+        return;
+      }
+
+      const key = layoutKey(target.legId, target.date);
+      const catalog = state.entryCatalog[key];
+      const layout = getLayoutEntry(key);
+      const isMulti = layout && layout.scans && layout.scans.length > 1;
+
+      els.entryLayoutHint.hidden = true;
+      els.entryLayoutForm.hidden = false;
+      els.entryLayoutTitle.textContent =
+        key +
+        ' • ' +
+        (target.dateDisplay || target.date) +
+        (isMulti ? ' — ' + layout.scans.length + ' parts' : ' — single scan');
+
+      let pageA = getCurrentPage() ? getCurrentPage().name : '';
+      let pageB = '';
+      if (layout && layout.pages && layout.pages.length >= 2) {
+        pageA = layout.pages[0];
+        pageB = layout.pages[1];
+      } else if (pageA) {
+        pageB = pageAfter(pageA);
+      } else if (state.pages.length >= 2) {
+        pageA = state.pages[0].name;
+        pageB = state.pages[1].name;
+      }
+
+      fillPageSelect(els.layoutPageA, pageA);
+      fillPageSelect(els.layoutPageB, pageB);
+      els.layoutNote.value = (layout && layout.note) || '';
+      els.btnApplyLayout.textContent = isMulti ? 'Update A/B pages' : 'Apply A/B split';
+      els.btnRevertSingle.disabled = !layout;
+    }
+
+    function applyEntryLayoutSplit() {
+      const target = getSelectedTarget();
+      if (!target) {
+        alert('Select a target first.');
+        return;
+      }
+      if (!state.pages.length) {
+        alert('Load exported pages first so you can pick logbook pages.');
+        return;
+      }
+
+      const pageA = els.layoutPageA.value;
+      const pageB = els.layoutPageB.value;
+      if (!pageA || !pageB) {
+        alert('Choose a logbook page for both parts.');
+        return;
+      }
+      if (pageA === pageB) {
+        alert('Part A and Part B must be different pages.');
+        return;
+      }
+
+      const key = layoutKey(target.legId, target.date);
+      const catalog = state.entryCatalog[key];
+      const singlePath = catalog ? catalog.defaultScanPath : target.scanPath.replace(/[ab](\.jpg)$/i, '$1');
+      const prevLayout = getLayoutEntry(key);
+      const scans = abScanPathsFromSingle(singlePath);
+      const note = els.layoutNote.value.trim();
+
+      if (!prevLayout || prevLayout.scans.length < 2) {
+        remapScanPathInBoxes(singlePath, scans[0]);
+      } else {
+        prevLayout.scans.forEach((oldPath, idx) => {
+          if (oldPath !== scans[idx]) remapScanPathInBoxes(oldPath, scans[idx]);
+        });
+      }
+
+      setLayoutEntry(key, {
+        scans: scans,
+        pages: [pageA, pageB],
+        note: note || undefined
+      });
+
+      rebuildTargets();
+      state.selectedTargetPath = scans[0];
+      renderTargets();
+      renderEntryLayoutPanel();
+      jumpToPageFile(pageA);
+      els.boxInfo.textContent = 'Split applied: ' + scans.join(', ');
+      saveLocal();
+    }
+
+    function revertEntryToSingle() {
+      const target = getSelectedTarget();
+      if (!target) {
+        alert('Select a target first.');
+        return;
+      }
+
+      const key = layoutKey(target.legId, target.date);
+      const catalog = state.entryCatalog[key];
+      const layout = getLayoutEntry(key);
+      const singlePath = catalog ? catalog.defaultScanPath : defaultScanPathForEntry({ date: target.date, scan: target.scanPath });
+
+      if (layout && layout.scans) {
+        layout.scans.forEach((path) => {
+          if (path !== singlePath) remapScanPathInBoxes(path, singlePath);
+        });
+      }
+
+      removeLayoutEntry(key);
+      rebuildTargets();
+      state.selectedTargetPath = singlePath;
+      renderTargets();
+      renderEntryLayoutPanel();
+      els.boxInfo.textContent = 'Reverted to single scan: ' + singlePath;
+      saveLocal();
+    }
+
+    function exportScanLayout() {
+      const payload = mergedLayoutDocument();
+      payload.exportedAt = new Date().toISOString();
+      const blob = new Blob([JSON.stringify(payload, null, 2)], { type: 'application/json' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'scan-layout.json';
+      a.click();
+      URL.revokeObjectURL(url);
+    }
+
+    function importScanLayout(file) {
+      const reader = new FileReader();
+      reader.onload = () => {
+        try {
+          const parsed = JSON.parse(reader.result);
+          if (!parsed.entries) throw new Error('Missing entries object');
+          state.scanLayout = { entries: parsed.entries };
+          state.layoutOverrides = { entries: {}, removed: {} };
+          saveLayoutOverrides();
+          rebuildTargets();
+          renderEntryLayoutPanel();
+          alert('Imported scan-layout.json. Targets updated.');
+        } catch (err) {
+          alert('Import failed: ' + err.message);
+        }
+      };
+      reader.readAsText(file);
+    }
+
+    function rebuildTargets() {
+      const targets = [];
+      state.entryCatalogOrder.forEach((key) => {
+        const cat = state.entryCatalog[key];
+        if (!cat) return;
+        const fakeEntry = { date: cat.date, scan: cat.defaultScanPath, scans: cat.entryScans };
+        const paths = resolveScanPaths(fakeEntry, cat.legId);
+        paths.forEach((scanPath, index) => {
+          targets.push({
+            scanPath: scanPath,
+            legId: cat.legId,
+            stopName: cat.stopName,
+            date: cat.date,
+            pageFile: layoutPageForScan(cat.legId, cat.date, scanPath),
+            dateDisplay:
+              (cat.dateDisplay || cat.date) +
+              (paths.length > 1 ? ' (part ' + (index + 1) + ' of ' + paths.length + ')' : '')
+          });
+        });
+      });
+
+      const byPath = new Map();
+      targets.forEach((t) => {
+        if (!byPath.has(t.scanPath)) byPath.set(t.scanPath, t);
+      });
+      state.targets = Array.from(byPath.values());
+      pruneStaleAssignments();
+    }
+
+    async function loadCurrentImage() {
+      const page = getCurrentPage();
+      state.selectedBoxId = null;
+      if (!page) {
+        state.image = null;
+        return;
+      }
+      const img = new Image();
+      img.src = page.url;
+      await img.decode();
+      state.image = img;
+      const w = img.width * state.zoom;
+      const h = img.height * state.zoom;
+      els.canvas.width = w;
+      els.canvas.height = h;
+    }
+
+    function renderPageSelect() {
+      els.pageSelect.innerHTML = '';
+      state.pages.forEach((p, idx) => {
+        const opt = document.createElement('option');
+        opt.value = String(idx);
+        opt.textContent = `${idx + 1}. ${p.name}`;
+        els.pageSelect.appendChild(opt);
+      });
+      if (state.pageIndex >= 0) {
+        els.pageSelect.value = String(state.pageIndex);
+      }
+    }
+
+    function getAssignedPaths() {
+      const assigned = new Set();
+      Object.values(state.annotations.pages).forEach((p) => {
+        p.boxes.forEach((b) => {
+          if (b.scanPath) assigned.add(b.scanPath);
+        });
+      });
+      return assigned;
+    }
+
+    function getCompletedPaths() {
+      const completed = getAssignedPaths();
+      state.existingScans.forEach((path) => completed.add(path));
+      return completed;
+    }
+
+    async function scanExists(scanPath) {
+      const url = '../' + scanPath;
+      try {
+        let res = await fetch(url, { method: 'HEAD', cache: 'no-store' });
+        if (res.ok) return true;
+        if (res.status === 405 || res.status === 501) {
+          res = await fetch(url, { method: 'GET', cache: 'no-store' });
+          return res.ok;
+        }
+        return false;
+      } catch (_) {
+        return false;
+      }
+    }
+
+    async function probeExistingScans(targets) {
+      const existing = new Set();
+      const checks = targets.map(async (t) => {
+        if (await scanExists(t.scanPath)) existing.add(t.scanPath);
+      });
+      await Promise.all(checks);
+      return existing;
+    }
+
+    async function rescanDisk() {
+      if (!state.targets.length) {
+        alert('Load targets first: click "Load from data/*.json".');
+        return;
+      }
+      els.coverageText.textContent = 'Checking existing scans on disk…';
+      state.existingScans = await probeExistingScans(state.targets);
+      renderTargets();
+      updateCoverage();
+      saveLocal();
+    }
+
+    function scrollTargetIntoView(scanPath) {
+      const rows = Array.from(els.targetList.querySelectorAll('.item'));
+      const row = rows.find((el) => el.dataset.path === scanPath);
+      if (row) {
+        row.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
+        row.classList.add('jump-flash');
+        setTimeout(() => row.classList.remove('jump-flash'), 1200);
+      }
+    }
+
+    function renderTargets() {
+      const boxed = getAssignedPaths();
+      const onDisk = state.existingScans;
+
+      const q = els.filterInput.value.trim().toLowerCase();
+      const targets = state.targets.filter((t) => {
+        if (!q) return true;
+        return [t.scanPath, t.legId, t.stopName, t.dateDisplay || t.date].join(' ').toLowerCase().includes(q);
+      });
+
+      els.targetList.innerHTML = '';
+      targets.forEach((t) => {
+        const row = document.createElement('div');
+        row.className = 'item';
+        if (t.scanPath === state.selectedTargetPath) row.classList.add('selected');
+        if (boxed.has(t.scanPath)) {
+          row.classList.add('done');
+        } else if (onDisk.has(t.scanPath)) {
+          row.classList.add('done', 'done-file');
+        } else {
+          row.classList.add('pending');
+        }
+        row.dataset.path = t.scanPath;
+
+        const dot = document.createElement('span');
+        dot.className = 'dot';
+        const path = document.createElement('div');
+        path.className = 'path';
+        path.textContent = t.scanPath;
+        const meta = document.createElement('div');
+        meta.className = 'meta';
+        let status = '';
+        if (boxed.has(t.scanPath)) status = 'boxed';
+        else if (onDisk.has(t.scanPath)) status = 'on disk';
+        meta.textContent =
+          `${t.legId} • ${t.stopName} • ${t.dateDisplay || t.date}` +
+          (t.pageFile ? ` • crop from ${t.pageFile}` : '') +
+          (status ? ` • ${status}` : '');
+        row.appendChild(dot);
+        row.appendChild(path);
+        row.appendChild(meta);
+
+        row.addEventListener('click', () => {
+          state.selectedTargetPath = t.scanPath;
+          if (t.pageFile) jumpToPageFile(t.pageFile);
+          renderTargets();
+          renderEntryLayoutPanel();
+          scrollTargetIntoView(t.scanPath);
+          els.boxInfo.textContent =
+            'Selected: ' + t.scanPath + ' • ' + (t.dateDisplay || t.date) +
+            (t.pageFile ? ' • open ' + t.pageFile : '');
+        });
+        els.targetList.appendChild(row);
+      });
+    }
+
+    async function loadExportedPages() {
+      const res = await fetch('../images/scans/_pages/manifest.json');
+      if (!res.ok) {
+        throw new Error(
+          'Could not load images/scans/_pages/manifest.json. Run: python scripts/export-pdf-pages.py'
+        );
+      }
+      const manifest = await res.json();
+      if (!manifest.pages || !manifest.pages.length) {
+        throw new Error('Page manifest is empty.');
+      }
+
+      state.pages = manifest.pages.map((p) => ({
+        name: p.file,
+        url: `../images/scans/_pages/${p.file}`,
+        logbookPage: p.logbookPage,
+        source: p.source
+      }));
+      state.pageIndex = 0;
+      renderPageSelect();
+      await loadCurrentImage();
+      drawCanvas();
+      updateStatus();
+      saveLocal();
+    }
+
+    function entryScanPaths(entry, legId) {
+      return resolveScanPaths(entry, legId);
+    }
+
+    async function loadTargetsFromData() {
+      const cacheBust = '?v=' + Date.now();
+      state.scanLayout = await loadScanLayout();
+      loadLayoutOverrides();
+      const manifestRes = await fetch('../data/manifest.json' + cacheBust, { cache: 'no-store' });
+      if (!manifestRes.ok) throw new Error('Failed loading data/manifest.json');
+      const manifest = await manifestRes.json();
+      const legs = manifest.legs.filter((leg) => leg.status !== 'planned');
+
+      state.entryCatalog = {};
+      state.entryCatalogOrder = [];
+      for (const leg of legs) {
+        const legRes = await fetch('../data/' + leg.file + cacheBust, { cache: 'no-store' });
+        if (!legRes.ok) throw new Error(`Failed loading data/${leg.file}`);
+        const legData = await legRes.json();
+        legData.stops.forEach((stop) => {
+          stop.entries.forEach((entry) => {
+            const key = layoutKey(leg.id, entry.date);
+            state.entryCatalog[key] = {
+              legId: leg.id,
+              date: entry.date,
+              dateDisplay: entry.date_display || entry.date,
+              stopName: stop.name,
+              defaultScanPath: defaultScanPathForEntry(entry),
+              entryScans: entry.scans || null
+            };
+            state.entryCatalogOrder.push(key);
+          });
+        });
+      }
+
+      rebuildTargets();
+      els.coverageText.textContent = 'Checking existing scans on disk…';
+      state.existingScans = await probeExistingScans(state.targets);
+      renderTargets();
+      renderEntryLayoutPanel();
+      updateCoverage();
+      saveLocal();
+    }
+
+    function saveLocal() {
+      const payload = {
+        pages: state.pages.map((p) => ({ name: p.name })),
+        annotations: state.annotations,
+        selectedTargetPath: state.selectedTargetPath,
+        existingScans: [...state.existingScans]
+      };
+      localStorage.setItem('scanCropAnnotatorState', JSON.stringify(payload));
+    }
+
+    function loadLocal() {
+      const raw = localStorage.getItem('scanCropAnnotatorState');
+      if (!raw) return;
+      try {
+        const parsed = JSON.parse(raw);
+        if (parsed.annotations && parsed.annotations.pages) {
+          state.annotations = parsed.annotations;
+        }
+        state.selectedTargetPath = parsed.selectedTargetPath || null;
+        if (Array.isArray(parsed.existingScans)) {
+          state.existingScans = new Set(parsed.existingScans);
+        }
+      } catch (_) {}
+    }
+
+    function nextUnassignedAfter(afterPath) {
+      const completed = getCompletedPaths();
+      const startIdx = afterPath ? state.targets.findIndex((t) => t.scanPath === afterPath) : -1;
+      for (let i = startIdx + 1; i < state.targets.length; i++) {
+        if (!completed.has(state.targets[i].scanPath)) return state.targets[i];
+      }
+      for (let i = 0; i <= Math.max(startIdx, 0); i++) {
+        if (!completed.has(state.targets[i].scanPath)) return state.targets[i];
+      }
+      return null;
+    }
+
+    function selectTarget(target, messagePrefix) {
+      if (!target) return false;
+      state.selectedTargetPath = target.scanPath;
+      if (target.pageFile) jumpToPageFile(target.pageFile);
+      renderTargets();
+      renderEntryLayoutPanel();
+      scrollTargetIntoView(target.scanPath);
+      els.boxInfo.textContent =
+        messagePrefix + target.scanPath + ' • ' + (target.dateDisplay || target.date) +
+        (target.pageFile ? ' • ' + target.pageFile : '');
+      saveLocal();
+      return true;
+    }
+
+    function pruneStaleAssignments() {
+      const valid = new Set(state.targets.map((t) => t.scanPath));
+      Object.values(state.annotations.pages).forEach((page) => {
+        page.boxes.forEach((box) => {
+          if (box.scanPath && !valid.has(box.scanPath)) box.scanPath = null;
+        });
+      });
+    }
+
+    function assignSelected() {
+      if (!state.selectedBoxId || !state.selectedTargetPath) return;
+      const box = findBoxById(state.selectedBoxId);
+      if (!box) return;
+      const assignedPath = state.selectedTargetPath;
+      box.scanPath = assignedPath;
+      state.selectedBoxId = null;
+      drawCanvas();
+      updateStatus();
+      saveLocal();
+
+      const next = nextUnassignedAfter(assignedPath);
+      if (next) {
+        selectTarget(next, 'Assigned. Next: ');
+      } else {
+        state.selectedTargetPath = null;
+        renderTargets();
+        els.boxInfo.textContent = 'Assigned. All targets are complete.';
+        saveLocal();
+      }
+    }
+
+    function deleteSelectedBox() {
+      if (!state.selectedBoxId) return;
+      Object.values(state.annotations.pages).forEach((p) => {
+        p.boxes = p.boxes.filter((b) => b.id !== state.selectedBoxId);
+      });
+      state.selectedBoxId = null;
+      drawCanvas();
+      renderTargets();
+      updateStatus();
+      saveLocal();
+    }
+
+    function jumpToNextUnassigned() {
+      if (!state.targets.length) {
+        alert('Reload targets from data first.');
+        return;
+      }
+
+      const next = nextUnassignedAfter(state.selectedTargetPath);
+      if (!next) {
+        alert('All scan targets are done (on disk or boxed in this tool).');
+        return;
+      }
+
+      selectTarget(next, 'Next unassigned: ');
+    }
+
+    function exportAnnotations() {
+      const payload = {
+        version: 1,
+        exportedAt: new Date().toISOString(),
+        notes: 'Normalized crop rectangles in page-relative coordinates (0..1).',
+        pages: state.annotations.pages,
+        targets: state.targets
+      };
+      const blob = new Blob([JSON.stringify(payload, null, 2)], { type: 'application/json' });
+      const a = document.createElement('a');
+      a.href = URL.createObjectURL(blob);
+      a.download = 'scan-crop-annotations.json';
+      a.click();
+      URL.revokeObjectURL(a.href);
+    }
+
+    function importAnnotations(file) {
+      const reader = new FileReader();
+      reader.onload = () => {
+        try {
+          const parsed = JSON.parse(reader.result);
+          if (!parsed.pages) throw new Error('Missing pages object');
+          state.annotations.pages = parsed.pages;
+          state.selectedBoxId = null;
+          drawCanvas();
+          renderTargets();
+          updateStatus();
+          saveLocal();
+          alert('Imported annotations successfully.');
+        } catch (err) {
+          alert('Import failed: ' + err.message);
+        }
+      };
+      reader.readAsText(file);
+    }
+
+    function canvasPos(evt) {
+      const rect = els.canvas.getBoundingClientRect();
+      return {
+        x: (evt.clientX - rect.left),
+        y: (evt.clientY - rect.top)
+      };
+    }
+
+    els.imageFiles.addEventListener('change', async (e) => {
+      const files = Array.from(e.target.files || []);
+      if (!files.length) return;
+
+      state.pages = files.map((f) => ({
+        name: f.name,
+        file: f,
+        url: URL.createObjectURL(f)
+      }));
+      state.pageIndex = 0;
+      await setPageByIndex(0);
+    });
+
+    els.pageSelect.addEventListener('change', (e) => setPageByIndex(+e.target.value));
+    els.btnPrevPage.addEventListener('click', () => setPageByIndex(state.pageIndex - 1));
+    els.btnNextPage.addEventListener('click', () => setPageByIndex(state.pageIndex + 1));
+    els.zoomPct.addEventListener('change', async () => {
+      state.zoom = clamp((+els.zoomPct.value || 100) / 100, 0.2, 2.5);
+      if (getCurrentPage()) await loadCurrentImage();
+      drawCanvas();
+      updateStatus();
+    });
+    els.btnLoadTargets.addEventListener('click', async () => {
+      try {
+        await loadTargetsFromData();
+      } catch (err) {
+        alert(err.message);
+      }
+    });
+    els.btnRescanDisk.addEventListener('click', async () => {
+      try {
+        await rescanDisk();
+      } catch (err) {
+        alert(err.message);
+      }
+    });
+    els.btnLoadExportedPages.addEventListener('click', async () => {
+      try {
+        await loadExportedPages();
+      } catch (err) {
+        alert(err.message);
+      }
+    });
+    els.filterInput.addEventListener('input', renderTargets);
+    els.btnAssign.addEventListener('click', assignSelected);
+    els.btnDeleteBox.addEventListener('click', deleteSelectedBox);
+    els.btnSortUnassigned.addEventListener('click', jumpToNextUnassigned);
+    els.btnExport.addEventListener('click', exportAnnotations);
+    els.btnImport.addEventListener('click', () => els.importFile.click());
+    els.importFile.addEventListener('change', (e) => {
+      const file = e.target.files && e.target.files[0];
+      if (file) importAnnotations(file);
+    });
+    els.btnApplyLayout.addEventListener('click', applyEntryLayoutSplit);
+    els.btnRevertSingle.addEventListener('click', revertEntryToSingle);
+    els.btnExportLayout.addEventListener('click', exportScanLayout);
+    els.btnImportLayout.addEventListener('click', () => els.importLayoutFile.click());
+    els.importLayoutFile.addEventListener('change', (e) => {
+      const file = e.target.files && e.target.files[0];
+      if (file) importScanLayout(file);
+      e.target.value = '';
+    });
+
+    els.canvas.addEventListener('mousedown', (evt) => {
+      if (!state.image) return;
+      const { x, y } = canvasPos(evt);
+      const boxes = getBoxesForCurrentPage();
+      const hit = boxHitTest(x, y, boxes, els.canvas.width, els.canvas.height);
+      if (hit) {
+        state.selectedBoxId = hit;
+        drawCanvas();
+        updateStatus();
+        return;
+      }
+      state.selectedBoxId = null;
+      state.drawing = { x1: x, y1: y, x2: x, y2: y };
+      drawCanvas();
+      updateStatus();
+    });
+
+    els.canvas.addEventListener('mousemove', (evt) => {
+      if (!state.drawing) return;
+      const { x, y } = canvasPos(evt);
+      state.drawing.x2 = clamp(x, 0, els.canvas.width);
+      state.drawing.y2 = clamp(y, 0, els.canvas.height);
+      drawCanvas();
+    });
+
+    window.addEventListener('mouseup', () => {
+      if (!state.drawing) return;
+      const d = state.drawing;
+      state.drawing = null;
+      const minSize = 6;
+      if (Math.abs(d.x2 - d.x1) < minSize || Math.abs(d.y2 - d.y1) < minSize) {
+        drawCanvas();
+        return;
+      }
+      const rect = normRect(d.x1, d.y1, d.x2, d.y2, els.canvas.width, els.canvas.height);
+      const boxes = getBoxesForCurrentPage();
+      const box = { id: uuid(), rect, scanPath: null };
+      boxes.push(box);
+      state.selectedBoxId = box.id;
+      drawCanvas();
+      updateStatus();
+      saveLocal();
+    });
+
+    window.addEventListener('keydown', (evt) => {
+      if (evt.key === 'Delete') {
+        deleteSelectedBox();
+      } else if (evt.key === 'a' || evt.key === 'A') {
+        assignSelected();
+      } else if (evt.key === '[') {
+        setPageByIndex(state.pageIndex - 1);
+      } else if (evt.key === ']') {
+        setPageByIndex(state.pageIndex + 1);
+      }
+    });
+
+    loadLayoutOverrides();
+    loadLocal();
+    drawCanvas();
+    updateStatus();
+  </script>
+</body>
+</html>

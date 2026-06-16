@@ -1,0 +1,72 @@
+{
+  "version": 1,
+  "_howto": "When one log entry spans multiple physical logbook pages, add a key legId:date here. pages[] aligns with scans[] by index.",
+  "entries": {
+    "leg-02:2002-02-06": {
+      "scans": [
+        "images/scans/2002-02-06a.jpg",
+        "images/scans/2002-02-06b.jpg"
+      ],
+      "pages": [
+        "Pg8-Pg38_p03.jpg",
+        "Pg8-Pg38_p04.jpg"
+      ],
+      "note": "Starts bottom of p03, continues top of p04"
+    },
+    "leg-02:2002-03-13a": {
+      "scans": [
+        "images/scans/2002-03-13a.jpg",
+        "images/scans/2002-03-13b.jpg"
+      ],
+      "pages": [
+        "Pg8-Pg38_p05.jpg",
+        "Pg8-Pg38_p06.jpg"
+      ],
+      "note": "Las Perlas entry spans bottom of p05 + top of p06"
+    },
+    "leg-02:2002-04-14": {
+      "scans": [
+        "images/scans/2002-04-14a.jpg",
+        "images/scans/2002-04-14b.jpg"
+      ],
+      "pages": [
+        "Pg8-Pg38_p09.jpg",
+        "Pg8-Pg38_p10.jpg"
+      ],
+      "note": "Starts bottom of p09, continues on p10"
+    },
+    "leg-04:2002-09-12": {
+      "scans": [
+        "images/scans/2002-09-12a.jpg",
+        "images/scans/2002-09-12b.jpg"
+      ],
+      "pages": [
+        "Pg8-Pg38_p25.jpg",
+        "Pg8-Pg38_p26.jpg"
+      ],
+      "note": "Full p25, continues top of p26"
+    },
+    "leg-04:2002-09-28": {
+      "scans": [
+        "images/scans/2002-09-28a.jpg",
+        "images/scans/2002-09-28b.jpg"
+      ],
+      "pages": [
+        "Pg8-Pg38_p26.jpg",
+        "Pg8-Pg38_p27.jpg"
+      ],
+      "note": "Starts on p26 (after Sept 12), continues on p27"
+    },
+    "leg-05:2002-10-23": {
+      "scans": [
+        "images/scans/2002-10-23a.jpg",
+        "images/scans/2002-10-23b.jpg"
+      ],
+      "pages": [
+        "Pg8-Pg38_p30.jpg",
+        "Pg8-Pg38_p31.jpg"
+      ]
+    }
+  },
+  "exportedAt": "2026-06-16T18:35:33.287Z"
+}

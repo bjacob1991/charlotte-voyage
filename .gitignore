@@ -4,6 +4,9 @@ images/originals/
 # Local intake / working folders
 images/photos/intake/
 
+# Generated full-page exports used by the crop annotator (re-run scripts/export-pdf-pages.py)
+images/scans/_pages/
+
 # Old test scans (not part of this voyage)
 scan images/
 VOID/

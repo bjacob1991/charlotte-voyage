@@ -79,7 +79,8 @@ Open the appropriate leg file in `data/` (e.g. `leg-01-florida-bahamas.json`). F
 |-------|----------|-------|
 | `date` | Yes | ISO format `YYYY-MM-DD` — used for sorting and image naming |
 | `date_display` | Yes | As written in the logbook |
-| `scan` | Yes | Path to cropped image: `images/scans/YYYY-MM-DD.jpg` |
+| `scan` | Usually | Path to one cropped image: `images/scans/YYYY-MM-DD.jpg` |
+| `scans` | Optional | Array of image paths when **one log entry continues across multiple logbook pages**, e.g. `["images/scans/2002-02-06a.jpg", "images/scans/2002-02-06b.jpg"]`. Use instead of `scan`. |
 | `body` | Yes | Full narrative text |
 | `conditions` | No | Wind/distance summary line, or `null` |
 
@@ -199,6 +200,113 @@ Push to GitHub and enable **GitHub Pages** on the repo. The site is static — n
 ⚠️ Google Drive does not serve HTML as web pages. Use GitHub Pages, Netlify, or Cloudflare Pages.
 
 ⚠️ Full-resolution photos may exceed GitHub's ~1 GB repo limit. Plan on thumbnails in git + external albums for full quality (see Phase 3 above).
+
+---
+
+## Crop helper tool (interactive)
+
+Use this workflow to create cropped scan images from the source PDFs.
+
+### 1) Export full page images from PDFs
+
+```bash
+pip install -r requirements.txt
+python scripts/export-pdf-pages.py --clean
+```
+
+This reads PDFs in `Scans/` (named by logbook page range, e.g. `Pg8-Pg38.pdf`, `Pg39-Pg69.pdf`) and writes **one JPG per PDF page** to `images/scans/_pages/` (for example `Pg8-Pg38_p01.jpg`), plus `manifest.json`.
+
+- **`--clean`** — wipe `_pages/` and export every PDF (use after renaming PDFs or fixing a bad run)
+- **Default (no flags)** — export only PDFs that are new or changed since the last run
+- **`--only Pg70-Pg95.pdf`** — export just one new batch without touching older page images
+
+#### Adding a new scan batch later
+
+1. Save the new PDF in `Scans/` using the logbook page range, e.g. `Pg70-Pg95.pdf`
+2. Transcribe into the appropriate `data/leg-XX-….json` (your existing workflow)
+3. Export only the new PDF:
+
+```bash
+python scripts/export-pdf-pages.py --only Pg70-Pg95.pdf
+```
+
+4. Open the crop annotator, click **Load exported pages**, and crop the new pages
+5. Run `python scripts/crop-scans.py --annotations scan-crop-annotations.json` after review
+
+### 2) Annotate crop boxes
+
+Start local server from repo root:
+
+```bash
+python -m http.server 8000
+```
+
+Open:
+
+`http://localhost:8000/tools/scan-crop-annotator.html`
+
+In the tool:
+
+- Click **Load exported pages** (uses the `_pages` images; no need to load PDFs in the browser)
+- Click **Load from data/*.json** to import expected scan targets
+- Draw crop boxes and assign each to a scan path
+- Export `scan-crop-annotations.json` for review
+
+### 3) Generate final cropped scans
+
+After review:
+
+```bash
+python scripts/crop-scans.py --annotations scan-crop-annotations.json
+```
+
+This writes the final files to `images/scans/YYYY-MM-DD.jpg` using your crop boxes.
+
+**Why not PDF in the browser?** Exporting pages once with Python is faster, more reliable, and keeps the annotator simple.
+
+### Pausing and resuming
+
+You do not need to finish every target in one sitting.
+
+1. **While annotating** — each crop box you draw and assign is saved automatically in the browser (`localStorage`). Reload the annotator anytime and your boxes are still there (after **Load exported pages**).
+2. **When you want to stop for the day** — click **Export annotations JSON** and save the file as `scan-crop-annotations.json` in the repo root. This is your backup and what the crop script reads.
+3. **When you are ready for final images** (all or part of a batch):
+
+```bash
+python scripts/crop-scans.py --annotations scan-crop-annotations.json
+```
+
+Use `--dry-run` first if you want to preview paths without writing files.
+
+4. **Back in the annotator** — click **Rescan disk** to mark targets that now exist as `images/scans/*.jpg`.
+5. **Check the site** — `python -m http.server 8000` → confirm entries show scans instead of placeholders.
+6. **Commit when happy** — `git add images/scans/*.jpg data/*.json` (and commit when you are ready).
+
+You can export and run `crop-scans.py` at any time — even with only some boxes assigned. Unassigned targets simply stay as placeholders on the site until you crop them.
+
+### Multi-page log entries (one day, two sheets)
+
+When a single diary entry continues onto the next physical logbook page, use the **Entry layout (A/B splits)** panel in the crop annotator:
+
+1. **Load exported pages** and **Reload targets from data**.
+2. Click the entry’s target (e.g. `2002-10-21.jpg`).
+3. Pick **Part A** and **Part B** logbook pages from the dropdowns (labeled `log p30`, etc.).
+4. Click **Apply A/B split** — the target list updates to `…a.jpg` and `…b.jpg`, and clicking each jumps to the right sheet.
+5. Click **Export scan-layout.json** and save over **`data/scan-layout.json`** so the live site uses the new paths.
+
+You can also edit `data/scan-layout.json` by hand. Key format: `legId:date` (matches the entry’s `date` in the leg JSON). Leg JSON stays transcript-only — no `scan` field needed for split entries.
+
+```json
+"leg-05:2002-10-21": {
+  "scans": ["images/scans/2002-10-21a.jpg", "images/scans/2002-10-21b.jpg"],
+  "pages": ["Pg8-Pg38_p23.jpg", "Pg8-Pg38_p24.jpg"],
+  "note": "Starts on log p30, continues on p31"
+}
+```
+
+Split overrides are remembered in the browser until you export. **Export scan-layout.json** when you add splits so they survive across machines and deploy to GitHub Pages.
+
+For **two separate entries on the same calendar day** (e.g. `2002-01-18a` / `2002-01-18b`), keep using date suffixes in the leg JSON — that is a different case.
 
 ---
 

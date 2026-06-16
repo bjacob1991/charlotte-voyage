@@ -6,6 +6,7 @@
       "id": "stop-01",
       "n": 1,
       "name": "Tonga–New Zealand Passage",
+      "kind": "passage",
       "passage": "The Run South",
       "lat": -27.0,
       "lng": -177.0,
@@ -78,7 +79,6 @@
         {
           "date": "2002-10-23",
           "date_display": "Wednesday, October 23",
-          "scan": "images/scans/2002-10-23.jpg",
           "body": "Oops — skipped a day. It was awful, motored into south winds. Still motoring today, at least we see land. Did not need head winds the last 2 days. Want to get this over with — landfall at sundown. Bye to adventure, hi to grim reality. Landfall wasn't so bad after all — the sun came out, the wind came up lightly from the east and we sailed! Lots of birds on the water, big ones with yellow heads, white and black. The hills are green, very rugged. Sailboats everywhere! Aka is in the marina! We met them on Lazy Lightning and cruised Trinidad & Venezuela. Ed and Fran. They have been here for 12 years.",
           "conditions": "Wind: south head winds, then a light easterly for landfall. Arrived New Zealand (Opua, Bay of Islands) at sundown."
         }
