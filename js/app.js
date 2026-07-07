@@ -31,6 +31,7 @@ const ICON_ANCHORED =
   '</svg>';
 
 let allStops = [];
+let photoAlbums = { albums: {} };
 let scanLayout = { entries: {} };
 let mapFocusTimer = null;
 const syncLock = { fromMap: false, fromLog: false };
@@ -62,20 +63,22 @@ function formatDateRange(stops) {
   return first.toLocaleDateString('en-US', opts) + ' \u2013 ' + last.toLocaleDateString('en-US', opts);
 }
 
-function openScanLightbox(src, alt) {
+function openImageLightbox(src, alt) {
   scanLightboxImg.src = src;
   scanLightboxImg.alt = alt;
   scanLightbox.hidden = false;
   document.body.style.overflow = 'hidden';
 }
 
-function closeScanLightbox() {
+function closeImageLightbox() {
   scanLightbox.hidden = true;
   scanLightboxImg.removeAttribute('src');
-  document.body.style.overflow = '';
+  if (galleryOverlay.hidden && galleryIndexOverlay.hidden) {
+    document.body.style.overflow = '';
+  }
 }
 
-scanLightbox.addEventListener('click', closeScanLightbox);
+scanLightbox.addEventListener('click', closeImageLightbox);
 
 function buildScanElement(scanPath, label) {
   const scan = document.createElement('div');
@@ -87,7 +90,7 @@ function buildScanElement(scanPath, label) {
     scan.innerHTML = '';
     scan.appendChild(img);
     img.title = 'Click to enlarge';
-    img.addEventListener('click', () => openScanLightbox(scanPath, alt));
+    img.addEventListener('click', () => openImageLightbox(scanPath, alt));
   };
   img.onerror = () => {
     scan.innerHTML =
@@ -112,6 +115,16 @@ function buildScanGroup(scans, entry) {
   return row;
 }
 
+function resolveStopPhotos(stop) {
+  const resolved = { ...stop };
+  if (!stop.photo_set || !photoAlbums.albums[stop.photo_set]) return resolved;
+  const album = photoAlbums.albums[stop.photo_set];
+  resolved.photos = album.photos || [];
+  resolved.photo_album = stop.photo_album != null ? stop.photo_album : album.amazon_album || null;
+  resolved.photoAlbumTitle = album.title;
+  return resolved;
+}
+
 function hasPhotos(stop) {
   return (stop.photos && stop.photos.length > 0) || !!stop.photo_album;
 }
@@ -119,6 +132,9 @@ function hasPhotos(stop) {
 function photoMeta(stop) {
   const count = stop.photos ? stop.photos.length : 0;
   if (count > 0 && stop.photo_album) return count + ' preview' + (count === 1 ? '' : 's') + ' · full album';
+  if (count > 0 && stop.photoAlbumTitle) {
+    return count + ' photo' + (count === 1 ? '' : 's') + ' · ' + stop.photoAlbumTitle;
+  }
   if (count > 0) return count + ' photo' + (count === 1 ? '' : 's');
   if (stop.photo_album) return 'Full-resolution album';
   return 'No photos yet';
@@ -127,71 +143,198 @@ function photoMeta(stop) {
 function openStopGallery(stop) {
   const count = stop.photos ? stop.photos.length : 0;
   if (count > 0) {
-    openGallery(stop);
+    if (stop.photo_set) {
+      const albumStops = allStops
+        .filter((s) => s.photo_set === stop.photo_set && hasPhotos(s))
+        .sort((a, b) => a.globalN - b.globalN);
+      openGalleryEntry({
+        kind: 'shared',
+        title: stop.photoAlbumTitle || stop.photo_set,
+        photos: stop.photos,
+        photo_album: stop.photo_album,
+        stops: albumStops,
+        representativeStop: stop
+      });
+    } else {
+      openGallery(stop);
+    }
   } else if (stop.photo_album) {
     window.open(stop.photo_album, '_blank', 'noopener');
   }
 }
 
+function buildGalleryIndexEntries() {
+  const entries = [];
+  const seenSets = new Set();
+
+  allStops.forEach((stop) => {
+    if (!stop.photo_set || seenSets.has(stop.photo_set)) return;
+    const albumStops = allStops.filter((s) => s.photo_set === stop.photo_set && hasPhotos(s));
+    if (!albumStops.length) return;
+    seenSets.add(stop.photo_set);
+    albumStops.sort((a, b) => a.globalN - b.globalN);
+    entries.push({
+      kind: 'shared',
+      title: stop.photoAlbumTitle || stop.photo_set,
+      photos: albumStops[0].photos,
+      photo_album: albumStops[0].photo_album,
+      stops: albumStops,
+      representativeStop: albumStops[0]
+    });
+  });
+
+  allStops.forEach((stop) => {
+    if (stop.photo_set || !hasPhotos(stop)) return;
+    entries.push({
+      kind: 'stop',
+      title: stop.name,
+      photos: stop.photos,
+      photo_album: stop.photo_album,
+      stops: [stop],
+      representativeStop: stop
+    });
+  });
+
+  entries.sort((a, b) => a.stops[0].globalN - b.stops[0].globalN);
+  return entries;
+}
+
+function formatStopNumbers(stops) {
+  const nums = stops.map((s) => s.globalN).sort((a, b) => a - b);
+  if (nums.length === 1) return 'stop ' + nums[0];
+  const contiguous = nums[nums.length - 1] - nums[0] + 1 === nums.length;
+  if (contiguous && nums.length > 2) return 'stops ' + nums[0] + '\u2013' + nums[nums.length - 1];
+  return 'stops ' + nums.join(', ');
+}
+
+function formatStopsCovered(stops) {
+  const sorted = [...stops].sort((a, b) => a.globalN - b.globalN);
+  const nums = formatStopNumbers(sorted);
+  const names = sorted.map((s) => s.globalN + '. ' + s.name).join(' \u00b7 ');
+  return 'Shared album along ' + nums + ': ' + names;
+}
+
+function galleryEntryMeta(entry) {
+  const count = entry.photos ? entry.photos.length : 0;
+  if (entry.kind === 'shared') {
+    const photoLabel = count + ' photo' + (count === 1 ? '' : 's');
+    return photoLabel + ' \u00b7 shared across ' + formatStopNumbers(entry.stops);
+  }
+  if (count > 0 && entry.photo_album) {
+    return count + ' preview' + (count === 1 ? '' : 's') + ' \u00b7 full album';
+  }
+  if (count > 0) return count + ' photo' + (count === 1 ? '' : 's');
+  return 'Full-resolution album';
+}
+
+function openGalleryEntry(entry) {
+  const stop = entry.representativeStop;
+  const count = entry.photos ? entry.photos.length : 0;
+
+  if (entry.kind === 'shared') {
+    galleryTitle.textContent = entry.title + ' \u2014 ' + count + ' photo' + (count === 1 ? '' : 's');
+  } else {
+    const subtitle = stop.photoAlbumTitle || 'Trip Photos';
+    galleryTitle.textContent = stop.name + ' \u2014 ' + subtitle;
+  }
+
+  galleryGrid.innerHTML = '';
+
+  if (entry.photos && entry.photos.length) {
+    entry.photos.forEach((photo) => {
+      const img = document.createElement('img');
+      img.src = photo.thumb || photo.file;
+      img.alt = photo.caption || entry.title;
+      img.title = photo.caption || 'Click to enlarge';
+      img.addEventListener('click', (e) => {
+        e.stopPropagation();
+        openImageLightbox(photo.file, photo.caption || entry.title);
+      });
+      galleryGrid.appendChild(img);
+    });
+  }
+
+  if (entry.kind === 'shared' && entry.stops.length > 1) {
+    galleryExternal.hidden = false;
+    galleryExternal.textContent = formatStopsCovered(entry.stops);
+  } else if (entry.photo_album) {
+    galleryExternal.hidden = false;
+    galleryExternal.innerHTML =
+      'Full-resolution album: <a href="' +
+      escapeHtml(entry.photo_album) +
+      '" target="_blank" rel="noopener">Open external gallery</a>';
+  } else {
+    galleryExternal.hidden = true;
+    galleryExternal.innerHTML = '';
+  }
+
+  galleryOverlay.hidden = false;
+}
+
 function updateGalleryBadge() {
-  const count = allStops.filter(hasPhotos).length;
+  const count = buildGalleryIndexEntries().length;
   galleryBadge.hidden = count === 0;
   galleryBadge.textContent = count;
 }
 
 function buildGalleryIndex() {
   galleryIndexList.innerHTML = '';
-  const availableCount = allStops.filter(hasPhotos).length;
+  const entries = buildGalleryIndexEntries();
 
-  if (availableCount === 0) {
+  if (entries.length === 0) {
     const empty = document.createElement('div');
     empty.className = 'gallery-index-empty';
     empty.innerHTML =
       '<strong>No albums yet</strong>Photo galleries will light up here as you add a ' +
-      '<code>photo_album</code> link or thumbnail images to each stop. ' +
-      'The early voyage had no trip photos — albums will begin later in the Pacific.';
+      '<code>photo_set</code> (shared album), <code>photo_album</code> link, or thumbnail images to each stop.';
     galleryIndexList.appendChild(empty);
+    return;
   }
 
-  allStops.forEach((stop) => {
-    const available = hasPhotos(stop);
+  entries.forEach((entry) => {
     const item = document.createElement('button');
     item.type = 'button';
-    item.className = 'gallery-index-item ' + (available ? 'available' : 'unavailable');
-    item.disabled = !available;
+    item.className = 'gallery-index-item available';
 
-    const num = document.createElement('span');
-    num.className = 'gallery-index-num';
-    num.textContent = stop.globalN;
+    const icon = document.createElement('span');
+    icon.className = 'gallery-index-num gallery-index-icon';
+    icon.innerHTML = ICON_CAMERA;
 
     const body = document.createElement('span');
     body.className = 'gallery-index-body';
     const name = document.createElement('span');
     name.className = 'gallery-index-name';
-    name.textContent = stop.name;
+    name.textContent = entry.title;
     const meta = document.createElement('span');
     meta.className = 'gallery-index-meta';
-    meta.textContent = photoMeta(stop);
+    meta.textContent = galleryEntryMeta(entry);
     body.appendChild(name);
     body.appendChild(meta);
 
-    item.appendChild(num);
-    item.appendChild(body);
+    const arrow = document.createElement('span');
+    arrow.className = 'gallery-index-arrow';
+    arrow.setAttribute('aria-hidden', 'true');
+    arrow.textContent = '\u203a';
 
-    if (available) {
-      const arrow = document.createElement('span');
-      arrow.className = 'gallery-index-arrow';
-      arrow.setAttribute('aria-hidden', 'true');
-      arrow.textContent = '\u203a';
-      item.appendChild(arrow);
-      item.addEventListener('click', () => {
-        closeGalleryIndex();
-        openStopGallery(stop);
-      });
-    }
+    item.appendChild(icon);
+    item.appendChild(body);
+    item.appendChild(arrow);
+    item.addEventListener('click', () => {
+      closeGalleryIndex();
+      openGalleryEntry(entry);
+    });
 
     galleryIndexList.appendChild(item);
   });
+
+  const withoutPhotos = allStops.filter((s) => !hasPhotos(s)).length;
+  if (withoutPhotos > 0) {
+    const footer = document.createElement('p');
+    footer.className = 'gallery-index-footer';
+    footer.textContent =
+      withoutPhotos + ' log stop' + (withoutPhotos === 1 ? ' does' : 's do') + ' not have trip photos yet.';
+    galleryIndexList.appendChild(footer);
+  }
 }
 
 function openGalleryIndex() {
@@ -210,7 +353,8 @@ galleryIndexOverlay.addEventListener('click', (e) => {
 });
 
 function openGallery(stop) {
-  galleryTitle.textContent = stop.name + ' \u2014 Trip Photos';
+  const subtitle = stop.photoAlbumTitle || 'Trip Photos';
+  galleryTitle.textContent = stop.name + ' \u2014 ' + subtitle;
   galleryGrid.innerHTML = '';
 
   if (stop.photos && stop.photos.length) {
@@ -218,8 +362,11 @@ function openGallery(stop) {
       const img = document.createElement('img');
       img.src = photo.thumb || photo.file;
       img.alt = photo.caption || stop.name;
-      img.title = photo.caption || '';
-      img.addEventListener('click', () => window.open(photo.file, '_blank'));
+      img.title = (photo.caption || 'Click to enlarge');
+      img.addEventListener('click', (e) => {
+        e.stopPropagation();
+        openImageLightbox(photo.file, photo.caption || stop.name);
+      });
       galleryGrid.appendChild(img);
     });
   }
@@ -248,7 +395,7 @@ galleryOverlay.addEventListener('click', (e) => {
 });
 document.addEventListener('keydown', (e) => {
   if (e.key !== 'Escape') return;
-  if (!scanLightbox.hidden) closeScanLightbox();
+  if (!scanLightbox.hidden) closeImageLightbox();
   if (!galleryOverlay.hidden) closeGallery();
   if (!galleryIndexOverlay.hidden) closeGalleryIndex();
 });
@@ -659,7 +806,7 @@ function buildHero(manifest) {
   img.alt = alt;
   img.title = 'Click to enlarge';
   img.src = manifest.vessel_image;
-  img.addEventListener('click', () => openScanLightbox(manifest.vessel_image, alt));
+  img.addEventListener('click', () => openImageLightbox(manifest.vessel_image, alt));
   hero.appendChild(img);
 
   if (manifest.vessel_caption) {
@@ -754,12 +901,19 @@ async function loadScanLayout() {
   return res.json();
 }
 
+async function loadPhotoAlbums() {
+  const res = await fetch('data/photo-albums.json?v=' + Date.now(), { cache: 'no-store' });
+  if (!res.ok) return { albums: {} };
+  return res.json();
+}
+
 async function init() {
   try {
     const manifestRes = await fetch('data/manifest.json?v=' + Date.now(), { cache: 'no-store' });
     if (!manifestRes.ok) throw new Error('Failed to load manifest');
     const manifest = await manifestRes.json();
     scanLayout = await loadScanLayout();
+    photoAlbums = await loadPhotoAlbums();
 
     const vessel = manifest.vessel || 'Charlotte';
     const headline = manifest.headline || 'Journey of the Sailing Vessel';
@@ -778,12 +932,14 @@ async function init() {
     let globalN = 1;
     legData.forEach((leg) => {
       leg.stops.forEach((stop) => {
-        allStops.push({
-          ...stop,
-          globalN: globalN++,
-          legId: leg.id,
-          legName: leg.name
-        });
+        allStops.push(
+          resolveStopPhotos({
+            ...stop,
+            globalN: globalN++,
+            legId: leg.id,
+            legName: leg.name
+          })
+        );
       });
     });
 

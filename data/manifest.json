@@ -12,7 +12,7 @@
     { "id": "leg-03", "name": "French Polynesia", "file": "leg-03-french-polynesia.json", "status": "in-progress" },
     { "id": "leg-04", "name": "Niue & Tonga", "file": "leg-04-niue-tonga.json", "status": "in-progress" },
     { "id": "leg-05", "name": "New Zealand", "file": "leg-05-new-zealand.json", "status": "in-progress" },
-    { "id": "leg-06", "name": "Western Pacific & Indian Ocean", "file": "leg-06-pacific-indian.json", "status": "planned" },
+    { "id": "leg-06", "name": "Western Pacific & Indian Ocean", "file": "leg-06-pacific-indian.json", "status": "in-progress" },
     { "id": "leg-07", "name": "South Africa & the South Atlantic", "file": "leg-07-south-africa-atlantic.json", "status": "planned" },
     { "id": "leg-08", "name": "The Caribbean & Home", "file": "leg-08-caribbean-home.json", "status": "planned" }
   ]

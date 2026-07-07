@@ -505,10 +505,51 @@ body {
 }
 
 .leaflet-marker-pin span { transform: rotate(45deg); }
+
+.marker-pin-wrap {
+  position: relative;
+  width: 28px;
+  height: 28px;
+}
+
+.marker-photo-badge {
+  position: absolute;
+  top: -5px;
+  right: -3px;
+  width: 15px;
+  height: 15px;
+  background: #d4a84b;
+  color: #fff;
+  border: 1.5px solid #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.35);
+  pointer-events: none;
+  z-index: 2;
+}
+
+.leaflet-marker-pin.has-photos {
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.4), 0 0 0 2px #d4a84b;
+}
+
+.cluster-dot.has-photos {
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.35), 0 0 0 2px #d4a84b;
+}
+
 .leaflet-marker-pin.active,
 .cluster-dot.voyage-marker.active {
   background: var(--coral);
   z-index: 1000 !important;
+}
+
+.leaflet-marker-pin.has-photos.active {
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.4), 0 0 0 2px #fff;
+}
+
+.cluster-dot.voyage-marker.has-photos.active {
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.35), 0 0 0 2px #fff;
 }
 
 .marker-cluster-small,
@@ -721,6 +762,22 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.gallery-index-icon svg {
+  display: block;
+  opacity: 0.9;
+}
+
+.gallery-index-footer {
+  margin: 12px 4px 0;
+  padding-top: 12px;
+  border-top: 1px solid var(--line);
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 12px;
+  line-height: 1.5;
+  color: var(--muted);
+  text-align: center;
 }
 
 .gallery-index-item.unavailable .gallery-index-num {

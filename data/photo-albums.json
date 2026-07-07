@@ -1,0 +1,166 @@
+{
+  "version": 1,
+  "_howto": "Shared photo albums. Stops reference an album key via photo_set in leg JSON.",
+  "albums": {
+    "bahamas": {
+      "title": "The Bahamas",
+      "amazon_album": null,
+      "photos": [
+        {
+          "file": "images/photos/albums/bahamas/bahamas_001.jpg",
+          "caption": "Bahamas — photo 1"
+        },
+        {
+          "file": "images/photos/albums/bahamas/bahamas_002.jpg",
+          "caption": "Bahamas — photo 2"
+        },
+        {
+          "file": "images/photos/albums/bahamas/bahamas_003.jpg",
+          "caption": "Bahamas — photo 3"
+        },
+        {
+          "file": "images/photos/albums/bahamas/bahamas_004.jpg",
+          "caption": "Bahamas — photo 4"
+        },
+        {
+          "file": "images/photos/albums/bahamas/bahamas_005.jpg",
+          "caption": "Bahamas — photo 5"
+        }
+      ]
+    },
+    "jamaica": {
+      "title": "Jamaica",
+      "amazon_album": null,
+      "photos": [
+        {
+          "file": "images/photos/albums/jamaica/jamaica_001.jpg",
+          "caption": "Jamaica — photo 1"
+        },
+        {
+          "file": "images/photos/albums/jamaica/jamaica_002.jpg",
+          "caption": "Jamaica — photo 2"
+        },
+        {
+          "file": "images/photos/albums/jamaica/jamaica_003.jpg",
+          "caption": "Jamaica — photo 3"
+        },
+        {
+          "file": "images/photos/albums/jamaica/jamaica_004.jpg",
+          "caption": "Jamaica — photo 4"
+        }
+      ]
+    },
+    "portobelo": {
+      "title": "Portobelo, Panama",
+      "amazon_album": null,
+      "photos": [
+        {
+          "file": "images/photos/albums/portobelo/panama_portobelo_001.jpg",
+          "caption": "Portobelo — photo 1"
+        },
+        {
+          "file": "images/photos/albums/portobelo/panama_portobelo_002.jpg",
+          "caption": "Portobelo — photo 2"
+        },
+        {
+          "file": "images/photos/albums/portobelo/panama_portobelo_003.jpg",
+          "caption": "Portobelo — photo 3"
+        },
+        {
+          "file": "images/photos/albums/portobelo/panama_portobelo_004.jpg",
+          "caption": "Portobelo — photo 4"
+        },
+        {
+          "file": "images/photos/albums/portobelo/panama_portobelo_005.jpg",
+          "caption": "Portobelo — photo 5"
+        },
+        {
+          "file": "images/photos/albums/portobelo/panama_portobelo_006.jpg",
+          "caption": "Portobelo — photo 6"
+        },
+        {
+          "file": "images/photos/albums/portobelo/panama_portobelo_007.jpg",
+          "caption": "Portobelo — photo 7"
+        },
+        {
+          "file": "images/photos/albums/portobelo/panama_portobelo_008.jpg",
+          "caption": "Portobelo — photo 8"
+        },
+        {
+          "file": "images/photos/albums/portobelo/panama_portobelo_009.jpg",
+          "caption": "Portobelo — photo 9"
+        }
+      ]
+    },
+    "panama-canal": {
+      "title": "Panama Canal",
+      "amazon_album": null,
+      "photos": [
+        {
+          "file": "images/photos/albums/panama-canal/panamacanal_001.jpg",
+          "caption": "Panama Canal — photo 1"
+        }
+      ]
+    },
+    "san-blas": {
+      "title": "San Blas Islands",
+      "amazon_album": null,
+      "photos": [
+        {
+          "file": "images/photos/albums/san-blas/sanblas_islands_001.jpg",
+          "caption": "San Blas — photo 1"
+        },
+        {
+          "file": "images/photos/albums/san-blas/sanblas_islands_002.jpg",
+          "caption": "San Blas — photo 2"
+        }
+      ]
+    },
+    "galapagos": {
+      "title": "Galápagos Islands",
+      "amazon_album": null,
+      "photos": [
+        {
+          "file": "images/photos/albums/galapagos/galapagos_001.jpg",
+          "caption": "Galápagos — photo 1"
+        },
+        {
+          "file": "images/photos/albums/galapagos/galapagos_0010.jpg",
+          "caption": "Galápagos — photo 2"
+        },
+        {
+          "file": "images/photos/albums/galapagos/galapagos_002.jpg",
+          "caption": "Galápagos — photo 3"
+        },
+        {
+          "file": "images/photos/albums/galapagos/galapagos_003.jpg",
+          "caption": "Galápagos — photo 4"
+        },
+        {
+          "file": "images/photos/albums/galapagos/galapagos_004.jpg",
+          "caption": "Galápagos — photo 5"
+        },
+        {
+          "file": "images/photos/albums/galapagos/galapagos_005.jpg",
+          "caption": "Galápagos — photo 6"
+        },
+        {
+          "file": "images/photos/albums/galapagos/galapagos_006.jpg",
+          "caption": "Galápagos — photo 7"
+        },
+        {
+          "file": "images/photos/albums/galapagos/galapagos_007.jpg",
+          "caption": "Galápagos — photo 8"
+        },
+        {
+          "file": "images/photos/albums/galapagos/galapagos_008.jpg",
+          "caption": "Galápagos — photo 9"
+        },
+        {
+          "file": "images/photos/albums/galapagos/galapagos_009.jpg",
+          "caption": "Galápagos — photo 10"
+        }
+      ]
+    }
+  }
+}

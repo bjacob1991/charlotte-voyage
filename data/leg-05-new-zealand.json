@@ -79,6 +79,7 @@
         {
           "date": "2002-10-23",
           "date_display": "Wednesday, October 23",
+          "scan": "images/scans/2002-10-23.jpg",
           "body": "Oops — skipped a day. It was awful, motored into south winds. Still motoring today, at least we see land. Did not need head winds the last 2 days. Want to get this over with — landfall at sundown. Bye to adventure, hi to grim reality. Landfall wasn't so bad after all — the sun came out, the wind came up lightly from the east and we sailed! Lots of birds on the water, big ones with yellow heads, white and black. The hills are green, very rugged. Sailboats everywhere! Aka is in the marina! We met them on Lazy Lightning and cruised Trinidad & Venezuela. Ed and Fran. They have been here for 12 years.",
           "conditions": "Wind: south head winds, then a light easterly for landfall. Arrived New Zealand (Opua, Bay of Islands) at sundown."
         }
@@ -100,6 +101,84 @@
           "scan": "images/scans/2002-11-13.jpg",
           "body": "Tore ourselves away from Opua — it was difficult, as more people we knew kept coming in. Oric Halcum anchored next to us and Ken loved eating the mussels off the mooring buoys! Leo on Moonlight arrived, Bob & Robin on Buster, Joyce & Jack on 2nd Tri, Allusion, and Tanil & Annette on Kelebec. And who else — Lazy Lightning of course! We rented a car and visited Dave & Sue and the kids — Brian went to school with Ben and attended a symphony orchestra presentation in Auckland. Worked on the boat — bought a new stove, put up insulation because we were freezing! It is colder than we had anticipated — downright miserable at times. And windy! But now we're underway to Gulf Harbour marina on Whangaparaoa Peninsula, where Dave & Sue live. It is not easy sailing! Yesterday had 20–30, doing 7 knots under reefed main alone. Spent the night in Oke Bay, left early this morning to round Cape Brett. Motorsailed all day with light head winds — the curse of NZ. Stopped in Tutukaka — warm pleasant afternoon, very little wind, warm our bones.",
           "conditions": "About three weeks at Opua and the Bay of Islands. Departed south for Gulf Harbour via Cape Brett and Tutukaka. Wind: 20–30, then light head winds."
+        }
+      ]
+    },
+    {
+      "id": "stop-03",
+      "n": 3,
+      "name": "Kawau Island & Gulf Harbour",
+      "passage": "Cruising the New Zealand Coast",
+      "lat": -36.621,
+      "lng": 174.791,
+      "photo_album": null,
+      "photos": [],
+      "entries": [
+        {
+          "date": "2002-11-14",
+          "date_display": "Thursday, November 14, 2002",
+          "scan": "images/scans/2002-11-14.jpg",
+          "body": "Whew! A long windy day! Daysails are very strenuous. Left Tutukaka at 6 am, for the 55-mile haul to Kawau Island. Saw some huge dolphins — big ones 6–8 feet long. Saw whales yesterday. It's pretty sailing along NZ's east coast, but you can't really enjoy it, it's so cold. Very little habitation along the coast line. We had some good sailing at times, over 7 knots to windward for a while. We are in a tiny, protected harbor, only a few local boats moored. Happy that we were able to sail the whole way, and average 5 knots.",
+          "conditions": "55-mile daysail, Tutukaka to Kawau Island. Sailed the whole way, averaging 5 knots; over 7 knots to windward at times."
+        },
+        {
+          "date": "2002-11-15",
+          "date_display": "Friday, November 15",
+          "scan": "images/scans/2002-11-15.jpg",
+          "body": "Peaceful night in North Cove. Off again in gray morning to Gulf Harbour Marina — 10 miles sail to tip of peninsula. We are on the dock now with the cold south wind blowing in the boat, not very comfortable. Brian is thrilled, I am not. Hope it pays off.",
+          "conditions": "10-mile sail, North Cove to Gulf Harbour Marina (tip of Whangaparaoa Peninsula). Cold south wind."
+        },
+        {
+          "date": "2002-12-29",
+          "date_display": "Sunday, December 29",
+          "scan": "images/scans/2002-12-29.jpg",
+          "body": "Sailing again — it feels good! We spent 6 weeks in Gulf Harbour, didn't like it too much. The hot showers & internet access was good, but we hated the public showers. I worked for Dave Mackay, doing a website and then spent 6 days polishing some motor yacht. No fun cruising boats in Gulf Harbour, no kids for Brian to play with. We spent an evening with the Mackays (Flying Cloud) once a week, Brian spent the night several times. Went into Auckland one night for dinner, saw all the America's Cup boats at the Viaduct. Rented DVDs, watched a lot of movies, saw 2nd Harry Potter & Lord of the Rings on the big screen. Once I was done with work, we moved to Murrays Bay where Trevor & Leslie, (father we met in Tonga), live with their 4 kids, Jacob, Julia, Jasmine & Jeremy. (Cox, 70 Gulf View Dr.) They are a great family. We had Christmas dinner at their house. Jake & Julia spent a lot of time on our boat. They took us for the day to Anawhata Beach on the west side, just 30 minutes from Auckland. We had a wonderful day, took a long hike up a canyon to an old Maori dam where there was a ring set in the rock. We had to go bouldering, walking through shoulder-high grass, wading the stream, walking in the woods. The view from the sand dunes on the beach was spectacular. The sand was black, the surf was white. Now we are moving north, to find warmer weather perhaps? Tried to get to Great Barrier Island, but the wind turned NE, so now we are at Bon Accord Harbor on Kawau. Lots of boats here.",
+          "conditions": "After 6 weeks at Gulf Harbour. Tried for Great Barrier Island; wind turned NE, so anchored at Bon Accord Harbour, Kawau Island."
+        },
+        {
+          "date": "2002-12-30",
+          "date_display": "Monday, December 30, 2002",
+          "scan": "images/scans/2002-12-30.jpg",
+          "body": "Kawau was ugly and crowded, didn't care for it there. Left this morning with a brisk east wind, but of course it didn't last. We are rolling along at a very slow pace. Otherwise it is a beautiful warm, sunny day. We will try to anchor at the entrance to Whangarei tonight.",
+          "conditions": "Brisk east wind early, then light. Heading for the entrance to Whangarei."
+        }
+      ]
+    },
+    {
+      "id": "stop-04",
+      "n": 4,
+      "name": "Whangarei & Bream Head",
+      "passage": "Cruising the New Zealand Coast",
+      "lat": -35.842,
+      "lng": 174.503,
+      "photo_album": null,
+      "photos": [],
+      "entries": [
+        {
+          "date": "2003-01-15",
+          "date_display": "Wednesday, January 15, 2003",
+          "scan": "images/scans/2003-01-15.jpg",
+          "body": "We loved Urquharts Bay, spent 5 days there, hiking and windsurfing. Ocean Beach on the other side was beautiful and we hiked all over Bream Head. Had a nice New Year's Eve, made potato gnocchi and drank wine. Then we went up to Whangarei for a week. Ugly nasty dirty there but we got a lot accomplished — We rebuilt the anchor winch, got an oil pressure gauge — finally! Left Monday, came back to Urquharts Bay. Today we sailed north for Whangamumu. Very rolly, Brian & Thomas are seasick, I am kind of green too. But we had a nice sail and Whangamumu harbor is very picturesque, surrounded by cliffs. The remains of an old whaling station are here. No town, no houses!",
+          "conditions": "Sailed north from Urquharts Bay toward Whangamumu. Very rolly."
+        }
+      ]
+    },
+    {
+      "id": "stop-05",
+      "n": 5,
+      "name": "Whangamumu & Omakiwi Cove",
+      "passage": "Cruising the New Zealand Coast",
+      "lat": -35.254,
+      "lng": 174.323,
+      "photo_album": null,
+      "photos": [],
+      "entries": [
+        {
+          "date": "2003-01-18",
+          "date_display": "Saturday, January 18",
+          "scan": "images/scans/2003-01-18.jpg",
+          "body": "More great hiking at Whangamumu — we are exhausted after hiking to some coves with a sandy beach. There were birds singing every morning, very nice. The water was clear. Now we are at Omakiwi Cove, no other boats here, a pretty stand of piney trees behind a sandy beach. Great view to the west of the Bay of Islands, boats moving around. We enjoyed a close-up view of Cape Brett as we rounded the point.",
+          "conditions": "Rounded Cape Brett to Omakiwi Cove, Bay of Islands."
         }
       ]
     }

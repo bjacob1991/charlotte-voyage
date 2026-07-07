@@ -11,6 +11,61 @@ const VoyageMap = (function () {
 
   const ROUTE_STYLE = { color: '#185fa5', weight: 2.5, dashArray: '6 6', opacity: 0.85 };
   const GLOBAL_ZOOM_MAX = 4;
+  const PHOTO_BADGE_SVG =
+    '<svg viewBox="0 0 24 24" width="9" height="9" aria-hidden="true">' +
+    '<path fill="currentColor" d="M21 19V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2zM8.5 13.5l2.5 3 3.5-4.5 4.5 6H5l3.5-4.5z"/></svg>';
+
+  let photoStops = {};
+
+  function stopHasPhotos(stop) {
+    return (stop.photos && stop.photos.length > 0) || !!stop.photo_album;
+  }
+
+  function photoTooltipNote(stop) {
+    if (!stopHasPhotos(stop)) return '';
+    const count = stop.photos ? stop.photos.length : 0;
+    if (count > 0) return ' \u00b7 ' + count + ' photo' + (count === 1 ? '' : 's');
+    return ' \u00b7 photo album';
+  }
+
+  function makePinIcon(globalN) {
+    const hasPhotos = !!photoStops[globalN];
+    const badge = hasPhotos
+      ? '<span class="marker-photo-badge" title="Trip photos">' + PHOTO_BADGE_SVG + '</span>'
+      : '';
+    return L.divIcon({
+      className: '',
+      html:
+        '<div class="marker-pin-wrap">' +
+        '<div class="leaflet-marker-pin voyage-marker' +
+        (hasPhotos ? ' has-photos' : '') +
+        '" data-n="' +
+        globalN +
+        '"><span>' +
+        globalN +
+        '</span></div>' +
+        badge +
+        '</div>',
+      iconSize: [32, 32],
+      iconAnchor: [14, 28],
+      popupAnchor: [0, -26]
+    });
+  }
+
+  function makeDotIcon(globalN) {
+    const hasPhotos = !!photoStops[globalN];
+    return L.divIcon({
+      className: 'marker-dot-wrap',
+      html:
+        '<div class="cluster-dot voyage-marker' +
+        (hasPhotos ? ' has-photos' : '') +
+        '" data-n="' +
+        globalN +
+        '"></div>',
+      iconSize: [14, 14],
+      iconAnchor: [7, 7]
+    });
+  }
 
   function unwrapLatLngs(latlngs) {
     if (!latlngs.length) return [];
@@ -23,30 +78,6 @@ const VoyageMap = (function () {
       result.push([latlngs[i][0], lng]);
     }
     return result;
-  }
-
-  function makePinIcon(globalN) {
-    return L.divIcon({
-      className: '',
-      html:
-        '<div class="leaflet-marker-pin voyage-marker" data-n="' +
-        globalN +
-        '"><span>' +
-        globalN +
-        '</span></div>',
-      iconSize: [28, 28],
-      iconAnchor: [14, 28],
-      popupAnchor: [0, -26]
-    });
-  }
-
-  function makeDotIcon(globalN) {
-    return L.divIcon({
-      className: 'marker-dot-wrap',
-      html: '<div class="cluster-dot voyage-marker" data-n="' + globalN + '"></div>',
-      iconSize: [14, 14],
-      iconAnchor: [7, 7]
-    });
   }
 
   function isGlobalView() {
@@ -109,6 +140,7 @@ const VoyageMap = (function () {
     onPinClick = pinClickHandler;
     onViewChange = viewChangeHandler;
     markers = {};
+    photoStops = {};
 
     map = L.map(containerId, { scrollWheelZoom: true, minZoom: 2 });
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -127,8 +159,12 @@ const VoyageMap = (function () {
     });
 
     stops.forEach((stop) => {
+      photoStops[stop.globalN] = stopHasPhotos(stop);
       const marker = L.marker([stop.lat, stop.lng], { icon: makePinIcon(stop.globalN) });
-      marker.bindTooltip(stop.globalN + '. ' + stop.name, { direction: 'top', offset: [0, -24] });
+      marker.bindTooltip(stop.globalN + '. ' + stop.name + photoTooltipNote(stop), {
+        direction: 'top',
+        offset: [0, -24]
+      });
       marker.on('click', () => onPinClick(stop.globalN));
       markers[stop.globalN] = marker;
       clusterGroup.addLayer(marker);

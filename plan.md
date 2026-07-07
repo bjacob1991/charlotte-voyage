@@ -51,9 +51,13 @@ LogBook/
 ├── images/
 │   ├── scans/              # Cropped logbook images by entry date (2001-11-20.jpg)
 │   └── photos/
-│       ├── intake/         # Drop new photos here (Phase 3)
-│       ├── web/            # Web-sized (auto-generated, Phase 3)
-│       └── thumbs/         # Thumbnails (auto-generated, Phase 3)
+│       ├── intake/         # Drop new photos here before sorting
+│       ├── albums/         # Shared location albums (in git)
+│       ├── web/            # Web-sized (optional, Phase 3)
+│       └── thumbs/         # Thumbnails (optional, Phase 3)
+├── data/
+│   ├── photo-albums.json # Shared album catalog
+│   └── leg-XX-….json
 │   └── originals/          # NOT committed to git — local backup
 └── scripts/                # Helper scripts (Phase 3)
 ```
@@ -130,7 +134,9 @@ Each leg holds an ordered list of **stops**. Each stop has coordinates, a **pass
 - Each **entry** has its own `scan` path. When one logbook page contains multiple entries, crop separate images named by date (`images/scans/YYYY-MM-DD.jpg`).
 - Uncertain transcription readings are kept in `[brackets]` within `body`.
 - `conditions` is the wind/distance summary line (optional, italic in display).
-- `photos` starts empty; `photo_album` holds an external full-res link (e.g. Amazon Photos) when repo size is a concern. Phase 3.
+- `photos` starts empty when using `photo_set` (shared album); or holds per-stop inline photos.
+- `photo_set` references a key in `data/photo-albums.json` for shared location collections.
+- `photo_album` holds an external full-res link (e.g. Amazon Photos) when repo size is a concern.
 - A stop may have multiple entries (e.g. a multi-day stay at one anchorage).
 
 ---
@@ -179,11 +185,11 @@ Visual direction: warm, nautical, document-like. Should feel like opening a trea
 - Preserve `[bracket]` convention for uncertain readings; flag anything illegible for confirmation.
 - Outcome: the full logbook narrative, growing over time.
 
-### Phase 3 — Photos
-- Set up the intake → match → resize → reference workflow.
-- Process photos in batches, region by region.
-- Decide on repo-size strategy (Git LFS vs. companion host).
-- Outcome: photos appear alongside entries from the point in the voyage where they begin (~year 2 onward).
+### Phase 3 — Photos (started)
+- Shared location albums via `data/photo-albums.json` and `photo_set` on stops.
+- 31 scanned prints committed for Bahamas through Galápagos (legs 01–02).
+- Gallery index groups by album; map pins show a camera badge when photos exist.
+- Still to do: more regions, Amazon album links, optional resize/match scripts for digital photos.
 
 ### Phase 4 — Rich interface
 - Marker clustering for the world map.
@@ -210,7 +216,8 @@ Visual direction: warm, nautical, document-like. Should feel like opening a trea
 - **2001–2005:** The voyage itself.
 - **Phase 0 (done):** Prototype built — split-view interface, Leaflet map with real geography, 10 stops from the first 7 logbook pages (Florida → Jamaica), scroll-synced pins, scan placeholders. Single self-contained HTML file with inline data.
 - **Phase 1 (done):** Refactored to external JSON + repo structure. Entry-level scans by date, passage-based UI headers, photo gallery stub. See `README.md` for maintainer workflows.
-- **Phase 2 (current):** Transcription at scale — add entries and scans as batches arrive.
+- **Phase 2 (current):** Transcription at scale — legs 01–06 in progress; Pg8–Pg38 scans cropped; Pg39+ batches arriving.
+- **Phase 3 (started):** Shared photo albums for early voyage scanned prints; 6 albums, 31 images, map/gallery UX wired up. See `README.md` and `data/photo-albums.json`.
 
 ---
 
