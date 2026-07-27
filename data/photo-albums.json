@@ -89,6 +89,10 @@
         {
           "file": "images/photos/albums/portobelo/panama_portobelo_009.jpg",
           "caption": "Portobelo — photo 9"
+        },
+        {
+          "file": "images/photos/albums/portobelo/panama_portobelo_010.jpg",
+          "caption": "Portobelo — photo 10"
         }
       ]
     },
@@ -125,40 +129,170 @@
           "caption": "Galápagos — photo 1"
         },
         {
-          "file": "images/photos/albums/galapagos/galapagos_0010.jpg",
+          "file": "images/photos/albums/galapagos/galapagos_002.jpg",
           "caption": "Galápagos — photo 2"
         },
         {
-          "file": "images/photos/albums/galapagos/galapagos_002.jpg",
+          "file": "images/photos/albums/galapagos/galapagos_003.jpg",
           "caption": "Galápagos — photo 3"
         },
         {
-          "file": "images/photos/albums/galapagos/galapagos_003.jpg",
+          "file": "images/photos/albums/galapagos/galapagos_004.jpg",
           "caption": "Galápagos — photo 4"
         },
         {
-          "file": "images/photos/albums/galapagos/galapagos_004.jpg",
+          "file": "images/photos/albums/galapagos/galapagos_005.jpg",
           "caption": "Galápagos — photo 5"
         },
         {
-          "file": "images/photos/albums/galapagos/galapagos_005.jpg",
+          "file": "images/photos/albums/galapagos/galapagos_006.jpg",
           "caption": "Galápagos — photo 6"
         },
         {
-          "file": "images/photos/albums/galapagos/galapagos_006.jpg",
+          "file": "images/photos/albums/galapagos/galapagos_007.jpg",
           "caption": "Galápagos — photo 7"
         },
         {
-          "file": "images/photos/albums/galapagos/galapagos_007.jpg",
+          "file": "images/photos/albums/galapagos/galapagos_008.jpg",
           "caption": "Galápagos — photo 8"
         },
         {
-          "file": "images/photos/albums/galapagos/galapagos_008.jpg",
+          "file": "images/photos/albums/galapagos/galapagos_009.jpg",
           "caption": "Galápagos — photo 9"
+        }
+      ]
+    },
+    "french-polynesia": {
+      "title": "French Polynesia",
+      "amazon_album": null,
+      "photos": [
+        {
+          "file": "images/photos/albums/french-polynesia/french-polynesia_001.jpg",
+          "caption": "French Polynesia — photo 1"
         },
         {
-          "file": "images/photos/albums/galapagos/galapagos_009.jpg",
-          "caption": "Galápagos — photo 10"
+          "file": "images/photos/albums/french-polynesia/french-polynesia_002.jpg",
+          "caption": "French Polynesia — photo 2"
+        },
+        {
+          "file": "images/photos/albums/french-polynesia/french-polynesia_003.jpg",
+          "caption": "French Polynesia — photo 3"
+        },
+        {
+          "file": "images/photos/albums/french-polynesia/french-polynesia_004.jpg",
+          "caption": "French Polynesia — photo 4"
+        },
+        {
+          "file": "images/photos/albums/french-polynesia/french-polynesia_005.jpg",
+          "caption": "French Polynesia — photo 5"
+        },
+        {
+          "file": "images/photos/albums/french-polynesia/french-polynesia_006.jpg",
+          "caption": "French Polynesia — photo 6"
+        },
+        {
+          "file": "images/photos/albums/french-polynesia/french-polynesia_007.jpg",
+          "caption": "French Polynesia — photo 7"
+        },
+        {
+          "file": "images/photos/albums/french-polynesia/french-polynesia_008.jpg",
+          "caption": "French Polynesia — photo 8"
+        },
+        {
+          "file": "images/photos/albums/french-polynesia/french-polynesia_009.jpg",
+          "caption": "French Polynesia — photo 9"
+        },
+        {
+          "file": "images/photos/albums/french-polynesia/french-polynesia_010.jpg",
+          "caption": "French Polynesia — photo 10"
+        },
+        {
+          "file": "images/photos/albums/french-polynesia/french-polynesia_011.jpg",
+          "caption": "French Polynesia — photo 11"
+        }
+      ]
+    },
+    "tonga": {
+      "title": "Tonga & Niue",
+      "amazon_album": null,
+      "photos": [
+        {
+          "file": "images/photos/albums/tonga/tonga_001.jpg",
+          "caption": "Tonga & Niue — photo 1"
+        },
+        {
+          "file": "images/photos/albums/tonga/tonga_002.jpg",
+          "caption": "Tonga & Niue — photo 2"
+        },
+        {
+          "file": "images/photos/albums/tonga/tonga_003.jpg",
+          "caption": "Tonga & Niue — photo 3"
+        },
+        {
+          "file": "images/photos/albums/tonga/tonga_004.jpg",
+          "caption": "Tonga & Niue — photo 4"
+        },
+        {
+          "file": "images/photos/albums/tonga/tonga_005.jpg",
+          "caption": "Tonga & Niue — photo 5"
+        },
+        {
+          "file": "images/photos/albums/tonga/tonga_006.jpg",
+          "caption": "Tonga & Niue — photo 6"
+        },
+        {
+          "file": "images/photos/albums/tonga/tonga_007.jpg",
+          "caption": "Tonga & Niue — photo 7"
+        },
+        {
+          "file": "images/photos/albums/tonga/tonga_008.jpg",
+          "caption": "Tonga & Niue — photo 8"
+        },
+        {
+          "file": "images/photos/albums/tonga/tonga_009.jpg",
+          "caption": "Tonga & Niue — photo 9"
+        }
+      ]
+    },
+    "new-zealand": {
+      "title": "New Zealand",
+      "amazon_album": null,
+      "photos": [
+        {
+          "file": "images/photos/albums/new-zealand/new-zealand_001.jpg",
+          "caption": "New Zealand — photo 1"
+        },
+        {
+          "file": "images/photos/albums/new-zealand/new-zealand_002.jpg",
+          "caption": "New Zealand — photo 2"
+        },
+        {
+          "file": "images/photos/albums/new-zealand/new-zealand_003.jpg",
+          "caption": "New Zealand — photo 3"
+        },
+        {
+          "file": "images/photos/albums/new-zealand/new-zealand_004.jpg",
+          "caption": "New Zealand — photo 4"
+        },
+        {
+          "file": "images/photos/albums/new-zealand/new-zealand_005.jpg",
+          "caption": "New Zealand — photo 5"
+        },
+        {
+          "file": "images/photos/albums/new-zealand/new-zealand_006.jpg",
+          "caption": "New Zealand — photo 6"
+        },
+        {
+          "file": "images/photos/albums/new-zealand/new-zealand_007.jpg",
+          "caption": "New Zealand — photo 7"
+        },
+        {
+          "file": "images/photos/albums/new-zealand/new-zealand_008.jpg",
+          "caption": "New Zealand — photo 8"
+        },
+        {
+          "file": "images/photos/albums/new-zealand/new-zealand_009.jpg",
+          "caption": "New Zealand — photo 9"
         }
       ]
     }

@@ -2,7 +2,9 @@
 
 An interactive web archive of the family circumnavigation aboard *Charlotte* (2001–2005). Map, log entries, logbook scans, and trip photos — all driven by plain JSON data files.
 
-**Design doc:** see `plan.md` for full architecture and roadmap.
+**Live site:** https://bjacob1991.github.io/charlotte-voyage/
+
+**Design doc:** see `plan.md` for full architecture and roadmap. Maintainer checklist: `NEXT STEPS.md`. Data fields: `data/SCHEMA.md`.
 
 ---
 
@@ -15,7 +17,7 @@ cd LogBook
 python -m http.server 8000
 ```
 
-Open **http://localhost:8000**
+Open **http://localhost:8000** (or use the [live site](https://bjacob1991.github.io/charlotte-voyage/) after the latest push).
 
 The original single-file prototype is kept as `charlotte_logbook.html` for reference.
 
@@ -236,7 +238,9 @@ Change to `"in-progress"` when you create that leg's JSON file.
 
 ## Hosting (when ready)
 
-Push to GitHub and enable **GitHub Pages** on the repo. The site is static — no server required in production.
+**Live site:** https://bjacob1991.github.io/charlotte-voyage/
+
+Push to GitHub; **GitHub Pages** serves the static site from `main`. No server required in production.
 
 ⚠️ Google Drive does not serve HTML as web pages. Use GitHub Pages, Netlify, or Cloudflare Pages.
 
@@ -255,7 +259,7 @@ pip install -r requirements.txt
 python scripts/export-pdf-pages.py --clean
 ```
 
-This reads PDFs in `Scans/` (named by logbook page range, e.g. `Pg8-Pg38.pdf`, `Pg39-Pg69.pdf`) and writes **one JPG per PDF page** to `images/scans/_pages/` (for example `Pg8-Pg38_p01.jpg`), plus `manifest.json`.
+This reads PDFs in `Scans/` (named by logbook page range, e.g. `Pg8-Pg38.pdf`, `Pg39-Pg53.pdf`) and writes **one JPG per PDF page** to `images/scans/_pages/` (for example `Pg8-Pg38_p01.jpg`), plus `manifest.json`.
 
 - **`--clean`** — wipe `_pages/` and export every PDF (use after renaming PDFs or fixing a bad run)
 - **Default (no flags)** — export only PDFs that are new or changed since the last run

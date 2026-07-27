@@ -3,6 +3,8 @@
 const VoyageMap = (function () {
   let map = null;
   let markers = {};
+  /** Unwrapped [lat, lng] by stop.globalN — keeps pins on the same side of the dateline as the route. */
+  let unwrappedByN = {};
   let clusterGroup = null;
   let onPinClick = null;
   let onViewChange = null;
@@ -91,9 +93,12 @@ const VoyageMap = (function () {
     });
   }
 
-  function drawVoyageRoute(stops, layerGroup) {
-    if (stops.length < 2) return;
-    const latlngs = unwrapLatLngs(stops.map((s) => [s.lat, s.lng]));
+  function latLngForStop(stop) {
+    return unwrappedByN[stop.globalN] || [stop.lat, stop.lng];
+  }
+
+  function drawVoyageRoute(latlngs, layerGroup) {
+    if (latlngs.length < 2) return;
     L.polyline(latlngs, ROUTE_STYLE).addTo(layerGroup);
   }
 
@@ -140,15 +145,41 @@ const VoyageMap = (function () {
     onPinClick = pinClickHandler;
     onViewChange = viewChangeHandler;
     markers = {};
+    unwrappedByN = {};
     photoStops = {};
 
-    map = L.map(containerId, { scrollWheelZoom: true, minZoom: 2 });
+    // Route already crossed the antimeridian westward; unwrap so NZ/Fiji/Vanuatu
+    // stay on that continuous track instead of jumping to +180 on the far right.
+    const unwrapped = unwrapLatLngs(stops.map((s) => [s.lat, s.lng]));
+    stops.forEach((stop, i) => {
+      unwrappedByN[stop.globalN] = unwrapped[i];
+    });
+
+    const lngs = unwrapped.map((p) => p[1]);
+    const lats = unwrapped.map((p) => p[0]);
+    const minLng = Math.min.apply(null, lngs);
+    const maxLng = Math.max.apply(null, lngs);
+    const minLat = Math.min.apply(null, lats);
+    const maxLat = Math.max.apply(null, lats);
+    // One finite voyage window (includes unwrapped longitudes past ±180). No endless world copies.
+    const maxBounds = L.latLngBounds(
+      [Math.max(-85, minLat - 20), minLng - 30],
+      [Math.min(85, maxLat + 20), maxLng + 30]
+    );
+
+    map = L.map(containerId, {
+      scrollWheelZoom: true,
+      minZoom: 2,
+      maxBounds: maxBounds,
+      maxBoundsViscosity: 1.0,
+      worldCopyJump: false
+    });
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
       maxZoom: 18,
       attribution: '&copy; OpenStreetMap contributors'
     }).addTo(map);
 
-    drawVoyageRoute(stops, map);
+    drawVoyageRoute(unwrapped, map);
 
     clusterGroup = L.markerClusterGroup({
       maxClusterRadius: 55,
@@ -160,7 +191,7 @@ const VoyageMap = (function () {
 
     stops.forEach((stop) => {
       photoStops[stop.globalN] = stopHasPhotos(stop);
-      const marker = L.marker([stop.lat, stop.lng], { icon: makePinIcon(stop.globalN) });
+      const marker = L.marker(latLngForStop(stop), { icon: makePinIcon(stop.globalN) });
       marker.bindTooltip(stop.globalN + '. ' + stop.name + photoTooltipNote(stop), {
         direction: 'top',
         offset: [0, -24]
@@ -195,7 +226,7 @@ const VoyageMap = (function () {
 
   function fitStops(stops) {
     if (!map || !stops.length) return;
-    const latlngs = stops.map((s) => [s.lat, s.lng]);
+    const latlngs = stops.map((s) => latLngForStop(s));
     suppressViewChange = true;
 
     if (latlngs.length === 1) {

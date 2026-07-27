@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-06-16T18:29:41.195Z",
+  "exportedAt": "2026-07-27T18:50:21.626Z",
   "notes": "Normalized crop rectangles in page-relative coordinates (0..1).",
   "pages": {
     "Pg1-Pg7_p01.jpg": {
@@ -1099,6 +1099,509 @@
     "Pg39-Pg69_p01.jpg": {
       "image": "Pg39-Pg69_p01.jpg",
       "boxes": []
+    },
+    "Pg1-Pg7_p07.jpg": {
+      "image": "Pg1-Pg7_p07.jpg",
+      "boxes": []
+    },
+    "Pg39-Pg53_p01.jpg": {
+      "image": "Pg39-Pg53_p01.jpg",
+      "boxes": [
+        {
+          "id": "38387dru",
+          "rect": {
+            "x": 0.06192439152644231,
+            "y": 0.022718348438383766,
+            "w": 0.9188811188811189,
+            "h": 0.2841628959276018
+          },
+          "scanPath": "images/scans/2002-11-14.jpg"
+        },
+        {
+          "id": "m7h1fj19",
+          "rect": {
+            "x": 0.06122509082714161,
+            "y": 0.3086911991171168,
+            "w": 0.9237762237762238,
+            "h": 0.14841628959276018
+          },
+          "scanPath": "images/scans/2002-11-15.jpg"
+        },
+        {
+          "id": "6z32y1o3",
+          "rect": {
+            "x": 0.06052579012784091,
+            "y": 0.45628788633044487,
+            "w": 0.9244755244755245,
+            "h": 0.4081447963800905
+          },
+          "scanPath": "images/scans/2002-12-29a.jpg"
+        }
+      ]
+    },
+    "Pg39-Pg53_p02.jpg": {
+      "image": "Pg39-Pg53_p02.jpg",
+      "boxes": [
+        {
+          "id": "o8bq3f8s",
+          "rect": {
+            "x": 0.03744886705091783,
+            "y": 0.08343720759741322,
+            "w": 0.8755244755244755,
+            "h": 0.49321266968325794
+          },
+          "scanPath": "images/scans/2002-12-29b.jpg"
+        },
+        {
+          "id": "3fr23o8q",
+          "rect": {
+            "x": 0.03185446145651224,
+            "y": 0.5757448999051055,
+            "w": 0.9062937062937063,
+            "h": 0.17285067873303167
+          },
+          "scanPath": "images/scans/2002-12-30.jpg"
+        },
+        {
+          "id": "gtfvq3ve",
+          "rect": {
+            "x": 0.02975655935861014,
+            "y": 0.7522154881403996,
+            "w": 0.9118881118881119,
+            "h": 0.20542986425339366
+          },
+          "scanPath": "images/scans/2003-01-15a.jpg"
+        }
+      ]
+    },
+    "Pg39-Pg53_p03.jpg": {
+      "image": "Pg39-Pg53_p03.jpg",
+      "boxes": [
+        {
+          "id": "9qrwywnq",
+          "rect": {
+            "x": 0.036050265652316435,
+            "y": 0.012763597307162047,
+            "w": 0.9433566433566434,
+            "h": 0.21357466063348415
+          },
+          "scanPath": "images/scans/2003-01-15b.jpg"
+        },
+        {
+          "id": "hb6qkmjw",
+          "rect": {
+            "x": 0.04304327264532343,
+            "y": 0.22823358768791094,
+            "w": 0.9349650349650349,
+            "h": 0.24615384615384617
+          },
+          "scanPath": "images/scans/2003-01-18.jpg"
+        },
+        {
+          "id": "zovltjs9",
+          "rect": {
+            "x": 0.04933697893902972,
+            "y": 0.47800734334401956,
+            "w": 0.9265734265734266,
+            "h": 0.38733031674208146
+          },
+          "scanPath": "images/scans/2003-05-13.jpg"
+        }
+      ]
+    },
+    "Pg39-Pg53_p04.jpg": {
+      "image": "Pg39-Pg53_p04.jpg",
+      "boxes": [
+        {
+          "id": "7wh0rhzc",
+          "rect": {
+            "x": 0.034651664253715034,
+            "y": 0.097916845606463,
+            "w": 0.9146853146853147,
+            "h": 0.7411764705882353
+          },
+          "scanPath": "images/scans/2003-05-14.jpg"
+        }
+      ]
+    },
+    "Pg39-Pg53_p05.jpg": {
+      "image": "Pg39-Pg53_p05.jpg",
+      "boxes": [
+        {
+          "id": "rwxwfevb",
+          "rect": {
+            "x": 0.0724139020159528,
+            "y": 0.029053190067343044,
+            "w": 0.9076923076923077,
+            "h": 0.21809954751131222
+          },
+          "scanPath": "images/scans/2003-05-15.jpg"
+        },
+        {
+          "id": "a31jlt7v",
+          "rect": {
+            "x": 0.0654208950229458,
+            "y": 0.23991291857413038,
+            "w": 0.9174825174825175,
+            "h": 0.36561085972850677
+          },
+          "scanPath": "images/scans/2003-05-16.jpg"
+        },
+        {
+          "id": "vct3cl60",
+          "rect": {
+            "x": 0.0668194964215472,
+            "y": 0.6073337330537684,
+            "w": 0.9216783216783216,
+            "h": 0.2669683257918552
+          },
+          "scanPath": "images/scans/2003-05-17.jpg"
+        }
+      ]
+    },
+    "Pg39-Pg53_p06.jpg": {
+      "image": "Pg39-Pg53_p06.jpg",
+      "boxes": [
+        {
+          "id": "58vo5alh",
+          "rect": {
+            "x": 0.03185446145651224,
+            "y": 0.10063177773315982,
+            "w": 0.8958041958041958,
+            "h": 0.2081447963800905
+          },
+          "scanPath": "images/scans/2003-05-18.jpg"
+        },
+        {
+          "id": "hfltiqx0",
+          "rect": {
+            "x": 0.03744886705091783,
+            "y": 0.31239648361551275,
+            "w": 0.9153846153846154,
+            "h": 0.3049773755656109
+          },
+          "scanPath": "images/scans/2003-05-19.jpg"
+        },
+        {
+          "id": "231o0zde",
+          "rect": {
+            "x": 0.04444187404392483,
+            "y": 0.6182788365566892,
+            "w": 0.9146853146853147,
+            "h": 0.34570135746606334
+          },
+          "scanPath": "images/scans/2003-05-20.jpg"
+        }
+      ]
+    },
+    "Pg39-Pg53_p07.jpg": {
+      "image": "Pg39-Pg53_p07.jpg",
+      "boxes": [
+        {
+          "id": "shizmrw5",
+          "rect": {
+            "x": 0.06961669921875,
+            "y": 0.0335780769451711,
+            "w": 0.9230769230769231,
+            "h": 0.45520361990950226
+          },
+          "scanPath": "images/scans/2003-05-21.jpg"
+        },
+        {
+          "id": "icqut8pn",
+          "rect": {
+            "x": 0.08150481110686189,
+            "y": 0.4924016063569358,
+            "w": 0.9118881118881119,
+            "h": 0.24343891402714932
+          },
+          "scanPath": "images/scans/2003-05-22.jpg"
+        },
+        {
+          "id": "so7hxgsu",
+          "rect": {
+            "x": 0.07870760830965909,
+            "y": 0.7385554525107819,
+            "w": 0.9104895104895104,
+            "h": 0.15294117647058825
+          },
+          "scanPath": "images/scans/2003-05-23a.jpg"
+        }
+      ]
+    },
+    "Pg39-Pg53_p08.jpg": {
+      "image": "Pg39-Pg53_p08.jpg",
+      "boxes": [
+        {
+          "id": "xwy1ecu1",
+          "rect": {
+            "x": 0.02905725865930944,
+            "y": 0.06796721721666431,
+            "w": 0.8986013986013986,
+            "h": 0.4
+          },
+          "scanPath": "images/scans/2003-05-23b.jpg"
+        },
+        {
+          "id": "s3d1kx55",
+          "rect": {
+            "x": 0.028357957960008742,
+            "y": 0.44805771495422086,
+            "w": 0.9027972027972028,
+            "h": 0.34841628959276016
+          },
+          "scanPath": "images/scans/2003-05-24.jpg"
+        },
+        {
+          "id": "aq8vdwhp",
+          "rect": {
+            "x": 0.022763552365603148,
+            "y": 0.7522154881403996,
+            "w": 0.916083916083916,
+            "h": 0.20361990950226244
+          },
+          "scanPath": "images/scans/2003-05-30a.jpg"
+        }
+      ]
+    },
+    "Pg39-Pg53_p09.jpg": {
+      "image": "Pg39-Pg53_p09.jpg",
+      "boxes": [
+        {
+          "id": "v38k19ox",
+          "rect": {
+            "x": 0.07660970621175699,
+            "y": 0.030863144818474266,
+            "w": 0.920979020979021,
+            "h": 0.269683257918552
+          },
+          "scanPath": "images/scans/2003-05-30b.jpg"
+        },
+        {
+          "id": "k0htty61",
+          "rect": {
+            "x": 0.09339292299497377,
+            "y": 0.30235635748815753,
+            "w": 0.9066070770050262,
+            "h": 0.432579185520362
+          },
+          "scanPath": "images/scans/2003-06-06.jpg"
+        },
+        {
+          "id": "mxtxvmlj",
+          "rect": {
+            "x": 0.08919711879916958,
+            "y": 0.7205412799956032,
+            "w": 0.9055944055944056,
+            "h": 0.19638009049773755
+          },
+          "scanPath": "images/scans/2003-06-09a.jpg"
+        }
+      ]
+    },
+    "Pg39-Pg53_p10.jpg": {
+      "image": "Pg39-Pg53_p10.jpg",
+      "boxes": [
+        {
+          "id": "j0hs93uu",
+          "rect": {
+            "x": 0.017169146771197553,
+            "y": 0.08697174210354214,
+            "w": 0.9055944055944056,
+            "h": 0.3719457013574661
+          },
+          "scanPath": "images/scans/2003-06-09b.jpg"
+        },
+        {
+          "id": "bpt4d6ok",
+          "rect": {
+            "x": 0.012274041876092658,
+            "y": 0.45357295420374805,
+            "w": 0.9321678321678322,
+            "h": 0.5113122171945701
+          },
+          "scanPath": "images/scans/2003-06-23.jpg"
+        }
+      ]
+    },
+    "Pg39-Pg53_p11.jpg": {
+      "image": "Pg39-Pg53_p11.jpg",
+      "boxes": [
+        {
+          "id": "9zv6frv0",
+          "rect": {
+            "x": 0.05912718872923951,
+            "y": 0.012763597307162047,
+            "w": 0.9321678321678322,
+            "h": 0.29683257918552036
+          },
+          "scanPath": "images/scans/2003-06-24.jpg"
+        },
+        {
+          "id": "ztpq4jjf",
+          "rect": {
+            "x": 0.053532783134833915,
+            "y": 0.2960215158591982,
+            "w": 0.9363636363636364,
+            "h": 0.4343891402714932
+          },
+          "scanPath": "images/scans/2003-07-08.jpg"
+        },
+        {
+          "id": "rvfs7g3l",
+          "rect": {
+            "x": 0.05982648942854021,
+            "y": 0.7268761216245625,
+            "w": 0.9251748251748252,
+            "h": 0.19547511312217195
+          },
+          "scanPath": "images/scans/2003-07-09.jpg"
+        }
+      ]
+    },
+    "Pg39-Pg53_p12.jpg": {
+      "image": "Pg39-Pg53_p12.jpg",
+      "boxes": [
+        {
+          "id": "85gmbasl",
+          "rect": {
+            "x": 0.05772858733063811,
+            "y": 0.0924016063569358,
+            "w": 0.893006993006993,
+            "h": 0.38009049773755654
+          },
+          "scanPath": "images/scans/2003-07-15.jpg"
+        },
+        {
+          "id": "r3c492d0",
+          "rect": {
+            "x": 0.05143488103693182,
+            "y": 0.4661572624655331,
+            "w": 0.9132867132867133,
+            "h": 0.2823529411764706
+          },
+          "scanPath": "images/scans/2003-07-17.jpg"
+        },
+        {
+          "id": "9apfe2uu",
+          "rect": {
+            "x": 0.052134181736232514,
+            "y": 0.7449756691358748,
+            "w": 0.9132867132867133,
+            "h": 0.21990950226244343
+          },
+          "scanPath": "images/scans/2003-07-18.jpg"
+        }
+      ]
+    },
+    "Pg39-Pg53_p13.jpg": {
+      "image": "Pg39-Pg53_p13.jpg",
+      "boxes": [
+        {
+          "id": "4rtztefc",
+          "rect": {
+            "x": 0.062623692225743,
+            "y": 0.020003416311686933,
+            "w": 0.9237762237762238,
+            "h": 0.38009049773755654
+          },
+          "scanPath": "images/scans/2003-07-19.jpg"
+        },
+        {
+          "id": "nhiz4bi2",
+          "rect": {
+            "x": 0.05772858733063811,
+            "y": 0.39647400454698106,
+            "w": 0.9265734265734266,
+            "h": 0.47420814479638007
+          },
+          "scanPath": "images/scans/2003-08-16a.jpg"
+        }
+      ]
+    },
+    "Pg39-Pg53_p14.jpg": {
+      "image": "Pg39-Pg53_p14.jpg",
+      "boxes": [
+        {
+          "id": "qo8jikw1",
+          "rect": {
+            "x": 0.005281034883085664,
+            "y": 0.06887219459222992,
+            "w": 0.9062937062937063,
+            "h": 0.2407239819004525
+          },
+          "scanPath": "images/scans/2003-08-16b.jpg"
+        },
+        {
+          "id": "55on4dhw",
+          "rect": {
+            "x": 0.006679636281687063,
+            "y": 0.3132160859949448,
+            "w": 0.9048951048951049,
+            "h": 0.24796380090497738
+          },
+          "scanPath": "images/scans/2003-08-17.jpg"
+        },
+        {
+          "id": "kq6sbou5",
+          "rect": {
+            "x": 0.005980335582386364,
+            "y": 0.5503201583931349,
+            "w": 0.9216783216783216,
+            "h": 0.36470588235294116
+          },
+          "scanPath": "images/scans/2003-08-19.jpg"
+        }
+      ]
+    },
+    "Pg39-Pg53_p15.jpg": {
+      "image": "Pg39-Pg53_p15.jpg",
+      "boxes": [
+        {
+          "id": "xsynsjyc",
+          "rect": {
+            "x": 0.0689173985194493,
+            "y": 0.01457355205829327,
+            "w": 0.9188811188811189,
+            "h": 0.20452488687782805
+          },
+          "scanPath": "images/scans/2003-08-20.jpg"
+        },
+        {
+          "id": "d1v786n9",
+          "rect": {
+            "x": 0.07870760830965909,
+            "y": 0.22090839368725254,
+            "w": 0.9195804195804196,
+            "h": 0.22895927601809954
+          },
+          "scanPath": "images/scans/2003-08-21.jpg"
+        },
+        {
+          "id": "jm9lpovi",
+          "rect": {
+            "x": 0.0745118041138549,
+            "y": 0.4390079411985648,
+            "w": 0.9230769230769231,
+            "h": 0.18009049773755656
+          },
+          "scanPath": "images/scans/2003-08-22.jpg"
+        },
+        {
+          "id": "8b3eyn3a",
+          "rect": {
+            "x": 0.08360271320476399,
+            "y": 0.6228037234345173,
+            "w": 0.916397286795236,
+            "h": 0.269683257918552
+          },
+          "scanPath": "images/scans/2003-09-01.jpg"
+        }
+      ]
+    },
+    "Pg54-Pg69_p01.jpg": {
+      "image": "Pg54-Pg69_p01.jpg",
+      "boxes": []
     }
   },
   "targets": [
@@ -1323,16 +1826,16 @@
       "legId": "leg-02",
       "stopName": "Las Perlas (Contadora & Viveros)",
       "date": "2002-03-13a",
-      "pageFile": null,
-      "dateDisplay": "Wednesday, March 13"
+      "pageFile": "Pg8-Pg38_p05.jpg",
+      "dateDisplay": "Wednesday, March 13 (part 1 of 2)"
     },
     {
       "scanPath": "images/scans/2002-03-13b.jpg",
       "legId": "leg-02",
-      "stopName": "Las Perlas–Galápagos Passage",
-      "date": "2002-03-13b",
-      "pageFile": null,
-      "dateDisplay": "Wednesday, March 13"
+      "stopName": "Las Perlas (Contadora & Viveros)",
+      "date": "2002-03-13a",
+      "pageFile": "Pg8-Pg38_p06.jpg",
+      "dateDisplay": "Wednesday, March 13 (part 2 of 2)"
     },
     {
       "scanPath": "images/scans/2002-03-14.jpg",
@@ -1973,6 +2476,342 @@
       "date": "2002-11-13",
       "pageFile": null,
       "dateDisplay": "Wednesday, November 13"
+    },
+    {
+      "scanPath": "images/scans/2002-11-14.jpg",
+      "legId": "leg-05",
+      "stopName": "Kawau Island & Gulf Harbour",
+      "date": "2002-11-14",
+      "pageFile": null,
+      "dateDisplay": "Thursday, November 14, 2002"
+    },
+    {
+      "scanPath": "images/scans/2002-11-15.jpg",
+      "legId": "leg-05",
+      "stopName": "Kawau Island & Gulf Harbour",
+      "date": "2002-11-15",
+      "pageFile": null,
+      "dateDisplay": "Friday, November 15"
+    },
+    {
+      "scanPath": "images/scans/2002-12-29a.jpg",
+      "legId": "leg-05",
+      "stopName": "Kawau Island & Gulf Harbour",
+      "date": "2002-12-29",
+      "pageFile": "Pg39-Pg53_p01.jpg",
+      "dateDisplay": "Sunday, December 29 (part 1 of 2)"
+    },
+    {
+      "scanPath": "images/scans/2002-12-29b.jpg",
+      "legId": "leg-05",
+      "stopName": "Kawau Island & Gulf Harbour",
+      "date": "2002-12-29",
+      "pageFile": "Pg39-Pg53_p02.jpg",
+      "dateDisplay": "Sunday, December 29 (part 2 of 2)"
+    },
+    {
+      "scanPath": "images/scans/2002-12-30.jpg",
+      "legId": "leg-05",
+      "stopName": "Kawau Island & Gulf Harbour",
+      "date": "2002-12-30",
+      "pageFile": null,
+      "dateDisplay": "Monday, December 30, 2002"
+    },
+    {
+      "scanPath": "images/scans/2003-01-15a.jpg",
+      "legId": "leg-05",
+      "stopName": "Whangarei & Bream Head",
+      "date": "2003-01-15",
+      "pageFile": "Pg39-Pg53_p02.jpg",
+      "dateDisplay": "Wednesday, January 15, 2003 (part 1 of 2)"
+    },
+    {
+      "scanPath": "images/scans/2003-01-15b.jpg",
+      "legId": "leg-05",
+      "stopName": "Whangarei & Bream Head",
+      "date": "2003-01-15",
+      "pageFile": "Pg39-Pg53_p03.jpg",
+      "dateDisplay": "Wednesday, January 15, 2003 (part 2 of 2)"
+    },
+    {
+      "scanPath": "images/scans/2003-01-18.jpg",
+      "legId": "leg-05",
+      "stopName": "Whangamumu & Omakiwi Cove",
+      "date": "2003-01-18",
+      "pageFile": null,
+      "dateDisplay": "Saturday, January 18"
+    },
+    {
+      "scanPath": "images/scans/2003-05-13.jpg",
+      "legId": "leg-06",
+      "stopName": "New Zealand–Fiji Passage",
+      "date": "2003-05-13",
+      "pageFile": null,
+      "dateDisplay": "Tuesday, May 13"
+    },
+    {
+      "scanPath": "images/scans/2003-05-14.jpg",
+      "legId": "leg-06",
+      "stopName": "New Zealand–Fiji Passage",
+      "date": "2003-05-14",
+      "pageFile": null,
+      "dateDisplay": "Wednesday, May 14"
+    },
+    {
+      "scanPath": "images/scans/2003-05-15.jpg",
+      "legId": "leg-06",
+      "stopName": "New Zealand–Fiji Passage",
+      "date": "2003-05-15",
+      "pageFile": null,
+      "dateDisplay": "Thursday, May 15, 2003"
+    },
+    {
+      "scanPath": "images/scans/2003-05-16.jpg",
+      "legId": "leg-06",
+      "stopName": "New Zealand–Fiji Passage",
+      "date": "2003-05-16",
+      "pageFile": null,
+      "dateDisplay": "Friday, May 16"
+    },
+    {
+      "scanPath": "images/scans/2003-05-17.jpg",
+      "legId": "leg-06",
+      "stopName": "New Zealand–Fiji Passage",
+      "date": "2003-05-17",
+      "pageFile": null,
+      "dateDisplay": "Saturday, May 17"
+    },
+    {
+      "scanPath": "images/scans/2003-05-18.jpg",
+      "legId": "leg-06",
+      "stopName": "New Zealand–Fiji Passage",
+      "date": "2003-05-18",
+      "pageFile": null,
+      "dateDisplay": "Sunday, May 18"
+    },
+    {
+      "scanPath": "images/scans/2003-05-19.jpg",
+      "legId": "leg-06",
+      "stopName": "New Zealand–Fiji Passage",
+      "date": "2003-05-19",
+      "pageFile": null,
+      "dateDisplay": "Monday, May 19"
+    },
+    {
+      "scanPath": "images/scans/2003-05-20.jpg",
+      "legId": "leg-06",
+      "stopName": "New Zealand–Fiji Passage",
+      "date": "2003-05-20",
+      "pageFile": null,
+      "dateDisplay": "Tuesday, May 20"
+    },
+    {
+      "scanPath": "images/scans/2003-05-21.jpg",
+      "legId": "leg-06",
+      "stopName": "New Zealand–Fiji Passage",
+      "date": "2003-05-21",
+      "pageFile": null,
+      "dateDisplay": "Wednesday, May 21"
+    },
+    {
+      "scanPath": "images/scans/2003-05-22.jpg",
+      "legId": "leg-06",
+      "stopName": "New Zealand–Fiji Passage",
+      "date": "2003-05-22",
+      "pageFile": null,
+      "dateDisplay": "Thursday, May 22"
+    },
+    {
+      "scanPath": "images/scans/2003-05-23a.jpg",
+      "legId": "leg-06",
+      "stopName": "New Zealand–Fiji Passage",
+      "date": "2003-05-23",
+      "pageFile": "Pg39-Pg53_p07.jpg",
+      "dateDisplay": "Friday, May 23 (part 1 of 2)"
+    },
+    {
+      "scanPath": "images/scans/2003-05-23b.jpg",
+      "legId": "leg-06",
+      "stopName": "New Zealand–Fiji Passage",
+      "date": "2003-05-23",
+      "pageFile": "Pg39-Pg53_p08.jpg",
+      "dateDisplay": "Friday, May 23 (part 2 of 2)"
+    },
+    {
+      "scanPath": "images/scans/2003-05-24.jpg",
+      "legId": "leg-06",
+      "stopName": "New Zealand–Fiji Passage",
+      "date": "2003-05-24",
+      "pageFile": null,
+      "dateDisplay": "Saturday, May 24, 2003"
+    },
+    {
+      "scanPath": "images/scans/2003-05-30a.jpg",
+      "legId": "leg-06",
+      "stopName": "Savusavu, Taveuni & Viani Bay",
+      "date": "2003-05-30",
+      "pageFile": "Pg39-Pg53_p08.jpg",
+      "dateDisplay": "Friday, May 30 (part 1 of 2)"
+    },
+    {
+      "scanPath": "images/scans/2003-05-30b.jpg",
+      "legId": "leg-06",
+      "stopName": "Savusavu, Taveuni & Viani Bay",
+      "date": "2003-05-30",
+      "pageFile": "Pg39-Pg53_p09.jpg",
+      "dateDisplay": "Friday, May 30 (part 2 of 2)"
+    },
+    {
+      "scanPath": "images/scans/2003-06-06.jpg",
+      "legId": "leg-06",
+      "stopName": "Savusavu, Taveuni & Viani Bay",
+      "date": "2003-06-06",
+      "pageFile": null,
+      "dateDisplay": "Friday, June 6"
+    },
+    {
+      "scanPath": "images/scans/2003-06-09a.jpg",
+      "legId": "leg-06",
+      "stopName": "Savusavu, Taveuni & Viani Bay",
+      "date": "2003-06-09",
+      "pageFile": "Pg39-Pg53_p09.jpg",
+      "dateDisplay": "Monday, June 9 (part 1 of 2)"
+    },
+    {
+      "scanPath": "images/scans/2003-06-09b.jpg",
+      "legId": "leg-06",
+      "stopName": "Savusavu, Taveuni & Viani Bay",
+      "date": "2003-06-09",
+      "pageFile": "Pg39-Pg53_p10.jpg",
+      "dateDisplay": "Monday, June 9 (part 2 of 2)"
+    },
+    {
+      "scanPath": "images/scans/2003-06-23.jpg",
+      "legId": "leg-06",
+      "stopName": "Vanua Balavu, Lau Group",
+      "date": "2003-06-23",
+      "pageFile": null,
+      "dateDisplay": "Monday, June 23"
+    },
+    {
+      "scanPath": "images/scans/2003-06-24.jpg",
+      "legId": "leg-06",
+      "stopName": "Kadavu & the Great Astrolabe Reef",
+      "date": "2003-06-24",
+      "pageFile": null,
+      "dateDisplay": "Tuesday, June 24"
+    },
+    {
+      "scanPath": "images/scans/2003-07-08.jpg",
+      "legId": "leg-06",
+      "stopName": "Kadavu & the Great Astrolabe Reef",
+      "date": "2003-07-08",
+      "pageFile": null,
+      "dateDisplay": "Tuesday, July 8"
+    },
+    {
+      "scanPath": "images/scans/2003-07-09.jpg",
+      "legId": "leg-06",
+      "stopName": "Suva, Viti Levu",
+      "date": "2003-07-09",
+      "pageFile": null,
+      "dateDisplay": "Wednesday, July 9"
+    },
+    {
+      "scanPath": "images/scans/2003-07-15.jpg",
+      "legId": "leg-06",
+      "stopName": "Suva, Viti Levu",
+      "date": "2003-07-15",
+      "pageFile": null,
+      "dateDisplay": "Tuesday, July 15"
+    },
+    {
+      "scanPath": "images/scans/2003-07-17.jpg",
+      "legId": "leg-06",
+      "stopName": "Beqa, Vunaniu & Natadola",
+      "date": "2003-07-17",
+      "pageFile": null,
+      "dateDisplay": "Thursday, July 17"
+    },
+    {
+      "scanPath": "images/scans/2003-07-18.jpg",
+      "legId": "leg-06",
+      "stopName": "Beqa, Vunaniu & Natadola",
+      "date": "2003-07-18",
+      "pageFile": null,
+      "dateDisplay": "Friday, July 18"
+    },
+    {
+      "scanPath": "images/scans/2003-07-19.jpg",
+      "legId": "leg-06",
+      "stopName": "Musket Cove & Nadi Waters",
+      "date": "2003-07-19",
+      "pageFile": null,
+      "dateDisplay": "Saturday, July 19, 2003"
+    },
+    {
+      "scanPath": "images/scans/2003-08-16a.jpg",
+      "legId": "leg-06",
+      "stopName": "Musket Cove & Nadi Waters",
+      "date": "2003-08-16",
+      "pageFile": "Pg39-Pg53_p13.jpg",
+      "dateDisplay": "Saturday, August 16 (part 1 of 2)"
+    },
+    {
+      "scanPath": "images/scans/2003-08-16b.jpg",
+      "legId": "leg-06",
+      "stopName": "Musket Cove & Nadi Waters",
+      "date": "2003-08-16",
+      "pageFile": "Pg39-Pg53_p14.jpg",
+      "dateDisplay": "Saturday, August 16 (part 2 of 2)"
+    },
+    {
+      "scanPath": "images/scans/2003-08-17.jpg",
+      "legId": "leg-06",
+      "stopName": "Fiji–Vanuatu Passage",
+      "date": "2003-08-17",
+      "pageFile": null,
+      "dateDisplay": "Sunday, August 17"
+    },
+    {
+      "scanPath": "images/scans/2003-08-19.jpg",
+      "legId": "leg-06",
+      "stopName": "Fiji–Vanuatu Passage",
+      "date": "2003-08-19",
+      "pageFile": null,
+      "dateDisplay": "Tuesday, August 19"
+    },
+    {
+      "scanPath": "images/scans/2003-08-20.jpg",
+      "legId": "leg-06",
+      "stopName": "Fiji–Vanuatu Passage",
+      "date": "2003-08-20",
+      "pageFile": null,
+      "dateDisplay": "Wednesday, August 20"
+    },
+    {
+      "scanPath": "images/scans/2003-08-21.jpg",
+      "legId": "leg-06",
+      "stopName": "Fiji–Vanuatu Passage",
+      "date": "2003-08-21",
+      "pageFile": null,
+      "dateDisplay": "Thursday, August 21"
+    },
+    {
+      "scanPath": "images/scans/2003-08-22.jpg",
+      "legId": "leg-06",
+      "stopName": "Fiji–Vanuatu Passage",
+      "date": "2003-08-22",
+      "pageFile": null,
+      "dateDisplay": "Friday, August 22"
+    },
+    {
+      "scanPath": "images/scans/2003-09-01.jpg",
+      "legId": "leg-06",
+      "stopName": "Port Vila, Vanuatu",
+      "date": "2003-09-01",
+      "pageFile": null,
+      "dateDisplay": "Monday, September 1"
     }
   ]
 }

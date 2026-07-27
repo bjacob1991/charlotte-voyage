@@ -66,7 +66,73 @@
         "Pg8-Pg38_p30.jpg",
         "Pg8-Pg38_p31.jpg"
       ]
+    },
+    "leg-05:2002-12-29": {
+      "scans": [
+        "images/scans/2002-12-29a.jpg",
+        "images/scans/2002-12-29b.jpg"
+      ],
+      "pages": [
+        "Pg39-Pg53_p01.jpg",
+        "Pg39-Pg53_p02.jpg"
+      ],
+      "note": "Starts on log p39, continues on p40"
+    },
+    "leg-05:2003-01-15": {
+      "scans": [
+        "images/scans/2003-01-15a.jpg",
+        "images/scans/2003-01-15b.jpg"
+      ],
+      "pages": [
+        "Pg39-Pg53_p02.jpg",
+        "Pg39-Pg53_p03.jpg"
+      ],
+      "note": "Starts on log p40, continues on p41"
+    },
+    "leg-06:2003-05-23": {
+      "scans": [
+        "images/scans/2003-05-23a.jpg",
+        "images/scans/2003-05-23b.jpg"
+      ],
+      "pages": [
+        "Pg39-Pg53_p07.jpg",
+        "Pg39-Pg53_p08.jpg"
+      ],
+      "note": "Starts on log p45, continues on p46"
+    },
+    "leg-06:2003-05-30": {
+      "scans": [
+        "images/scans/2003-05-30a.jpg",
+        "images/scans/2003-05-30b.jpg"
+      ],
+      "pages": [
+        "Pg39-Pg53_p08.jpg",
+        "Pg39-Pg53_p09.jpg"
+      ],
+      "note": "Starts on log p46, continues on p47"
+    },
+    "leg-06:2003-06-09": {
+      "scans": [
+        "images/scans/2003-06-09a.jpg",
+        "images/scans/2003-06-09b.jpg"
+      ],
+      "pages": [
+        "Pg39-Pg53_p09.jpg",
+        "Pg39-Pg53_p10.jpg"
+      ],
+      "note": "Starts on log p47, continues on p48"
+    },
+    "leg-06:2003-08-16": {
+      "scans": [
+        "images/scans/2003-08-16a.jpg",
+        "images/scans/2003-08-16b.jpg"
+      ],
+      "pages": [
+        "Pg39-Pg53_p13.jpg",
+        "Pg39-Pg53_p14.jpg"
+      ],
+      "note": "Starts on log p51, continues on p52"
     }
   },
-  "exportedAt": "2026-06-16T18:35:33.287Z"
+  "exportedAt": "2026-07-27T18:50:24.833Z"
 }

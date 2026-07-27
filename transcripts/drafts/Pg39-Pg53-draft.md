@@ -7,8 +7,9 @@
 
 **Leg coverage (proposed):**
 - **leg-05 (New Zealand):** Nov 14, 2002 → May 13, 2003 (through departure from Opua). Ends with "Goodbye New Zealand."
-- **leg-06 (Western Pacific & Indian Ocean):** May 14, 2003 onward — NZ→Fiji passage, Fiji, Fiji→Vanuatu passage, arrival Port Vila.
-- Natural split point: between the **Tues May 13** entry (leg-05) and the **Wed May 14** entry (leg-06, first day of the NZ→Fiji passage).
+- **leg-06 (Fiji & Vanuatu; renamed from "Western Pacific & Indian Ocean" 2026-07-27):** May 14, 2003 onward — NZ→Fiji passage, Fiji, Fiji→Vanuatu passage, arrival Port Vila.
+- ~~Natural split point: between the **Tues May 13** entry (leg-05) and the **Wed May 14** entry (leg-06, first day of the NZ→Fiji passage).~~
+- **Corrected 2026-07-27:** the split falls *before* **Tues May 13**, not after. The project-wide rule is that the departure passage entry opens the new leg (see `plan.md` §8), so May 13 — "Goodbye New Zealand", the day Charlotte left Opua — belongs to **leg-06** as the first entry of the NZ→Fiji passage. The JSON already reflects this; the proposal above was the outlier.
 
 Accuracy convention: all uncertain readings have been reviewed and confirmed by Brian. Remaining square brackets mark completed/partial words (e.g. `m[iles]`) or scan-legibility notes only. Page-spanning entries are marked at the bottom and top of the relevant pages.
 
@@ -200,7 +201,7 @@ Well we did about 40 miles yesterday, tacking nonstop. Got tired of it this morn
 The wind turned last night for 3 hours! We were so happy, the boat was sailing so nice! It did finally come to the south this morning and we sailed slowly, watching Efate get bigger. Great day, lots of sunshine. We will be in just after dark tonight. Everyone is happier, anticipating landfall. It was a long trip.
 
 ### Mon Sept 1
-A quick week in Vila as usual. Anchored at 8pm near the quarantine buoy — the map was right on. Silent Runner didn't show up for two days — their transmission had broken again and they hove to, rather than tacked. Guess we didn't do so bad after all. Lots of people here we know — Rolf with Doniella on Yelo and best of all Desert Rose with Mick, Lynne, Teddo, Edwina & Issy. We hung out with them a year ago in Tonga. Had some fun evenings with them.
+A quick week in Vila as usual. Anchored at 8pm near the quarantine buoy — the map was right on. Silent Runner didn't show up for two days — their transmission had broken again and they hove to, rather than tacked. Guess we didn't do so bad after all. Lots of people here we know — Rolf with Daniella on Yelo and best of all Desert Rose with Mick, Lynne, Teddo, Edwina & Issy. We hung out with them a year ago in Tonga. Had some fun evenings with them.
 
 ---
 
@@ -218,6 +219,6 @@ A quick week in Vila as usual. Anchored at 8pm near the quarantine buoy — the 
 **Location spellings — verified correct as written (no change):**
 Tutukaka, Kawau Island, Anawhata Beach, Great Barrier Island, Whangarei, Ocean Beach, Bream Head, Whangamumu, Omakiwi Cove, Cape Brett, Opua, Urupukapuka, Murrays Bay (NZ); South Minerva Reef, Savusavu, Koro Sea, Taveuni, Viani Bay, Matagi Island, Vanua Balavu, Dravuni, Great Astrolabe Reef, Ono, Suva, Beqa, Vunaniu, Natadola, Viti Levu, Musket Cove, Nadi, Lautoka, Saweni Bay (Fiji); Efate, Port Vila (Vanuatu). "Matagi Island" is the original English spelling (the resort now styles it "Matangi") — kept as written.
 
-**Names — all confirmed by Brian.** Boats: Infidean, Athenor, Yelo, Capaz, Poet's Place, Moonlight, Silent Runner, Reflections, Libby Lane, Make Time, Ithaca, Soleka, Marten, Desert Rose. People: Capaz crew Sharin & Rob with sons Brian, Scott, Chris; Bob & Masae Seige; Vivian H; Grace & Celeste; Jeff, Penny, Estrel & Hayley; Katherine & Will; Doniella, Teddo, Edwina, Issy.
+**Names — all confirmed by Brian.** Boats: Infidean, Athenor, Yelo, Capaz, Poet's Place, Moonlight, Silent Runner, Reflections, Libby Lane, Make Time, Ithaca, Soleka, Marten, Desert Rose. People: Capaz crew Sharin & Rob with sons Brian, Scott, Chris; Bob & Masae Seige; Vivian H; Grace & Celeste; Jeff, Penny, Estrel & Hayley; Katherine & Will; Daniella, Teddo, Edwina, Issy.
 
 **Remaining open item — Dec 29 (pg39):** the day-of-week marker is illegible in the scan; the 2002 calendar indicates **Sunday**. Every other dated entry's day-of-week was verified consistent with the calendar.
