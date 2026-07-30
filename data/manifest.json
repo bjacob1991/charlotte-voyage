@@ -7,15 +7,65 @@
   "vessel_image_alt": "Charlotte at anchor",
   "vessel_caption": "S/V Charlotte — Our 38-foot steel ketch, home for four years and 30,000 miles.",
   "legs": [
-    { "id": "leg-01", "name": "Florida & the Bahamas", "file": "leg-01-florida-bahamas.json", "status": "in-progress" },
-    { "id": "leg-02", "name": "Panama & the Galápagos", "file": "leg-02-panama-galapagos.json", "status": "in-progress" },
-    { "id": "leg-03", "name": "French Polynesia", "file": "leg-03-french-polynesia.json", "status": "in-progress" },
-    { "id": "leg-04", "name": "Niue & Tonga", "file": "leg-04-niue-tonga.json", "status": "in-progress" },
-    { "id": "leg-05", "name": "New Zealand", "file": "leg-05-new-zealand.json", "status": "in-progress" },
-    { "id": "leg-06", "name": "Fiji & Vanuatu", "file": "leg-06-fiji-vanuatu.json", "status": "in-progress" },
-    { "id": "leg-07", "name": "Australia", "file": "leg-07-australia.json", "status": "planned" },
-    { "id": "leg-08", "name": "The Indian Ocean", "file": "leg-08-indian-ocean.json", "status": "planned" },
-    { "id": "leg-09", "name": "South Africa & the South Atlantic", "file": "leg-09-south-africa-atlantic.json", "status": "planned" },
-    { "id": "leg-10", "name": "The Caribbean & Home", "file": "leg-10-caribbean-home.json", "status": "planned" }
+    {
+      "id": "leg-01",
+      "name": "Florida & the Bahamas",
+      "file": "leg-01-florida-bahamas.json",
+      "status": "in-progress"
+    },
+    {
+      "id": "leg-02",
+      "name": "Panama & the Galápagos",
+      "file": "leg-02-panama-galapagos.json",
+      "status": "in-progress"
+    },
+    {
+      "id": "leg-03",
+      "name": "French Polynesia",
+      "file": "leg-03-french-polynesia.json",
+      "status": "in-progress"
+    },
+    {
+      "id": "leg-04",
+      "name": "Niue & Tonga",
+      "file": "leg-04-niue-tonga.json",
+      "status": "in-progress"
+    },
+    {
+      "id": "leg-05",
+      "name": "New Zealand",
+      "file": "leg-05-new-zealand.json",
+      "status": "in-progress"
+    },
+    {
+      "id": "leg-06",
+      "name": "Fiji & Vanuatu",
+      "file": "leg-06-fiji-vanuatu.json",
+      "status": "in-progress"
+    },
+    {
+      "id": "leg-07",
+      "name": "Australia",
+      "file": "leg-07-australia.json",
+      "status": "in-progress"
+    },
+    {
+      "id": "leg-08",
+      "name": "The Indian Ocean",
+      "file": "leg-08-indian-ocean.json",
+      "status": "planned"
+    },
+    {
+      "id": "leg-09",
+      "name": "South Africa & the South Atlantic",
+      "file": "leg-09-south-africa-atlantic.json",
+      "status": "planned"
+    },
+    {
+      "id": "leg-10",
+      "name": "The Caribbean & Home",
+      "file": "leg-10-caribbean-home.json",
+      "status": "planned"
+    }
   ]
 }

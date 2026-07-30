@@ -132,6 +132,94 @@
         "Pg39-Pg53_p14.jpg"
       ],
       "note": "Starts on log p51, continues on p52"
+    },
+    "leg-06:2003-09-01": {
+      "scans": [
+        "images/scans/2003-09-01a.jpg",
+        "images/scans/2003-09-01b.jpg"
+      ],
+      "pages": [
+        "Pg39-Pg53_p15.jpg",
+        "Pg54-Pg69_p01.jpg"
+      ],
+      "note": "Starts on log p53, continues on p54"
+    },
+    "leg-06:2003-09-04": {
+      "scans": [
+        "images/scans/2003-09-04a.jpg",
+        "images/scans/2003-09-04b.jpg"
+      ],
+      "pages": [
+        "Pg54-Pg69_p01.jpg",
+        "Pg54-Pg69_p02.jpg"
+      ],
+      "note": "Starts on log p54, continues on p55"
+    },
+    "leg-06:2003-09-29": {
+      "scans": [
+        "images/scans/2003-09-29a.jpg",
+        "images/scans/2003-09-29b.jpg"
+      ],
+      "pages": [
+        "Pg54-Pg69_p05.jpg",
+        "Pg54-Pg69_p06.jpg"
+      ],
+      "note": "Starts on log p58, continues on p59"
+    },
+    "leg-06:2003-10-05": {
+      "scans": [
+        "images/scans/2003-10-05a.jpg",
+        "images/scans/2003-10-05b.jpg"
+      ],
+      "pages": [
+        "Pg54-Pg69_p06.jpg",
+        "Pg54-Pg69_p07.jpg"
+      ],
+      "note": "Starts on log p59, continues on p60"
+    },
+    "leg-06:2003-10-11": {
+      "scans": [
+        "images/scans/2003-10-11a.jpg",
+        "images/scans/2003-10-11b.jpg"
+      ],
+      "pages": [
+        "Pg54-Pg69_p07.jpg",
+        "Pg54-Pg69_p08.jpg"
+      ],
+      "note": "Starts on log p60, continues on p61"
+    },
+    "leg-07:2003-10-29": {
+      "scans": [
+        "images/scans/2003-10-29a.jpg",
+        "images/scans/2003-10-29b.jpg"
+      ],
+      "pages": [
+        "Pg54-Pg69_p09.jpg",
+        "Pg54-Pg69_p10.jpg"
+      ],
+      "note": "Starts on log p62, continues on p63"
+    },
+    "leg-07:2004-01-05": {
+      "scans": [
+        "images/scans/2004-01-05a.jpg",
+        "images/scans/2004-01-05b.jpg"
+      ],
+      "pages": [
+        "Pg54-Pg69_p14.jpg",
+        "Pg54-Pg69_p15.jpg"
+      ],
+      "note": "Starts on log p67, continues on p68"
+    },
+    "leg-07:2004-03-24": {
+      "scans": [
+        "images/scans/2004-03-24a.jpg",
+        "images/scans/2004-03-24b.jpg"
+      ],
+      "pages": [
+        "Pg54-Pg69_p15.jpg",
+        "Pg54-Pg69_p16.jpg"
+      ],
+      "note": "Starts on log p68, continues on p69"
     }
   },
   "exportedAt": "2026-07-27T18:50:24.833Z"
