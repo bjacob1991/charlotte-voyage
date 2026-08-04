@@ -195,7 +195,34 @@ function buildGalleryIndexEntries() {
     });
   });
 
-  entries.sort((a, b) => a.stops[0].globalN - b.stops[0].globalN);
+  // Albums on disk that are not yet linked to a log stop (future legs / hold).
+  const catalog = (photoAlbums && photoAlbums.albums) || {};
+  Object.keys(catalog).forEach((key) => {
+    if (seenSets.has(key)) return;
+    const album = catalog[key];
+    if (!album || !album.photos || !album.photos.length) return;
+    seenSets.add(key);
+    entries.push({
+      kind: 'catalog',
+      title: album.title || key,
+      photos: album.photos.map((p) => ({
+        file: p.file,
+        thumb: p.thumb,
+        caption: p.caption || ''
+      })),
+      photo_album: album.amazon_album || null,
+      stops: [],
+      representativeStop: null,
+      albumKey: key
+    });
+  });
+
+  entries.sort((a, b) => {
+    const an = a.stops && a.stops[0] ? a.stops[0].globalN : 9999;
+    const bn = b.stops && b.stops[0] ? b.stops[0].globalN : 9999;
+    if (an !== bn) return an - bn;
+    return String(a.title).localeCompare(String(b.title));
+  });
   return entries;
 }
 
@@ -220,6 +247,9 @@ function galleryEntryMeta(entry) {
     const photoLabel = count + ' photo' + (count === 1 ? '' : 's');
     return photoLabel + ' \u00b7 shared across ' + formatStopNumbers(entry.stops);
   }
+  if (entry.kind === 'catalog') {
+    return count + ' photo' + (count === 1 ? '' : 's') + ' \u00b7 not yet linked to a log stop';
+  }
   if (count > 0 && entry.photo_album) {
     return count + ' preview' + (count === 1 ? '' : 's') + ' \u00b7 full album';
   }
@@ -231,11 +261,11 @@ function openGalleryEntry(entry) {
   const stop = entry.representativeStop;
   const count = entry.photos ? entry.photos.length : 0;
 
-  if (entry.kind === 'shared') {
+  if (entry.kind === 'shared' || entry.kind === 'catalog') {
     galleryTitle.textContent = entry.title + ' \u2014 ' + count + ' photo' + (count === 1 ? '' : 's');
   } else {
-    const subtitle = stop.photoAlbumTitle || 'Trip Photos';
-    galleryTitle.textContent = stop.name + ' \u2014 ' + subtitle;
+    const subtitle = (stop && stop.photoAlbumTitle) || 'Trip Photos';
+    galleryTitle.textContent = (stop ? stop.name : entry.title) + ' \u2014 ' + subtitle;
   }
 
   galleryGrid.innerHTML = '';
@@ -254,9 +284,13 @@ function openGalleryEntry(entry) {
     });
   }
 
-  if (entry.kind === 'shared' && entry.stops.length > 1) {
+  if (entry.kind === 'shared' && entry.stops && entry.stops.length > 1) {
     galleryExternal.hidden = false;
     galleryExternal.textContent = formatStopsCovered(entry.stops);
+  } else if (entry.kind === 'catalog') {
+    galleryExternal.hidden = false;
+    galleryExternal.textContent =
+      'Staged album \u2014 will link to log stops when that leg is transcribed.';
   } else if (entry.photo_album) {
     galleryExternal.hidden = false;
     galleryExternal.innerHTML =

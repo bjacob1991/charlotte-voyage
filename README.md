@@ -229,14 +229,14 @@ For timestamped digital photos later in the voyage, optional `web/` and `thumbs/
 Lists all legs. Only legs with `"status": "in-progress"` or `"status": "complete"` are loaded by the site. Planned legs stay in the manifest for reference but are skipped until you start transcribing them.
 
 ```json
-{ "id": "leg-02", "name": "Caribbean & Panama", "file": "leg-02-caribbean-panama.json", "status": "planned" }
+{ "id": "leg-08", "name": "The Indian Ocean", "file": "leg-08-indian-ocean.json", "status": "planned" }
 ```
 
-Change to `"in-progress"` when you create that leg's JSON file.
+Change to `"in-progress"` when you create that leg's JSON file. Legs 01–07 are already on the site.
 
 ---
 
-## Hosting (when ready)
+## Hosting
 
 **Live site:** https://bjacob1991.github.io/charlotte-voyage/
 
@@ -244,7 +244,7 @@ Push to GitHub; **GitHub Pages** serves the static site from `main`. No server r
 
 ⚠️ Google Drive does not serve HTML as web pages. Use GitHub Pages, Netlify, or Cloudflare Pages.
 
-⚠️ Full-resolution photos may exceed GitHub's ~1 GB repo limit. Plan on thumbnails in git + external albums for full quality (see Phase 3 above).
+⚠️ Full-resolution photos may exceed GitHub's ~1 GB repo limit. Plan on thumbnails in git + external albums for full quality (see trip-photos workflow above).
 
 ---
 
@@ -263,16 +263,16 @@ This reads PDFs in `Scans/` (named by logbook page range, e.g. `Pg8-Pg38.pdf`, `
 
 - **`--clean`** — wipe `_pages/` and export every PDF (use after renaming PDFs or fixing a bad run)
 - **Default (no flags)** — export only PDFs that are new or changed since the last run
-- **`--only Pg70-Pg95.pdf`** — export just one new batch without touching older page images
+- **`--only "Scan 70-99.pdf"`** — export just one new batch without touching older page images
 
 #### Adding a new scan batch later
 
-1. Save the new PDF in `Scans/` using the logbook page range, e.g. `Pg70-Pg95.pdf`
+1. Save the new PDF in `Scans/` using the logbook page range, e.g. `Pg70-Pg99.pdf` (or rename `Scan 70-99.pdf`)
 2. Transcribe into the appropriate `data/leg-XX-….json` (your existing workflow)
 3. Export only the new PDF:
 
 ```bash
-python scripts/export-pdf-pages.py --only Pg70-Pg95.pdf
+python scripts/export-pdf-pages.py --only "Scan 70-99.pdf"
 ```
 
 4. Open the crop annotator, click **Load exported pages**, and crop the new pages

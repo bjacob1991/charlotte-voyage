@@ -223,17 +223,18 @@ Visual direction: warm, nautical, document-like. Should feel like opening a trea
   | leg-04 | Niue & Tonga | in-progress |
   | leg-05 | New Zealand | in-progress |
   | leg-06 | Fiji & Vanuatu | in-progress |
-  | leg-07 | Australia | planned |
+  | leg-07 | Australia | in-progress |
   | leg-08 | The Indian Ocean | planned |
   | leg-09 | South Africa & the South Atlantic | planned |
   | leg-10 | The Caribbean & Home | planned |
 
-  Legs 07–10 are provisional and may split further as batches arrive, exactly as "South Pacific"
+  Legs 08–10 are provisional and may split further as batches arrive, exactly as "South Pacific"
   became legs 03–05. Leg ids are stable identifiers; display order comes from the `legs` array in
   the manifest, not from the numbering.
 
-  **Next boundary:** leg-06 closes with the last Vanuatu anchorage (late Oct 2003). leg-07 opens
-  with the Vanuatu→Australia crossing, which begins around Nov 3–5 2003 on logbook page 65.
+  **Confirmed boundary (Pg54–69):** leg-06 closes with the last Vanuatu anchorage — **Thurs Oct 16,
+  2003** (return to Luganville). leg-07 opens with **Wed Oct 29, 2003** (“Goodbye Vanuatu”), the
+  Vanuatu→Australia crossing via Chesterfield / Frederick Reef to Bundaberg.
 - **Photo starting state:** Scanned prints sorted into regional `images/photos/albums/` + intake; digital/EXIF matching still future work.
 - **Scan-to-entry mapping:** Resolved — one cropped image per entry, named by `date`. Original PDFs archived in `Scans/`. Multi-page entries use `data/scan-layout.json`.
 - **Repo size / image hosting:** Resolve in Phase 3 (see Hosting notes). Live site: https://bjacob1991.github.io/charlotte-voyage/
@@ -245,7 +246,7 @@ Visual direction: warm, nautical, document-like. Should feel like opening a trea
 - **2001–2005:** The voyage itself.
 - **Phase 0 (done):** Prototype built — split-view interface, Leaflet map with real geography, 10 stops from the first 7 logbook pages (Florida → Jamaica), scroll-synced pins, scan placeholders. Single self-contained HTML file with inline data.
 - **Phase 1 (done):** Refactored to external JSON + repo structure. Entry-level scans by date, passage-based UI headers, photo gallery stub. See `README.md` for maintainer workflows.
-- **Phase 2 (current):** Transcription at scale — legs 01–06 in progress (10-leg manifest); Pg8–Pg53 crops on disk; **Pg54–Pg69 transcription in progress**.
+- **Phase 2 (current):** Legs 01–07 in progress; Pg8–Pg53 crops on disk; **Pg54–Pg69 JSON loaded** (crops still pending); **Pg70–Pg99 AI draft awaiting proofread** before more JSON.
 - **Phase 3 (in progress):** Shared photo albums through New Zealand; gallery/map UX wired. See `README.md` and `data/photo-albums.json`.
 - **Live site:** https://bjacob1991.github.io/charlotte-voyage/
 

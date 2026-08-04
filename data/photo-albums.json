@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "_howto": "Shared photo albums. Stops reference an album key via photo_set in leg JSON.",
+  "_howto": "Shared photo albums. Stops reference an album key via photo_set in leg JSON. Albums without photo_set still appear in the Photo Galleries index.",
   "albums": {
     "bahamas": {
       "title": "The Bahamas",
@@ -8,23 +8,23 @@
       "photos": [
         {
           "file": "images/photos/albums/bahamas/bahamas_001.jpg",
-          "caption": "Bahamas — photo 1"
+          "caption": "The Bahamas — bahamas_001"
         },
         {
           "file": "images/photos/albums/bahamas/bahamas_002.jpg",
-          "caption": "Bahamas — photo 2"
+          "caption": "The Bahamas — bahamas_002"
         },
         {
           "file": "images/photos/albums/bahamas/bahamas_003.jpg",
-          "caption": "Bahamas — photo 3"
+          "caption": "The Bahamas — bahamas_003"
         },
         {
           "file": "images/photos/albums/bahamas/bahamas_004.jpg",
-          "caption": "Bahamas — photo 4"
+          "caption": "The Bahamas — bahamas_004"
         },
         {
           "file": "images/photos/albums/bahamas/bahamas_005.jpg",
-          "caption": "Bahamas — photo 5"
+          "caption": "The Bahamas — bahamas_005"
         }
       ]
     },
@@ -34,19 +34,19 @@
       "photos": [
         {
           "file": "images/photos/albums/jamaica/jamaica_001.jpg",
-          "caption": "Jamaica — photo 1"
+          "caption": "Jamaica — jamaica_001"
         },
         {
           "file": "images/photos/albums/jamaica/jamaica_002.jpg",
-          "caption": "Jamaica — photo 2"
+          "caption": "Jamaica — jamaica_002"
         },
         {
           "file": "images/photos/albums/jamaica/jamaica_003.jpg",
-          "caption": "Jamaica — photo 3"
+          "caption": "Jamaica — jamaica_003"
         },
         {
           "file": "images/photos/albums/jamaica/jamaica_004.jpg",
-          "caption": "Jamaica — photo 4"
+          "caption": "Jamaica — jamaica_004"
         }
       ]
     },
@@ -56,43 +56,43 @@
       "photos": [
         {
           "file": "images/photos/albums/portobelo/panama_portobelo_001.jpg",
-          "caption": "Portobelo — photo 1"
+          "caption": "Portobelo, Panama — panama_portobelo_001"
         },
         {
           "file": "images/photos/albums/portobelo/panama_portobelo_002.jpg",
-          "caption": "Portobelo — photo 2"
+          "caption": "Portobelo, Panama — panama_portobelo_002"
         },
         {
           "file": "images/photos/albums/portobelo/panama_portobelo_003.jpg",
-          "caption": "Portobelo — photo 3"
+          "caption": "Portobelo, Panama — panama_portobelo_003"
         },
         {
           "file": "images/photos/albums/portobelo/panama_portobelo_004.jpg",
-          "caption": "Portobelo — photo 4"
+          "caption": "Portobelo, Panama — panama_portobelo_004"
         },
         {
           "file": "images/photos/albums/portobelo/panama_portobelo_005.jpg",
-          "caption": "Portobelo — photo 5"
+          "caption": "Portobelo, Panama — panama_portobelo_005"
         },
         {
           "file": "images/photos/albums/portobelo/panama_portobelo_006.jpg",
-          "caption": "Portobelo — photo 6"
+          "caption": "Portobelo, Panama — panama_portobelo_006"
         },
         {
           "file": "images/photos/albums/portobelo/panama_portobelo_007.jpg",
-          "caption": "Portobelo — photo 7"
+          "caption": "Portobelo, Panama — panama_portobelo_007"
         },
         {
           "file": "images/photos/albums/portobelo/panama_portobelo_008.jpg",
-          "caption": "Portobelo — photo 8"
+          "caption": "Portobelo, Panama — panama_portobelo_008"
         },
         {
           "file": "images/photos/albums/portobelo/panama_portobelo_009.jpg",
-          "caption": "Portobelo — photo 9"
+          "caption": "Portobelo, Panama — panama_portobelo_009"
         },
         {
           "file": "images/photos/albums/portobelo/panama_portobelo_010.jpg",
-          "caption": "Portobelo — photo 10"
+          "caption": "Portobelo, Panama — panama_portobelo_010"
         }
       ]
     },
@@ -102,7 +102,7 @@
       "photos": [
         {
           "file": "images/photos/albums/panama-canal/panamacanal_001.jpg",
-          "caption": "Panama Canal — photo 1"
+          "caption": "Panama Canal — panamacanal_001"
         }
       ]
     },
@@ -112,11 +112,11 @@
       "photos": [
         {
           "file": "images/photos/albums/san-blas/sanblas_islands_001.jpg",
-          "caption": "San Blas — photo 1"
+          "caption": "San Blas Islands — sanblas_islands_001"
         },
         {
           "file": "images/photos/albums/san-blas/sanblas_islands_002.jpg",
-          "caption": "San Blas — photo 2"
+          "caption": "San Blas Islands — sanblas_islands_002"
         }
       ]
     },
@@ -126,89 +126,449 @@
       "photos": [
         {
           "file": "images/photos/albums/galapagos/galapagos_001.jpg",
-          "caption": "Galápagos — photo 1"
+          "caption": "Galápagos Islands — galapagos_001"
         },
         {
           "file": "images/photos/albums/galapagos/galapagos_002.jpg",
-          "caption": "Galápagos — photo 2"
+          "caption": "Galápagos Islands — galapagos_002"
         },
         {
           "file": "images/photos/albums/galapagos/galapagos_003.jpg",
-          "caption": "Galápagos — photo 3"
+          "caption": "Galápagos Islands — galapagos_003"
         },
         {
           "file": "images/photos/albums/galapagos/galapagos_004.jpg",
-          "caption": "Galápagos — photo 4"
+          "caption": "Galápagos Islands — galapagos_004"
         },
         {
           "file": "images/photos/albums/galapagos/galapagos_005.jpg",
-          "caption": "Galápagos — photo 5"
+          "caption": "Galápagos Islands — galapagos_005"
         },
         {
           "file": "images/photos/albums/galapagos/galapagos_006.jpg",
-          "caption": "Galápagos — photo 6"
+          "caption": "Galápagos Islands — galapagos_006"
         },
         {
           "file": "images/photos/albums/galapagos/galapagos_007.jpg",
-          "caption": "Galápagos — photo 7"
+          "caption": "Galápagos Islands — galapagos_007"
         },
         {
           "file": "images/photos/albums/galapagos/galapagos_008.jpg",
-          "caption": "Galápagos — photo 8"
+          "caption": "Galápagos Islands — galapagos_008"
         },
         {
           "file": "images/photos/albums/galapagos/galapagos_009.jpg",
-          "caption": "Galápagos — photo 9"
+          "caption": "Galápagos Islands — galapagos_009"
         }
       ]
     },
-    "french-polynesia": {
-      "title": "French Polynesia",
+    "marquesas": {
+      "title": "Marquesas",
       "amazon_album": null,
       "photos": [
         {
-          "file": "images/photos/albums/french-polynesia/french-polynesia_001.jpg",
-          "caption": "French Polynesia — photo 1"
+          "file": "images/photos/albums/marquesas/marquesas_001.jpg",
+          "caption": "Marquesas — marquesas_001"
         },
         {
-          "file": "images/photos/albums/french-polynesia/french-polynesia_002.jpg",
-          "caption": "French Polynesia — photo 2"
+          "file": "images/photos/albums/marquesas/marquesas_002.jpg",
+          "caption": "Marquesas — marquesas_002"
         },
         {
-          "file": "images/photos/albums/french-polynesia/french-polynesia_003.jpg",
-          "caption": "French Polynesia — photo 3"
+          "file": "images/photos/albums/marquesas/marquesas_003.jpg",
+          "caption": "Marquesas — marquesas_003"
         },
         {
-          "file": "images/photos/albums/french-polynesia/french-polynesia_004.jpg",
-          "caption": "French Polynesia — photo 4"
+          "file": "images/photos/albums/marquesas/marquesas_004.jpg",
+          "caption": "Marquesas — marquesas_004"
         },
         {
-          "file": "images/photos/albums/french-polynesia/french-polynesia_005.jpg",
-          "caption": "French Polynesia — photo 5"
+          "file": "images/photos/albums/marquesas/marquesas_005.jpg",
+          "caption": "Marquesas — marquesas_005"
         },
         {
-          "file": "images/photos/albums/french-polynesia/french-polynesia_006.jpg",
-          "caption": "French Polynesia — photo 6"
+          "file": "images/photos/albums/marquesas/marquesas_006.jpg",
+          "caption": "Marquesas — marquesas_006"
         },
         {
-          "file": "images/photos/albums/french-polynesia/french-polynesia_007.jpg",
-          "caption": "French Polynesia — photo 7"
+          "file": "images/photos/albums/marquesas/marquesas_007.jpg",
+          "caption": "Marquesas — marquesas_007"
         },
         {
-          "file": "images/photos/albums/french-polynesia/french-polynesia_008.jpg",
-          "caption": "French Polynesia — photo 8"
+          "file": "images/photos/albums/marquesas/marquesas_008.jpg",
+          "caption": "Marquesas — marquesas_008"
+        }
+      ]
+    },
+    "tuamotus": {
+      "title": "Tuamotus (Fakarava)",
+      "amazon_album": null,
+      "photos": [
+        {
+          "file": "images/photos/albums/tuamotus/tuamotus_001.jpg",
+          "caption": "Tuamotus (Fakarava) — tuamotus_001"
         },
         {
-          "file": "images/photos/albums/french-polynesia/french-polynesia_009.jpg",
-          "caption": "French Polynesia — photo 9"
+          "file": "images/photos/albums/tuamotus/tuamotus_002.jpg",
+          "caption": "Tuamotus (Fakarava) — tuamotus_002"
         },
         {
-          "file": "images/photos/albums/french-polynesia/french-polynesia_010.jpg",
-          "caption": "French Polynesia — photo 10"
+          "file": "images/photos/albums/tuamotus/tuamotus_003.jpg",
+          "caption": "Tuamotus (Fakarava) — tuamotus_003"
         },
         {
-          "file": "images/photos/albums/french-polynesia/french-polynesia_011.jpg",
-          "caption": "French Polynesia — photo 11"
+          "file": "images/photos/albums/tuamotus/tuamotus_004.jpg",
+          "caption": "Tuamotus (Fakarava) — tuamotus_004"
+        },
+        {
+          "file": "images/photos/albums/tuamotus/tuamotus_005.jpg",
+          "caption": "Tuamotus (Fakarava) — tuamotus_005"
+        },
+        {
+          "file": "images/photos/albums/tuamotus/tuamotus_006.jpg",
+          "caption": "Tuamotus (Fakarava) — tuamotus_006"
+        },
+        {
+          "file": "images/photos/albums/tuamotus/tuamotus_007.jpg",
+          "caption": "Tuamotus (Fakarava) — tuamotus_007"
+        },
+        {
+          "file": "images/photos/albums/tuamotus/tuamotus_008.jpg",
+          "caption": "Tuamotus (Fakarava) — tuamotus_008"
+        },
+        {
+          "file": "images/photos/albums/tuamotus/tuamotus_009.jpg",
+          "caption": "Tuamotus (Fakarava) — tuamotus_009"
+        },
+        {
+          "file": "images/photos/albums/tuamotus/tuamotus_010.jpg",
+          "caption": "Tuamotus (Fakarava) — tuamotus_010"
+        },
+        {
+          "file": "images/photos/albums/tuamotus/tuamotus_011.jpg",
+          "caption": "Tuamotus (Fakarava) — tuamotus_011"
+        },
+        {
+          "file": "images/photos/albums/tuamotus/tuamotus_012.jpg",
+          "caption": "Tuamotus (Fakarava) — tuamotus_012"
+        },
+        {
+          "file": "images/photos/albums/tuamotus/tuamotus_013.jpg",
+          "caption": "Tuamotus (Fakarava) — tuamotus_013"
+        },
+        {
+          "file": "images/photos/albums/tuamotus/tuamotus_014.jpg",
+          "caption": "Tuamotus (Fakarava) — tuamotus_014"
+        },
+        {
+          "file": "images/photos/albums/tuamotus/tuamotus_015.jpg",
+          "caption": "Tuamotus (Fakarava) — tuamotus_015"
+        },
+        {
+          "file": "images/photos/albums/tuamotus/tuamotus_016.jpg",
+          "caption": "Tuamotus (Fakarava) — tuamotus_016"
+        },
+        {
+          "file": "images/photos/albums/tuamotus/tuamotus_017.jpg",
+          "caption": "Tuamotus (Fakarava) — tuamotus_017"
+        },
+        {
+          "file": "images/photos/albums/tuamotus/tuamotus_018.jpg",
+          "caption": "Tuamotus (Fakarava) — tuamotus_018"
+        },
+        {
+          "file": "images/photos/albums/tuamotus/tuamotus_019.jpg",
+          "caption": "Tuamotus (Fakarava) — tuamotus_019"
+        },
+        {
+          "file": "images/photos/albums/tuamotus/tuamotus_020.jpg",
+          "caption": "Tuamotus (Fakarava) — tuamotus_020"
+        },
+        {
+          "file": "images/photos/albums/tuamotus/tuamotus_021.jpg",
+          "caption": "Tuamotus (Fakarava) — tuamotus_021"
+        },
+        {
+          "file": "images/photos/albums/tuamotus/tuamotus_022.jpg",
+          "caption": "Tuamotus (Fakarava) — tuamotus_022"
+        },
+        {
+          "file": "images/photos/albums/tuamotus/tuamotus_023.jpg",
+          "caption": "Tuamotus (Fakarava) — tuamotus_023"
+        },
+        {
+          "file": "images/photos/albums/tuamotus/tuamotus_024.jpg",
+          "caption": "Tuamotus (Fakarava) — tuamotus_024"
+        },
+        {
+          "file": "images/photos/albums/tuamotus/tuamotus_025.jpg",
+          "caption": "Tuamotus (Fakarava) — tuamotus_025"
+        },
+        {
+          "file": "images/photos/albums/tuamotus/tuamotus_026.jpg",
+          "caption": "Tuamotus (Fakarava) — tuamotus_026"
+        },
+        {
+          "file": "images/photos/albums/tuamotus/tuamotus_027.jpg",
+          "caption": "Tuamotus (Fakarava) — tuamotus_027"
+        },
+        {
+          "file": "images/photos/albums/tuamotus/tuamotus_028.jpg",
+          "caption": "Tuamotus (Fakarava) — tuamotus_028"
+        },
+        {
+          "file": "images/photos/albums/tuamotus/tuamotus_029.jpg",
+          "caption": "Tuamotus (Fakarava) — tuamotus_029"
+        },
+        {
+          "file": "images/photos/albums/tuamotus/tuamotus_030.jpg",
+          "caption": "Tuamotus (Fakarava) — tuamotus_030"
+        },
+        {
+          "file": "images/photos/albums/tuamotus/tuamotus_031.jpg",
+          "caption": "Tuamotus (Fakarava) — tuamotus_031"
+        },
+        {
+          "file": "images/photos/albums/tuamotus/tuamotus_032.jpg",
+          "caption": "Tuamotus (Fakarava) — tuamotus_032"
+        },
+        {
+          "file": "images/photos/albums/tuamotus/tuamotus_033.jpg",
+          "caption": "Tuamotus (Fakarava) — tuamotus_033"
+        },
+        {
+          "file": "images/photos/albums/tuamotus/tuamotus_034.jpg",
+          "caption": "Tuamotus (Fakarava) — tuamotus_034"
+        },
+        {
+          "file": "images/photos/albums/tuamotus/tuamotus_035.jpg",
+          "caption": "Tuamotus (Fakarava) — tuamotus_035"
+        },
+        {
+          "file": "images/photos/albums/tuamotus/tuamotus_036.jpg",
+          "caption": "Tuamotus (Fakarava) — tuamotus_036"
+        },
+        {
+          "file": "images/photos/albums/tuamotus/tuamotus_037.jpg",
+          "caption": "Tuamotus (Fakarava) — tuamotus_037"
+        },
+        {
+          "file": "images/photos/albums/tuamotus/tuamotus_038.jpg",
+          "caption": "Tuamotus (Fakarava) — tuamotus_038"
+        },
+        {
+          "file": "images/photos/albums/tuamotus/tuamotus_039.jpg",
+          "caption": "Tuamotus (Fakarava) — tuamotus_039"
+        },
+        {
+          "file": "images/photos/albums/tuamotus/tuamotus_040.jpg",
+          "caption": "Tuamotus (Fakarava) — tuamotus_040"
+        },
+        {
+          "file": "images/photos/albums/tuamotus/tuamotus_041.jpg",
+          "caption": "Tuamotus (Fakarava) — tuamotus_041"
+        },
+        {
+          "file": "images/photos/albums/tuamotus/tuamotus_042.jpg",
+          "caption": "Tuamotus (Fakarava) — tuamotus_042"
+        },
+        {
+          "file": "images/photos/albums/tuamotus/tuamotus_043.jpg",
+          "caption": "Tuamotus (Fakarava) — tuamotus_043"
+        },
+        {
+          "file": "images/photos/albums/tuamotus/tuamotus_044.jpg",
+          "caption": "Tuamotus (Fakarava) — tuamotus_044"
+        },
+        {
+          "file": "images/photos/albums/tuamotus/tuamotus_045.jpg",
+          "caption": "Tuamotus (Fakarava) — tuamotus_045"
+        },
+        {
+          "file": "images/photos/albums/tuamotus/tuamotus_046.jpg",
+          "caption": "Tuamotus (Fakarava) — tuamotus_046"
+        },
+        {
+          "file": "images/photos/albums/tuamotus/tuamotus_047.jpg",
+          "caption": "Tuamotus (Fakarava) — tuamotus_047"
+        },
+        {
+          "file": "images/photos/albums/tuamotus/tuamotus_048.jpg",
+          "caption": "Tuamotus (Fakarava) — tuamotus_048"
+        },
+        {
+          "file": "images/photos/albums/tuamotus/tuamotus_049.jpg",
+          "caption": "Tuamotus (Fakarava) — tuamotus_049"
+        },
+        {
+          "file": "images/photos/albums/tuamotus/tuamotus_050.jpg",
+          "caption": "Tuamotus (Fakarava) — tuamotus_050"
+        },
+        {
+          "file": "images/photos/albums/tuamotus/tuamotus_051.jpg",
+          "caption": "Tuamotus (Fakarava) — tuamotus_051"
+        },
+        {
+          "file": "images/photos/albums/tuamotus/tuamotus_052.jpg",
+          "caption": "Tuamotus (Fakarava) — tuamotus_052"
+        },
+        {
+          "file": "images/photos/albums/tuamotus/tuamotus_053.jpg",
+          "caption": "Tuamotus (Fakarava) — tuamotus_053"
+        },
+        {
+          "file": "images/photos/albums/tuamotus/tuamotus_054.jpg",
+          "caption": "Tuamotus (Fakarava) — tuamotus_054"
+        },
+        {
+          "file": "images/photos/albums/tuamotus/tuamotus_055.jpg",
+          "caption": "Tuamotus (Fakarava) — tuamotus_055"
+        },
+        {
+          "file": "images/photos/albums/tuamotus/tuamotus_056.jpg",
+          "caption": "Tuamotus (Fakarava) — tuamotus_056"
+        },
+        {
+          "file": "images/photos/albums/tuamotus/tuamotus_057.jpg",
+          "caption": "Tuamotus (Fakarava) — tuamotus_057"
+        },
+        {
+          "file": "images/photos/albums/tuamotus/tuamotus_058.jpg",
+          "caption": "Tuamotus (Fakarava) — tuamotus_058"
+        },
+        {
+          "file": "images/photos/albums/tuamotus/tuamotus_059.jpg",
+          "caption": "Tuamotus (Fakarava) — tuamotus_059"
+        },
+        {
+          "file": "images/photos/albums/tuamotus/tuamotus_060.jpg",
+          "caption": "Tuamotus (Fakarava) — tuamotus_060"
+        },
+        {
+          "file": "images/photos/albums/tuamotus/tuamotus_061.jpg",
+          "caption": "Tuamotus (Fakarava) — tuamotus_061"
+        },
+        {
+          "file": "images/photos/albums/tuamotus/tuamotus_062.jpg",
+          "caption": "Tuamotus (Fakarava) — tuamotus_062"
+        },
+        {
+          "file": "images/photos/albums/tuamotus/tuamotus_063.jpg",
+          "caption": "Tuamotus (Fakarava) — tuamotus_063"
+        },
+        {
+          "file": "images/photos/albums/tuamotus/tuamotus_064.jpg",
+          "caption": "Tuamotus (Fakarava) — tuamotus_064"
+        },
+        {
+          "file": "images/photos/albums/tuamotus/tuamotus_065.jpg",
+          "caption": "Tuamotus (Fakarava) — tuamotus_065"
+        },
+        {
+          "file": "images/photos/albums/tuamotus/tuamotus_066.jpg",
+          "caption": "Tuamotus (Fakarava) — tuamotus_066"
+        },
+        {
+          "file": "images/photos/albums/tuamotus/tuamotus_067.jpg",
+          "caption": "Tuamotus (Fakarava) — tuamotus_067"
+        },
+        {
+          "file": "images/photos/albums/tuamotus/tuamotus_068.jpg",
+          "caption": "Tuamotus (Fakarava) — tuamotus_068"
+        },
+        {
+          "file": "images/photos/albums/tuamotus/tuamotus_069.jpg",
+          "caption": "Tuamotus (Fakarava) — tuamotus_069"
+        },
+        {
+          "file": "images/photos/albums/tuamotus/tuamotus_070.jpg",
+          "caption": "Tuamotus (Fakarava) — tuamotus_070"
+        },
+        {
+          "file": "images/photos/albums/tuamotus/tuamotus_071.jpg",
+          "caption": "Tuamotus (Fakarava) — tuamotus_071"
+        },
+        {
+          "file": "images/photos/albums/tuamotus/tuamotus_072.jpg",
+          "caption": "Tuamotus (Fakarava) — tuamotus_072"
+        },
+        {
+          "file": "images/photos/albums/tuamotus/tuamotus_073.jpg",
+          "caption": "Tuamotus (Fakarava) — tuamotus_073"
+        },
+        {
+          "file": "images/photos/albums/tuamotus/tuamotus_074.jpg",
+          "caption": "Tuamotus (Fakarava) — tuamotus_074"
+        },
+        {
+          "file": "images/photos/albums/tuamotus/tuamotus_075.jpg",
+          "caption": "Tuamotus (Fakarava) — tuamotus_075"
+        },
+        {
+          "file": "images/photos/albums/tuamotus/tuamotus_076.jpg",
+          "caption": "Tuamotus (Fakarava) — tuamotus_076"
+        },
+        {
+          "file": "images/photos/albums/tuamotus/tuamotus_077.jpg",
+          "caption": "Tuamotus (Fakarava) — tuamotus_077"
+        },
+        {
+          "file": "images/photos/albums/tuamotus/tuamotus_078.jpg",
+          "caption": "Tuamotus (Fakarava) — tuamotus_078"
+        },
+        {
+          "file": "images/photos/albums/tuamotus/tuamotus_079.jpg",
+          "caption": "Tuamotus (Fakarava) — tuamotus_079"
+        }
+      ]
+    },
+    "society-islands": {
+      "title": "Society Islands",
+      "amazon_album": null,
+      "photos": [
+        {
+          "file": "images/photos/albums/society-islands/society-islands_001.jpg",
+          "caption": "Society Islands — society-islands_001"
+        },
+        {
+          "file": "images/photos/albums/society-islands/society-islands_002.jpg",
+          "caption": "Society Islands — society-islands_002"
+        },
+        {
+          "file": "images/photos/albums/society-islands/society-islands_003.jpg",
+          "caption": "Society Islands — society-islands_003"
+        },
+        {
+          "file": "images/photos/albums/society-islands/society-islands_004.jpg",
+          "caption": "Society Islands — society-islands_004"
+        },
+        {
+          "file": "images/photos/albums/society-islands/society-islands_005.jpg",
+          "caption": "Society Islands — society-islands_005"
+        },
+        {
+          "file": "images/photos/albums/society-islands/society-islands_006.jpg",
+          "caption": "Society Islands — society-islands_006"
+        },
+        {
+          "file": "images/photos/albums/society-islands/society-islands_007.jpg",
+          "caption": "Society Islands — society-islands_007"
+        },
+        {
+          "file": "images/photos/albums/society-islands/society-islands_008.jpg",
+          "caption": "Society Islands — society-islands_008"
+        },
+        {
+          "file": "images/photos/albums/society-islands/society-islands_009.jpg",
+          "caption": "Society Islands — society-islands_009"
+        },
+        {
+          "file": "images/photos/albums/society-islands/society-islands_010.jpg",
+          "caption": "Society Islands — society-islands_010"
+        },
+        {
+          "file": "images/photos/albums/society-islands/society-islands_011.jpg",
+          "caption": "Society Islands — society-islands_011"
         }
       ]
     },
@@ -218,39 +578,39 @@
       "photos": [
         {
           "file": "images/photos/albums/tonga/tonga_001.jpg",
-          "caption": "Tonga & Niue — photo 1"
+          "caption": "Tonga & Niue — tonga_001"
         },
         {
           "file": "images/photos/albums/tonga/tonga_002.jpg",
-          "caption": "Tonga & Niue — photo 2"
+          "caption": "Tonga & Niue — tonga_002"
         },
         {
           "file": "images/photos/albums/tonga/tonga_003.jpg",
-          "caption": "Tonga & Niue — photo 3"
+          "caption": "Tonga & Niue — tonga_003"
         },
         {
           "file": "images/photos/albums/tonga/tonga_004.jpg",
-          "caption": "Tonga & Niue — photo 4"
+          "caption": "Tonga & Niue — tonga_004"
         },
         {
           "file": "images/photos/albums/tonga/tonga_005.jpg",
-          "caption": "Tonga & Niue — photo 5"
+          "caption": "Tonga & Niue — tonga_005"
         },
         {
           "file": "images/photos/albums/tonga/tonga_006.jpg",
-          "caption": "Tonga & Niue — photo 6"
+          "caption": "Tonga & Niue — tonga_006"
         },
         {
           "file": "images/photos/albums/tonga/tonga_007.jpg",
-          "caption": "Tonga & Niue — photo 7"
+          "caption": "Tonga & Niue — tonga_007"
         },
         {
           "file": "images/photos/albums/tonga/tonga_008.jpg",
-          "caption": "Tonga & Niue — photo 8"
+          "caption": "Tonga & Niue — tonga_008"
         },
         {
           "file": "images/photos/albums/tonga/tonga_009.jpg",
-          "caption": "Tonga & Niue — photo 9"
+          "caption": "Tonga & Niue — tonga_009"
         }
       ]
     },
@@ -260,39 +620,3807 @@
       "photos": [
         {
           "file": "images/photos/albums/new-zealand/new-zealand_001.jpg",
-          "caption": "New Zealand — photo 1"
+          "caption": "New Zealand — new-zealand_001"
         },
         {
           "file": "images/photos/albums/new-zealand/new-zealand_002.jpg",
-          "caption": "New Zealand — photo 2"
+          "caption": "New Zealand — new-zealand_002"
         },
         {
           "file": "images/photos/albums/new-zealand/new-zealand_003.jpg",
-          "caption": "New Zealand — photo 3"
+          "caption": "New Zealand — new-zealand_003"
         },
         {
           "file": "images/photos/albums/new-zealand/new-zealand_004.jpg",
-          "caption": "New Zealand — photo 4"
+          "caption": "New Zealand — new-zealand_004"
         },
         {
           "file": "images/photos/albums/new-zealand/new-zealand_005.jpg",
-          "caption": "New Zealand — photo 5"
+          "caption": "New Zealand — new-zealand_005"
         },
         {
           "file": "images/photos/albums/new-zealand/new-zealand_006.jpg",
-          "caption": "New Zealand — photo 6"
+          "caption": "New Zealand — new-zealand_006"
         },
         {
           "file": "images/photos/albums/new-zealand/new-zealand_007.jpg",
-          "caption": "New Zealand — photo 7"
+          "caption": "New Zealand — new-zealand_007"
         },
         {
           "file": "images/photos/albums/new-zealand/new-zealand_008.jpg",
-          "caption": "New Zealand — photo 8"
+          "caption": "New Zealand — new-zealand_008"
         },
         {
           "file": "images/photos/albums/new-zealand/new-zealand_009.jpg",
-          "caption": "New Zealand — photo 9"
+          "caption": "New Zealand — new-zealand_009"
+        },
+        {
+          "file": "images/photos/albums/new-zealand/new-zealand_010.jpg",
+          "caption": "New Zealand — new-zealand_010"
+        },
+        {
+          "file": "images/photos/albums/new-zealand/new-zealand_011.jpg",
+          "caption": "New Zealand — new-zealand_011"
+        },
+        {
+          "file": "images/photos/albums/new-zealand/new-zealand_012.jpg",
+          "caption": "New Zealand — new-zealand_012"
+        }
+      ]
+    },
+    "fiji": {
+      "title": "Fiji",
+      "amazon_album": null,
+      "photos": [
+        {
+          "file": "images/photos/albums/fiji/fiji_001.jpg",
+          "caption": "Fiji — fiji_001"
+        },
+        {
+          "file": "images/photos/albums/fiji/fiji_002.jpg",
+          "caption": "Fiji — fiji_002"
+        },
+        {
+          "file": "images/photos/albums/fiji/fiji_003.jpg",
+          "caption": "Fiji — fiji_003"
+        },
+        {
+          "file": "images/photos/albums/fiji/fiji_004.jpg",
+          "caption": "Fiji — fiji_004"
+        },
+        {
+          "file": "images/photos/albums/fiji/fiji_005.jpg",
+          "caption": "Fiji — fiji_005"
+        },
+        {
+          "file": "images/photos/albums/fiji/fiji_006.jpg",
+          "caption": "Fiji — fiji_006"
+        },
+        {
+          "file": "images/photos/albums/fiji/fiji_007.jpg",
+          "caption": "Fiji — fiji_007"
+        },
+        {
+          "file": "images/photos/albums/fiji/fiji_008.jpg",
+          "caption": "Fiji — fiji_008"
+        },
+        {
+          "file": "images/photos/albums/fiji/fiji_009.jpg",
+          "caption": "Fiji — fiji_009"
+        },
+        {
+          "file": "images/photos/albums/fiji/fiji_010.jpg",
+          "caption": "Fiji — fiji_010"
+        },
+        {
+          "file": "images/photos/albums/fiji/fiji_011.jpg",
+          "caption": "Fiji — fiji_011"
+        },
+        {
+          "file": "images/photos/albums/fiji/fiji_012.jpg",
+          "caption": "Fiji — fiji_012"
+        },
+        {
+          "file": "images/photos/albums/fiji/fiji_013.jpg",
+          "caption": "Fiji — fiji_013"
+        }
+      ]
+    },
+    "vanuatu": {
+      "title": "Vanuatu",
+      "amazon_album": null,
+      "photos": [
+        {
+          "file": "images/photos/albums/vanuatu/vanuatu_001.jpg",
+          "caption": "Vanuatu — vanuatu_001"
+        },
+        {
+          "file": "images/photos/albums/vanuatu/vanuatu_002.jpg",
+          "caption": "Vanuatu — vanuatu_002"
+        },
+        {
+          "file": "images/photos/albums/vanuatu/vanuatu_003.jpg",
+          "caption": "Vanuatu — vanuatu_003"
+        },
+        {
+          "file": "images/photos/albums/vanuatu/vanuatu_004.jpg",
+          "caption": "Vanuatu — vanuatu_004"
+        },
+        {
+          "file": "images/photos/albums/vanuatu/vanuatu_005.jpg",
+          "caption": "Vanuatu — vanuatu_005"
+        },
+        {
+          "file": "images/photos/albums/vanuatu/vanuatu_006.jpg",
+          "caption": "Vanuatu — vanuatu_006"
+        },
+        {
+          "file": "images/photos/albums/vanuatu/vanuatu_007.jpg",
+          "caption": "Vanuatu — vanuatu_007"
+        },
+        {
+          "file": "images/photos/albums/vanuatu/vanuatu_008.jpg",
+          "caption": "Vanuatu — vanuatu_008"
+        },
+        {
+          "file": "images/photos/albums/vanuatu/vanuatu_009.jpg",
+          "caption": "Vanuatu — vanuatu_009"
+        },
+        {
+          "file": "images/photos/albums/vanuatu/vanuatu_010.jpg",
+          "caption": "Vanuatu — vanuatu_010"
+        },
+        {
+          "file": "images/photos/albums/vanuatu/vanuatu_011.jpg",
+          "caption": "Vanuatu — vanuatu_011"
+        },
+        {
+          "file": "images/photos/albums/vanuatu/vanuatu_012.jpg",
+          "caption": "Vanuatu — vanuatu_012"
+        },
+        {
+          "file": "images/photos/albums/vanuatu/vanuatu_013.jpg",
+          "caption": "Vanuatu — vanuatu_013"
+        },
+        {
+          "file": "images/photos/albums/vanuatu/vanuatu_014.jpg",
+          "caption": "Vanuatu — vanuatu_014"
+        },
+        {
+          "file": "images/photos/albums/vanuatu/vanuatu_015.jpg",
+          "caption": "Vanuatu — vanuatu_015"
+        },
+        {
+          "file": "images/photos/albums/vanuatu/vanuatu_016.jpg",
+          "caption": "Vanuatu — vanuatu_016"
+        },
+        {
+          "file": "images/photos/albums/vanuatu/vanuatu_017.jpg",
+          "caption": "Vanuatu — vanuatu_017"
+        },
+        {
+          "file": "images/photos/albums/vanuatu/vanuatu_018.jpg",
+          "caption": "Vanuatu — vanuatu_018"
+        },
+        {
+          "file": "images/photos/albums/vanuatu/vanuatu_019.jpg",
+          "caption": "Vanuatu — vanuatu_019"
+        },
+        {
+          "file": "images/photos/albums/vanuatu/vanuatu_020.jpg",
+          "caption": "Vanuatu — vanuatu_020"
+        },
+        {
+          "file": "images/photos/albums/vanuatu/vanuatu_021.jpg",
+          "caption": "Vanuatu — vanuatu_021"
+        },
+        {
+          "file": "images/photos/albums/vanuatu/vanuatu_022.jpg",
+          "caption": "Vanuatu — vanuatu_022"
+        },
+        {
+          "file": "images/photos/albums/vanuatu/vanuatu_023.jpg",
+          "caption": "Vanuatu — vanuatu_023"
+        },
+        {
+          "file": "images/photos/albums/vanuatu/vanuatu_024.jpg",
+          "caption": "Vanuatu — vanuatu_024"
+        },
+        {
+          "file": "images/photos/albums/vanuatu/vanuatu_025.jpg",
+          "caption": "Vanuatu — vanuatu_025"
+        },
+        {
+          "file": "images/photos/albums/vanuatu/vanuatu_026.jpg",
+          "caption": "Vanuatu — vanuatu_026"
+        },
+        {
+          "file": "images/photos/albums/vanuatu/vanuatu_027.jpg",
+          "caption": "Vanuatu — vanuatu_027"
+        },
+        {
+          "file": "images/photos/albums/vanuatu/vanuatu_028.jpg",
+          "caption": "Vanuatu — vanuatu_028"
+        },
+        {
+          "file": "images/photos/albums/vanuatu/vanuatu_029.jpg",
+          "caption": "Vanuatu — vanuatu_029"
+        },
+        {
+          "file": "images/photos/albums/vanuatu/vanuatu_030.jpg",
+          "caption": "Vanuatu — vanuatu_030"
+        },
+        {
+          "file": "images/photos/albums/vanuatu/vanuatu_031.jpg",
+          "caption": "Vanuatu — vanuatu_031"
+        },
+        {
+          "file": "images/photos/albums/vanuatu/vanuatu_032.jpg",
+          "caption": "Vanuatu — vanuatu_032"
+        },
+        {
+          "file": "images/photos/albums/vanuatu/vanuatu_033.jpg",
+          "caption": "Vanuatu — vanuatu_033"
+        },
+        {
+          "file": "images/photos/albums/vanuatu/vanuatu_034.jpg",
+          "caption": "Vanuatu — vanuatu_034"
+        },
+        {
+          "file": "images/photos/albums/vanuatu/vanuatu_035.jpg",
+          "caption": "Vanuatu — vanuatu_035"
+        },
+        {
+          "file": "images/photos/albums/vanuatu/vanuatu_036.jpg",
+          "caption": "Vanuatu — vanuatu_036"
+        },
+        {
+          "file": "images/photos/albums/vanuatu/vanuatu_037.jpg",
+          "caption": "Vanuatu — vanuatu_037"
+        },
+        {
+          "file": "images/photos/albums/vanuatu/vanuatu_038.jpg",
+          "caption": "Vanuatu — vanuatu_038"
+        },
+        {
+          "file": "images/photos/albums/vanuatu/vanuatu_039.jpg",
+          "caption": "Vanuatu — vanuatu_039"
+        },
+        {
+          "file": "images/photos/albums/vanuatu/vanuatu_040.jpg",
+          "caption": "Vanuatu — vanuatu_040"
+        },
+        {
+          "file": "images/photos/albums/vanuatu/vanuatu_041.jpg",
+          "caption": "Vanuatu — vanuatu_041"
+        },
+        {
+          "file": "images/photos/albums/vanuatu/vanuatu_042.jpg",
+          "caption": "Vanuatu — vanuatu_042"
+        },
+        {
+          "file": "images/photos/albums/vanuatu/vanuatu_043.jpg",
+          "caption": "Vanuatu — vanuatu_043"
+        },
+        {
+          "file": "images/photos/albums/vanuatu/vanuatu_044.jpg",
+          "caption": "Vanuatu — vanuatu_044"
+        },
+        {
+          "file": "images/photos/albums/vanuatu/vanuatu_045.jpg",
+          "caption": "Vanuatu — vanuatu_045"
+        },
+        {
+          "file": "images/photos/albums/vanuatu/vanuatu_046.jpg",
+          "caption": "Vanuatu — vanuatu_046"
+        },
+        {
+          "file": "images/photos/albums/vanuatu/vanuatu_047.jpg",
+          "caption": "Vanuatu — vanuatu_047"
+        },
+        {
+          "file": "images/photos/albums/vanuatu/vanuatu_048.jpg",
+          "caption": "Vanuatu — vanuatu_048"
+        },
+        {
+          "file": "images/photos/albums/vanuatu/vanuatu_049.jpg",
+          "caption": "Vanuatu — vanuatu_049"
+        },
+        {
+          "file": "images/photos/albums/vanuatu/vanuatu_050.jpg",
+          "caption": "Vanuatu — vanuatu_050"
+        },
+        {
+          "file": "images/photos/albums/vanuatu/vanuatu_051.jpg",
+          "caption": "Vanuatu — vanuatu_051"
+        },
+        {
+          "file": "images/photos/albums/vanuatu/vanuatu_052.jpg",
+          "caption": "Vanuatu — vanuatu_052"
+        },
+        {
+          "file": "images/photos/albums/vanuatu/vanuatu_053.jpg",
+          "caption": "Vanuatu — vanuatu_053"
+        },
+        {
+          "file": "images/photos/albums/vanuatu/vanuatu_054.jpg",
+          "caption": "Vanuatu — vanuatu_054"
+        },
+        {
+          "file": "images/photos/albums/vanuatu/vanuatu_055.jpg",
+          "caption": "Vanuatu — vanuatu_055"
+        },
+        {
+          "file": "images/photos/albums/vanuatu/vanuatu_056.jpg",
+          "caption": "Vanuatu — vanuatu_056"
+        },
+        {
+          "file": "images/photos/albums/vanuatu/vanuatu_057.jpg",
+          "caption": "Vanuatu — vanuatu_057"
+        },
+        {
+          "file": "images/photos/albums/vanuatu/vanuatu_058.jpg",
+          "caption": "Vanuatu — vanuatu_058"
+        },
+        {
+          "file": "images/photos/albums/vanuatu/vanuatu_059.jpg",
+          "caption": "Vanuatu — vanuatu_059"
+        },
+        {
+          "file": "images/photos/albums/vanuatu/vanuatu_060.jpg",
+          "caption": "Vanuatu — vanuatu_060"
+        },
+        {
+          "file": "images/photos/albums/vanuatu/vanuatu_061.jpg",
+          "caption": "Vanuatu — vanuatu_061"
+        },
+        {
+          "file": "images/photos/albums/vanuatu/vanuatu_062.jpg",
+          "caption": "Vanuatu — vanuatu_062"
+        },
+        {
+          "file": "images/photos/albums/vanuatu/vanuatu_063.jpg",
+          "caption": "Vanuatu — vanuatu_063"
+        },
+        {
+          "file": "images/photos/albums/vanuatu/vanuatu_064.jpg",
+          "caption": "Vanuatu — vanuatu_064"
+        },
+        {
+          "file": "images/photos/albums/vanuatu/vanuatu_065.jpg",
+          "caption": "Vanuatu — vanuatu_065"
+        },
+        {
+          "file": "images/photos/albums/vanuatu/vanuatu_066.jpg",
+          "caption": "Vanuatu — vanuatu_066"
+        },
+        {
+          "file": "images/photos/albums/vanuatu/vanuatu_067.jpg",
+          "caption": "Vanuatu — vanuatu_067"
+        },
+        {
+          "file": "images/photos/albums/vanuatu/vanuatu_068.jpg",
+          "caption": "Vanuatu — vanuatu_068"
+        },
+        {
+          "file": "images/photos/albums/vanuatu/vanuatu_069.jpg",
+          "caption": "Vanuatu — vanuatu_069"
+        },
+        {
+          "file": "images/photos/albums/vanuatu/vanuatu_070.jpg",
+          "caption": "Vanuatu — vanuatu_070"
+        },
+        {
+          "file": "images/photos/albums/vanuatu/vanuatu_071.jpg",
+          "caption": "Vanuatu — vanuatu_071"
+        },
+        {
+          "file": "images/photos/albums/vanuatu/vanuatu_072.jpg",
+          "caption": "Vanuatu — vanuatu_072"
+        },
+        {
+          "file": "images/photos/albums/vanuatu/vanuatu_073.jpg",
+          "caption": "Vanuatu — vanuatu_073"
+        },
+        {
+          "file": "images/photos/albums/vanuatu/vanuatu_074.jpg",
+          "caption": "Vanuatu — vanuatu_074"
+        },
+        {
+          "file": "images/photos/albums/vanuatu/vanuatu_075.jpg",
+          "caption": "Vanuatu — vanuatu_075"
+        },
+        {
+          "file": "images/photos/albums/vanuatu/vanuatu_076.jpg",
+          "caption": "Vanuatu — vanuatu_076"
+        },
+        {
+          "file": "images/photos/albums/vanuatu/vanuatu_077.jpg",
+          "caption": "Vanuatu — vanuatu_077"
+        },
+        {
+          "file": "images/photos/albums/vanuatu/vanuatu_078.jpg",
+          "caption": "Vanuatu — vanuatu_078"
+        },
+        {
+          "file": "images/photos/albums/vanuatu/vanuatu_079.jpg",
+          "caption": "Vanuatu — vanuatu_079"
+        },
+        {
+          "file": "images/photos/albums/vanuatu/vanuatu_080.jpg",
+          "caption": "Vanuatu — vanuatu_080"
+        },
+        {
+          "file": "images/photos/albums/vanuatu/vanuatu_081.jpg",
+          "caption": "Vanuatu — vanuatu_081"
+        },
+        {
+          "file": "images/photos/albums/vanuatu/vanuatu_082.jpg",
+          "caption": "Vanuatu — vanuatu_082"
+        },
+        {
+          "file": "images/photos/albums/vanuatu/vanuatu_083.jpg",
+          "caption": "Vanuatu — vanuatu_083"
+        },
+        {
+          "file": "images/photos/albums/vanuatu/vanuatu_084.jpg",
+          "caption": "Vanuatu — vanuatu_084"
+        },
+        {
+          "file": "images/photos/albums/vanuatu/vanuatu_085.jpg",
+          "caption": "Vanuatu — vanuatu_085"
+        },
+        {
+          "file": "images/photos/albums/vanuatu/vanuatu_086.jpg",
+          "caption": "Vanuatu — vanuatu_086"
+        },
+        {
+          "file": "images/photos/albums/vanuatu/vanuatu_087.jpg",
+          "caption": "Vanuatu — vanuatu_087"
+        },
+        {
+          "file": "images/photos/albums/vanuatu/vanuatu_088.jpg",
+          "caption": "Vanuatu — vanuatu_088"
+        },
+        {
+          "file": "images/photos/albums/vanuatu/vanuatu_089.jpg",
+          "caption": "Vanuatu — vanuatu_089"
+        },
+        {
+          "file": "images/photos/albums/vanuatu/vanuatu_090.jpg",
+          "caption": "Vanuatu — vanuatu_090"
+        },
+        {
+          "file": "images/photos/albums/vanuatu/vanuatu_091.jpg",
+          "caption": "Vanuatu — vanuatu_091"
+        },
+        {
+          "file": "images/photos/albums/vanuatu/vanuatu_092.jpg",
+          "caption": "Vanuatu — vanuatu_092"
+        },
+        {
+          "file": "images/photos/albums/vanuatu/vanuatu_093.jpg",
+          "caption": "Vanuatu — vanuatu_093"
+        },
+        {
+          "file": "images/photos/albums/vanuatu/vanuatu_094.jpg",
+          "caption": "Vanuatu — vanuatu_094"
+        },
+        {
+          "file": "images/photos/albums/vanuatu/vanuatu_095.jpg",
+          "caption": "Vanuatu — vanuatu_095"
+        },
+        {
+          "file": "images/photos/albums/vanuatu/vanuatu_096.jpg",
+          "caption": "Vanuatu — vanuatu_096"
+        },
+        {
+          "file": "images/photos/albums/vanuatu/vanuatu_097.jpg",
+          "caption": "Vanuatu — vanuatu_097"
+        },
+        {
+          "file": "images/photos/albums/vanuatu/vanuatu_098.jpg",
+          "caption": "Vanuatu — vanuatu_098"
+        },
+        {
+          "file": "images/photos/albums/vanuatu/vanuatu_099.jpg",
+          "caption": "Vanuatu — vanuatu_099"
+        },
+        {
+          "file": "images/photos/albums/vanuatu/vanuatu_100.jpg",
+          "caption": "Vanuatu — vanuatu_100"
+        },
+        {
+          "file": "images/photos/albums/vanuatu/vanuatu_101.jpg",
+          "caption": "Vanuatu — vanuatu_101"
+        },
+        {
+          "file": "images/photos/albums/vanuatu/vanuatu_102.jpg",
+          "caption": "Vanuatu — vanuatu_102"
+        },
+        {
+          "file": "images/photos/albums/vanuatu/vanuatu_103.jpg",
+          "caption": "Vanuatu — vanuatu_103"
+        },
+        {
+          "file": "images/photos/albums/vanuatu/vanuatu_104.jpg",
+          "caption": "Vanuatu — vanuatu_104"
+        },
+        {
+          "file": "images/photos/albums/vanuatu/vanuatu_105.jpg",
+          "caption": "Vanuatu — vanuatu_105"
+        },
+        {
+          "file": "images/photos/albums/vanuatu/vanuatu_106.jpg",
+          "caption": "Vanuatu — vanuatu_106"
+        },
+        {
+          "file": "images/photos/albums/vanuatu/vanuatu_107.jpg",
+          "caption": "Vanuatu — vanuatu_107"
+        },
+        {
+          "file": "images/photos/albums/vanuatu/vanuatu_108.jpg",
+          "caption": "Vanuatu — vanuatu_108"
+        },
+        {
+          "file": "images/photos/albums/vanuatu/vanuatu_109.jpg",
+          "caption": "Vanuatu — vanuatu_109"
+        },
+        {
+          "file": "images/photos/albums/vanuatu/vanuatu_110.jpg",
+          "caption": "Vanuatu — vanuatu_110"
+        },
+        {
+          "file": "images/photos/albums/vanuatu/vanuatu_111.jpg",
+          "caption": "Vanuatu — vanuatu_111"
+        },
+        {
+          "file": "images/photos/albums/vanuatu/vanuatu_112.jpg",
+          "caption": "Vanuatu — vanuatu_112"
+        },
+        {
+          "file": "images/photos/albums/vanuatu/vanuatu_113.jpg",
+          "caption": "Vanuatu — vanuatu_113"
+        },
+        {
+          "file": "images/photos/albums/vanuatu/vanuatu_114.jpg",
+          "caption": "Vanuatu — vanuatu_114"
+        },
+        {
+          "file": "images/photos/albums/vanuatu/vanuatu_115.jpg",
+          "caption": "Vanuatu — vanuatu_115"
+        },
+        {
+          "file": "images/photos/albums/vanuatu/vanuatu_116.jpg",
+          "caption": "Vanuatu — vanuatu_116"
+        },
+        {
+          "file": "images/photos/albums/vanuatu/vanuatu_117.jpg",
+          "caption": "Vanuatu — vanuatu_117"
+        },
+        {
+          "file": "images/photos/albums/vanuatu/vanuatu_118.jpg",
+          "caption": "Vanuatu — vanuatu_118"
+        },
+        {
+          "file": "images/photos/albums/vanuatu/vanuatu_119.jpg",
+          "caption": "Vanuatu — vanuatu_119"
+        },
+        {
+          "file": "images/photos/albums/vanuatu/vanuatu_120.jpg",
+          "caption": "Vanuatu — vanuatu_120"
+        },
+        {
+          "file": "images/photos/albums/vanuatu/vanuatu_121.jpg",
+          "caption": "Vanuatu — vanuatu_121"
+        },
+        {
+          "file": "images/photos/albums/vanuatu/vanuatu_122.jpg",
+          "caption": "Vanuatu — vanuatu_122"
+        },
+        {
+          "file": "images/photos/albums/vanuatu/vanuatu_123.jpg",
+          "caption": "Vanuatu — vanuatu_123"
+        },
+        {
+          "file": "images/photos/albums/vanuatu/vanuatu_124.jpg",
+          "caption": "Vanuatu — vanuatu_124"
+        },
+        {
+          "file": "images/photos/albums/vanuatu/vanuatu_125.jpg",
+          "caption": "Vanuatu — vanuatu_125"
+        },
+        {
+          "file": "images/photos/albums/vanuatu/vanuatu_126.jpg",
+          "caption": "Vanuatu — vanuatu_126"
+        },
+        {
+          "file": "images/photos/albums/vanuatu/vanuatu_127.jpg",
+          "caption": "Vanuatu — vanuatu_127"
+        },
+        {
+          "file": "images/photos/albums/vanuatu/vanuatu_128.jpg",
+          "caption": "Vanuatu — vanuatu_128"
+        },
+        {
+          "file": "images/photos/albums/vanuatu/vanuatu_129.jpg",
+          "caption": "Vanuatu — vanuatu_129"
+        },
+        {
+          "file": "images/photos/albums/vanuatu/vanuatu_130.jpg",
+          "caption": "Vanuatu — vanuatu_130"
+        },
+        {
+          "file": "images/photos/albums/vanuatu/vanuatu_131.jpg",
+          "caption": "Vanuatu — vanuatu_131"
+        },
+        {
+          "file": "images/photos/albums/vanuatu/vanuatu_132.jpg",
+          "caption": "Vanuatu — vanuatu_132"
+        },
+        {
+          "file": "images/photos/albums/vanuatu/vanuatu_133.jpg",
+          "caption": "Vanuatu — vanuatu_133"
+        },
+        {
+          "file": "images/photos/albums/vanuatu/vanuatu_134.jpg",
+          "caption": "Vanuatu — vanuatu_134"
+        },
+        {
+          "file": "images/photos/albums/vanuatu/vanuatu_135.jpg",
+          "caption": "Vanuatu — vanuatu_135"
+        },
+        {
+          "file": "images/photos/albums/vanuatu/vanuatu_136.jpg",
+          "caption": "Vanuatu — vanuatu_136"
+        },
+        {
+          "file": "images/photos/albums/vanuatu/vanuatu_137.jpg",
+          "caption": "Vanuatu — vanuatu_137"
+        },
+        {
+          "file": "images/photos/albums/vanuatu/vanuatu_138.jpg",
+          "caption": "Vanuatu — vanuatu_138"
+        },
+        {
+          "file": "images/photos/albums/vanuatu/vanuatu_139.jpg",
+          "caption": "Vanuatu — vanuatu_139"
+        },
+        {
+          "file": "images/photos/albums/vanuatu/vanuatu_140.jpg",
+          "caption": "Vanuatu — vanuatu_140"
+        },
+        {
+          "file": "images/photos/albums/vanuatu/vanuatu_141.jpg",
+          "caption": "Vanuatu — vanuatu_141"
+        },
+        {
+          "file": "images/photos/albums/vanuatu/vanuatu_142.jpg",
+          "caption": "Vanuatu — vanuatu_142"
+        },
+        {
+          "file": "images/photos/albums/vanuatu/vanuatu_143.jpg",
+          "caption": "Vanuatu — vanuatu_143"
+        },
+        {
+          "file": "images/photos/albums/vanuatu/vanuatu_144.jpg",
+          "caption": "Vanuatu — vanuatu_144"
+        },
+        {
+          "file": "images/photos/albums/vanuatu/vanuatu_145.jpg",
+          "caption": "Vanuatu — vanuatu_145"
+        },
+        {
+          "file": "images/photos/albums/vanuatu/vanuatu_146.jpg",
+          "caption": "Vanuatu — vanuatu_146"
+        },
+        {
+          "file": "images/photos/albums/vanuatu/vanuatu_147.jpg",
+          "caption": "Vanuatu — vanuatu_147"
+        },
+        {
+          "file": "images/photos/albums/vanuatu/vanuatu_148.jpg",
+          "caption": "Vanuatu — vanuatu_148"
+        },
+        {
+          "file": "images/photos/albums/vanuatu/vanuatu_149.jpg",
+          "caption": "Vanuatu — vanuatu_149"
+        },
+        {
+          "file": "images/photos/albums/vanuatu/vanuatu_150.jpg",
+          "caption": "Vanuatu — vanuatu_150"
+        },
+        {
+          "file": "images/photos/albums/vanuatu/vanuatu_151.jpg",
+          "caption": "Vanuatu — vanuatu_151"
+        },
+        {
+          "file": "images/photos/albums/vanuatu/vanuatu_152.jpg",
+          "caption": "Vanuatu — vanuatu_152"
+        },
+        {
+          "file": "images/photos/albums/vanuatu/vanuatu_153.jpg",
+          "caption": "Vanuatu — vanuatu_153"
+        },
+        {
+          "file": "images/photos/albums/vanuatu/vanuatu_154.jpg",
+          "caption": "Vanuatu — vanuatu_154"
+        },
+        {
+          "file": "images/photos/albums/vanuatu/vanuatu_155.jpg",
+          "caption": "Vanuatu — vanuatu_155"
+        },
+        {
+          "file": "images/photos/albums/vanuatu/vanuatu_156.jpg",
+          "caption": "Vanuatu — vanuatu_156"
+        },
+        {
+          "file": "images/photos/albums/vanuatu/vanuatu_157.jpg",
+          "caption": "Vanuatu — vanuatu_157"
+        },
+        {
+          "file": "images/photos/albums/vanuatu/vanuatu_158.jpg",
+          "caption": "Vanuatu — vanuatu_158"
+        },
+        {
+          "file": "images/photos/albums/vanuatu/vanuatu_159.jpg",
+          "caption": "Vanuatu — vanuatu_159"
+        },
+        {
+          "file": "images/photos/albums/vanuatu/vanuatu_160.jpg",
+          "caption": "Vanuatu — vanuatu_160"
+        },
+        {
+          "file": "images/photos/albums/vanuatu/vanuatu_161.jpg",
+          "caption": "Vanuatu — vanuatu_161"
+        },
+        {
+          "file": "images/photos/albums/vanuatu/vanuatu_162.jpg",
+          "caption": "Vanuatu — vanuatu_162"
+        },
+        {
+          "file": "images/photos/albums/vanuatu/vanuatu_163.jpg",
+          "caption": "Vanuatu — vanuatu_163"
+        },
+        {
+          "file": "images/photos/albums/vanuatu/vanuatu_164.jpg",
+          "caption": "Vanuatu — vanuatu_164"
+        },
+        {
+          "file": "images/photos/albums/vanuatu/vanuatu_165.jpg",
+          "caption": "Vanuatu — vanuatu_165"
+        },
+        {
+          "file": "images/photos/albums/vanuatu/vanuatu_166.jpg",
+          "caption": "Vanuatu — vanuatu_166"
+        },
+        {
+          "file": "images/photos/albums/vanuatu/vanuatu_167.jpg",
+          "caption": "Vanuatu — vanuatu_167"
+        },
+        {
+          "file": "images/photos/albums/vanuatu/vanuatu_168.jpg",
+          "caption": "Vanuatu — vanuatu_168"
+        },
+        {
+          "file": "images/photos/albums/vanuatu/vanuatu_169.jpg",
+          "caption": "Vanuatu — vanuatu_169"
+        },
+        {
+          "file": "images/photos/albums/vanuatu/vanuatu_170.jpg",
+          "caption": "Vanuatu — vanuatu_170"
+        },
+        {
+          "file": "images/photos/albums/vanuatu/vanuatu_171.jpg",
+          "caption": "Vanuatu — vanuatu_171"
+        },
+        {
+          "file": "images/photos/albums/vanuatu/vanuatu_172.jpg",
+          "caption": "Vanuatu — vanuatu_172"
+        },
+        {
+          "file": "images/photos/albums/vanuatu/vanuatu_173.jpg",
+          "caption": "Vanuatu — vanuatu_173"
+        },
+        {
+          "file": "images/photos/albums/vanuatu/vanuatu_174.jpg",
+          "caption": "Vanuatu — vanuatu_174"
+        },
+        {
+          "file": "images/photos/albums/vanuatu/vanuatu_175.jpg",
+          "caption": "Vanuatu — vanuatu_175"
+        },
+        {
+          "file": "images/photos/albums/vanuatu/vanuatu_176.jpg",
+          "caption": "Vanuatu — vanuatu_176"
+        },
+        {
+          "file": "images/photos/albums/vanuatu/vanuatu_177.jpg",
+          "caption": "Vanuatu — vanuatu_177"
+        },
+        {
+          "file": "images/photos/albums/vanuatu/vanuatu_178.jpg",
+          "caption": "Vanuatu — vanuatu_178"
+        },
+        {
+          "file": "images/photos/albums/vanuatu/vanuatu_179.jpg",
+          "caption": "Vanuatu — vanuatu_179"
+        },
+        {
+          "file": "images/photos/albums/vanuatu/vanuatu_180.jpg",
+          "caption": "Vanuatu — vanuatu_180"
+        },
+        {
+          "file": "images/photos/albums/vanuatu/vanuatu_181.jpg",
+          "caption": "Vanuatu — vanuatu_181"
+        },
+        {
+          "file": "images/photos/albums/vanuatu/vanuatu_182.jpg",
+          "caption": "Vanuatu — vanuatu_182"
+        },
+        {
+          "file": "images/photos/albums/vanuatu/vanuatu_183.jpg",
+          "caption": "Vanuatu — vanuatu_183"
+        },
+        {
+          "file": "images/photos/albums/vanuatu/vanuatu_184.jpg",
+          "caption": "Vanuatu — vanuatu_184"
+        },
+        {
+          "file": "images/photos/albums/vanuatu/vanuatu_185.jpg",
+          "caption": "Vanuatu — vanuatu_185"
+        },
+        {
+          "file": "images/photos/albums/vanuatu/vanuatu_186.jpg",
+          "caption": "Vanuatu — vanuatu_186"
+        },
+        {
+          "file": "images/photos/albums/vanuatu/vanuatu_187.jpg",
+          "caption": "Vanuatu — vanuatu_187"
+        },
+        {
+          "file": "images/photos/albums/vanuatu/vanuatu_188.jpg",
+          "caption": "Vanuatu — vanuatu_188"
+        },
+        {
+          "file": "images/photos/albums/vanuatu/vanuatu_189.jpg",
+          "caption": "Vanuatu — vanuatu_189"
+        },
+        {
+          "file": "images/photos/albums/vanuatu/vanuatu_190.jpg",
+          "caption": "Vanuatu — vanuatu_190"
+        },
+        {
+          "file": "images/photos/albums/vanuatu/vanuatu_191.jpg",
+          "caption": "Vanuatu — vanuatu_191"
+        },
+        {
+          "file": "images/photos/albums/vanuatu/vanuatu_192.jpg",
+          "caption": "Vanuatu — vanuatu_192"
+        },
+        {
+          "file": "images/photos/albums/vanuatu/vanuatu_193.jpg",
+          "caption": "Vanuatu — vanuatu_193"
+        },
+        {
+          "file": "images/photos/albums/vanuatu/vanuatu_194.jpg",
+          "caption": "Vanuatu — vanuatu_194"
+        },
+        {
+          "file": "images/photos/albums/vanuatu/vanuatu_195.jpg",
+          "caption": "Vanuatu — vanuatu_195"
+        },
+        {
+          "file": "images/photos/albums/vanuatu/vanuatu_196.jpg",
+          "caption": "Vanuatu — vanuatu_196"
+        },
+        {
+          "file": "images/photos/albums/vanuatu/vanuatu_197.jpg",
+          "caption": "Vanuatu — vanuatu_197"
+        },
+        {
+          "file": "images/photos/albums/vanuatu/vanuatu_198.jpg",
+          "caption": "Vanuatu — vanuatu_198"
+        },
+        {
+          "file": "images/photos/albums/vanuatu/vanuatu_199.jpg",
+          "caption": "Vanuatu — vanuatu_199"
+        },
+        {
+          "file": "images/photos/albums/vanuatu/vanuatu_200.jpg",
+          "caption": "Vanuatu — vanuatu_200"
+        },
+        {
+          "file": "images/photos/albums/vanuatu/vanuatu_201.jpg",
+          "caption": "Vanuatu — vanuatu_201"
+        },
+        {
+          "file": "images/photos/albums/vanuatu/vanuatu_202.jpg",
+          "caption": "Vanuatu — vanuatu_202"
+        },
+        {
+          "file": "images/photos/albums/vanuatu/vanuatu_203.jpg",
+          "caption": "Vanuatu — vanuatu_203"
+        },
+        {
+          "file": "images/photos/albums/vanuatu/vanuatu_204.jpg",
+          "caption": "Vanuatu — vanuatu_204"
+        },
+        {
+          "file": "images/photos/albums/vanuatu/vanuatu_205.jpg",
+          "caption": "Vanuatu — vanuatu_205"
+        },
+        {
+          "file": "images/photos/albums/vanuatu/vanuatu_206.jpg",
+          "caption": "Vanuatu — vanuatu_206"
+        },
+        {
+          "file": "images/photos/albums/vanuatu/vanuatu_207.jpg",
+          "caption": "Vanuatu — vanuatu_207"
+        },
+        {
+          "file": "images/photos/albums/vanuatu/vanuatu_208.jpg",
+          "caption": "Vanuatu — vanuatu_208"
+        },
+        {
+          "file": "images/photos/albums/vanuatu/vanuatu_209.jpg",
+          "caption": "Vanuatu — vanuatu_209"
+        },
+        {
+          "file": "images/photos/albums/vanuatu/vanuatu_210.jpg",
+          "caption": "Vanuatu — vanuatu_210"
+        },
+        {
+          "file": "images/photos/albums/vanuatu/vanuatu_211.jpg",
+          "caption": "Vanuatu — vanuatu_211"
+        },
+        {
+          "file": "images/photos/albums/vanuatu/vanuatu_212.jpg",
+          "caption": "Vanuatu — vanuatu_212"
+        },
+        {
+          "file": "images/photos/albums/vanuatu/vanuatu_213.jpg",
+          "caption": "Vanuatu — vanuatu_213"
+        },
+        {
+          "file": "images/photos/albums/vanuatu/vanuatu_214.jpg",
+          "caption": "Vanuatu — vanuatu_214"
+        },
+        {
+          "file": "images/photos/albums/vanuatu/vanuatu_215.jpg",
+          "caption": "Vanuatu — vanuatu_215"
+        },
+        {
+          "file": "images/photos/albums/vanuatu/vanuatu_216.jpg",
+          "caption": "Vanuatu — vanuatu_216"
+        },
+        {
+          "file": "images/photos/albums/vanuatu/vanuatu_217.jpg",
+          "caption": "Vanuatu — vanuatu_217"
+        },
+        {
+          "file": "images/photos/albums/vanuatu/vanuatu_218.jpg",
+          "caption": "Vanuatu — vanuatu_218"
+        },
+        {
+          "file": "images/photos/albums/vanuatu/vanuatu_219.jpg",
+          "caption": "Vanuatu — vanuatu_219"
+        },
+        {
+          "file": "images/photos/albums/vanuatu/vanuatu_220.jpg",
+          "caption": "Vanuatu — vanuatu_220"
+        },
+        {
+          "file": "images/photos/albums/vanuatu/vanuatu_221.jpg",
+          "caption": "Vanuatu — vanuatu_221"
+        },
+        {
+          "file": "images/photos/albums/vanuatu/vanuatu_222.jpg",
+          "caption": "Vanuatu — vanuatu_222"
+        },
+        {
+          "file": "images/photos/albums/vanuatu/vanuatu_223.jpg",
+          "caption": "Vanuatu — vanuatu_223"
+        },
+        {
+          "file": "images/photos/albums/vanuatu/vanuatu_224.jpg",
+          "caption": "Vanuatu — vanuatu_224"
+        },
+        {
+          "file": "images/photos/albums/vanuatu/vanuatu_225.jpg",
+          "caption": "Vanuatu — vanuatu_225"
+        },
+        {
+          "file": "images/photos/albums/vanuatu/vanuatu_226.jpg",
+          "caption": "Vanuatu — vanuatu_226"
+        },
+        {
+          "file": "images/photos/albums/vanuatu/vanuatu_227.jpg",
+          "caption": "Vanuatu — vanuatu_227"
+        },
+        {
+          "file": "images/photos/albums/vanuatu/vanuatu_228.jpg",
+          "caption": "Vanuatu — vanuatu_228"
+        },
+        {
+          "file": "images/photos/albums/vanuatu/vanuatu_229.jpg",
+          "caption": "Vanuatu — vanuatu_229"
+        },
+        {
+          "file": "images/photos/albums/vanuatu/vanuatu_230.jpg",
+          "caption": "Vanuatu — vanuatu_230"
+        },
+        {
+          "file": "images/photos/albums/vanuatu/vanuatu_231.jpg",
+          "caption": "Vanuatu — vanuatu_231"
+        },
+        {
+          "file": "images/photos/albums/vanuatu/vanuatu_232.jpg",
+          "caption": "Vanuatu — vanuatu_232"
+        },
+        {
+          "file": "images/photos/albums/vanuatu/vanuatu_233.jpg",
+          "caption": "Vanuatu — vanuatu_233"
+        },
+        {
+          "file": "images/photos/albums/vanuatu/vanuatu_234.jpg",
+          "caption": "Vanuatu — vanuatu_234"
+        },
+        {
+          "file": "images/photos/albums/vanuatu/vanuatu_235.jpg",
+          "caption": "Vanuatu — vanuatu_235"
+        },
+        {
+          "file": "images/photos/albums/vanuatu/vanuatu_236.jpg",
+          "caption": "Vanuatu — vanuatu_236"
+        },
+        {
+          "file": "images/photos/albums/vanuatu/vanuatu_237.jpg",
+          "caption": "Vanuatu — vanuatu_237"
+        },
+        {
+          "file": "images/photos/albums/vanuatu/vanuatu_238.jpg",
+          "caption": "Vanuatu — vanuatu_238"
+        },
+        {
+          "file": "images/photos/albums/vanuatu/vanuatu_239.jpg",
+          "caption": "Vanuatu — vanuatu_239"
+        },
+        {
+          "file": "images/photos/albums/vanuatu/vanuatu_240.jpg",
+          "caption": "Vanuatu — vanuatu_240"
+        },
+        {
+          "file": "images/photos/albums/vanuatu/vanuatu_241.jpg",
+          "caption": "Vanuatu — vanuatu_241"
+        },
+        {
+          "file": "images/photos/albums/vanuatu/vanuatu_242.jpg",
+          "caption": "Vanuatu — vanuatu_242"
+        },
+        {
+          "file": "images/photos/albums/vanuatu/vanuatu_243.jpg",
+          "caption": "Vanuatu — vanuatu_243"
+        },
+        {
+          "file": "images/photos/albums/vanuatu/vanuatu_244.jpg",
+          "caption": "Vanuatu — vanuatu_244"
+        },
+        {
+          "file": "images/photos/albums/vanuatu/vanuatu_245.jpg",
+          "caption": "Vanuatu — vanuatu_245"
+        },
+        {
+          "file": "images/photos/albums/vanuatu/vanuatu_246.jpg",
+          "caption": "Vanuatu — vanuatu_246"
+        },
+        {
+          "file": "images/photos/albums/vanuatu/vanuatu_247.jpg",
+          "caption": "Vanuatu — vanuatu_247"
+        },
+        {
+          "file": "images/photos/albums/vanuatu/vanuatu_248.jpg",
+          "caption": "Vanuatu — vanuatu_248"
+        },
+        {
+          "file": "images/photos/albums/vanuatu/vanuatu_249.jpg",
+          "caption": "Vanuatu — vanuatu_249"
+        },
+        {
+          "file": "images/photos/albums/vanuatu/vanuatu_250.jpg",
+          "caption": "Vanuatu — vanuatu_250"
+        },
+        {
+          "file": "images/photos/albums/vanuatu/vanuatu_251.jpg",
+          "caption": "Vanuatu — vanuatu_251"
+        },
+        {
+          "file": "images/photos/albums/vanuatu/vanuatu_252.jpg",
+          "caption": "Vanuatu — vanuatu_252"
+        },
+        {
+          "file": "images/photos/albums/vanuatu/vanuatu_253.jpg",
+          "caption": "Vanuatu — vanuatu_253"
+        },
+        {
+          "file": "images/photos/albums/vanuatu/vanuatu_254.jpg",
+          "caption": "Vanuatu — vanuatu_254"
+        },
+        {
+          "file": "images/photos/albums/vanuatu/vanuatu_255.jpg",
+          "caption": "Vanuatu — vanuatu_255"
+        },
+        {
+          "file": "images/photos/albums/vanuatu/vanuatu_256.jpg",
+          "caption": "Vanuatu — vanuatu_256"
+        }
+      ]
+    },
+    "australia-south": {
+      "title": "Australia — South Queensland",
+      "amazon_album": null,
+      "photos": [
+        {
+          "file": "images/photos/albums/australia-south/australia-south_001.jpg",
+          "caption": "Australia — South Queensland — australia-south_001"
+        },
+        {
+          "file": "images/photos/albums/australia-south/australia-south_002.jpg",
+          "caption": "Australia — South Queensland — australia-south_002"
+        },
+        {
+          "file": "images/photos/albums/australia-south/australia-south_003.jpg",
+          "caption": "Australia — South Queensland — australia-south_003"
+        },
+        {
+          "file": "images/photos/albums/australia-south/australia-south_004.jpg",
+          "caption": "Australia — South Queensland — australia-south_004"
+        },
+        {
+          "file": "images/photos/albums/australia-south/australia-south_005.jpg",
+          "caption": "Australia — South Queensland — australia-south_005"
+        },
+        {
+          "file": "images/photos/albums/australia-south/australia-south_006.jpg",
+          "caption": "Australia — South Queensland — australia-south_006"
+        },
+        {
+          "file": "images/photos/albums/australia-south/australia-south_007.jpg",
+          "caption": "Australia — South Queensland — australia-south_007"
+        },
+        {
+          "file": "images/photos/albums/australia-south/australia-south_008.jpg",
+          "caption": "Australia — South Queensland — australia-south_008"
+        }
+      ]
+    },
+    "australia-north": {
+      "title": "Australia — GBR & North",
+      "amazon_album": null,
+      "photos": [
+        {
+          "file": "images/photos/albums/australia-north/australia-north_001.jpg",
+          "caption": "Australia — GBR & North — australia-north_001"
+        },
+        {
+          "file": "images/photos/albums/australia-north/australia-north_002.jpg",
+          "caption": "Australia — GBR & North — australia-north_002"
+        },
+        {
+          "file": "images/photos/albums/australia-north/australia-north_003.jpg",
+          "caption": "Australia — GBR & North — australia-north_003"
+        },
+        {
+          "file": "images/photos/albums/australia-north/australia-north_004.jpg",
+          "caption": "Australia — GBR & North — australia-north_004"
+        },
+        {
+          "file": "images/photos/albums/australia-north/australia-north_005.jpg",
+          "caption": "Australia — GBR & North — australia-north_005"
+        },
+        {
+          "file": "images/photos/albums/australia-north/australia-north_006.jpg",
+          "caption": "Australia — GBR & North — australia-north_006"
+        },
+        {
+          "file": "images/photos/albums/australia-north/australia-north_007.jpg",
+          "caption": "Australia — GBR & North — australia-north_007"
+        },
+        {
+          "file": "images/photos/albums/australia-north/australia-north_008.jpg",
+          "caption": "Australia — GBR & North — australia-north_008"
+        },
+        {
+          "file": "images/photos/albums/australia-north/australia-north_009.jpg",
+          "caption": "Australia — GBR & North — australia-north_009"
+        },
+        {
+          "file": "images/photos/albums/australia-north/australia-north_010.jpg",
+          "caption": "Australia — GBR & North — australia-north_010"
+        },
+        {
+          "file": "images/photos/albums/australia-north/australia-north_011.jpg",
+          "caption": "Australia — GBR & North — australia-north_011"
+        },
+        {
+          "file": "images/photos/albums/australia-north/australia-north_012.jpg",
+          "caption": "Australia — GBR & North — australia-north_012"
+        },
+        {
+          "file": "images/photos/albums/australia-north/australia-north_013.jpg",
+          "caption": "Australia — GBR & North — australia-north_013"
+        },
+        {
+          "file": "images/photos/albums/australia-north/australia-north_014.jpg",
+          "caption": "Australia — GBR & North — australia-north_014"
+        },
+        {
+          "file": "images/photos/albums/australia-north/australia-north_015.jpg",
+          "caption": "Australia — GBR & North — australia-north_015"
+        },
+        {
+          "file": "images/photos/albums/australia-north/australia-north_016.jpg",
+          "caption": "Australia — GBR & North — australia-north_016"
+        },
+        {
+          "file": "images/photos/albums/australia-north/australia-north_017.jpg",
+          "caption": "Australia — GBR & North — australia-north_017"
+        },
+        {
+          "file": "images/photos/albums/australia-north/australia-north_018.jpg",
+          "caption": "Australia — GBR & North — australia-north_018"
+        },
+        {
+          "file": "images/photos/albums/australia-north/australia-north_019.jpg",
+          "caption": "Australia — GBR & North — australia-north_019"
+        },
+        {
+          "file": "images/photos/albums/australia-north/australia-north_020.jpg",
+          "caption": "Australia — GBR & North — australia-north_020"
+        },
+        {
+          "file": "images/photos/albums/australia-north/australia-north_021.jpg",
+          "caption": "Australia — GBR & North — australia-north_021"
+        },
+        {
+          "file": "images/photos/albums/australia-north/australia-north_022.jpg",
+          "caption": "Australia — GBR & North — australia-north_022"
+        },
+        {
+          "file": "images/photos/albums/australia-north/australia-north_023.jpg",
+          "caption": "Australia — GBR & North — australia-north_023"
+        },
+        {
+          "file": "images/photos/albums/australia-north/australia-north_024.jpg",
+          "caption": "Australia — GBR & North — australia-north_024"
+        },
+        {
+          "file": "images/photos/albums/australia-north/australia-north_025.jpg",
+          "caption": "Australia — GBR & North — australia-north_025"
+        },
+        {
+          "file": "images/photos/albums/australia-north/australia-north_026.jpg",
+          "caption": "Australia — GBR & North — australia-north_026"
+        },
+        {
+          "file": "images/photos/albums/australia-north/australia-north_027.jpg",
+          "caption": "Australia — GBR & North — australia-north_027"
+        },
+        {
+          "file": "images/photos/albums/australia-north/australia-north_028.jpg",
+          "caption": "Australia — GBR & North — australia-north_028"
+        },
+        {
+          "file": "images/photos/albums/australia-north/australia-north_029.jpg",
+          "caption": "Australia — GBR & North — australia-north_029"
+        },
+        {
+          "file": "images/photos/albums/australia-north/australia-north_030.jpg",
+          "caption": "Australia — GBR & North — australia-north_030"
+        },
+        {
+          "file": "images/photos/albums/australia-north/australia-north_031.jpg",
+          "caption": "Australia — GBR & North — australia-north_031"
+        },
+        {
+          "file": "images/photos/albums/australia-north/australia-north_032.jpg",
+          "caption": "Australia — GBR & North — australia-north_032"
+        },
+        {
+          "file": "images/photos/albums/australia-north/australia-north_033.jpg",
+          "caption": "Australia — GBR & North — australia-north_033"
+        },
+        {
+          "file": "images/photos/albums/australia-north/australia-north_034.jpg",
+          "caption": "Australia — GBR & North — australia-north_034"
+        },
+        {
+          "file": "images/photos/albums/australia-north/australia-north_035.jpg",
+          "caption": "Australia — GBR & North — australia-north_035"
+        },
+        {
+          "file": "images/photos/albums/australia-north/australia-north_036.jpg",
+          "caption": "Australia — GBR & North — australia-north_036"
+        },
+        {
+          "file": "images/photos/albums/australia-north/australia-north_037.jpg",
+          "caption": "Australia — GBR & North — australia-north_037"
+        },
+        {
+          "file": "images/photos/albums/australia-north/australia-north_038.jpg",
+          "caption": "Australia — GBR & North — australia-north_038"
+        },
+        {
+          "file": "images/photos/albums/australia-north/australia-north_039.jpg",
+          "caption": "Australia — GBR & North — australia-north_039"
+        },
+        {
+          "file": "images/photos/albums/australia-north/australia-north_040.jpg",
+          "caption": "Australia — GBR & North — australia-north_040"
+        },
+        {
+          "file": "images/photos/albums/australia-north/australia-north_041.jpg",
+          "caption": "Australia — GBR & North — australia-north_041"
+        },
+        {
+          "file": "images/photos/albums/australia-north/australia-north_042.jpg",
+          "caption": "Australia — GBR & North — australia-north_042"
+        },
+        {
+          "file": "images/photos/albums/australia-north/australia-north_043.jpg",
+          "caption": "Australia — GBR & North — australia-north_043"
+        },
+        {
+          "file": "images/photos/albums/australia-north/australia-north_044.jpg",
+          "caption": "Australia — GBR & North — australia-north_044"
+        },
+        {
+          "file": "images/photos/albums/australia-north/australia-north_045.jpg",
+          "caption": "Australia — GBR & North — australia-north_045"
+        },
+        {
+          "file": "images/photos/albums/australia-north/australia-north_046.jpg",
+          "caption": "Australia — GBR & North — australia-north_046"
+        },
+        {
+          "file": "images/photos/albums/australia-north/australia-north_047.jpg",
+          "caption": "Australia — GBR & North — australia-north_047"
+        },
+        {
+          "file": "images/photos/albums/australia-north/australia-north_048.jpg",
+          "caption": "Australia — GBR & North — australia-north_048"
+        },
+        {
+          "file": "images/photos/albums/australia-north/australia-north_049.jpg",
+          "caption": "Australia — GBR & North — australia-north_049"
+        },
+        {
+          "file": "images/photos/albums/australia-north/australia-north_050.jpg",
+          "caption": "Australia — GBR & North — australia-north_050"
+        },
+        {
+          "file": "images/photos/albums/australia-north/australia-north_051.jpg",
+          "caption": "Australia — GBR & North — australia-north_051"
+        },
+        {
+          "file": "images/photos/albums/australia-north/australia-north_052.jpg",
+          "caption": "Australia — GBR & North — australia-north_052"
+        },
+        {
+          "file": "images/photos/albums/australia-north/australia-north_053.jpg",
+          "caption": "Australia — GBR & North — australia-north_053"
+        },
+        {
+          "file": "images/photos/albums/australia-north/australia-north_054.jpg",
+          "caption": "Australia — GBR & North — australia-north_054"
+        },
+        {
+          "file": "images/photos/albums/australia-north/australia-north_055.jpg",
+          "caption": "Australia — GBR & North — australia-north_055"
+        },
+        {
+          "file": "images/photos/albums/australia-north/australia-north_056.jpg",
+          "caption": "Australia — GBR & North — australia-north_056"
+        },
+        {
+          "file": "images/photos/albums/australia-north/australia-north_057.jpg",
+          "caption": "Australia — GBR & North — australia-north_057"
+        },
+        {
+          "file": "images/photos/albums/australia-north/australia-north_058.jpg",
+          "caption": "Australia — GBR & North — australia-north_058"
+        },
+        {
+          "file": "images/photos/albums/australia-north/australia-north_059.jpg",
+          "caption": "Australia — GBR & North — australia-north_059"
+        },
+        {
+          "file": "images/photos/albums/australia-north/australia-north_060.jpg",
+          "caption": "Australia — GBR & North — australia-north_060"
+        },
+        {
+          "file": "images/photos/albums/australia-north/australia-north_061.jpg",
+          "caption": "Australia — GBR & North — australia-north_061"
+        },
+        {
+          "file": "images/photos/albums/australia-north/australia-north_062.jpg",
+          "caption": "Australia — GBR & North — australia-north_062"
+        },
+        {
+          "file": "images/photos/albums/australia-north/australia-north_063.jpg",
+          "caption": "Australia — GBR & North — australia-north_063"
+        },
+        {
+          "file": "images/photos/albums/australia-north/australia-north_064.jpg",
+          "caption": "Australia — GBR & North — australia-north_064"
+        },
+        {
+          "file": "images/photos/albums/australia-north/australia-north_065.jpg",
+          "caption": "Australia — GBR & North — australia-north_065"
+        },
+        {
+          "file": "images/photos/albums/australia-north/australia-north_066.jpg",
+          "caption": "Australia — GBR & North — australia-north_066"
+        },
+        {
+          "file": "images/photos/albums/australia-north/australia-north_067.jpg",
+          "caption": "Australia — GBR & North — australia-north_067"
+        },
+        {
+          "file": "images/photos/albums/australia-north/australia-north_068.jpg",
+          "caption": "Australia — GBR & North — australia-north_068"
+        },
+        {
+          "file": "images/photos/albums/australia-north/australia-north_069.jpg",
+          "caption": "Australia — GBR & North — australia-north_069"
+        },
+        {
+          "file": "images/photos/albums/australia-north/australia-north_070.jpg",
+          "caption": "Australia — GBR & North — australia-north_070"
+        },
+        {
+          "file": "images/photos/albums/australia-north/australia-north_071.jpg",
+          "caption": "Australia — GBR & North — australia-north_071"
+        },
+        {
+          "file": "images/photos/albums/australia-north/australia-north_072.jpg",
+          "caption": "Australia — GBR & North — australia-north_072"
+        },
+        {
+          "file": "images/photos/albums/australia-north/australia-north_073.jpg",
+          "caption": "Australia — GBR & North — australia-north_073"
+        },
+        {
+          "file": "images/photos/albums/australia-north/australia-north_074.jpg",
+          "caption": "Australia — GBR & North — australia-north_074"
+        },
+        {
+          "file": "images/photos/albums/australia-north/australia-north_075.jpg",
+          "caption": "Australia — GBR & North — australia-north_075"
+        },
+        {
+          "file": "images/photos/albums/australia-north/australia-north_076.jpg",
+          "caption": "Australia — GBR & North — australia-north_076"
+        },
+        {
+          "file": "images/photos/albums/australia-north/australia-north_077.jpg",
+          "caption": "Australia — GBR & North — australia-north_077"
+        },
+        {
+          "file": "images/photos/albums/australia-north/australia-north_078.jpg",
+          "caption": "Australia — GBR & North — australia-north_078"
+        },
+        {
+          "file": "images/photos/albums/australia-north/australia-north_079.jpg",
+          "caption": "Australia — GBR & North — australia-north_079"
+        },
+        {
+          "file": "images/photos/albums/australia-north/australia-north_080.jpg",
+          "caption": "Australia — GBR & North — australia-north_080"
+        },
+        {
+          "file": "images/photos/albums/australia-north/australia-north_081.jpg",
+          "caption": "Australia — GBR & North — australia-north_081"
+        },
+        {
+          "file": "images/photos/albums/australia-north/australia-north_082.jpg",
+          "caption": "Australia — GBR & North — australia-north_082"
+        },
+        {
+          "file": "images/photos/albums/australia-north/australia-north_083.jpg",
+          "caption": "Australia — GBR & North — australia-north_083"
+        },
+        {
+          "file": "images/photos/albums/australia-north/australia-north_084.jpg",
+          "caption": "Australia — GBR & North — australia-north_084"
+        },
+        {
+          "file": "images/photos/albums/australia-north/australia-north_085.jpg",
+          "caption": "Australia — GBR & North — australia-north_085"
+        },
+        {
+          "file": "images/photos/albums/australia-north/australia-north_086.jpg",
+          "caption": "Australia — GBR & North — australia-north_086"
+        },
+        {
+          "file": "images/photos/albums/australia-north/australia-north_087.jpg",
+          "caption": "Australia — GBR & North — australia-north_087"
+        },
+        {
+          "file": "images/photos/albums/australia-north/australia-north_088.jpg",
+          "caption": "Australia — GBR & North — australia-north_088"
+        },
+        {
+          "file": "images/photos/albums/australia-north/australia-north_089.jpg",
+          "caption": "Australia — GBR & North — australia-north_089"
+        },
+        {
+          "file": "images/photos/albums/australia-north/australia-north_090.jpg",
+          "caption": "Australia — GBR & North — australia-north_090"
+        },
+        {
+          "file": "images/photos/albums/australia-north/australia-north_091.jpg",
+          "caption": "Australia — GBR & North — australia-north_091"
+        },
+        {
+          "file": "images/photos/albums/australia-north/australia-north_092.jpg",
+          "caption": "Australia — GBR & North — australia-north_092"
+        },
+        {
+          "file": "images/photos/albums/australia-north/australia-north_093.jpg",
+          "caption": "Australia — GBR & North — australia-north_093"
+        },
+        {
+          "file": "images/photos/albums/australia-north/australia-north_094.jpg",
+          "caption": "Australia — GBR & North — australia-north_094"
+        },
+        {
+          "file": "images/photos/albums/australia-north/australia-north_095.jpg",
+          "caption": "Australia — GBR & North — australia-north_095"
+        },
+        {
+          "file": "images/photos/albums/australia-north/australia-north_096.jpg",
+          "caption": "Australia — GBR & North — australia-north_096"
+        },
+        {
+          "file": "images/photos/albums/australia-north/australia-north_097.jpg",
+          "caption": "Australia — GBR & North — australia-north_097"
+        },
+        {
+          "file": "images/photos/albums/australia-north/australia-north_098.jpg",
+          "caption": "Australia — GBR & North — australia-north_098"
+        },
+        {
+          "file": "images/photos/albums/australia-north/australia-north_099.jpg",
+          "caption": "Australia — GBR & North — australia-north_099"
+        },
+        {
+          "file": "images/photos/albums/australia-north/australia-north_100.jpg",
+          "caption": "Australia — GBR & North — australia-north_100"
+        },
+        {
+          "file": "images/photos/albums/australia-north/australia-north_101.jpg",
+          "caption": "Australia — GBR & North — australia-north_101"
+        },
+        {
+          "file": "images/photos/albums/australia-north/australia-north_102.jpg",
+          "caption": "Australia — GBR & North — australia-north_102"
+        },
+        {
+          "file": "images/photos/albums/australia-north/australia-north_103.jpg",
+          "caption": "Australia — GBR & North — australia-north_103"
+        },
+        {
+          "file": "images/photos/albums/australia-north/australia-north_104.jpg",
+          "caption": "Australia — GBR & North — australia-north_104"
+        },
+        {
+          "file": "images/photos/albums/australia-north/australia-north_105.jpg",
+          "caption": "Australia — GBR & North — australia-north_105"
+        },
+        {
+          "file": "images/photos/albums/australia-north/australia-north_106.jpg",
+          "caption": "Australia — GBR & North — australia-north_106"
+        },
+        {
+          "file": "images/photos/albums/australia-north/australia-north_107.jpg",
+          "caption": "Australia — GBR & North — australia-north_107"
+        },
+        {
+          "file": "images/photos/albums/australia-north/australia-north_108.jpg",
+          "caption": "Australia — GBR & North — australia-north_108"
+        },
+        {
+          "file": "images/photos/albums/australia-north/australia-north_109.jpg",
+          "caption": "Australia — GBR & North — australia-north_109"
+        },
+        {
+          "file": "images/photos/albums/australia-north/australia-north_110.jpg",
+          "caption": "Australia — GBR & North — australia-north_110"
+        },
+        {
+          "file": "images/photos/albums/australia-north/australia-north_111.jpg",
+          "caption": "Australia — GBR & North — australia-north_111"
+        },
+        {
+          "file": "images/photos/albums/australia-north/australia-north_112.jpg",
+          "caption": "Australia — GBR & North — australia-north_112"
+        },
+        {
+          "file": "images/photos/albums/australia-north/australia-north_113.jpg",
+          "caption": "Australia — GBR & North — australia-north_113"
+        },
+        {
+          "file": "images/photos/albums/australia-north/australia-north_114.jpg",
+          "caption": "Australia — GBR & North — australia-north_114"
+        },
+        {
+          "file": "images/photos/albums/australia-north/australia-north_115.jpg",
+          "caption": "Australia — GBR & North — australia-north_115"
+        },
+        {
+          "file": "images/photos/albums/australia-north/australia-north_116.jpg",
+          "caption": "Australia — GBR & North — australia-north_116"
+        },
+        {
+          "file": "images/photos/albums/australia-north/australia-north_117.jpg",
+          "caption": "Australia — GBR & North — australia-north_117"
+        },
+        {
+          "file": "images/photos/albums/australia-north/australia-north_118.jpg",
+          "caption": "Australia — GBR & North — australia-north_118"
+        },
+        {
+          "file": "images/photos/albums/australia-north/australia-north_119.jpg",
+          "caption": "Australia — GBR & North — australia-north_119"
+        },
+        {
+          "file": "images/photos/albums/australia-north/australia-north_120.jpg",
+          "caption": "Australia — GBR & North — australia-north_120"
+        },
+        {
+          "file": "images/photos/albums/australia-north/australia-north_121.jpg",
+          "caption": "Australia — GBR & North — australia-north_121"
+        },
+        {
+          "file": "images/photos/albums/australia-north/australia-north_122.jpg",
+          "caption": "Australia — GBR & North — australia-north_122"
+        },
+        {
+          "file": "images/photos/albums/australia-north/australia-north_123.jpg",
+          "caption": "Australia — GBR & North — australia-north_123"
+        },
+        {
+          "file": "images/photos/albums/australia-north/australia-north_124.jpg",
+          "caption": "Australia — GBR & North — australia-north_124"
+        },
+        {
+          "file": "images/photos/albums/australia-north/australia-north_125.jpg",
+          "caption": "Australia — GBR & North — australia-north_125"
+        },
+        {
+          "file": "images/photos/albums/australia-north/australia-north_126.jpg",
+          "caption": "Australia — GBR & North — australia-north_126"
+        },
+        {
+          "file": "images/photos/albums/australia-north/australia-north_127.jpg",
+          "caption": "Australia — GBR & North — australia-north_127"
+        },
+        {
+          "file": "images/photos/albums/australia-north/australia-north_128.jpg",
+          "caption": "Australia — GBR & North — australia-north_128"
+        },
+        {
+          "file": "images/photos/albums/australia-north/australia-north_129.jpg",
+          "caption": "Australia — GBR & North — australia-north_129"
+        },
+        {
+          "file": "images/photos/albums/australia-north/australia-north_130.jpg",
+          "caption": "Australia — GBR & North — australia-north_130"
+        },
+        {
+          "file": "images/photos/albums/australia-north/australia-north_131.jpg",
+          "caption": "Australia — GBR & North — australia-north_131"
+        },
+        {
+          "file": "images/photos/albums/australia-north/australia-north_132.jpg",
+          "caption": "Australia — GBR & North — australia-north_132"
+        },
+        {
+          "file": "images/photos/albums/australia-north/australia-north_133.jpg",
+          "caption": "Australia — GBR & North — australia-north_133"
+        },
+        {
+          "file": "images/photos/albums/australia-north/australia-north_134.jpg",
+          "caption": "Australia — GBR & North — australia-north_134"
+        },
+        {
+          "file": "images/photos/albums/australia-north/australia-north_135.jpg",
+          "caption": "Australia — GBR & North — australia-north_135"
+        },
+        {
+          "file": "images/photos/albums/australia-north/australia-north_136.jpg",
+          "caption": "Australia — GBR & North — australia-north_136"
+        },
+        {
+          "file": "images/photos/albums/australia-north/australia-north_137.jpg",
+          "caption": "Australia — GBR & North — australia-north_137"
+        },
+        {
+          "file": "images/photos/albums/australia-north/australia-north_138.jpg",
+          "caption": "Australia — GBR & North — australia-north_138"
+        },
+        {
+          "file": "images/photos/albums/australia-north/australia-north_139.jpg",
+          "caption": "Australia — GBR & North — australia-north_139"
+        },
+        {
+          "file": "images/photos/albums/australia-north/australia-north_140.jpg",
+          "caption": "Australia — GBR & North — australia-north_140"
+        },
+        {
+          "file": "images/photos/albums/australia-north/australia-north_141.jpg",
+          "caption": "Australia — GBR & North — australia-north_141"
+        },
+        {
+          "file": "images/photos/albums/australia-north/australia-north_142.jpg",
+          "caption": "Australia — GBR & North — australia-north_142"
+        },
+        {
+          "file": "images/photos/albums/australia-north/australia-north_143.jpg",
+          "caption": "Australia — GBR & North — australia-north_143"
+        },
+        {
+          "file": "images/photos/albums/australia-north/australia-north_144.jpg",
+          "caption": "Australia — GBR & North — australia-north_144"
+        },
+        {
+          "file": "images/photos/albums/australia-north/australia-north_145.jpg",
+          "caption": "Australia — GBR & North — australia-north_145"
+        },
+        {
+          "file": "images/photos/albums/australia-north/australia-north_146.jpg",
+          "caption": "Australia — GBR & North — australia-north_146"
+        },
+        {
+          "file": "images/photos/albums/australia-north/australia-north_147.jpg",
+          "caption": "Australia — GBR & North — australia-north_147"
+        },
+        {
+          "file": "images/photos/albums/australia-north/australia-north_148.jpg",
+          "caption": "Australia — GBR & North — australia-north_148"
+        },
+        {
+          "file": "images/photos/albums/australia-north/australia-north_149.jpg",
+          "caption": "Australia — GBR & North — australia-north_149"
+        },
+        {
+          "file": "images/photos/albums/australia-north/australia-north_150.jpg",
+          "caption": "Australia — GBR & North — australia-north_150"
+        },
+        {
+          "file": "images/photos/albums/australia-north/australia-north_151.jpg",
+          "caption": "Australia — GBR & North — australia-north_151"
+        },
+        {
+          "file": "images/photos/albums/australia-north/australia-north_152.jpg",
+          "caption": "Australia — GBR & North — australia-north_152"
+        },
+        {
+          "file": "images/photos/albums/australia-north/australia-north_153.jpg",
+          "caption": "Australia — GBR & North — australia-north_153"
+        }
+      ]
+    },
+    "bali": {
+      "title": "Bali",
+      "amazon_album": null,
+      "photos": [
+        {
+          "file": "images/photos/albums/bali/bali_001.jpg",
+          "caption": "Bali — bali_001"
+        },
+        {
+          "file": "images/photos/albums/bali/bali_002.jpg",
+          "caption": "Bali — bali_002"
+        },
+        {
+          "file": "images/photos/albums/bali/bali_003.jpg",
+          "caption": "Bali — bali_003"
+        },
+        {
+          "file": "images/photos/albums/bali/bali_004.jpg",
+          "caption": "Bali — bali_004"
+        },
+        {
+          "file": "images/photos/albums/bali/bali_005.jpg",
+          "caption": "Bali — bali_005"
+        },
+        {
+          "file": "images/photos/albums/bali/bali_006.jpg",
+          "caption": "Bali — bali_006"
+        },
+        {
+          "file": "images/photos/albums/bali/bali_007.jpg",
+          "caption": "Bali — bali_007"
+        },
+        {
+          "file": "images/photos/albums/bali/bali_008.jpg",
+          "caption": "Bali — bali_008"
+        },
+        {
+          "file": "images/photos/albums/bali/bali_009.jpg",
+          "caption": "Bali — bali_009"
+        },
+        {
+          "file": "images/photos/albums/bali/bali_010.jpg",
+          "caption": "Bali — bali_010"
+        },
+        {
+          "file": "images/photos/albums/bali/bali_011.jpg",
+          "caption": "Bali — bali_011"
+        },
+        {
+          "file": "images/photos/albums/bali/bali_012.jpg",
+          "caption": "Bali — bali_012"
+        },
+        {
+          "file": "images/photos/albums/bali/bali_013.jpg",
+          "caption": "Bali — bali_013"
+        },
+        {
+          "file": "images/photos/albums/bali/bali_014.jpg",
+          "caption": "Bali — bali_014"
+        },
+        {
+          "file": "images/photos/albums/bali/bali_015.jpg",
+          "caption": "Bali — bali_015"
+        },
+        {
+          "file": "images/photos/albums/bali/bali_016.jpg",
+          "caption": "Bali — bali_016"
+        },
+        {
+          "file": "images/photos/albums/bali/bali_017.jpg",
+          "caption": "Bali — bali_017"
+        },
+        {
+          "file": "images/photos/albums/bali/bali_018.jpg",
+          "caption": "Bali — bali_018"
+        },
+        {
+          "file": "images/photos/albums/bali/bali_019.jpg",
+          "caption": "Bali — bali_019"
+        },
+        {
+          "file": "images/photos/albums/bali/bali_020.jpg",
+          "caption": "Bali — bali_020"
+        },
+        {
+          "file": "images/photos/albums/bali/bali_021.jpg",
+          "caption": "Bali — bali_021"
+        },
+        {
+          "file": "images/photos/albums/bali/bali_022.jpg",
+          "caption": "Bali — bali_022"
+        },
+        {
+          "file": "images/photos/albums/bali/bali_023.jpg",
+          "caption": "Bali — bali_023"
+        },
+        {
+          "file": "images/photos/albums/bali/bali_024.jpg",
+          "caption": "Bali — bali_024"
+        },
+        {
+          "file": "images/photos/albums/bali/bali_025.jpg",
+          "caption": "Bali — bali_025"
+        },
+        {
+          "file": "images/photos/albums/bali/bali_026.jpg",
+          "caption": "Bali — bali_026"
+        },
+        {
+          "file": "images/photos/albums/bali/bali_027.jpg",
+          "caption": "Bali — bali_027"
+        },
+        {
+          "file": "images/photos/albums/bali/bali_028.jpg",
+          "caption": "Bali — bali_028"
+        },
+        {
+          "file": "images/photos/albums/bali/bali_029.jpg",
+          "caption": "Bali — bali_029"
+        },
+        {
+          "file": "images/photos/albums/bali/bali_030.jpg",
+          "caption": "Bali — bali_030"
+        },
+        {
+          "file": "images/photos/albums/bali/bali_031.jpg",
+          "caption": "Bali — bali_031"
+        },
+        {
+          "file": "images/photos/albums/bali/bali_032.jpg",
+          "caption": "Bali — bali_032"
+        },
+        {
+          "file": "images/photos/albums/bali/bali_033.jpg",
+          "caption": "Bali — bali_033"
+        },
+        {
+          "file": "images/photos/albums/bali/bali_034.jpg",
+          "caption": "Bali — bali_034"
+        },
+        {
+          "file": "images/photos/albums/bali/bali_035.jpg",
+          "caption": "Bali — bali_035"
+        },
+        {
+          "file": "images/photos/albums/bali/bali_036.jpg",
+          "caption": "Bali — bali_036"
+        },
+        {
+          "file": "images/photos/albums/bali/bali_037.jpg",
+          "caption": "Bali — bali_037"
+        },
+        {
+          "file": "images/photos/albums/bali/bali_038.jpg",
+          "caption": "Bali — bali_038"
+        },
+        {
+          "file": "images/photos/albums/bali/bali_039.jpg",
+          "caption": "Bali — bali_039"
+        },
+        {
+          "file": "images/photos/albums/bali/bali_040.jpg",
+          "caption": "Bali — bali_040"
+        },
+        {
+          "file": "images/photos/albums/bali/bali_041.jpg",
+          "caption": "Bali — bali_041"
+        },
+        {
+          "file": "images/photos/albums/bali/bali_042.jpg",
+          "caption": "Bali — bali_042"
+        },
+        {
+          "file": "images/photos/albums/bali/bali_043.jpg",
+          "caption": "Bali — bali_043"
+        },
+        {
+          "file": "images/photos/albums/bali/bali_044.jpg",
+          "caption": "Bali — bali_044"
+        },
+        {
+          "file": "images/photos/albums/bali/bali_045.jpg",
+          "caption": "Bali — bali_045"
+        },
+        {
+          "file": "images/photos/albums/bali/bali_046.jpg",
+          "caption": "Bali — bali_046"
+        },
+        {
+          "file": "images/photos/albums/bali/bali_047.jpg",
+          "caption": "Bali — bali_047"
+        },
+        {
+          "file": "images/photos/albums/bali/bali_048.jpg",
+          "caption": "Bali — bali_048"
+        },
+        {
+          "file": "images/photos/albums/bali/bali_049.jpg",
+          "caption": "Bali — bali_049"
+        },
+        {
+          "file": "images/photos/albums/bali/bali_050.jpg",
+          "caption": "Bali — bali_050"
+        },
+        {
+          "file": "images/photos/albums/bali/bali_051.jpg",
+          "caption": "Bali — bali_051"
+        },
+        {
+          "file": "images/photos/albums/bali/bali_052.jpg",
+          "caption": "Bali — bali_052"
+        },
+        {
+          "file": "images/photos/albums/bali/bali_053.jpg",
+          "caption": "Bali — bali_053"
+        },
+        {
+          "file": "images/photos/albums/bali/bali_054.jpg",
+          "caption": "Bali — bali_054"
+        },
+        {
+          "file": "images/photos/albums/bali/bali_055.jpg",
+          "caption": "Bali — bali_055"
+        },
+        {
+          "file": "images/photos/albums/bali/bali_056.jpg",
+          "caption": "Bali — bali_056"
+        },
+        {
+          "file": "images/photos/albums/bali/bali_057.jpg",
+          "caption": "Bali — bali_057"
+        },
+        {
+          "file": "images/photos/albums/bali/bali_058.jpg",
+          "caption": "Bali — bali_058"
+        },
+        {
+          "file": "images/photos/albums/bali/bali_059.jpg",
+          "caption": "Bali — bali_059"
+        },
+        {
+          "file": "images/photos/albums/bali/bali_060.jpg",
+          "caption": "Bali — bali_060"
+        },
+        {
+          "file": "images/photos/albums/bali/bali_061.jpg",
+          "caption": "Bali — bali_061"
+        },
+        {
+          "file": "images/photos/albums/bali/bali_062.jpg",
+          "caption": "Bali — bali_062"
+        },
+        {
+          "file": "images/photos/albums/bali/bali_063.jpg",
+          "caption": "Bali — bali_063"
+        },
+        {
+          "file": "images/photos/albums/bali/bali_064.jpg",
+          "caption": "Bali — bali_064"
+        },
+        {
+          "file": "images/photos/albums/bali/bali_065.jpg",
+          "caption": "Bali — bali_065"
+        },
+        {
+          "file": "images/photos/albums/bali/bali_066.jpg",
+          "caption": "Bali — bali_066"
+        },
+        {
+          "file": "images/photos/albums/bali/bali_067.jpg",
+          "caption": "Bali — bali_067"
+        },
+        {
+          "file": "images/photos/albums/bali/bali_068.jpg",
+          "caption": "Bali — bali_068"
+        },
+        {
+          "file": "images/photos/albums/bali/bali_069.jpg",
+          "caption": "Bali — bali_069"
+        },
+        {
+          "file": "images/photos/albums/bali/bali_070.jpg",
+          "caption": "Bali — bali_070"
+        },
+        {
+          "file": "images/photos/albums/bali/bali_071.jpg",
+          "caption": "Bali — bali_071"
+        },
+        {
+          "file": "images/photos/albums/bali/bali_072.jpg",
+          "caption": "Bali — bali_072"
+        },
+        {
+          "file": "images/photos/albums/bali/bali_073.jpg",
+          "caption": "Bali — bali_073"
+        },
+        {
+          "file": "images/photos/albums/bali/bali_074.jpg",
+          "caption": "Bali — bali_074"
+        },
+        {
+          "file": "images/photos/albums/bali/bali_075.jpg",
+          "caption": "Bali — bali_075"
+        },
+        {
+          "file": "images/photos/albums/bali/bali_076.jpg",
+          "caption": "Bali — bali_076"
+        },
+        {
+          "file": "images/photos/albums/bali/bali_077.jpg",
+          "caption": "Bali — bali_077"
+        },
+        {
+          "file": "images/photos/albums/bali/bali_078.jpg",
+          "caption": "Bali — bali_078"
+        },
+        {
+          "file": "images/photos/albums/bali/bali_079.jpg",
+          "caption": "Bali — bali_079"
+        },
+        {
+          "file": "images/photos/albums/bali/bali_080.jpg",
+          "caption": "Bali — bali_080"
+        },
+        {
+          "file": "images/photos/albums/bali/bali_081.jpg",
+          "caption": "Bali — bali_081"
+        },
+        {
+          "file": "images/photos/albums/bali/bali_082.jpg",
+          "caption": "Bali — bali_082"
+        },
+        {
+          "file": "images/photos/albums/bali/bali_083.jpg",
+          "caption": "Bali — bali_083"
+        },
+        {
+          "file": "images/photos/albums/bali/bali_084.jpg",
+          "caption": "Bali — bali_084"
+        },
+        {
+          "file": "images/photos/albums/bali/bali_085.jpg",
+          "caption": "Bali — bali_085"
+        },
+        {
+          "file": "images/photos/albums/bali/bali_086.jpg",
+          "caption": "Bali — bali_086"
+        },
+        {
+          "file": "images/photos/albums/bali/bali_087.jpg",
+          "caption": "Bali — bali_087"
+        },
+        {
+          "file": "images/photos/albums/bali/bali_088.jpg",
+          "caption": "Bali — bali_088"
+        },
+        {
+          "file": "images/photos/albums/bali/bali_089.jpg",
+          "caption": "Bali — bali_089"
+        },
+        {
+          "file": "images/photos/albums/bali/bali_090.jpg",
+          "caption": "Bali — bali_090"
+        },
+        {
+          "file": "images/photos/albums/bali/bali_091.jpg",
+          "caption": "Bali — bali_091"
+        },
+        {
+          "file": "images/photos/albums/bali/bali_092.jpg",
+          "caption": "Bali — bali_092"
+        },
+        {
+          "file": "images/photos/albums/bali/bali_093.jpg",
+          "caption": "Bali — bali_093"
+        },
+        {
+          "file": "images/photos/albums/bali/bali_094.jpg",
+          "caption": "Bali — bali_094"
+        },
+        {
+          "file": "images/photos/albums/bali/bali_095.jpg",
+          "caption": "Bali — bali_095"
+        },
+        {
+          "file": "images/photos/albums/bali/bali_096.jpg",
+          "caption": "Bali — bali_096"
+        },
+        {
+          "file": "images/photos/albums/bali/bali_097.jpg",
+          "caption": "Bali — bali_097"
+        },
+        {
+          "file": "images/photos/albums/bali/bali_098.jpg",
+          "caption": "Bali — bali_098"
+        },
+        {
+          "file": "images/photos/albums/bali/bali_099.jpg",
+          "caption": "Bali — bali_099"
+        },
+        {
+          "file": "images/photos/albums/bali/bali_100.jpg",
+          "caption": "Bali — bali_100"
+        },
+        {
+          "file": "images/photos/albums/bali/bali_101.jpg",
+          "caption": "Bali — bali_101"
+        },
+        {
+          "file": "images/photos/albums/bali/bali_102.jpg",
+          "caption": "Bali — bali_102"
+        },
+        {
+          "file": "images/photos/albums/bali/bali_103.jpg",
+          "caption": "Bali — bali_103"
+        },
+        {
+          "file": "images/photos/albums/bali/bali_104.jpg",
+          "caption": "Bali — bali_104"
+        },
+        {
+          "file": "images/photos/albums/bali/bali_105.jpg",
+          "caption": "Bali — bali_105"
+        },
+        {
+          "file": "images/photos/albums/bali/bali_106.jpg",
+          "caption": "Bali — bali_106"
+        },
+        {
+          "file": "images/photos/albums/bali/bali_107.jpg",
+          "caption": "Bali — bali_107"
+        },
+        {
+          "file": "images/photos/albums/bali/bali_108.jpg",
+          "caption": "Bali — bali_108"
+        },
+        {
+          "file": "images/photos/albums/bali/bali_109.jpg",
+          "caption": "Bali — bali_109"
+        },
+        {
+          "file": "images/photos/albums/bali/bali_110.jpg",
+          "caption": "Bali — bali_110"
+        },
+        {
+          "file": "images/photos/albums/bali/bali_111.jpg",
+          "caption": "Bali — bali_111"
+        },
+        {
+          "file": "images/photos/albums/bali/bali_112.jpg",
+          "caption": "Bali — bali_112"
+        },
+        {
+          "file": "images/photos/albums/bali/bali_113.jpg",
+          "caption": "Bali — bali_113"
+        },
+        {
+          "file": "images/photos/albums/bali/bali_114.jpg",
+          "caption": "Bali — bali_114"
+        },
+        {
+          "file": "images/photos/albums/bali/bali_115.jpg",
+          "caption": "Bali — bali_115"
+        },
+        {
+          "file": "images/photos/albums/bali/bali_116.jpg",
+          "caption": "Bali — bali_116"
+        },
+        {
+          "file": "images/photos/albums/bali/bali_117.jpg",
+          "caption": "Bali — bali_117"
+        },
+        {
+          "file": "images/photos/albums/bali/bali_118.jpg",
+          "caption": "Bali — bali_118"
+        },
+        {
+          "file": "images/photos/albums/bali/bali_119.jpg",
+          "caption": "Bali — bali_119"
+        },
+        {
+          "file": "images/photos/albums/bali/bali_120.jpg",
+          "caption": "Bali — bali_120"
+        },
+        {
+          "file": "images/photos/albums/bali/bali_121.jpg",
+          "caption": "Bali — bali_121"
+        },
+        {
+          "file": "images/photos/albums/bali/bali_122.jpg",
+          "caption": "Bali — bali_122"
+        },
+        {
+          "file": "images/photos/albums/bali/bali_123.jpg",
+          "caption": "Bali — bali_123"
+        },
+        {
+          "file": "images/photos/albums/bali/bali_124.jpg",
+          "caption": "Bali — bali_124"
+        },
+        {
+          "file": "images/photos/albums/bali/bali_125.jpg",
+          "caption": "Bali — bali_125"
+        },
+        {
+          "file": "images/photos/albums/bali/bali_126.jpg",
+          "caption": "Bali — bali_126"
+        },
+        {
+          "file": "images/photos/albums/bali/bali_127.jpg",
+          "caption": "Bali — bali_127"
+        },
+        {
+          "file": "images/photos/albums/bali/bali_128.jpg",
+          "caption": "Bali — bali_128"
+        },
+        {
+          "file": "images/photos/albums/bali/bali_129.jpg",
+          "caption": "Bali — bali_129"
+        },
+        {
+          "file": "images/photos/albums/bali/bali_130.jpg",
+          "caption": "Bali — bali_130"
+        },
+        {
+          "file": "images/photos/albums/bali/bali_131.jpg",
+          "caption": "Bali — bali_131"
+        },
+        {
+          "file": "images/photos/albums/bali/bali_132.jpg",
+          "caption": "Bali — bali_132"
+        },
+        {
+          "file": "images/photos/albums/bali/bali_133.jpg",
+          "caption": "Bali — bali_133"
+        },
+        {
+          "file": "images/photos/albums/bali/bali_134.jpg",
+          "caption": "Bali — bali_134"
+        },
+        {
+          "file": "images/photos/albums/bali/bali_135.jpg",
+          "caption": "Bali — bali_135"
+        },
+        {
+          "file": "images/photos/albums/bali/bali_136.jpg",
+          "caption": "Bali — bali_136"
+        },
+        {
+          "file": "images/photos/albums/bali/bali_137.jpg",
+          "caption": "Bali — bali_137"
+        },
+        {
+          "file": "images/photos/albums/bali/bali_138.jpg",
+          "caption": "Bali — bali_138"
+        }
+      ]
+    },
+    "cocos-keeling": {
+      "title": "Cocos (Keeling) Islands",
+      "amazon_album": null,
+      "photos": [
+        {
+          "file": "images/photos/albums/cocos-keeling/cocos-keeling_001.jpg",
+          "caption": "Cocos (Keeling) Islands — cocos-keeling_001"
+        },
+        {
+          "file": "images/photos/albums/cocos-keeling/cocos-keeling_002.jpg",
+          "caption": "Cocos (Keeling) Islands — cocos-keeling_002"
+        },
+        {
+          "file": "images/photos/albums/cocos-keeling/cocos-keeling_003.jpg",
+          "caption": "Cocos (Keeling) Islands — cocos-keeling_003"
+        },
+        {
+          "file": "images/photos/albums/cocos-keeling/cocos-keeling_004.jpg",
+          "caption": "Cocos (Keeling) Islands — cocos-keeling_004"
+        },
+        {
+          "file": "images/photos/albums/cocos-keeling/cocos-keeling_005.jpg",
+          "caption": "Cocos (Keeling) Islands — cocos-keeling_005"
+        },
+        {
+          "file": "images/photos/albums/cocos-keeling/cocos-keeling_006.jpg",
+          "caption": "Cocos (Keeling) Islands — cocos-keeling_006"
+        },
+        {
+          "file": "images/photos/albums/cocos-keeling/cocos-keeling_007.jpg",
+          "caption": "Cocos (Keeling) Islands — cocos-keeling_007"
+        },
+        {
+          "file": "images/photos/albums/cocos-keeling/cocos-keeling_008.jpg",
+          "caption": "Cocos (Keeling) Islands — cocos-keeling_008"
+        },
+        {
+          "file": "images/photos/albums/cocos-keeling/cocos-keeling_009.jpg",
+          "caption": "Cocos (Keeling) Islands — cocos-keeling_009"
+        },
+        {
+          "file": "images/photos/albums/cocos-keeling/cocos-keeling_010.jpg",
+          "caption": "Cocos (Keeling) Islands — cocos-keeling_010"
+        },
+        {
+          "file": "images/photos/albums/cocos-keeling/cocos-keeling_011.jpg",
+          "caption": "Cocos (Keeling) Islands — cocos-keeling_011"
+        },
+        {
+          "file": "images/photos/albums/cocos-keeling/cocos-keeling_012.jpg",
+          "caption": "Cocos (Keeling) Islands — cocos-keeling_012"
+        },
+        {
+          "file": "images/photos/albums/cocos-keeling/cocos-keeling_013.jpg",
+          "caption": "Cocos (Keeling) Islands — cocos-keeling_013"
+        },
+        {
+          "file": "images/photos/albums/cocos-keeling/cocos-keeling_014.jpg",
+          "caption": "Cocos (Keeling) Islands — cocos-keeling_014"
+        },
+        {
+          "file": "images/photos/albums/cocos-keeling/cocos-keeling_015.jpg",
+          "caption": "Cocos (Keeling) Islands — cocos-keeling_015"
+        },
+        {
+          "file": "images/photos/albums/cocos-keeling/cocos-keeling_016.jpg",
+          "caption": "Cocos (Keeling) Islands — cocos-keeling_016"
+        },
+        {
+          "file": "images/photos/albums/cocos-keeling/cocos-keeling_017.jpg",
+          "caption": "Cocos (Keeling) Islands — cocos-keeling_017"
+        },
+        {
+          "file": "images/photos/albums/cocos-keeling/cocos-keeling_018.jpg",
+          "caption": "Cocos (Keeling) Islands — cocos-keeling_018"
+        },
+        {
+          "file": "images/photos/albums/cocos-keeling/cocos-keeling_019.jpg",
+          "caption": "Cocos (Keeling) Islands — cocos-keeling_019"
+        },
+        {
+          "file": "images/photos/albums/cocos-keeling/cocos-keeling_020.jpg",
+          "caption": "Cocos (Keeling) Islands — cocos-keeling_020"
+        },
+        {
+          "file": "images/photos/albums/cocos-keeling/cocos-keeling_021.jpg",
+          "caption": "Cocos (Keeling) Islands — cocos-keeling_021"
+        },
+        {
+          "file": "images/photos/albums/cocos-keeling/cocos-keeling_022.jpg",
+          "caption": "Cocos (Keeling) Islands — cocos-keeling_022"
+        },
+        {
+          "file": "images/photos/albums/cocos-keeling/cocos-keeling_023.jpg",
+          "caption": "Cocos (Keeling) Islands — cocos-keeling_023"
+        },
+        {
+          "file": "images/photos/albums/cocos-keeling/cocos-keeling_024.jpg",
+          "caption": "Cocos (Keeling) Islands — cocos-keeling_024"
+        },
+        {
+          "file": "images/photos/albums/cocos-keeling/cocos-keeling_025.jpg",
+          "caption": "Cocos (Keeling) Islands — cocos-keeling_025"
+        },
+        {
+          "file": "images/photos/albums/cocos-keeling/cocos-keeling_026.jpg",
+          "caption": "Cocos (Keeling) Islands — cocos-keeling_026"
+        },
+        {
+          "file": "images/photos/albums/cocos-keeling/cocos-keeling_027.jpg",
+          "caption": "Cocos (Keeling) Islands — cocos-keeling_027"
+        },
+        {
+          "file": "images/photos/albums/cocos-keeling/cocos-keeling_028.jpg",
+          "caption": "Cocos (Keeling) Islands — cocos-keeling_028"
+        },
+        {
+          "file": "images/photos/albums/cocos-keeling/cocos-keeling_029.jpg",
+          "caption": "Cocos (Keeling) Islands — cocos-keeling_029"
+        },
+        {
+          "file": "images/photos/albums/cocos-keeling/cocos-keeling_030.jpg",
+          "caption": "Cocos (Keeling) Islands — cocos-keeling_030"
+        },
+        {
+          "file": "images/photos/albums/cocos-keeling/cocos-keeling_031.jpg",
+          "caption": "Cocos (Keeling) Islands — cocos-keeling_031"
+        },
+        {
+          "file": "images/photos/albums/cocos-keeling/cocos-keeling_032.jpg",
+          "caption": "Cocos (Keeling) Islands — cocos-keeling_032"
+        },
+        {
+          "file": "images/photos/albums/cocos-keeling/cocos-keeling_033.jpg",
+          "caption": "Cocos (Keeling) Islands — cocos-keeling_033"
+        },
+        {
+          "file": "images/photos/albums/cocos-keeling/cocos-keeling_034.jpg",
+          "caption": "Cocos (Keeling) Islands — cocos-keeling_034"
+        },
+        {
+          "file": "images/photos/albums/cocos-keeling/cocos-keeling_035.jpg",
+          "caption": "Cocos (Keeling) Islands — cocos-keeling_035"
+        },
+        {
+          "file": "images/photos/albums/cocos-keeling/cocos-keeling_036.jpg",
+          "caption": "Cocos (Keeling) Islands — cocos-keeling_036"
+        },
+        {
+          "file": "images/photos/albums/cocos-keeling/cocos-keeling_037.jpg",
+          "caption": "Cocos (Keeling) Islands — cocos-keeling_037"
+        },
+        {
+          "file": "images/photos/albums/cocos-keeling/cocos-keeling_038.jpg",
+          "caption": "Cocos (Keeling) Islands — cocos-keeling_038"
+        },
+        {
+          "file": "images/photos/albums/cocos-keeling/cocos-keeling_039.jpg",
+          "caption": "Cocos (Keeling) Islands — cocos-keeling_039"
+        },
+        {
+          "file": "images/photos/albums/cocos-keeling/cocos-keeling_040.jpg",
+          "caption": "Cocos (Keeling) Islands — cocos-keeling_040"
+        },
+        {
+          "file": "images/photos/albums/cocos-keeling/cocos-keeling_041.jpg",
+          "caption": "Cocos (Keeling) Islands — cocos-keeling_041"
+        },
+        {
+          "file": "images/photos/albums/cocos-keeling/cocos-keeling_042.jpg",
+          "caption": "Cocos (Keeling) Islands — cocos-keeling_042"
+        },
+        {
+          "file": "images/photos/albums/cocos-keeling/cocos-keeling_043.jpg",
+          "caption": "Cocos (Keeling) Islands — cocos-keeling_043"
+        },
+        {
+          "file": "images/photos/albums/cocos-keeling/cocos-keeling_044.jpg",
+          "caption": "Cocos (Keeling) Islands — cocos-keeling_044"
+        },
+        {
+          "file": "images/photos/albums/cocos-keeling/cocos-keeling_045.jpg",
+          "caption": "Cocos (Keeling) Islands — cocos-keeling_045"
+        },
+        {
+          "file": "images/photos/albums/cocos-keeling/cocos-keeling_046.jpg",
+          "caption": "Cocos (Keeling) Islands — cocos-keeling_046"
+        },
+        {
+          "file": "images/photos/albums/cocos-keeling/cocos-keeling_047.jpg",
+          "caption": "Cocos (Keeling) Islands — cocos-keeling_047"
+        },
+        {
+          "file": "images/photos/albums/cocos-keeling/cocos-keeling_048.jpg",
+          "caption": "Cocos (Keeling) Islands — cocos-keeling_048"
+        },
+        {
+          "file": "images/photos/albums/cocos-keeling/cocos-keeling_049.jpg",
+          "caption": "Cocos (Keeling) Islands — cocos-keeling_049"
+        },
+        {
+          "file": "images/photos/albums/cocos-keeling/cocos-keeling_050.jpg",
+          "caption": "Cocos (Keeling) Islands — cocos-keeling_050"
+        },
+        {
+          "file": "images/photos/albums/cocos-keeling/cocos-keeling_051.jpg",
+          "caption": "Cocos (Keeling) Islands — cocos-keeling_051"
+        },
+        {
+          "file": "images/photos/albums/cocos-keeling/cocos-keeling_052.jpg",
+          "caption": "Cocos (Keeling) Islands — cocos-keeling_052"
+        },
+        {
+          "file": "images/photos/albums/cocos-keeling/cocos-keeling_053.jpg",
+          "caption": "Cocos (Keeling) Islands — cocos-keeling_053"
+        },
+        {
+          "file": "images/photos/albums/cocos-keeling/cocos-keeling_054.jpg",
+          "caption": "Cocos (Keeling) Islands — cocos-keeling_054"
+        },
+        {
+          "file": "images/photos/albums/cocos-keeling/cocos-keeling_055.jpg",
+          "caption": "Cocos (Keeling) Islands — cocos-keeling_055"
+        },
+        {
+          "file": "images/photos/albums/cocos-keeling/cocos-keeling_056.jpg",
+          "caption": "Cocos (Keeling) Islands — cocos-keeling_056"
+        },
+        {
+          "file": "images/photos/albums/cocos-keeling/cocos-keeling_057.jpg",
+          "caption": "Cocos (Keeling) Islands — cocos-keeling_057"
+        }
+      ]
+    },
+    "rodrigues": {
+      "title": "Rodrigues",
+      "amazon_album": null,
+      "photos": [
+        {
+          "file": "images/photos/albums/rodrigues/rodrigues_001.jpg",
+          "caption": "Rodrigues — rodrigues_001"
+        },
+        {
+          "file": "images/photos/albums/rodrigues/rodrigues_002.jpg",
+          "caption": "Rodrigues — rodrigues_002"
+        },
+        {
+          "file": "images/photos/albums/rodrigues/rodrigues_003.jpg",
+          "caption": "Rodrigues — rodrigues_003"
+        },
+        {
+          "file": "images/photos/albums/rodrigues/rodrigues_004.jpg",
+          "caption": "Rodrigues — rodrigues_004"
+        },
+        {
+          "file": "images/photos/albums/rodrigues/rodrigues_005.jpg",
+          "caption": "Rodrigues — rodrigues_005"
+        },
+        {
+          "file": "images/photos/albums/rodrigues/rodrigues_006.jpg",
+          "caption": "Rodrigues — rodrigues_006"
+        },
+        {
+          "file": "images/photos/albums/rodrigues/rodrigues_007.jpg",
+          "caption": "Rodrigues — rodrigues_007"
+        },
+        {
+          "file": "images/photos/albums/rodrigues/rodrigues_008.jpg",
+          "caption": "Rodrigues — rodrigues_008"
+        },
+        {
+          "file": "images/photos/albums/rodrigues/rodrigues_009.jpg",
+          "caption": "Rodrigues — rodrigues_009"
+        },
+        {
+          "file": "images/photos/albums/rodrigues/rodrigues_010.jpg",
+          "caption": "Rodrigues — rodrigues_010"
+        },
+        {
+          "file": "images/photos/albums/rodrigues/rodrigues_011.jpg",
+          "caption": "Rodrigues — rodrigues_011"
+        },
+        {
+          "file": "images/photos/albums/rodrigues/rodrigues_012.jpg",
+          "caption": "Rodrigues — rodrigues_012"
+        },
+        {
+          "file": "images/photos/albums/rodrigues/rodrigues_013.jpg",
+          "caption": "Rodrigues — rodrigues_013"
+        },
+        {
+          "file": "images/photos/albums/rodrigues/rodrigues_014.jpg",
+          "caption": "Rodrigues — rodrigues_014"
+        },
+        {
+          "file": "images/photos/albums/rodrigues/rodrigues_015.jpg",
+          "caption": "Rodrigues — rodrigues_015"
+        },
+        {
+          "file": "images/photos/albums/rodrigues/rodrigues_016.jpg",
+          "caption": "Rodrigues — rodrigues_016"
+        },
+        {
+          "file": "images/photos/albums/rodrigues/rodrigues_017.jpg",
+          "caption": "Rodrigues — rodrigues_017"
+        },
+        {
+          "file": "images/photos/albums/rodrigues/rodrigues_018.jpg",
+          "caption": "Rodrigues — rodrigues_018"
+        }
+      ]
+    },
+    "mauritius": {
+      "title": "Mauritius",
+      "amazon_album": null,
+      "photos": [
+        {
+          "file": "images/photos/albums/mauritius/mauritius_001.jpg",
+          "caption": "Mauritius — mauritius_001"
+        },
+        {
+          "file": "images/photos/albums/mauritius/mauritius_002.jpg",
+          "caption": "Mauritius — mauritius_002"
+        },
+        {
+          "file": "images/photos/albums/mauritius/mauritius_003.jpg",
+          "caption": "Mauritius — mauritius_003"
+        },
+        {
+          "file": "images/photos/albums/mauritius/mauritius_004.jpg",
+          "caption": "Mauritius — mauritius_004"
+        },
+        {
+          "file": "images/photos/albums/mauritius/mauritius_005.jpg",
+          "caption": "Mauritius — mauritius_005"
+        },
+        {
+          "file": "images/photos/albums/mauritius/mauritius_006.jpg",
+          "caption": "Mauritius — mauritius_006"
+        },
+        {
+          "file": "images/photos/albums/mauritius/mauritius_007.jpg",
+          "caption": "Mauritius — mauritius_007"
+        },
+        {
+          "file": "images/photos/albums/mauritius/mauritius_008.jpg",
+          "caption": "Mauritius — mauritius_008"
+        },
+        {
+          "file": "images/photos/albums/mauritius/mauritius_009.jpg",
+          "caption": "Mauritius — mauritius_009"
+        },
+        {
+          "file": "images/photos/albums/mauritius/mauritius_010.jpg",
+          "caption": "Mauritius — mauritius_010"
+        },
+        {
+          "file": "images/photos/albums/mauritius/mauritius_011.jpg",
+          "caption": "Mauritius — mauritius_011"
+        },
+        {
+          "file": "images/photos/albums/mauritius/mauritius_012.jpg",
+          "caption": "Mauritius — mauritius_012"
+        },
+        {
+          "file": "images/photos/albums/mauritius/mauritius_013.jpg",
+          "caption": "Mauritius — mauritius_013"
+        },
+        {
+          "file": "images/photos/albums/mauritius/mauritius_014.jpg",
+          "caption": "Mauritius — mauritius_014"
+        },
+        {
+          "file": "images/photos/albums/mauritius/mauritius_015.jpg",
+          "caption": "Mauritius — mauritius_015"
+        },
+        {
+          "file": "images/photos/albums/mauritius/mauritius_016.jpg",
+          "caption": "Mauritius — mauritius_016"
+        },
+        {
+          "file": "images/photos/albums/mauritius/mauritius_017.jpg",
+          "caption": "Mauritius — mauritius_017"
+        },
+        {
+          "file": "images/photos/albums/mauritius/mauritius_018.jpg",
+          "caption": "Mauritius — mauritius_018"
+        },
+        {
+          "file": "images/photos/albums/mauritius/mauritius_019.jpg",
+          "caption": "Mauritius — mauritius_019"
+        },
+        {
+          "file": "images/photos/albums/mauritius/mauritius_020.jpg",
+          "caption": "Mauritius — mauritius_020"
+        },
+        {
+          "file": "images/photos/albums/mauritius/mauritius_021.jpg",
+          "caption": "Mauritius — mauritius_021"
+        },
+        {
+          "file": "images/photos/albums/mauritius/mauritius_022.jpg",
+          "caption": "Mauritius — mauritius_022"
+        },
+        {
+          "file": "images/photos/albums/mauritius/mauritius_023.jpg",
+          "caption": "Mauritius — mauritius_023"
+        },
+        {
+          "file": "images/photos/albums/mauritius/mauritius_024.jpg",
+          "caption": "Mauritius — mauritius_024"
+        }
+      ]
+    },
+    "reunion": {
+      "title": "Réunion",
+      "amazon_album": null,
+      "photos": [
+        {
+          "file": "images/photos/albums/reunion/reunion_001.jpg",
+          "caption": "Réunion — reunion_001"
+        },
+        {
+          "file": "images/photos/albums/reunion/reunion_002.jpg",
+          "caption": "Réunion — reunion_002"
+        },
+        {
+          "file": "images/photos/albums/reunion/reunion_003.jpg",
+          "caption": "Réunion — reunion_003"
+        },
+        {
+          "file": "images/photos/albums/reunion/reunion_004.jpg",
+          "caption": "Réunion — reunion_004"
+        },
+        {
+          "file": "images/photos/albums/reunion/reunion_005.jpg",
+          "caption": "Réunion — reunion_005"
+        },
+        {
+          "file": "images/photos/albums/reunion/reunion_006.jpg",
+          "caption": "Réunion — reunion_006"
+        },
+        {
+          "file": "images/photos/albums/reunion/reunion_007.jpg",
+          "caption": "Réunion — reunion_007"
+        },
+        {
+          "file": "images/photos/albums/reunion/reunion_008.jpg",
+          "caption": "Réunion — reunion_008"
+        },
+        {
+          "file": "images/photos/albums/reunion/reunion_009.jpg",
+          "caption": "Réunion — reunion_009"
+        },
+        {
+          "file": "images/photos/albums/reunion/reunion_010.jpg",
+          "caption": "Réunion — reunion_010"
+        },
+        {
+          "file": "images/photos/albums/reunion/reunion_011.jpg",
+          "caption": "Réunion — reunion_011"
+        },
+        {
+          "file": "images/photos/albums/reunion/reunion_012.jpg",
+          "caption": "Réunion — reunion_012"
+        },
+        {
+          "file": "images/photos/albums/reunion/reunion_013.jpg",
+          "caption": "Réunion — reunion_013"
+        },
+        {
+          "file": "images/photos/albums/reunion/reunion_014.jpg",
+          "caption": "Réunion — reunion_014"
+        },
+        {
+          "file": "images/photos/albums/reunion/reunion_015.jpg",
+          "caption": "Réunion — reunion_015"
+        },
+        {
+          "file": "images/photos/albums/reunion/reunion_016.jpg",
+          "caption": "Réunion — reunion_016"
+        },
+        {
+          "file": "images/photos/albums/reunion/reunion_017.jpg",
+          "caption": "Réunion — reunion_017"
+        },
+        {
+          "file": "images/photos/albums/reunion/reunion_018.jpg",
+          "caption": "Réunion — reunion_018"
+        },
+        {
+          "file": "images/photos/albums/reunion/reunion_019.jpg",
+          "caption": "Réunion — reunion_019"
+        },
+        {
+          "file": "images/photos/albums/reunion/reunion_020.jpg",
+          "caption": "Réunion — reunion_020"
+        },
+        {
+          "file": "images/photos/albums/reunion/reunion_021.jpg",
+          "caption": "Réunion — reunion_021"
+        },
+        {
+          "file": "images/photos/albums/reunion/reunion_022.jpg",
+          "caption": "Réunion — reunion_022"
+        },
+        {
+          "file": "images/photos/albums/reunion/reunion_023.jpg",
+          "caption": "Réunion — reunion_023"
+        },
+        {
+          "file": "images/photos/albums/reunion/reunion_024.jpg",
+          "caption": "Réunion — reunion_024"
+        },
+        {
+          "file": "images/photos/albums/reunion/reunion_025.jpg",
+          "caption": "Réunion — reunion_025"
+        },
+        {
+          "file": "images/photos/albums/reunion/reunion_026.jpg",
+          "caption": "Réunion — reunion_026"
+        },
+        {
+          "file": "images/photos/albums/reunion/reunion_027.jpg",
+          "caption": "Réunion — reunion_027"
+        },
+        {
+          "file": "images/photos/albums/reunion/reunion_028.jpg",
+          "caption": "Réunion — reunion_028"
+        },
+        {
+          "file": "images/photos/albums/reunion/reunion_029.jpg",
+          "caption": "Réunion — reunion_029"
+        },
+        {
+          "file": "images/photos/albums/reunion/reunion_030.jpg",
+          "caption": "Réunion — reunion_030"
+        },
+        {
+          "file": "images/photos/albums/reunion/reunion_031.jpg",
+          "caption": "Réunion — reunion_031"
+        },
+        {
+          "file": "images/photos/albums/reunion/reunion_032.jpg",
+          "caption": "Réunion — reunion_032"
+        },
+        {
+          "file": "images/photos/albums/reunion/reunion_033.jpg",
+          "caption": "Réunion — reunion_033"
+        },
+        {
+          "file": "images/photos/albums/reunion/reunion_034.jpg",
+          "caption": "Réunion — reunion_034"
+        },
+        {
+          "file": "images/photos/albums/reunion/reunion_035.jpg",
+          "caption": "Réunion — reunion_035"
+        },
+        {
+          "file": "images/photos/albums/reunion/reunion_036.jpg",
+          "caption": "Réunion — reunion_036"
+        },
+        {
+          "file": "images/photos/albums/reunion/reunion_037.jpg",
+          "caption": "Réunion — reunion_037"
+        },
+        {
+          "file": "images/photos/albums/reunion/reunion_038.jpg",
+          "caption": "Réunion — reunion_038"
+        },
+        {
+          "file": "images/photos/albums/reunion/reunion_039.jpg",
+          "caption": "Réunion — reunion_039"
+        },
+        {
+          "file": "images/photos/albums/reunion/reunion_040.jpg",
+          "caption": "Réunion — reunion_040"
+        },
+        {
+          "file": "images/photos/albums/reunion/reunion_041.jpg",
+          "caption": "Réunion — reunion_041"
+        },
+        {
+          "file": "images/photos/albums/reunion/reunion_042.jpg",
+          "caption": "Réunion — reunion_042"
+        },
+        {
+          "file": "images/photos/albums/reunion/reunion_043.jpg",
+          "caption": "Réunion — reunion_043"
+        },
+        {
+          "file": "images/photos/albums/reunion/reunion_044.jpg",
+          "caption": "Réunion — reunion_044"
+        },
+        {
+          "file": "images/photos/albums/reunion/reunion_045.jpg",
+          "caption": "Réunion — reunion_045"
+        },
+        {
+          "file": "images/photos/albums/reunion/reunion_046.jpg",
+          "caption": "Réunion — reunion_046"
+        },
+        {
+          "file": "images/photos/albums/reunion/reunion_047.jpg",
+          "caption": "Réunion — reunion_047"
+        },
+        {
+          "file": "images/photos/albums/reunion/reunion_048.jpg",
+          "caption": "Réunion — reunion_048"
+        },
+        {
+          "file": "images/photos/albums/reunion/reunion_049.jpg",
+          "caption": "Réunion — reunion_049"
+        }
+      ]
+    },
+    "south-africa": {
+      "title": "South Africa (Cape & Mossel Bay)",
+      "amazon_album": null,
+      "photos": [
+        {
+          "file": "images/photos/albums/south-africa/south-africa_001.jpg",
+          "caption": "South Africa (Cape & Mossel Bay) — south-africa_001"
+        },
+        {
+          "file": "images/photos/albums/south-africa/south-africa_002.jpg",
+          "caption": "South Africa (Cape & Mossel Bay) — south-africa_002"
+        },
+        {
+          "file": "images/photos/albums/south-africa/south-africa_003.jpg",
+          "caption": "South Africa (Cape & Mossel Bay) — south-africa_003"
+        },
+        {
+          "file": "images/photos/albums/south-africa/south-africa_004.jpg",
+          "caption": "South Africa (Cape & Mossel Bay) — south-africa_004"
+        },
+        {
+          "file": "images/photos/albums/south-africa/south-africa_005.jpg",
+          "caption": "South Africa (Cape & Mossel Bay) — south-africa_005"
+        },
+        {
+          "file": "images/photos/albums/south-africa/south-africa_006.jpg",
+          "caption": "South Africa (Cape & Mossel Bay) — south-africa_006"
+        },
+        {
+          "file": "images/photos/albums/south-africa/south-africa_007.jpg",
+          "caption": "South Africa (Cape & Mossel Bay) — south-africa_007"
+        },
+        {
+          "file": "images/photos/albums/south-africa/south-africa_008.jpg",
+          "caption": "South Africa (Cape & Mossel Bay) — south-africa_008"
+        },
+        {
+          "file": "images/photos/albums/south-africa/south-africa_009.jpg",
+          "caption": "South Africa (Cape & Mossel Bay) — south-africa_009"
+        },
+        {
+          "file": "images/photos/albums/south-africa/south-africa_010.jpg",
+          "caption": "South Africa (Cape & Mossel Bay) — south-africa_010"
+        },
+        {
+          "file": "images/photos/albums/south-africa/south-africa_011.jpg",
+          "caption": "South Africa (Cape & Mossel Bay) — south-africa_011"
+        },
+        {
+          "file": "images/photos/albums/south-africa/south-africa_012.jpg",
+          "caption": "South Africa (Cape & Mossel Bay) — south-africa_012"
+        },
+        {
+          "file": "images/photos/albums/south-africa/south-africa_013.jpg",
+          "caption": "South Africa (Cape & Mossel Bay) — south-africa_013"
+        },
+        {
+          "file": "images/photos/albums/south-africa/south-africa_014.jpg",
+          "caption": "South Africa (Cape & Mossel Bay) — south-africa_014"
+        },
+        {
+          "file": "images/photos/albums/south-africa/south-africa_015.jpg",
+          "caption": "South Africa (Cape & Mossel Bay) — south-africa_015"
+        },
+        {
+          "file": "images/photos/albums/south-africa/south-africa_016.jpg",
+          "caption": "South Africa (Cape & Mossel Bay) — south-africa_016"
+        },
+        {
+          "file": "images/photos/albums/south-africa/south-africa_017.jpg",
+          "caption": "South Africa (Cape & Mossel Bay) — south-africa_017"
+        },
+        {
+          "file": "images/photos/albums/south-africa/south-africa_018.jpg",
+          "caption": "South Africa (Cape & Mossel Bay) — south-africa_018"
+        },
+        {
+          "file": "images/photos/albums/south-africa/south-africa_019.jpg",
+          "caption": "South Africa (Cape & Mossel Bay) — south-africa_019"
+        },
+        {
+          "file": "images/photos/albums/south-africa/south-africa_020.jpg",
+          "caption": "South Africa (Cape & Mossel Bay) — south-africa_020"
+        },
+        {
+          "file": "images/photos/albums/south-africa/south-africa_021.jpg",
+          "caption": "South Africa (Cape & Mossel Bay) — south-africa_021"
+        },
+        {
+          "file": "images/photos/albums/south-africa/south-africa_022.jpg",
+          "caption": "South Africa (Cape & Mossel Bay) — south-africa_022"
+        },
+        {
+          "file": "images/photos/albums/south-africa/south-africa_023.jpg",
+          "caption": "South Africa (Cape & Mossel Bay) — south-africa_023"
+        },
+        {
+          "file": "images/photos/albums/south-africa/south-africa_024.jpg",
+          "caption": "South Africa (Cape & Mossel Bay) — south-africa_024"
+        },
+        {
+          "file": "images/photos/albums/south-africa/south-africa_025.jpg",
+          "caption": "South Africa (Cape & Mossel Bay) — south-africa_025"
+        },
+        {
+          "file": "images/photos/albums/south-africa/south-africa_026.jpg",
+          "caption": "South Africa (Cape & Mossel Bay) — south-africa_026"
+        },
+        {
+          "file": "images/photos/albums/south-africa/south-africa_027.jpg",
+          "caption": "South Africa (Cape & Mossel Bay) — south-africa_027"
+        },
+        {
+          "file": "images/photos/albums/south-africa/south-africa_028.jpg",
+          "caption": "South Africa (Cape & Mossel Bay) — south-africa_028"
+        },
+        {
+          "file": "images/photos/albums/south-africa/south-africa_029.jpg",
+          "caption": "South Africa (Cape & Mossel Bay) — south-africa_029"
+        },
+        {
+          "file": "images/photos/albums/south-africa/south-africa_030.jpg",
+          "caption": "South Africa (Cape & Mossel Bay) — south-africa_030"
+        },
+        {
+          "file": "images/photos/albums/south-africa/south-africa_031.jpg",
+          "caption": "South Africa (Cape & Mossel Bay) — south-africa_031"
+        },
+        {
+          "file": "images/photos/albums/south-africa/south-africa_032.jpg",
+          "caption": "South Africa (Cape & Mossel Bay) — south-africa_032"
+        },
+        {
+          "file": "images/photos/albums/south-africa/south-africa_033.jpg",
+          "caption": "South Africa (Cape & Mossel Bay) — south-africa_033"
+        },
+        {
+          "file": "images/photos/albums/south-africa/south-africa_034.jpg",
+          "caption": "South Africa (Cape & Mossel Bay) — south-africa_034"
+        },
+        {
+          "file": "images/photos/albums/south-africa/south-africa_035.jpg",
+          "caption": "South Africa (Cape & Mossel Bay) — south-africa_035"
+        },
+        {
+          "file": "images/photos/albums/south-africa/south-africa_036.jpg",
+          "caption": "South Africa (Cape & Mossel Bay) — south-africa_036"
+        },
+        {
+          "file": "images/photos/albums/south-africa/south-africa_037.jpg",
+          "caption": "South Africa (Cape & Mossel Bay) — south-africa_037"
+        },
+        {
+          "file": "images/photos/albums/south-africa/south-africa_038.jpg",
+          "caption": "South Africa (Cape & Mossel Bay) — south-africa_038"
+        },
+        {
+          "file": "images/photos/albums/south-africa/south-africa_039.jpg",
+          "caption": "South Africa (Cape & Mossel Bay) — south-africa_039"
+        },
+        {
+          "file": "images/photos/albums/south-africa/south-africa_040.jpg",
+          "caption": "South Africa (Cape & Mossel Bay) — south-africa_040"
+        },
+        {
+          "file": "images/photos/albums/south-africa/south-africa_041.jpg",
+          "caption": "South Africa (Cape & Mossel Bay) — south-africa_041"
+        },
+        {
+          "file": "images/photos/albums/south-africa/south-africa_042.jpg",
+          "caption": "South Africa (Cape & Mossel Bay) — south-africa_042"
+        },
+        {
+          "file": "images/photos/albums/south-africa/south-africa_043.jpg",
+          "caption": "South Africa (Cape & Mossel Bay) — south-africa_043"
+        },
+        {
+          "file": "images/photos/albums/south-africa/south-africa_044.jpg",
+          "caption": "South Africa (Cape & Mossel Bay) — south-africa_044"
+        },
+        {
+          "file": "images/photos/albums/south-africa/south-africa_045.jpg",
+          "caption": "South Africa (Cape & Mossel Bay) — south-africa_045"
+        },
+        {
+          "file": "images/photos/albums/south-africa/south-africa_046.jpg",
+          "caption": "South Africa (Cape & Mossel Bay) — south-africa_046"
+        },
+        {
+          "file": "images/photos/albums/south-africa/south-africa_047.jpg",
+          "caption": "South Africa (Cape & Mossel Bay) — south-africa_047"
+        },
+        {
+          "file": "images/photos/albums/south-africa/south-africa_048.jpg",
+          "caption": "South Africa (Cape & Mossel Bay) — south-africa_048"
+        },
+        {
+          "file": "images/photos/albums/south-africa/south-africa_049.jpg",
+          "caption": "South Africa (Cape & Mossel Bay) — south-africa_049"
+        },
+        {
+          "file": "images/photos/albums/south-africa/south-africa_050.jpg",
+          "caption": "South Africa (Cape & Mossel Bay) — south-africa_050"
+        },
+        {
+          "file": "images/photos/albums/south-africa/south-africa_051.jpg",
+          "caption": "South Africa (Cape & Mossel Bay) — south-africa_051"
+        },
+        {
+          "file": "images/photos/albums/south-africa/south-africa_052.jpg",
+          "caption": "South Africa (Cape & Mossel Bay) — south-africa_052"
+        },
+        {
+          "file": "images/photos/albums/south-africa/south-africa_053.jpg",
+          "caption": "South Africa (Cape & Mossel Bay) — south-africa_053"
+        },
+        {
+          "file": "images/photos/albums/south-africa/south-africa_054.jpg",
+          "caption": "South Africa (Cape & Mossel Bay) — south-africa_054"
+        },
+        {
+          "file": "images/photos/albums/south-africa/south-africa_055.jpg",
+          "caption": "South Africa (Cape & Mossel Bay) — south-africa_055"
+        },
+        {
+          "file": "images/photos/albums/south-africa/south-africa_056.jpg",
+          "caption": "South Africa (Cape & Mossel Bay) — south-africa_056"
+        },
+        {
+          "file": "images/photos/albums/south-africa/south-africa_057.jpg",
+          "caption": "South Africa (Cape & Mossel Bay) — south-africa_057"
+        },
+        {
+          "file": "images/photos/albums/south-africa/south-africa_058.jpg",
+          "caption": "South Africa (Cape & Mossel Bay) — south-africa_058"
+        },
+        {
+          "file": "images/photos/albums/south-africa/south-africa_059.jpg",
+          "caption": "South Africa (Cape & Mossel Bay) — south-africa_059"
+        },
+        {
+          "file": "images/photos/albums/south-africa/south-africa_060.jpg",
+          "caption": "South Africa (Cape & Mossel Bay) — south-africa_060"
+        },
+        {
+          "file": "images/photos/albums/south-africa/south-africa_061.jpg",
+          "caption": "South Africa (Cape & Mossel Bay) — south-africa_061"
+        },
+        {
+          "file": "images/photos/albums/south-africa/south-africa_062.jpg",
+          "caption": "South Africa (Cape & Mossel Bay) — south-africa_062"
+        },
+        {
+          "file": "images/photos/albums/south-africa/south-africa_063.jpg",
+          "caption": "South Africa (Cape & Mossel Bay) — south-africa_063"
+        },
+        {
+          "file": "images/photos/albums/south-africa/south-africa_064.jpg",
+          "caption": "South Africa (Cape & Mossel Bay) — south-africa_064"
+        },
+        {
+          "file": "images/photos/albums/south-africa/south-africa_065.jpg",
+          "caption": "South Africa (Cape & Mossel Bay) — south-africa_065"
+        },
+        {
+          "file": "images/photos/albums/south-africa/south-africa_066.jpg",
+          "caption": "South Africa (Cape & Mossel Bay) — south-africa_066"
+        },
+        {
+          "file": "images/photos/albums/south-africa/south-africa_067.jpg",
+          "caption": "South Africa (Cape & Mossel Bay) — south-africa_067"
+        },
+        {
+          "file": "images/photos/albums/south-africa/south-africa_068.jpg",
+          "caption": "South Africa (Cape & Mossel Bay) — south-africa_068"
+        },
+        {
+          "file": "images/photos/albums/south-africa/south-africa_069.jpg",
+          "caption": "South Africa (Cape & Mossel Bay) — south-africa_069"
+        },
+        {
+          "file": "images/photos/albums/south-africa/south-africa_070.jpg",
+          "caption": "South Africa (Cape & Mossel Bay) — south-africa_070"
+        },
+        {
+          "file": "images/photos/albums/south-africa/south-africa_071.jpg",
+          "caption": "South Africa (Cape & Mossel Bay) — south-africa_071"
+        },
+        {
+          "file": "images/photos/albums/south-africa/south-africa_072.jpg",
+          "caption": "South Africa (Cape & Mossel Bay) — south-africa_072"
+        },
+        {
+          "file": "images/photos/albums/south-africa/south-africa_073.jpg",
+          "caption": "South Africa (Cape & Mossel Bay) — south-africa_073"
+        },
+        {
+          "file": "images/photos/albums/south-africa/south-africa_074.jpg",
+          "caption": "South Africa (Cape & Mossel Bay) — south-africa_074"
+        },
+        {
+          "file": "images/photos/albums/south-africa/south-africa_075.jpg",
+          "caption": "South Africa (Cape & Mossel Bay) — south-africa_075"
+        }
+      ]
+    },
+    "hluhluwe": {
+      "title": "Hluhluwe Game Park",
+      "amazon_album": null,
+      "photos": [
+        {
+          "file": "images/photos/albums/hluhluwe/hluhluwe_001.jpg",
+          "caption": "Hluhluwe Game Park — hluhluwe_001"
+        },
+        {
+          "file": "images/photos/albums/hluhluwe/hluhluwe_002.jpg",
+          "caption": "Hluhluwe Game Park — hluhluwe_002"
+        },
+        {
+          "file": "images/photos/albums/hluhluwe/hluhluwe_003.jpg",
+          "caption": "Hluhluwe Game Park — hluhluwe_003"
+        },
+        {
+          "file": "images/photos/albums/hluhluwe/hluhluwe_004.jpg",
+          "caption": "Hluhluwe Game Park — hluhluwe_004"
+        },
+        {
+          "file": "images/photos/albums/hluhluwe/hluhluwe_005.jpg",
+          "caption": "Hluhluwe Game Park — hluhluwe_005"
+        },
+        {
+          "file": "images/photos/albums/hluhluwe/hluhluwe_006.jpg",
+          "caption": "Hluhluwe Game Park — hluhluwe_006"
+        },
+        {
+          "file": "images/photos/albums/hluhluwe/hluhluwe_007.jpg",
+          "caption": "Hluhluwe Game Park — hluhluwe_007"
+        },
+        {
+          "file": "images/photos/albums/hluhluwe/hluhluwe_008.jpg",
+          "caption": "Hluhluwe Game Park — hluhluwe_008"
+        },
+        {
+          "file": "images/photos/albums/hluhluwe/hluhluwe_009.jpg",
+          "caption": "Hluhluwe Game Park — hluhluwe_009"
+        },
+        {
+          "file": "images/photos/albums/hluhluwe/hluhluwe_010.jpg",
+          "caption": "Hluhluwe Game Park — hluhluwe_010"
+        },
+        {
+          "file": "images/photos/albums/hluhluwe/hluhluwe_011.jpg",
+          "caption": "Hluhluwe Game Park — hluhluwe_011"
+        },
+        {
+          "file": "images/photos/albums/hluhluwe/hluhluwe_012.jpg",
+          "caption": "Hluhluwe Game Park — hluhluwe_012"
+        },
+        {
+          "file": "images/photos/albums/hluhluwe/hluhluwe_013.jpg",
+          "caption": "Hluhluwe Game Park — hluhluwe_013"
+        },
+        {
+          "file": "images/photos/albums/hluhluwe/hluhluwe_014.jpg",
+          "caption": "Hluhluwe Game Park — hluhluwe_014"
+        },
+        {
+          "file": "images/photos/albums/hluhluwe/hluhluwe_015.jpg",
+          "caption": "Hluhluwe Game Park — hluhluwe_015"
+        },
+        {
+          "file": "images/photos/albums/hluhluwe/hluhluwe_016.jpg",
+          "caption": "Hluhluwe Game Park — hluhluwe_016"
+        },
+        {
+          "file": "images/photos/albums/hluhluwe/hluhluwe_017.jpg",
+          "caption": "Hluhluwe Game Park — hluhluwe_017"
+        },
+        {
+          "file": "images/photos/albums/hluhluwe/hluhluwe_018.jpg",
+          "caption": "Hluhluwe Game Park — hluhluwe_018"
+        },
+        {
+          "file": "images/photos/albums/hluhluwe/hluhluwe_019.jpg",
+          "caption": "Hluhluwe Game Park — hluhluwe_019"
+        },
+        {
+          "file": "images/photos/albums/hluhluwe/hluhluwe_020.jpg",
+          "caption": "Hluhluwe Game Park — hluhluwe_020"
+        },
+        {
+          "file": "images/photos/albums/hluhluwe/hluhluwe_021.jpg",
+          "caption": "Hluhluwe Game Park — hluhluwe_021"
+        },
+        {
+          "file": "images/photos/albums/hluhluwe/hluhluwe_022.jpg",
+          "caption": "Hluhluwe Game Park — hluhluwe_022"
+        },
+        {
+          "file": "images/photos/albums/hluhluwe/hluhluwe_023.jpg",
+          "caption": "Hluhluwe Game Park — hluhluwe_023"
+        },
+        {
+          "file": "images/photos/albums/hluhluwe/hluhluwe_024.jpg",
+          "caption": "Hluhluwe Game Park — hluhluwe_024"
+        },
+        {
+          "file": "images/photos/albums/hluhluwe/hluhluwe_025.jpg",
+          "caption": "Hluhluwe Game Park — hluhluwe_025"
+        },
+        {
+          "file": "images/photos/albums/hluhluwe/hluhluwe_026.jpg",
+          "caption": "Hluhluwe Game Park — hluhluwe_026"
+        },
+        {
+          "file": "images/photos/albums/hluhluwe/hluhluwe_027.jpg",
+          "caption": "Hluhluwe Game Park — hluhluwe_027"
+        },
+        {
+          "file": "images/photos/albums/hluhluwe/hluhluwe_028.jpg",
+          "caption": "Hluhluwe Game Park — hluhluwe_028"
+        },
+        {
+          "file": "images/photos/albums/hluhluwe/hluhluwe_029.jpg",
+          "caption": "Hluhluwe Game Park — hluhluwe_029"
+        },
+        {
+          "file": "images/photos/albums/hluhluwe/hluhluwe_030.jpg",
+          "caption": "Hluhluwe Game Park — hluhluwe_030"
+        },
+        {
+          "file": "images/photos/albums/hluhluwe/hluhluwe_031.jpg",
+          "caption": "Hluhluwe Game Park — hluhluwe_031"
+        },
+        {
+          "file": "images/photos/albums/hluhluwe/hluhluwe_032.jpg",
+          "caption": "Hluhluwe Game Park — hluhluwe_032"
+        },
+        {
+          "file": "images/photos/albums/hluhluwe/hluhluwe_033.jpg",
+          "caption": "Hluhluwe Game Park — hluhluwe_033"
+        },
+        {
+          "file": "images/photos/albums/hluhluwe/hluhluwe_034.jpg",
+          "caption": "Hluhluwe Game Park — hluhluwe_034"
+        },
+        {
+          "file": "images/photos/albums/hluhluwe/hluhluwe_035.jpg",
+          "caption": "Hluhluwe Game Park — hluhluwe_035"
+        },
+        {
+          "file": "images/photos/albums/hluhluwe/hluhluwe_036.jpg",
+          "caption": "Hluhluwe Game Park — hluhluwe_036"
+        },
+        {
+          "file": "images/photos/albums/hluhluwe/hluhluwe_037.jpg",
+          "caption": "Hluhluwe Game Park — hluhluwe_037"
+        },
+        {
+          "file": "images/photos/albums/hluhluwe/hluhluwe_038.jpg",
+          "caption": "Hluhluwe Game Park — hluhluwe_038"
+        },
+        {
+          "file": "images/photos/albums/hluhluwe/hluhluwe_039.jpg",
+          "caption": "Hluhluwe Game Park — hluhluwe_039"
+        },
+        {
+          "file": "images/photos/albums/hluhluwe/hluhluwe_040.jpg",
+          "caption": "Hluhluwe Game Park — hluhluwe_040"
+        },
+        {
+          "file": "images/photos/albums/hluhluwe/hluhluwe_041.jpg",
+          "caption": "Hluhluwe Game Park — hluhluwe_041"
+        },
+        {
+          "file": "images/photos/albums/hluhluwe/hluhluwe_042.jpg",
+          "caption": "Hluhluwe Game Park — hluhluwe_042"
+        },
+        {
+          "file": "images/photos/albums/hluhluwe/hluhluwe_043.jpg",
+          "caption": "Hluhluwe Game Park — hluhluwe_043"
+        },
+        {
+          "file": "images/photos/albums/hluhluwe/hluhluwe_044.jpg",
+          "caption": "Hluhluwe Game Park — hluhluwe_044"
+        },
+        {
+          "file": "images/photos/albums/hluhluwe/hluhluwe_045.jpg",
+          "caption": "Hluhluwe Game Park — hluhluwe_045"
+        },
+        {
+          "file": "images/photos/albums/hluhluwe/hluhluwe_046.jpg",
+          "caption": "Hluhluwe Game Park — hluhluwe_046"
+        },
+        {
+          "file": "images/photos/albums/hluhluwe/hluhluwe_047.jpg",
+          "caption": "Hluhluwe Game Park — hluhluwe_047"
+        },
+        {
+          "file": "images/photos/albums/hluhluwe/hluhluwe_048.jpg",
+          "caption": "Hluhluwe Game Park — hluhluwe_048"
+        },
+        {
+          "file": "images/photos/albums/hluhluwe/hluhluwe_049.jpg",
+          "caption": "Hluhluwe Game Park — hluhluwe_049"
+        },
+        {
+          "file": "images/photos/albums/hluhluwe/hluhluwe_050.jpg",
+          "caption": "Hluhluwe Game Park — hluhluwe_050"
+        },
+        {
+          "file": "images/photos/albums/hluhluwe/hluhluwe_051.jpg",
+          "caption": "Hluhluwe Game Park — hluhluwe_051"
+        },
+        {
+          "file": "images/photos/albums/hluhluwe/hluhluwe_052.jpg",
+          "caption": "Hluhluwe Game Park — hluhluwe_052"
+        },
+        {
+          "file": "images/photos/albums/hluhluwe/hluhluwe_053.jpg",
+          "caption": "Hluhluwe Game Park — hluhluwe_053"
+        },
+        {
+          "file": "images/photos/albums/hluhluwe/hluhluwe_054.jpg",
+          "caption": "Hluhluwe Game Park — hluhluwe_054"
+        },
+        {
+          "file": "images/photos/albums/hluhluwe/hluhluwe_055.jpg",
+          "caption": "Hluhluwe Game Park — hluhluwe_055"
+        },
+        {
+          "file": "images/photos/albums/hluhluwe/hluhluwe_056.jpg",
+          "caption": "Hluhluwe Game Park — hluhluwe_056"
+        },
+        {
+          "file": "images/photos/albums/hluhluwe/hluhluwe_057.jpg",
+          "caption": "Hluhluwe Game Park — hluhluwe_057"
+        },
+        {
+          "file": "images/photos/albums/hluhluwe/hluhluwe_058.jpg",
+          "caption": "Hluhluwe Game Park — hluhluwe_058"
+        },
+        {
+          "file": "images/photos/albums/hluhluwe/hluhluwe_059.jpg",
+          "caption": "Hluhluwe Game Park — hluhluwe_059"
+        },
+        {
+          "file": "images/photos/albums/hluhluwe/hluhluwe_060.jpg",
+          "caption": "Hluhluwe Game Park — hluhluwe_060"
+        },
+        {
+          "file": "images/photos/albums/hluhluwe/hluhluwe_061.jpg",
+          "caption": "Hluhluwe Game Park — hluhluwe_061"
+        },
+        {
+          "file": "images/photos/albums/hluhluwe/hluhluwe_062.jpg",
+          "caption": "Hluhluwe Game Park — hluhluwe_062"
+        },
+        {
+          "file": "images/photos/albums/hluhluwe/hluhluwe_063.jpg",
+          "caption": "Hluhluwe Game Park — hluhluwe_063"
+        },
+        {
+          "file": "images/photos/albums/hluhluwe/hluhluwe_064.jpg",
+          "caption": "Hluhluwe Game Park — hluhluwe_064"
+        },
+        {
+          "file": "images/photos/albums/hluhluwe/hluhluwe_065.jpg",
+          "caption": "Hluhluwe Game Park — hluhluwe_065"
+        },
+        {
+          "file": "images/photos/albums/hluhluwe/hluhluwe_066.jpg",
+          "caption": "Hluhluwe Game Park — hluhluwe_066"
+        },
+        {
+          "file": "images/photos/albums/hluhluwe/hluhluwe_067.jpg",
+          "caption": "Hluhluwe Game Park — hluhluwe_067"
+        },
+        {
+          "file": "images/photos/albums/hluhluwe/hluhluwe_068.jpg",
+          "caption": "Hluhluwe Game Park — hluhluwe_068"
+        },
+        {
+          "file": "images/photos/albums/hluhluwe/hluhluwe_069.jpg",
+          "caption": "Hluhluwe Game Park — hluhluwe_069"
+        },
+        {
+          "file": "images/photos/albums/hluhluwe/hluhluwe_070.jpg",
+          "caption": "Hluhluwe Game Park — hluhluwe_070"
+        },
+        {
+          "file": "images/photos/albums/hluhluwe/hluhluwe_071.jpg",
+          "caption": "Hluhluwe Game Park — hluhluwe_071"
+        },
+        {
+          "file": "images/photos/albums/hluhluwe/hluhluwe_072.jpg",
+          "caption": "Hluhluwe Game Park — hluhluwe_072"
+        },
+        {
+          "file": "images/photos/albums/hluhluwe/hluhluwe_073.jpg",
+          "caption": "Hluhluwe Game Park — hluhluwe_073"
+        },
+        {
+          "file": "images/photos/albums/hluhluwe/hluhluwe_074.jpg",
+          "caption": "Hluhluwe Game Park — hluhluwe_074"
+        }
+      ]
+    },
+    "st-helena": {
+      "title": "St Helena",
+      "amazon_album": null,
+      "photos": [
+        {
+          "file": "images/photos/albums/st-helena/st-helena_001.jpg",
+          "caption": "St Helena — st-helena_001"
+        },
+        {
+          "file": "images/photos/albums/st-helena/st-helena_002.jpg",
+          "caption": "St Helena — st-helena_002"
+        },
+        {
+          "file": "images/photos/albums/st-helena/st-helena_003.jpg",
+          "caption": "St Helena — st-helena_003"
+        },
+        {
+          "file": "images/photos/albums/st-helena/st-helena_004.jpg",
+          "caption": "St Helena — st-helena_004"
+        },
+        {
+          "file": "images/photos/albums/st-helena/st-helena_005.jpg",
+          "caption": "St Helena — st-helena_005"
+        },
+        {
+          "file": "images/photos/albums/st-helena/st-helena_006.jpg",
+          "caption": "St Helena — st-helena_006"
+        },
+        {
+          "file": "images/photos/albums/st-helena/st-helena_007.jpg",
+          "caption": "St Helena — st-helena_007"
+        },
+        {
+          "file": "images/photos/albums/st-helena/st-helena_008.jpg",
+          "caption": "St Helena — st-helena_008"
+        },
+        {
+          "file": "images/photos/albums/st-helena/st-helena_009.jpg",
+          "caption": "St Helena — st-helena_009"
+        },
+        {
+          "file": "images/photos/albums/st-helena/st-helena_010.jpg",
+          "caption": "St Helena — st-helena_010"
+        },
+        {
+          "file": "images/photos/albums/st-helena/st-helena_011.jpg",
+          "caption": "St Helena — st-helena_011"
+        },
+        {
+          "file": "images/photos/albums/st-helena/st-helena_012.jpg",
+          "caption": "St Helena — st-helena_012"
+        },
+        {
+          "file": "images/photos/albums/st-helena/st-helena_013.jpg",
+          "caption": "St Helena — st-helena_013"
+        },
+        {
+          "file": "images/photos/albums/st-helena/st-helena_014.jpg",
+          "caption": "St Helena — st-helena_014"
+        },
+        {
+          "file": "images/photos/albums/st-helena/st-helena_015.jpg",
+          "caption": "St Helena — st-helena_015"
+        },
+        {
+          "file": "images/photos/albums/st-helena/st-helena_016.jpg",
+          "caption": "St Helena — st-helena_016"
+        },
+        {
+          "file": "images/photos/albums/st-helena/st-helena_017.jpg",
+          "caption": "St Helena — st-helena_017"
+        },
+        {
+          "file": "images/photos/albums/st-helena/st-helena_018.jpg",
+          "caption": "St Helena — st-helena_018"
+        },
+        {
+          "file": "images/photos/albums/st-helena/st-helena_019.jpg",
+          "caption": "St Helena — st-helena_019"
+        },
+        {
+          "file": "images/photos/albums/st-helena/st-helena_020.jpg",
+          "caption": "St Helena — st-helena_020"
+        },
+        {
+          "file": "images/photos/albums/st-helena/st-helena_021.jpg",
+          "caption": "St Helena — st-helena_021"
+        },
+        {
+          "file": "images/photos/albums/st-helena/st-helena_022.jpg",
+          "caption": "St Helena — st-helena_022"
+        },
+        {
+          "file": "images/photos/albums/st-helena/st-helena_023.jpg",
+          "caption": "St Helena — st-helena_023"
+        },
+        {
+          "file": "images/photos/albums/st-helena/st-helena_024.jpg",
+          "caption": "St Helena — st-helena_024"
+        },
+        {
+          "file": "images/photos/albums/st-helena/st-helena_025.jpg",
+          "caption": "St Helena — st-helena_025"
+        },
+        {
+          "file": "images/photos/albums/st-helena/st-helena_026.jpg",
+          "caption": "St Helena — st-helena_026"
+        },
+        {
+          "file": "images/photos/albums/st-helena/st-helena_027.jpg",
+          "caption": "St Helena — st-helena_027"
+        }
+      ]
+    },
+    "fernando-de-noronha": {
+      "title": "Fernando de Noronha",
+      "amazon_album": null,
+      "photos": [
+        {
+          "file": "images/photos/albums/fernando-de-noronha/fernando-de-noronha_001.jpg",
+          "caption": "Fernando de Noronha — fernando-de-noronha_001"
+        },
+        {
+          "file": "images/photos/albums/fernando-de-noronha/fernando-de-noronha_002.jpg",
+          "caption": "Fernando de Noronha — fernando-de-noronha_002"
+        },
+        {
+          "file": "images/photos/albums/fernando-de-noronha/fernando-de-noronha_003.jpg",
+          "caption": "Fernando de Noronha — fernando-de-noronha_003"
+        },
+        {
+          "file": "images/photos/albums/fernando-de-noronha/fernando-de-noronha_004.jpg",
+          "caption": "Fernando de Noronha — fernando-de-noronha_004"
+        },
+        {
+          "file": "images/photos/albums/fernando-de-noronha/fernando-de-noronha_005.jpg",
+          "caption": "Fernando de Noronha — fernando-de-noronha_005"
+        },
+        {
+          "file": "images/photos/albums/fernando-de-noronha/fernando-de-noronha_006.jpg",
+          "caption": "Fernando de Noronha — fernando-de-noronha_006"
+        },
+        {
+          "file": "images/photos/albums/fernando-de-noronha/fernando-de-noronha_007.jpg",
+          "caption": "Fernando de Noronha — fernando-de-noronha_007"
+        },
+        {
+          "file": "images/photos/albums/fernando-de-noronha/fernando-de-noronha_008.jpg",
+          "caption": "Fernando de Noronha — fernando-de-noronha_008"
+        },
+        {
+          "file": "images/photos/albums/fernando-de-noronha/fernando-de-noronha_009.jpg",
+          "caption": "Fernando de Noronha — fernando-de-noronha_009"
+        },
+        {
+          "file": "images/photos/albums/fernando-de-noronha/fernando-de-noronha_010.jpg",
+          "caption": "Fernando de Noronha — fernando-de-noronha_010"
+        },
+        {
+          "file": "images/photos/albums/fernando-de-noronha/fernando-de-noronha_011.jpg",
+          "caption": "Fernando de Noronha — fernando-de-noronha_011"
+        },
+        {
+          "file": "images/photos/albums/fernando-de-noronha/fernando-de-noronha_012.jpg",
+          "caption": "Fernando de Noronha — fernando-de-noronha_012"
+        },
+        {
+          "file": "images/photos/albums/fernando-de-noronha/fernando-de-noronha_013.jpg",
+          "caption": "Fernando de Noronha — fernando-de-noronha_013"
+        },
+        {
+          "file": "images/photos/albums/fernando-de-noronha/fernando-de-noronha_014.jpg",
+          "caption": "Fernando de Noronha — fernando-de-noronha_014"
+        }
+      ]
+    },
+    "tobago": {
+      "title": "Tobago",
+      "amazon_album": null,
+      "photos": [
+        {
+          "file": "images/photos/albums/tobago/tobago_001.jpg",
+          "caption": "Tobago — tobago_001"
+        },
+        {
+          "file": "images/photos/albums/tobago/tobago_002.jpg",
+          "caption": "Tobago — tobago_002"
+        },
+        {
+          "file": "images/photos/albums/tobago/tobago_003.jpg",
+          "caption": "Tobago — tobago_003"
+        },
+        {
+          "file": "images/photos/albums/tobago/tobago_004.jpg",
+          "caption": "Tobago — tobago_004"
+        },
+        {
+          "file": "images/photos/albums/tobago/tobago_005.jpg",
+          "caption": "Tobago — tobago_005"
+        },
+        {
+          "file": "images/photos/albums/tobago/tobago_006.jpg",
+          "caption": "Tobago — tobago_006"
+        },
+        {
+          "file": "images/photos/albums/tobago/tobago_007.jpg",
+          "caption": "Tobago — tobago_007"
+        },
+        {
+          "file": "images/photos/albums/tobago/tobago_008.jpg",
+          "caption": "Tobago — tobago_008"
+        },
+        {
+          "file": "images/photos/albums/tobago/tobago_009.jpg",
+          "caption": "Tobago — tobago_009"
+        },
+        {
+          "file": "images/photos/albums/tobago/tobago_010.jpg",
+          "caption": "Tobago — tobago_010"
+        },
+        {
+          "file": "images/photos/albums/tobago/tobago_011.jpg",
+          "caption": "Tobago — tobago_011"
+        },
+        {
+          "file": "images/photos/albums/tobago/tobago_012.jpg",
+          "caption": "Tobago — tobago_012"
         }
       ]
     }
