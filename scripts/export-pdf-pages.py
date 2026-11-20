@@ -88,6 +88,7 @@ def export_pdf(
     out_dir: Path,
     dpi: int,
     manifest_pages: list[dict],
+    tidy: bool = False,
 ) -> dict:
     doc = fitz.open(pdf_path)
     span = parse_logbook_range(pdf_path.stem)
@@ -101,7 +102,19 @@ def export_pdf(
 
         page = doc[index]
         pixmap = page.get_pixmap(dpi=dpi, alpha=False)
-        pixmap.save(str(out_path), output="jpeg", jpg_quality=92)
+        if tidy:
+            import numpy as np
+            from PIL import Image
+
+            from tidy_page_edges import tidy_rgb
+
+            samples = np.frombuffer(pixmap.samples, dtype=np.uint8)
+            rgb = samples.reshape(pixmap.height, pixmap.width, pixmap.n)[:, :, :3]
+            Image.fromarray(tidy_rgb(np.ascontiguousarray(rgb))).save(
+                out_path, quality=92, subsampling=0
+            )
+        else:
+            pixmap.save(str(out_path), output="jpeg", jpg_quality=92)
 
         entry = {
             "file": filename,
@@ -175,6 +188,11 @@ def main() -> None:
         action="store_true",
         help="Re-export even if the PDF has not changed since the last run",
     )
+    parser.add_argument(
+        "--tidy",
+        action="store_true",
+        help="Trim scanner bars and facing-page slivers, then pad the sheet",
+    )
     args = parser.parse_args()
 
     root = Path(__file__).resolve().parent.parent
@@ -226,7 +244,7 @@ def main() -> None:
 
         print(f"Exporting {pdf_path.name}...")
         manifest_pages = remove_pdf_exports(pdf_path.name, manifest_pages, out_dir)
-        signature = export_pdf(pdf_path, out_dir, args.dpi, manifest_pages)
+        signature = export_pdf(pdf_path, out_dir, args.dpi, manifest_pages, tidy=args.tidy)
         sources[pdf_path.name] = signature
         exported_count += 1
 

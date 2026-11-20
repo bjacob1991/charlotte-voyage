@@ -1009,9 +1009,10 @@
         throw new Error('Page manifest is empty.');
       }
 
+      const stamp = Date.now();
       state.pages = manifest.pages.map((p) => ({
         name: p.file,
-        url: `../images/scans/_pages/${p.file}`,
+        url: `../images/scans/_pages/${p.file}?v=${stamp}`,
         logbookPage: p.logbookPage,
         source: p.source
       }));
