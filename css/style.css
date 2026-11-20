@@ -902,8 +902,7 @@ body {
   inset: 0;
   z-index: 4000;
   display: flex;
-  align-items: flex-end;
-  justify-content: center;
+  flex-direction: column;
   background: var(--navy-deep);
   transition: opacity 0.45s ease;
 }
@@ -915,25 +914,41 @@ body {
 
 html.cover-seen .voyage-cover { display: none; }
 
+.cover-frame {
+  position: relative;
+  flex: 1 1 auto;
+  min-height: 0;
+  background: #7eb4dc;
+}
+
 .cover-photo {
   position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
+  /* Fill the frame, but keep the hull. Wide screens crop sky from the top;
+     tall screens crop the sides and still show the whole boat. */
   object-fit: cover;
+  object-position: center bottom;
 }
 
-.cover-shade {
+.cover-frame::after {
+  content: "";
   position: absolute;
-  inset: 0;
-  background: linear-gradient(to top, rgba(18, 36, 54, 0.94) 0%, rgba(18, 36, 54, 0.45) 42%, rgba(18, 36, 54, 0.28) 100%);
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 64px;
+  background: linear-gradient(to top, var(--navy-deep), transparent);
+  pointer-events: none;
 }
 
 .cover-panel {
   position: relative;
-  z-index: 1;
-  width: min(680px, 100%);
-  padding: 48px 28px 72px;
+  flex: 0 0 auto;
+  width: min(720px, 100%);
+  margin: 0 auto;
+  padding: 22px 28px 36px;
   text-align: center;
   color: #fff;
 }
@@ -1013,6 +1028,14 @@ html.cover-seen .voyage-cover { display: none; }
   .chapter-card { flex-basis: 132px; }
   .chapter-card img,
   .chapter-fallback { height: 68px; }
-  .cover-panel { padding: 28px 18px 40px; }
+  .cover-panel { padding: 16px 18px 28px; }
   .cover-note { font-size: 16px; }
+}
+
+@media (max-height: 720px) {
+  .cover-title { font-size: 34px; }
+  .cover-note { margin-top: 10px; font-size: 16px; }
+  .cover-open { margin-top: 14px; }
+  .cover-panel { padding: 12px 20px 20px; }
+  .cover-years { margin-top: 8px; }
 }
