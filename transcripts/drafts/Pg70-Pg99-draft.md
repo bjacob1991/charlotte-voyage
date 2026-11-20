@@ -12,8 +12,8 @@
 - People and boat names: best guess; bracket if doubtful.
 - Page-spanning entries marked at bottom/top of pages.
 
-**Proposed leg coverage (tentative):**
-- **leg-07 Australia:** ~Mar–Jul 2004 — Moreton → Cairns → Cape York → Darwin
+**Proposed leg coverage (tentative — after proofread):**
+- **leg-07 Australia** (already open through Mar 24 2004 in JSON): continue ~Mar–Jul 2004 — Moreton → Cairns → Cape York → Darwin
 - **leg-08 The Indian Ocean:** ~Jul–Nov 2004 — Bali → Cocos → Rodrigues → Mauritius → Réunion → Richards Bay (SA)
 
 **Place-name checks (web):** Sand Hills/Moreton, Mooloolaba, Wide Bay Bar, Great Sandy Strait, Lady Musgrave, Pancake Creek, Keppel, Port Clinton, Scawfell, Whitsundays/Cid/Airlie/Hook/Gloucester, Palm Islands, Hinchinbrook, Mission Bay, Michaelmas Cay, Low Isles, Hope Islands, Cooktown, Lizard/Watsons Bay, Flinders Group, Morris Island, Portland Roads, Margaret Bay, Albany Passage, Bamaga, Gove, Wessel/Jensen Bay, Alcaro Bay (Cape Don), Darwin, Bali/Ubud/Gunung Kawi, Christmas Island, Cocos, Rodrigues, Mauritius/Port Louis, Réunion/St Pierre, Richards Bay / Tuzi Gazi, Hluhluwe — spellings used match common cruising references where confident; otherwise left bracketed.

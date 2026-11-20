@@ -232,7 +232,7 @@ Lists all legs. Only legs with `"status": "in-progress"` or `"status": "complete
 { "id": "leg-08", "name": "The Indian Ocean", "file": "leg-08-indian-ocean.json", "status": "planned" }
 ```
 
-Change to `"in-progress"` when you create that leg's JSON file. Legs 01–07 are already on the site.
+Change to `"in-progress"` when you create that leg's JSON file. Legs 01–10 are loaded. Legs 08–10 (Indian Ocean through home) were opened from the Pg70–Pg118 transcripts; their scan crops are still to be drawn.
 
 ---
 

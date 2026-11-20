@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-07-27T18:50:21.626Z",
+  "exportedAt": "2026-11-19T00:00:34.337Z",
   "notes": "Normalized crop rectangles in page-relative coordinates (0..1).",
   "pages": {
     "Pg1-Pg7_p01.jpg": {
@@ -1588,20 +1588,476 @@
           "scanPath": "images/scans/2003-08-22.jpg"
         },
         {
-          "id": "8b3eyn3a",
+          "id": "uozo2vls",
           "rect": {
-            "x": 0.08360271320476399,
-            "y": 0.6228037234345173,
-            "w": 0.916397286795236,
-            "h": 0.269683257918552
+            "x": 0.07753264262636429,
+            "y": 0.6276189705618576,
+            "w": 0.9174397031539888,
+            "h": 0.2737094837935174
           },
-          "scanPath": "images/scans/2003-09-01.jpg"
+          "scanPath": "images/scans/2003-09-01a.jpg"
         }
       ]
     },
     "Pg54-Pg69_p01.jpg": {
       "image": "Pg54-Pg69_p01.jpg",
-      "boxes": []
+      "boxes": [
+        {
+          "id": "c2vlsonl",
+          "rect": {
+            "x": 0.01074229012172607,
+            "y": 0.08500192374313006,
+            "w": 0.9128014842300557,
+            "h": 0.6422569027611045
+          },
+          "scanPath": "images/scans/2003-09-01b.jpg"
+        },
+        {
+          "id": "2vvrwa0f",
+          "rect": {
+            "x": 0.007031714982579502,
+            "y": 0.730860267080465,
+            "w": 0.9109461966604824,
+            "h": 0.22088835534213686
+          },
+          "scanPath": "images/scans/2003-09-04a.jpg"
+        }
+      ]
+    },
+    "Pg54-Pg69_p02.jpg": {
+      "image": "Pg54-Pg69_p02.jpg",
+      "boxes": [
+        {
+          "id": "4kudajzx",
+          "rect": {
+            "x": 0.08680908047423071,
+            "y": 0.02737887452344219,
+            "w": 0.9053803339517625,
+            "h": 0.4105642256902761
+          },
+          "scanPath": "images/scans/2003-09-04b.jpg"
+        },
+        {
+          "id": "sylm4jhw",
+          "rect": {
+            "x": 0.07938793019593757,
+            "y": 0.4079310954117975,
+            "w": 0.911873840445269,
+            "h": 0.42857142857142855
+          },
+          "scanPath": "images/scans/2003-09-06.jpg"
+        }
+      ]
+    },
+    "Pg54-Pg69_p03.jpg": {
+      "image": "Pg54-Pg69_p03.jpg",
+      "boxes": [
+        {
+          "id": "cpxex056",
+          "rect": {
+            "x": 0.01630815283044592,
+            "y": 0.09220480489559105,
+            "w": 0.9081632653061225,
+            "h": 0.27010804321728693
+          },
+          "scanPath": "images/scans/2003-09-08.jpg"
+        },
+        {
+          "id": "53l48tqf",
+          "rect": {
+            "x": 0.012597577691299353,
+            "y": 0.3563104471524938,
+            "w": 0.9155844155844156,
+            "h": 0.5870348139255702
+          },
+          "scanPath": "images/scans/2003-09-12.jpg"
+        }
+      ]
+    },
+    "Pg54-Pg69_p04.jpg": {
+      "image": "Pg54-Pg69_p04.jpg",
+      "boxes": [
+        {
+          "id": "19mglab8",
+          "rect": {
+            "x": 0.059907410715418094,
+            "y": 0.03098031509967268,
+            "w": 0.9304267161410018,
+            "h": 0.8727490996398559
+          },
+          "scanPath": "images/scans/2003-09-18.jpg"
+        }
+      ]
+    },
+    "Pg54-Pg69_p05.jpg": {
+      "image": "Pg54-Pg69_p05.jpg",
+      "boxes": [
+        {
+          "id": "fflw0dog",
+          "rect": {
+            "x": 0.024656946893525697,
+            "y": 0.07539808220651542,
+            "w": 0.9137291280148423,
+            "h": 0.40336134453781514
+          },
+          "scanPath": "images/scans/2003-09-26.jpg"
+        },
+        {
+          "id": "wge1c3ht",
+          "rect": {
+            "x": 0.024656946893525697,
+            "y": 0.4451459813661793,
+            "w": 0.9072356215213359,
+            "h": 0.24969987995198079
+          },
+          "scanPath": "images/scans/2003-09-27.jpg"
+        },
+        {
+          "id": "a6pkyp1h",
+          "rect": {
+            "x": 0.02094637175437913,
+            "y": 0.6852420197815454,
+            "w": 0.9109461966604824,
+            "h": 0.2460984393757503
+          },
+          "scanPath": "images/scans/2003-09-29a.jpg"
+        }
+      ]
+    },
+    "Pg54-Pg69_p06.jpg": {
+      "image": "Pg54-Pg69_p06.jpg",
+      "boxes": [
+        {
+          "id": "guttm8bn",
+          "rect": {
+            "x": 0.07753264262636429,
+            "y": 0.03098031509967268,
+            "w": 0.9090909090909091,
+            "h": 0.24369747899159663
+          },
+          "scanPath": "images/scans/2003-09-29b.jpg"
+        },
+        {
+          "id": "gkzpdcv2",
+          "rect": {
+            "x": 0.07196677991764444,
+            "y": 0.269875873322962,
+            "w": 0.9183673469387755,
+            "h": 0.3037214885954382
+          },
+          "scanPath": "images/scans/2003-10-02.jpg"
+        },
+        {
+          "id": "y6h508m9",
+          "rect": {
+            "x": 0.06918384856328451,
+            "y": 0.5651940005738624,
+            "w": 0.9257884972170687,
+            "h": 0.12965186074429771
+          },
+          "scanPath": "images/scans/2003-10-03.jpg"
+        },
+        {
+          "id": "rpuds6to",
+          "rect": {
+            "x": 0.07011149234807115,
+            "y": 0.6900439405498527,
+            "w": 0.911873840445269,
+            "h": 0.17406962785114047
+          },
+          "scanPath": "images/scans/2003-10-05a.jpg"
+        }
+      ]
+    },
+    "Pg54-Pg69_p07.jpg": {
+      "image": "Pg54-Pg69_p07.jpg",
+      "boxes": [
+        {
+          "id": "8nx6oclf",
+          "rect": {
+            "x": 0.01166993390651271,
+            "y": 0.08740288412728373,
+            "w": 0.8905380333951762,
+            "h": 0.1368547418967587
+          },
+          "scanPath": "images/scans/2003-10-05b.jpg"
+        },
+        {
+          "id": "ft6ai6l6",
+          "rect": {
+            "x": 0.015380509045659279,
+            "y": 0.2278590666002729,
+            "w": 0.9035250463821892,
+            "h": 0.34093637454981995
+          },
+          "scanPath": "images/scans/2003-10-06.jpg"
+        },
+        {
+          "id": "s1fqcujv",
+          "rect": {
+            "x": 0.022801659323952415,
+            "y": 0.5699959213421697,
+            "w": 0.9053803339517625,
+            "h": 0.39015606242497
+          },
+          "scanPath": "images/scans/2003-10-11a.jpg"
+        }
+      ]
+    },
+    "Pg54-Pg69_p08.jpg": {
+      "image": "Pg54-Pg69_p08.jpg",
+      "boxes": [
+        {
+          "id": "7dt63viz",
+          "rect": {
+            "x": 0.08402614911987079,
+            "y": 0.02737887452344219,
+            "w": 0.9109461966604824,
+            "h": 0.19207683073229292
+          },
+          "scanPath": "images/scans/2003-10-11b.jpg"
+        },
+        {
+          "id": "pxcod2kh",
+          "rect": {
+            "x": 0.07382206748721772,
+            "y": 0.20504994295081314,
+            "w": 0.9211502782931354,
+            "h": 0.30012004801920766
+          },
+          "scanPath": "images/scans/2003-10-14.jpg"
+        },
+        {
+          "id": "6np1iwo2",
+          "rect": {
+            "x": 0.06473815949816872,
+            "y": 0.49076422866509883,
+            "w": 0.9285714285714286,
+            "h": 0.37815126050420167
+          },
+          "scanPath": "images/scans/2003-10-16.jpg"
+        }
+      ]
+    },
+    "Pg54-Pg69_p09.jpg": {
+      "image": "Pg54-Pg69_p09.jpg",
+      "boxes": [
+        {
+          "id": "oivhoffe",
+          "rect": {
+            "x": 0.018163440400019205,
+            "y": 0.09580624547182154,
+            "w": 0.9174397031539888,
+            "h": 0.8559423769507803
+          },
+          "scanPath": "images/scans/2003-10-29a.jpg"
+        }
+      ]
+    },
+    "Pg54-Pg69_p10.jpg": {
+      "image": "Pg54-Pg69_p10.jpg",
+      "boxes": [
+        {
+          "id": "7jyv2agi",
+          "rect": {
+            "x": 0.06361798585456466,
+            "y": 0.02617839433136536,
+            "w": 0.9183673469387755,
+            "h": 0.18487394957983194
+          },
+          "scanPath": "images/scans/2003-10-29b.jpg"
+        },
+        {
+          "id": "baybl7fc",
+          "rect": {
+            "x": 0.0534139042219116,
+            "y": 0.19664658160627532,
+            "w": 0.9387755102040817,
+            "h": 0.2965186074429772
+          },
+          "scanPath": "images/scans/2003-10-30.jpg"
+        },
+        {
+          "id": "mqq5qevu",
+          "rect": {
+            "x": 0.03949924745011197,
+            "y": 0.48356134751263785,
+            "w": 0.950834879406308,
+            "h": 0.24489795918367346
+          },
+          "scanPath": "images/scans/2003-10-31.jpg"
+        },
+        {
+          "id": "w317mxrn",
+          "rect": {
+            "x": 0.07474971127200436,
+            "y": 0.730860267080465,
+            "w": 0.9165120593692022,
+            "h": 0.18607442977190877
+          },
+          "scanPath": "images/scans/2003-11-01.jpg"
+        }
+      ]
+    },
+    "Pg54-Pg69_p11.jpg": {
+      "image": "Pg54-Pg69_p11.jpg",
+      "boxes": [
+        {
+          "id": "5gzs37em",
+          "rect": {
+            "x": 0.018163440400019205,
+            "y": 0.09220480489559105,
+            "w": 0.9072356215213359,
+            "h": 0.3133253301320528
+          },
+          "scanPath": "images/scans/2003-11-02.jpg"
+        },
+        {
+          "id": "6dg6mnhw",
+          "rect": {
+            "x": 0.024656946893525697,
+            "y": 0.4079310954117975,
+            "w": 0.9007421150278293,
+            "h": 0.15606242496998798
+          },
+          "scanPath": "images/scans/2003-11-03.jpg"
+        },
+        {
+          "id": "pn0i30vz",
+          "rect": {
+            "x": 0.02001872796959249,
+            "y": 0.5495877580768636,
+            "w": 0.9109461966604824,
+            "h": 0.3937575030012005
+          },
+          "scanPath": "images/scans/2003-11-04.jpg"
+        }
+      ]
+    },
+    "Pg54-Pg69_p12.jpg": {
+      "image": "Pg54-Pg69_p12.jpg",
+      "boxes": [
+        {
+          "id": "psj1t2c9",
+          "rect": {
+            "x": 0.052486260437124954,
+            "y": 0.02857935471551902,
+            "w": 0.9341372912801484,
+            "h": 0.2653061224489796
+          },
+          "scanPath": "images/scans/2003-11-05.jpg"
+        },
+        {
+          "id": "ww9ec6tm",
+          "rect": {
+            "x": 0.04413746637404518,
+            "y": 0.2902840365882681,
+            "w": 0.9369202226345084,
+            "h": 0.44057623049219685
+          },
+          "scanPath": "images/scans/2003-11-08.jpg"
+        },
+        {
+          "id": "y4dr61mm",
+          "rect": {
+            "x": 0.040426891234898614,
+            "y": 0.7260583463121577,
+            "w": 0.9461966604823747,
+            "h": 0.1752701080432173
+          },
+          "scanPath": "images/scans/2003-11-09.jpg"
+        }
+      ]
+    },
+    "Pg54-Pg69_p13.jpg": {
+      "image": "Pg54-Pg69_p13.jpg",
+      "boxes": [
+        {
+          "id": "qx11ytg8",
+          "rect": {
+            "x": 0.008887002552152785,
+            "y": 0.09220480489559105,
+            "w": 0.9322820037105751,
+            "h": 0.8739495798319328
+          },
+          "scanPath": "images/scans/2003-11-24.jpg"
+        }
+      ]
+    },
+    "Pg54-Pg69_p14.jpg": {
+      "image": "Pg54-Pg69_p14.jpg",
+      "boxes": [
+        {
+          "id": "r7ylnbx5",
+          "rect": {
+            "x": 0.06361798585456466,
+            "y": 0.039383676444210494,
+            "w": 0.9267161410018553,
+            "h": 0.5714285714285714
+          },
+          "scanPath": "images/scans/2003-12-01.jpg"
+        },
+        {
+          "id": "fip7bvdz",
+          "rect": {
+            "x": 0.05526919179148488,
+            "y": 0.5940055251837063,
+            "w": 0.935064935064935,
+            "h": 0.34213685474189676
+          },
+          "scanPath": "images/scans/2004-01-05a.jpg"
+        }
+      ]
+    },
+    "Pg54-Pg69_p15.jpg": {
+      "image": "Pg54-Pg69_p15.jpg",
+      "boxes": [
+        {
+          "id": "qab1h0cp",
+          "rect": {
+            "x": 0.033005740956605474,
+            "y": 0.09220480489559105,
+            "w": 0.9016697588126159,
+            "h": 0.3349339735894358
+          },
+          "scanPath": "images/scans/2004-01-05b.jpg"
+        },
+        {
+          "id": "hk9e4rt7",
+          "rect": {
+            "x": 0.024656946893525697,
+            "y": 0.4139334963721817,
+            "w": 0.9202226345083488,
+            "h": 0.38055222088835533
+          },
+          "scanPath": "images/scans/2004-01-06.jpg"
+        },
+        {
+          "id": "kub7avhs",
+          "rect": {
+            "x": 0.024656946893525697,
+            "y": 0.7896837964922298,
+            "w": 0.9109461966604824,
+            "h": 0.1992797118847539
+          },
+          "scanPath": "images/scans/2004-03-24a.jpg"
+        }
+      ]
+    },
+    "Pg54-Pg69_p16.jpg": {
+      "image": "Pg54-Pg69_p16.jpg",
+      "boxes": [
+        {
+          "id": "9qidfczk",
+          "rect": {
+            "x": 0.0469203977284051,
+            "y": 0.02737887452344219,
+            "w": 0.9369202226345084,
+            "h": 0.8631452581032413
+          },
+          "scanPath": "images/scans/2004-03-24b.jpg"
+        }
+      ]
     }
   },
   "targets": [
@@ -1635,7 +2091,7 @@
       "stopName": "Nassau",
       "date": "2001-11-23",
       "pageFile": null,
-      "dateDisplay": "Friday, November 23 – Sunday, November 25"
+      "dateDisplay": "Friday, November 23 \u2013 Sunday, November 25"
     },
     {
       "scanPath": "images/scans/2001-11-26.jpg",
@@ -1736,7 +2192,7 @@
     {
       "scanPath": "images/scans/2002-01-18a.jpg",
       "legId": "leg-02",
-      "stopName": "Jamaica–San Blas Passage",
+      "stopName": "Jamaica\u2013San Blas Passage",
       "date": "2002-01-18a",
       "pageFile": null,
       "dateDisplay": "Thursday, January 18"
@@ -1744,7 +2200,7 @@
     {
       "scanPath": "images/scans/2002-01-18b.jpg",
       "legId": "leg-02",
-      "stopName": "Jamaica–San Blas Passage",
+      "stopName": "Jamaica\u2013San Blas Passage",
       "date": "2002-01-18b",
       "pageFile": null,
       "dateDisplay": "Friday, January 18 [likely January 17]"
@@ -1752,7 +2208,7 @@
     {
       "scanPath": "images/scans/2002-01-19.jpg",
       "legId": "leg-02",
-      "stopName": "Jamaica–San Blas Passage",
+      "stopName": "Jamaica\u2013San Blas Passage",
       "date": "2002-01-19",
       "pageFile": null,
       "dateDisplay": "Saturday, January 19"
@@ -1760,7 +2216,7 @@
     {
       "scanPath": "images/scans/2002-01-20.jpg",
       "legId": "leg-02",
-      "stopName": "Jamaica–San Blas Passage",
+      "stopName": "Jamaica\u2013San Blas Passage",
       "date": "2002-01-20",
       "pageFile": null,
       "dateDisplay": "Sunday, January 20, 2002"
@@ -1768,7 +2224,7 @@
     {
       "scanPath": "images/scans/2002-01-21.jpg",
       "legId": "leg-02",
-      "stopName": "Jamaica–San Blas Passage",
+      "stopName": "Jamaica\u2013San Blas Passage",
       "date": "2002-01-21",
       "pageFile": null,
       "dateDisplay": "Monday, January 21"
@@ -1787,12 +2243,12 @@
       "stopName": "Portobelo",
       "date": "2002-02-02",
       "pageFile": null,
-      "dateDisplay": "Saturday, February 2 — departure for Portobelo"
+      "dateDisplay": "Saturday, February 2 \u2014 departure for Portobelo"
     },
     {
       "scanPath": "images/scans/2002-02-06a.jpg",
       "legId": "leg-02",
-      "stopName": "Colón",
+      "stopName": "Col\u00f3n",
       "date": "2002-02-06",
       "pageFile": "Pg8-Pg38_p03.jpg",
       "dateDisplay": "Wednesday, February 6 (part 1 of 2)"
@@ -1800,7 +2256,7 @@
     {
       "scanPath": "images/scans/2002-02-06b.jpg",
       "legId": "leg-02",
-      "stopName": "Colón",
+      "stopName": "Col\u00f3n",
       "date": "2002-02-06",
       "pageFile": "Pg8-Pg38_p04.jpg",
       "dateDisplay": "Wednesday, February 6 (part 2 of 2)"
@@ -1808,7 +2264,7 @@
     {
       "scanPath": "images/scans/2002-02-19.jpg",
       "legId": "leg-02",
-      "stopName": "Colón",
+      "stopName": "Col\u00f3n",
       "date": "2002-02-19",
       "pageFile": null,
       "dateDisplay": "Tuesday, February 19"
@@ -1840,7 +2296,7 @@
     {
       "scanPath": "images/scans/2002-03-14.jpg",
       "legId": "leg-02",
-      "stopName": "Las Perlas–Galápagos Passage",
+      "stopName": "Las Perlas\u2013Gal\u00e1pagos Passage",
       "date": "2002-03-14",
       "pageFile": null,
       "dateDisplay": "Thursday, March 14"
@@ -1848,7 +2304,7 @@
     {
       "scanPath": "images/scans/2002-03-15.jpg",
       "legId": "leg-02",
-      "stopName": "Las Perlas–Galápagos Passage",
+      "stopName": "Las Perlas\u2013Gal\u00e1pagos Passage",
       "date": "2002-03-15",
       "pageFile": null,
       "dateDisplay": "Friday, March 15"
@@ -1856,7 +2312,7 @@
     {
       "scanPath": "images/scans/2002-03-16.jpg",
       "legId": "leg-02",
-      "stopName": "Las Perlas–Galápagos Passage",
+      "stopName": "Las Perlas\u2013Gal\u00e1pagos Passage",
       "date": "2002-03-16",
       "pageFile": null,
       "dateDisplay": "Saturday, March 16"
@@ -1864,7 +2320,7 @@
     {
       "scanPath": "images/scans/2002-03-17.jpg",
       "legId": "leg-02",
-      "stopName": "Las Perlas–Galápagos Passage",
+      "stopName": "Las Perlas\u2013Gal\u00e1pagos Passage",
       "date": "2002-03-17",
       "pageFile": null,
       "dateDisplay": "Sunday, March 17"
@@ -1872,7 +2328,7 @@
     {
       "scanPath": "images/scans/2002-03-18.jpg",
       "legId": "leg-02",
-      "stopName": "Las Perlas–Galápagos Passage",
+      "stopName": "Las Perlas\u2013Gal\u00e1pagos Passage",
       "date": "2002-03-18",
       "pageFile": null,
       "dateDisplay": "Monday, March 18"
@@ -1880,7 +2336,7 @@
     {
       "scanPath": "images/scans/2002-03-20.jpg",
       "legId": "leg-02",
-      "stopName": "Las Perlas–Galápagos Passage",
+      "stopName": "Las Perlas\u2013Gal\u00e1pagos Passage",
       "date": "2002-03-20",
       "pageFile": null,
       "dateDisplay": "Wednesday, March 20"
@@ -1888,7 +2344,7 @@
     {
       "scanPath": "images/scans/2002-03-22.jpg",
       "legId": "leg-02",
-      "stopName": "San Cristóbal, Galápagos (Wreck Bay)",
+      "stopName": "San Crist\u00f3bal, Gal\u00e1pagos (Wreck Bay)",
       "date": "2002-03-22",
       "pageFile": null,
       "dateDisplay": "Friday, March 22, 2002"
@@ -1896,7 +2352,7 @@
     {
       "scanPath": "images/scans/2002-04-01.jpg",
       "legId": "leg-02",
-      "stopName": "San Cristóbal, Galápagos (Wreck Bay)",
+      "stopName": "San Crist\u00f3bal, Gal\u00e1pagos (Wreck Bay)",
       "date": "2002-04-01",
       "pageFile": null,
       "dateDisplay": "Monday, April 1"
@@ -1904,7 +2360,7 @@
     {
       "scanPath": "images/scans/2002-04-02.jpg",
       "legId": "leg-02",
-      "stopName": "Isabela, Galápagos (Puerto Villamil)",
+      "stopName": "Isabela, Gal\u00e1pagos (Puerto Villamil)",
       "date": "2002-04-02",
       "pageFile": null,
       "dateDisplay": "Tuesday, April 2"
@@ -1912,7 +2368,7 @@
     {
       "scanPath": "images/scans/2002-04-14a.jpg",
       "legId": "leg-02",
-      "stopName": "Isabela, Galápagos (Puerto Villamil)",
+      "stopName": "Isabela, Gal\u00e1pagos (Puerto Villamil)",
       "date": "2002-04-14",
       "pageFile": "Pg8-Pg38_p09.jpg",
       "dateDisplay": "Sunday, April 14 (part 1 of 2)"
@@ -1920,7 +2376,7 @@
     {
       "scanPath": "images/scans/2002-04-14b.jpg",
       "legId": "leg-02",
-      "stopName": "Isabela, Galápagos (Puerto Villamil)",
+      "stopName": "Isabela, Gal\u00e1pagos (Puerto Villamil)",
       "date": "2002-04-14",
       "pageFile": "Pg8-Pg38_p10.jpg",
       "dateDisplay": "Sunday, April 14 (part 2 of 2)"
@@ -1928,7 +2384,7 @@
     {
       "scanPath": "images/scans/2002-04-15.jpg",
       "legId": "leg-03",
-      "stopName": "Galápagos–Marquesas Passage",
+      "stopName": "Gal\u00e1pagos\u2013Marquesas Passage",
       "date": "2002-04-15",
       "pageFile": null,
       "dateDisplay": "Monday, April 15"
@@ -1936,7 +2392,7 @@
     {
       "scanPath": "images/scans/2002-04-16.jpg",
       "legId": "leg-03",
-      "stopName": "Galápagos–Marquesas Passage",
+      "stopName": "Gal\u00e1pagos\u2013Marquesas Passage",
       "date": "2002-04-16",
       "pageFile": null,
       "dateDisplay": "Tuesday, April 16"
@@ -1944,7 +2400,7 @@
     {
       "scanPath": "images/scans/2002-04-17.jpg",
       "legId": "leg-03",
-      "stopName": "Galápagos–Marquesas Passage",
+      "stopName": "Gal\u00e1pagos\u2013Marquesas Passage",
       "date": "2002-04-17",
       "pageFile": null,
       "dateDisplay": "Wednesday, April 17"
@@ -1952,7 +2408,7 @@
     {
       "scanPath": "images/scans/2002-04-18.jpg",
       "legId": "leg-03",
-      "stopName": "Galápagos–Marquesas Passage",
+      "stopName": "Gal\u00e1pagos\u2013Marquesas Passage",
       "date": "2002-04-18",
       "pageFile": null,
       "dateDisplay": "Thursday, April 18"
@@ -1960,7 +2416,7 @@
     {
       "scanPath": "images/scans/2002-04-19.jpg",
       "legId": "leg-03",
-      "stopName": "Galápagos–Marquesas Passage",
+      "stopName": "Gal\u00e1pagos\u2013Marquesas Passage",
       "date": "2002-04-19",
       "pageFile": null,
       "dateDisplay": "Friday, April 19"
@@ -1968,7 +2424,7 @@
     {
       "scanPath": "images/scans/2002-04-20.jpg",
       "legId": "leg-03",
-      "stopName": "Galápagos–Marquesas Passage",
+      "stopName": "Gal\u00e1pagos\u2013Marquesas Passage",
       "date": "2002-04-20",
       "pageFile": null,
       "dateDisplay": "Saturday, April 20"
@@ -1976,7 +2432,7 @@
     {
       "scanPath": "images/scans/2002-04-21.jpg",
       "legId": "leg-03",
-      "stopName": "Galápagos–Marquesas Passage",
+      "stopName": "Gal\u00e1pagos\u2013Marquesas Passage",
       "date": "2002-04-21",
       "pageFile": null,
       "dateDisplay": "Sunday, April 21"
@@ -1984,7 +2440,7 @@
     {
       "scanPath": "images/scans/2002-04-22.jpg",
       "legId": "leg-03",
-      "stopName": "Galápagos–Marquesas Passage",
+      "stopName": "Gal\u00e1pagos\u2013Marquesas Passage",
       "date": "2002-04-22",
       "pageFile": null,
       "dateDisplay": "Monday, April 22"
@@ -1992,7 +2448,7 @@
     {
       "scanPath": "images/scans/2002-04-23.jpg",
       "legId": "leg-03",
-      "stopName": "Galápagos–Marquesas Passage",
+      "stopName": "Gal\u00e1pagos\u2013Marquesas Passage",
       "date": "2002-04-23",
       "pageFile": null,
       "dateDisplay": "Tuesday, April 23"
@@ -2000,7 +2456,7 @@
     {
       "scanPath": "images/scans/2002-04-24.jpg",
       "legId": "leg-03",
-      "stopName": "Galápagos–Marquesas Passage",
+      "stopName": "Gal\u00e1pagos\u2013Marquesas Passage",
       "date": "2002-04-24",
       "pageFile": null,
       "dateDisplay": "Wednesday, April 24"
@@ -2008,7 +2464,7 @@
     {
       "scanPath": "images/scans/2002-04-25.jpg",
       "legId": "leg-03",
-      "stopName": "Galápagos–Marquesas Passage",
+      "stopName": "Gal\u00e1pagos\u2013Marquesas Passage",
       "date": "2002-04-25",
       "pageFile": null,
       "dateDisplay": "Thursday, April 25"
@@ -2016,7 +2472,7 @@
     {
       "scanPath": "images/scans/2002-04-26.jpg",
       "legId": "leg-03",
-      "stopName": "Galápagos–Marquesas Passage",
+      "stopName": "Gal\u00e1pagos\u2013Marquesas Passage",
       "date": "2002-04-26",
       "pageFile": null,
       "dateDisplay": "Friday, April 26"
@@ -2024,7 +2480,7 @@
     {
       "scanPath": "images/scans/2002-04-27.jpg",
       "legId": "leg-03",
-      "stopName": "Galápagos–Marquesas Passage",
+      "stopName": "Gal\u00e1pagos\u2013Marquesas Passage",
       "date": "2002-04-27",
       "pageFile": null,
       "dateDisplay": "Saturday, April 27"
@@ -2032,7 +2488,7 @@
     {
       "scanPath": "images/scans/2002-04-28.jpg",
       "legId": "leg-03",
-      "stopName": "Galápagos–Marquesas Passage",
+      "stopName": "Gal\u00e1pagos\u2013Marquesas Passage",
       "date": "2002-04-28",
       "pageFile": null,
       "dateDisplay": "Sunday, April 28"
@@ -2040,7 +2496,7 @@
     {
       "scanPath": "images/scans/2002-04-29.jpg",
       "legId": "leg-03",
-      "stopName": "Galápagos–Marquesas Passage",
+      "stopName": "Gal\u00e1pagos\u2013Marquesas Passage",
       "date": "2002-04-29",
       "pageFile": null,
       "dateDisplay": "Monday, April 29"
@@ -2048,7 +2504,7 @@
     {
       "scanPath": "images/scans/2002-04-30.jpg",
       "legId": "leg-03",
-      "stopName": "Galápagos–Marquesas Passage",
+      "stopName": "Gal\u00e1pagos\u2013Marquesas Passage",
       "date": "2002-04-30",
       "pageFile": null,
       "dateDisplay": "Tuesday, April 30, 2002"
@@ -2056,7 +2512,7 @@
     {
       "scanPath": "images/scans/2002-05-01.jpg",
       "legId": "leg-03",
-      "stopName": "Galápagos–Marquesas Passage",
+      "stopName": "Gal\u00e1pagos\u2013Marquesas Passage",
       "date": "2002-05-01",
       "pageFile": null,
       "dateDisplay": "Wednesday, May 1"
@@ -2064,7 +2520,7 @@
     {
       "scanPath": "images/scans/2002-05-02.jpg",
       "legId": "leg-03",
-      "stopName": "Galápagos–Marquesas Passage",
+      "stopName": "Gal\u00e1pagos\u2013Marquesas Passage",
       "date": "2002-05-02",
       "pageFile": null,
       "dateDisplay": "Thursday, May 2"
@@ -2072,7 +2528,7 @@
     {
       "scanPath": "images/scans/2002-05-03.jpg",
       "legId": "leg-03",
-      "stopName": "Galápagos–Marquesas Passage",
+      "stopName": "Gal\u00e1pagos\u2013Marquesas Passage",
       "date": "2002-05-03",
       "pageFile": null,
       "dateDisplay": "Friday, May 3"
@@ -2080,7 +2536,7 @@
     {
       "scanPath": "images/scans/2002-05-04.jpg",
       "legId": "leg-03",
-      "stopName": "Galápagos–Marquesas Passage",
+      "stopName": "Gal\u00e1pagos\u2013Marquesas Passage",
       "date": "2002-05-04",
       "pageFile": null,
       "dateDisplay": "Saturday, May 4"
@@ -2088,7 +2544,7 @@
     {
       "scanPath": "images/scans/2002-05-20a.jpg",
       "legId": "leg-03",
-      "stopName": "Marquesas — Nuku Hiva & Ua Pou",
+      "stopName": "Marquesas \u2014 Nuku Hiva & Ua Pou",
       "date": "2002-05-20a",
       "pageFile": null,
       "dateDisplay": "Monday, May 20"
@@ -2096,7 +2552,7 @@
     {
       "scanPath": "images/scans/2002-05-20b.jpg",
       "legId": "leg-03",
-      "stopName": "Marquesas — Nuku Hiva & Ua Pou",
+      "stopName": "Marquesas \u2014 Nuku Hiva & Ua Pou",
       "date": "2002-05-20b",
       "pageFile": null,
       "dateDisplay": "Monday, May 20 (continued)"
@@ -2104,7 +2560,7 @@
     {
       "scanPath": "images/scans/2002-05-21.jpg",
       "legId": "leg-03",
-      "stopName": "Marquesas–Tuamotus Passage",
+      "stopName": "Marquesas\u2013Tuamotus Passage",
       "date": "2002-05-21",
       "pageFile": null,
       "dateDisplay": "Tuesday, May 21"
@@ -2112,7 +2568,7 @@
     {
       "scanPath": "images/scans/2002-05-22.jpg",
       "legId": "leg-03",
-      "stopName": "Marquesas–Tuamotus Passage",
+      "stopName": "Marquesas\u2013Tuamotus Passage",
       "date": "2002-05-22",
       "pageFile": null,
       "dateDisplay": "Wednesday, May 22"
@@ -2120,7 +2576,7 @@
     {
       "scanPath": "images/scans/2002-05-23.jpg",
       "legId": "leg-03",
-      "stopName": "Marquesas–Tuamotus Passage",
+      "stopName": "Marquesas\u2013Tuamotus Passage",
       "date": "2002-05-23",
       "pageFile": null,
       "dateDisplay": "Thursday, May 23"
@@ -2128,7 +2584,7 @@
     {
       "scanPath": "images/scans/2002-05-24.jpg",
       "legId": "leg-03",
-      "stopName": "Marquesas–Tuamotus Passage",
+      "stopName": "Marquesas\u2013Tuamotus Passage",
       "date": "2002-05-24",
       "pageFile": null,
       "dateDisplay": "Friday, May 24"
@@ -2136,7 +2592,7 @@
     {
       "scanPath": "images/scans/2002-05-25.jpg",
       "legId": "leg-03",
-      "stopName": "Marquesas–Tuamotus Passage",
+      "stopName": "Marquesas\u2013Tuamotus Passage",
       "date": "2002-05-25",
       "pageFile": null,
       "dateDisplay": "Saturday, May 25"
@@ -2160,7 +2616,7 @@
     {
       "scanPath": "images/scans/2002-06-12.jpg",
       "legId": "leg-03",
-      "stopName": "Tuamotus–Tahiti Passage",
+      "stopName": "Tuamotus\u2013Tahiti Passage",
       "date": "2002-06-12",
       "pageFile": null,
       "dateDisplay": "Wednesday, June 12"
@@ -2208,7 +2664,7 @@
     {
       "scanPath": "images/scans/2002-07-18.jpg",
       "legId": "leg-04",
-      "stopName": "Bora Bora–Niue Passage (Cooks bypassed)",
+      "stopName": "Bora Bora\u2013Niue Passage (Cooks bypassed)",
       "date": "2002-07-18",
       "pageFile": null,
       "dateDisplay": "Thursday, July 18"
@@ -2216,7 +2672,7 @@
     {
       "scanPath": "images/scans/2002-07-19.jpg",
       "legId": "leg-04",
-      "stopName": "Bora Bora–Niue Passage (Cooks bypassed)",
+      "stopName": "Bora Bora\u2013Niue Passage (Cooks bypassed)",
       "date": "2002-07-19",
       "pageFile": null,
       "dateDisplay": "Friday, July 19"
@@ -2224,7 +2680,7 @@
     {
       "scanPath": "images/scans/2002-07-20.jpg",
       "legId": "leg-04",
-      "stopName": "Bora Bora–Niue Passage (Cooks bypassed)",
+      "stopName": "Bora Bora\u2013Niue Passage (Cooks bypassed)",
       "date": "2002-07-20",
       "pageFile": null,
       "dateDisplay": "Saturday, July 20"
@@ -2232,7 +2688,7 @@
     {
       "scanPath": "images/scans/2002-07-21.jpg",
       "legId": "leg-04",
-      "stopName": "Bora Bora–Niue Passage (Cooks bypassed)",
+      "stopName": "Bora Bora\u2013Niue Passage (Cooks bypassed)",
       "date": "2002-07-21",
       "pageFile": null,
       "dateDisplay": "Sunday, July 21"
@@ -2240,7 +2696,7 @@
     {
       "scanPath": "images/scans/2002-07-22.jpg",
       "legId": "leg-04",
-      "stopName": "Bora Bora–Niue Passage (Cooks bypassed)",
+      "stopName": "Bora Bora\u2013Niue Passage (Cooks bypassed)",
       "date": "2002-07-22",
       "pageFile": null,
       "dateDisplay": "Monday, July 22"
@@ -2248,7 +2704,7 @@
     {
       "scanPath": "images/scans/2002-07-23.jpg",
       "legId": "leg-04",
-      "stopName": "Bora Bora–Niue Passage (Cooks bypassed)",
+      "stopName": "Bora Bora\u2013Niue Passage (Cooks bypassed)",
       "date": "2002-07-23",
       "pageFile": null,
       "dateDisplay": "Tuesday, July 23"
@@ -2256,7 +2712,7 @@
     {
       "scanPath": "images/scans/2002-07-24.jpg",
       "legId": "leg-04",
-      "stopName": "Bora Bora–Niue Passage (Cooks bypassed)",
+      "stopName": "Bora Bora\u2013Niue Passage (Cooks bypassed)",
       "date": "2002-07-24",
       "pageFile": null,
       "dateDisplay": "Wednesday, July 24"
@@ -2280,7 +2736,7 @@
     {
       "scanPath": "images/scans/2002-07-30.jpg",
       "legId": "leg-04",
-      "stopName": "Niue–Tonga Passage",
+      "stopName": "Niue\u2013Tonga Passage",
       "date": "2002-07-30",
       "pageFile": null,
       "dateDisplay": "Tuesday, July 30"
@@ -2384,7 +2840,7 @@
     {
       "scanPath": "images/scans/2002-10-13.jpg",
       "legId": "leg-05",
-      "stopName": "Tonga–New Zealand Passage",
+      "stopName": "Tonga\u2013New Zealand Passage",
       "date": "2002-10-13",
       "pageFile": null,
       "dateDisplay": "Sunday, October 13"
@@ -2392,7 +2848,7 @@
     {
       "scanPath": "images/scans/2002-10-14.jpg",
       "legId": "leg-05",
-      "stopName": "Tonga–New Zealand Passage",
+      "stopName": "Tonga\u2013New Zealand Passage",
       "date": "2002-10-14",
       "pageFile": null,
       "dateDisplay": "Monday, October 14"
@@ -2400,7 +2856,7 @@
     {
       "scanPath": "images/scans/2002-10-15.jpg",
       "legId": "leg-05",
-      "stopName": "Tonga–New Zealand Passage",
+      "stopName": "Tonga\u2013New Zealand Passage",
       "date": "2002-10-15",
       "pageFile": null,
       "dateDisplay": "Tuesday, October 15"
@@ -2408,7 +2864,7 @@
     {
       "scanPath": "images/scans/2002-10-16.jpg",
       "legId": "leg-05",
-      "stopName": "Tonga–New Zealand Passage",
+      "stopName": "Tonga\u2013New Zealand Passage",
       "date": "2002-10-16",
       "pageFile": null,
       "dateDisplay": "Wednesday, October 16"
@@ -2416,7 +2872,7 @@
     {
       "scanPath": "images/scans/2002-10-17.jpg",
       "legId": "leg-05",
-      "stopName": "Tonga–New Zealand Passage",
+      "stopName": "Tonga\u2013New Zealand Passage",
       "date": "2002-10-17",
       "pageFile": null,
       "dateDisplay": "Thursday, October 17"
@@ -2424,7 +2880,7 @@
     {
       "scanPath": "images/scans/2002-10-18.jpg",
       "legId": "leg-05",
-      "stopName": "Tonga–New Zealand Passage",
+      "stopName": "Tonga\u2013New Zealand Passage",
       "date": "2002-10-18",
       "pageFile": null,
       "dateDisplay": "Friday, October 18"
@@ -2432,7 +2888,7 @@
     {
       "scanPath": "images/scans/2002-10-19.jpg",
       "legId": "leg-05",
-      "stopName": "Tonga–New Zealand Passage",
+      "stopName": "Tonga\u2013New Zealand Passage",
       "date": "2002-10-19",
       "pageFile": null,
       "dateDisplay": "Saturday, October 19, 2002"
@@ -2440,7 +2896,7 @@
     {
       "scanPath": "images/scans/2002-10-20.jpg",
       "legId": "leg-05",
-      "stopName": "Tonga–New Zealand Passage",
+      "stopName": "Tonga\u2013New Zealand Passage",
       "date": "2002-10-20",
       "pageFile": null,
       "dateDisplay": "Sunday, October 20"
@@ -2448,7 +2904,7 @@
     {
       "scanPath": "images/scans/2002-10-21.jpg",
       "legId": "leg-05",
-      "stopName": "Tonga–New Zealand Passage",
+      "stopName": "Tonga\u2013New Zealand Passage",
       "date": "2002-10-21",
       "pageFile": null,
       "dateDisplay": "Monday, October 21"
@@ -2456,7 +2912,7 @@
     {
       "scanPath": "images/scans/2002-10-23a.jpg",
       "legId": "leg-05",
-      "stopName": "Tonga–New Zealand Passage",
+      "stopName": "Tonga\u2013New Zealand Passage",
       "date": "2002-10-23",
       "pageFile": "Pg8-Pg38_p30.jpg",
       "dateDisplay": "Wednesday, October 23 (part 1 of 2)"
@@ -2464,7 +2920,7 @@
     {
       "scanPath": "images/scans/2002-10-23b.jpg",
       "legId": "leg-05",
-      "stopName": "Tonga–New Zealand Passage",
+      "stopName": "Tonga\u2013New Zealand Passage",
       "date": "2002-10-23",
       "pageFile": "Pg8-Pg38_p31.jpg",
       "dateDisplay": "Wednesday, October 23 (part 2 of 2)"
@@ -2544,7 +3000,7 @@
     {
       "scanPath": "images/scans/2003-05-13.jpg",
       "legId": "leg-06",
-      "stopName": "New Zealand–Fiji Passage",
+      "stopName": "New Zealand\u2013Fiji Passage",
       "date": "2003-05-13",
       "pageFile": null,
       "dateDisplay": "Tuesday, May 13"
@@ -2552,7 +3008,7 @@
     {
       "scanPath": "images/scans/2003-05-14.jpg",
       "legId": "leg-06",
-      "stopName": "New Zealand–Fiji Passage",
+      "stopName": "New Zealand\u2013Fiji Passage",
       "date": "2003-05-14",
       "pageFile": null,
       "dateDisplay": "Wednesday, May 14"
@@ -2560,7 +3016,7 @@
     {
       "scanPath": "images/scans/2003-05-15.jpg",
       "legId": "leg-06",
-      "stopName": "New Zealand–Fiji Passage",
+      "stopName": "New Zealand\u2013Fiji Passage",
       "date": "2003-05-15",
       "pageFile": null,
       "dateDisplay": "Thursday, May 15, 2003"
@@ -2568,7 +3024,7 @@
     {
       "scanPath": "images/scans/2003-05-16.jpg",
       "legId": "leg-06",
-      "stopName": "New Zealand–Fiji Passage",
+      "stopName": "New Zealand\u2013Fiji Passage",
       "date": "2003-05-16",
       "pageFile": null,
       "dateDisplay": "Friday, May 16"
@@ -2576,7 +3032,7 @@
     {
       "scanPath": "images/scans/2003-05-17.jpg",
       "legId": "leg-06",
-      "stopName": "New Zealand–Fiji Passage",
+      "stopName": "New Zealand\u2013Fiji Passage",
       "date": "2003-05-17",
       "pageFile": null,
       "dateDisplay": "Saturday, May 17"
@@ -2584,7 +3040,7 @@
     {
       "scanPath": "images/scans/2003-05-18.jpg",
       "legId": "leg-06",
-      "stopName": "New Zealand–Fiji Passage",
+      "stopName": "New Zealand\u2013Fiji Passage",
       "date": "2003-05-18",
       "pageFile": null,
       "dateDisplay": "Sunday, May 18"
@@ -2592,7 +3048,7 @@
     {
       "scanPath": "images/scans/2003-05-19.jpg",
       "legId": "leg-06",
-      "stopName": "New Zealand–Fiji Passage",
+      "stopName": "New Zealand\u2013Fiji Passage",
       "date": "2003-05-19",
       "pageFile": null,
       "dateDisplay": "Monday, May 19"
@@ -2600,7 +3056,7 @@
     {
       "scanPath": "images/scans/2003-05-20.jpg",
       "legId": "leg-06",
-      "stopName": "New Zealand–Fiji Passage",
+      "stopName": "New Zealand\u2013Fiji Passage",
       "date": "2003-05-20",
       "pageFile": null,
       "dateDisplay": "Tuesday, May 20"
@@ -2608,7 +3064,7 @@
     {
       "scanPath": "images/scans/2003-05-21.jpg",
       "legId": "leg-06",
-      "stopName": "New Zealand–Fiji Passage",
+      "stopName": "New Zealand\u2013Fiji Passage",
       "date": "2003-05-21",
       "pageFile": null,
       "dateDisplay": "Wednesday, May 21"
@@ -2616,7 +3072,7 @@
     {
       "scanPath": "images/scans/2003-05-22.jpg",
       "legId": "leg-06",
-      "stopName": "New Zealand–Fiji Passage",
+      "stopName": "New Zealand\u2013Fiji Passage",
       "date": "2003-05-22",
       "pageFile": null,
       "dateDisplay": "Thursday, May 22"
@@ -2624,7 +3080,7 @@
     {
       "scanPath": "images/scans/2003-05-23a.jpg",
       "legId": "leg-06",
-      "stopName": "New Zealand–Fiji Passage",
+      "stopName": "New Zealand\u2013Fiji Passage",
       "date": "2003-05-23",
       "pageFile": "Pg39-Pg53_p07.jpg",
       "dateDisplay": "Friday, May 23 (part 1 of 2)"
@@ -2632,7 +3088,7 @@
     {
       "scanPath": "images/scans/2003-05-23b.jpg",
       "legId": "leg-06",
-      "stopName": "New Zealand–Fiji Passage",
+      "stopName": "New Zealand\u2013Fiji Passage",
       "date": "2003-05-23",
       "pageFile": "Pg39-Pg53_p08.jpg",
       "dateDisplay": "Friday, May 23 (part 2 of 2)"
@@ -2640,7 +3096,7 @@
     {
       "scanPath": "images/scans/2003-05-24.jpg",
       "legId": "leg-06",
-      "stopName": "New Zealand–Fiji Passage",
+      "stopName": "New Zealand\u2013Fiji Passage",
       "date": "2003-05-24",
       "pageFile": null,
       "dateDisplay": "Saturday, May 24, 2003"
@@ -2768,7 +3224,7 @@
     {
       "scanPath": "images/scans/2003-08-17.jpg",
       "legId": "leg-06",
-      "stopName": "Fiji–Vanuatu Passage",
+      "stopName": "Fiji\u2013Vanuatu Passage",
       "date": "2003-08-17",
       "pageFile": null,
       "dateDisplay": "Sunday, August 17"
@@ -2776,7 +3232,7 @@
     {
       "scanPath": "images/scans/2003-08-19.jpg",
       "legId": "leg-06",
-      "stopName": "Fiji–Vanuatu Passage",
+      "stopName": "Fiji\u2013Vanuatu Passage",
       "date": "2003-08-19",
       "pageFile": null,
       "dateDisplay": "Tuesday, August 19"
@@ -2784,7 +3240,7 @@
     {
       "scanPath": "images/scans/2003-08-20.jpg",
       "legId": "leg-06",
-      "stopName": "Fiji–Vanuatu Passage",
+      "stopName": "Fiji\u2013Vanuatu Passage",
       "date": "2003-08-20",
       "pageFile": null,
       "dateDisplay": "Wednesday, August 20"
@@ -2792,7 +3248,7 @@
     {
       "scanPath": "images/scans/2003-08-21.jpg",
       "legId": "leg-06",
-      "stopName": "Fiji–Vanuatu Passage",
+      "stopName": "Fiji\u2013Vanuatu Passage",
       "date": "2003-08-21",
       "pageFile": null,
       "dateDisplay": "Thursday, August 21"
@@ -2800,7 +3256,7 @@
     {
       "scanPath": "images/scans/2003-08-22.jpg",
       "legId": "leg-06",
-      "stopName": "Fiji–Vanuatu Passage",
+      "stopName": "Fiji\u2013Vanuatu Passage",
       "date": "2003-08-22",
       "pageFile": null,
       "dateDisplay": "Friday, August 22"

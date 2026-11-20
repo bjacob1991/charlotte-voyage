@@ -4423,6 +4423,40 @@
           "caption": "Tobago — tobago_012"
         }
       ]
+    },
+    "georgetown": {
+      "title": "Georgetown, Exuma",
+      "amazon_album": null,
+      "photos": [
+        {
+          "file": "images/photos/albums/georgetown/georgetown_001.jpg",
+          "caption": "Georgetown, Exuma — georgetown_001"
+        },
+        {
+          "file": "images/photos/albums/georgetown/georgetown_002.jpg",
+          "caption": "Georgetown, Exuma — georgetown_002"
+        },
+        {
+          "file": "images/photos/albums/georgetown/georgetown_003.jpg",
+          "caption": "Georgetown, Exuma — georgetown_003"
+        },
+        {
+          "file": "images/photos/albums/georgetown/georgetown_004.jpg",
+          "caption": "Georgetown, Exuma — georgetown_004"
+        },
+        {
+          "file": "images/photos/albums/georgetown/georgetown_005.jpg",
+          "caption": "Georgetown, Exuma — georgetown_005"
+        },
+        {
+          "file": "images/photos/albums/georgetown/georgetown_006.jpg",
+          "caption": "Georgetown, Exuma — georgetown_006"
+        },
+        {
+          "file": "images/photos/albums/georgetown/georgetown_007.jpg",
+          "caption": "Georgetown, Exuma — georgetown_007"
+        }
+      ]
     }
   }
 }

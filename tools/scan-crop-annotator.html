@@ -129,9 +129,9 @@
       border-radius: 8px;
       padding: 7px 8px;
       display: grid;
-      grid-template-columns: auto 1fr auto;
-      gap: 8px;
-      align-items: center;
+      grid-template-columns: auto 1fr;
+      gap: 2px 8px;
+      align-items: start;
       cursor: pointer;
       background: #0b1220;
     }
@@ -161,8 +161,10 @@
       word-break: break-all;
     }
     .item .meta {
+      grid-column: 2;
       color: var(--muted);
       font-size: 11px;
+      line-height: 1.35;
     }
     .footer {
       padding: 8px 10px;
@@ -996,7 +998,7 @@
     }
 
     async function loadExportedPages() {
-      const res = await fetch('../images/scans/_pages/manifest.json');
+      const res = await fetch('../images/scans/_pages/manifest.json?v=' + Date.now(), { cache: 'no-store' });
       if (!res.ok) {
         throw new Error(
           'Could not load images/scans/_pages/manifest.json. Run: python scripts/export-pdf-pages.py'

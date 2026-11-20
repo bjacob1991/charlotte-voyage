@@ -17,16 +17,15 @@ Data field reference: `data/SCHEMA.md`.
 **Done so far:**
 - [x] Legs 01–07 on site (`in-progress`); legs 08–10 `planned` in `data/manifest.json` (10-leg breakdown)
 - [x] Pg8–Pg53 scan crops on disk (151/151 expected coverage)
-- [x] Pg54–Pg69 proofread and loaded into JSON — leg-06 through Oct 16; leg-07 Australia from Oct 29 (Coral Sea → Southport)
-- [x] Crop annotator, `scan-layout.json`, multi-page A/B splits (including 8 Pg54–69 splits registered; crop images still pending)
+- [x] Pg54–Pg69 proofread, loaded, and cropped (189/189 coverage through that batch)
+- [x] Crop annotator, `scan-layout.json`, multi-page A/B splits
 - [x] Passage meta, at-sea/anchorage icons, map photo badges
-- [x] Pg70–Pg99 AI draft in `transcripts/drafts/Pg70-Pg99-draft.md` (not proofread; do not generate JSON yet)
+- [x] Pg70–Pg118 reviewed and loaded (2026-11-20). Leg-07 runs through Darwin (Jul 16, 2004). Legs 08–10 are `in-progress`: Indian Ocean, South Africa & the South Atlantic, Caribbean & home (last entry Apr 18, 2005, Gibson Dry Dock). 151 new scan targets; 15 of them span two or three pages.
 
 **Next:**
-1. **Crop Pg54–Pg69** — `tools/scan-crop-annotator.html` → draw boxes for `Pg54-Pg69_p01`…`p16` (A/B targets already in `data/scan-layout.json`) → `python scripts/crop-scans.py`
+1. **Crop Pg70–Pg118** — `tools/scan-crop-annotator.html` → draw boxes for `Pg70-Pg99_p01`…`p30` and `Pg100-Pg118_p01`…`p19` (targets and page jumps are already in `data/scan-layout.json`) → `python scripts/crop-scans.py`
 2. `python scripts/check-scan-coverage.py` before committing that batch
-3. **Proofread Pg70–Pg99** against page images, then extend leg-07 / open leg-08 (Indian Ocean) as the log requires
-4. Continue until all ten legs are `"complete"` in the manifest
+3. Mark legs `"complete"` in `data/manifest.json` once the crops are on disk and the text has had a final read on the site
 
 ## Phase 3 — IN PROGRESS (trip photos)
 

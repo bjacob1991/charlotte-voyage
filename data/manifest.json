@@ -53,19 +53,19 @@
       "id": "leg-08",
       "name": "The Indian Ocean",
       "file": "leg-08-indian-ocean.json",
-      "status": "planned"
+      "status": "in-progress"
     },
     {
       "id": "leg-09",
       "name": "South Africa & the South Atlantic",
       "file": "leg-09-south-africa-atlantic.json",
-      "status": "planned"
+      "status": "in-progress"
     },
     {
       "id": "leg-10",
       "name": "The Caribbean & Home",
       "file": "leg-10-caribbean-home.json",
-      "status": "planned"
+      "status": "in-progress"
     }
   ]
 }
