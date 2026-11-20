@@ -10,6 +10,12 @@ const VoyageMap = (function () {
   let onViewChange = null;
   let viewChangeTimer = null;
   let suppressViewChange = false;
+  let routePoints = [];
+  let routeLine = null;
+  let routeSegKm = [];
+  let routeTotalKm = 0;
+  let introToken = 0;
+  let introFrame = null;
 
   const ROUTE_STYLE = { color: '#185fa5', weight: 2.5, dashArray: '6 6', opacity: 0.85 };
   const GLOBAL_ZOOM_MAX = 4;
@@ -97,9 +103,129 @@ const VoyageMap = (function () {
     return unwrappedByN[stop.globalN] || [stop.lat, stop.lng];
   }
 
-  function drawVoyageRoute(latlngs, layerGroup) {
+  function kmBetween(a, b) {
+    const toRad = Math.PI / 180;
+    const dLat = (b[0] - a[0]) * toRad;
+    const dLng = (b[1] - a[1]) * toRad;
+    const lat1 = a[0] * toRad;
+    const lat2 = b[0] * toRad;
+    const h =
+      Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+      Math.cos(lat1) * Math.cos(lat2) * Math.sin(dLng / 2) * Math.sin(dLng / 2);
+    return 6371 * 2 * Math.asin(Math.min(1, Math.sqrt(h)));
+  }
+
+  function rememberRoute(latlngs) {
+    routePoints = latlngs;
+    routeSegKm = [];
+    routeTotalKm = 0;
+    for (let i = 1; i < latlngs.length; i++) {
+      const km = kmBetween(latlngs[i - 1], latlngs[i]);
+      routeSegKm.push(km);
+      routeTotalKm += km;
+    }
+    if (routeLine) {
+      map.removeLayer(routeLine);
+      routeLine = null;
+    }
     if (latlngs.length < 2) return;
-    L.polyline(latlngs, ROUTE_STYLE).addTo(layerGroup);
+    routeLine = L.polyline(latlngs, ROUTE_STYLE).addTo(map);
+  }
+
+  function routeSlice(distanceKm) {
+    const pts = [routePoints[0]];
+    let remain = distanceKm;
+    for (let i = 0; i < routeSegKm.length; i++) {
+      const seg = routeSegKm[i];
+      const a = routePoints[i];
+      const b = routePoints[i + 1];
+      if (remain >= seg) {
+        pts.push(b);
+        remain -= seg;
+      } else {
+        const t = seg ? remain / seg : 0;
+        pts.push([a[0] + (b[0] - a[0]) * t, a[1] + (b[1] - a[1]) * t]);
+        break;
+      }
+    }
+    return pts;
+  }
+
+  function haltIntro() {
+    introToken += 1;
+    if (introFrame) {
+      cancelAnimationFrame(introFrame);
+      introFrame = null;
+    }
+  }
+
+  function restoreFullRoute() {
+    if (routeLine && routePoints.length) routeLine.setLatLngs(routePoints);
+  }
+
+  function frameDeparture(animate) {
+    if (!map || !routePoints.length) return;
+    const start = routePoints[0];
+    const zoom = map.getMinZoom();
+    const size = map.getSize();
+    suppressViewChange = true;
+    if (!size || !size.x) {
+      map.setView(start, zoom, { animate: false });
+      return;
+    }
+    // Zoomed all the way out, pan to the right-hand end of the track: Florida.
+    map.setView(start, zoom, { animate: !!animate, duration: animate ? 0.7 : 0 });
+  }
+
+  function playRouteIntro(done) {
+    const finish = () => {
+      if (done) done();
+    };
+    if (!map || routePoints.length < 2 || !routeTotalKm) {
+      restoreFullRoute();
+      frameDeparture(false);
+      finish();
+      return;
+    }
+    const reduce =
+      window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (reduce) {
+      haltIntro();
+      restoreFullRoute();
+      frameDeparture(false);
+      finish();
+      return;
+    }
+
+    haltIntro();
+    const token = introToken;
+    suppressViewChange = true;
+    const duration = 2800;
+    const started = performance.now();
+    const zoom = map.getMinZoom();
+    routeLine.setLatLngs([routePoints[0]]);
+    map.setView(routePoints[0], zoom, { animate: false });
+
+    const step = (now) => {
+      if (token !== introToken) return;
+      const t = Math.min(1, (now - started) / duration);
+      const eased = t * t * (3 - 2 * t);
+      const pts = routeSlice(eased * routeTotalKm);
+      routeLine.setLatLngs(pts);
+      map.setView(pts[pts.length - 1], zoom, { animate: false });
+      if (t < 1) {
+        introFrame = requestAnimationFrame(step);
+        return;
+      }
+      introFrame = null;
+      frameDeparture(true);
+      setTimeout(() => {
+        if (token !== introToken) return;
+        suppressViewChange = false;
+        finish();
+      }, 900);
+    };
+    introFrame = requestAnimationFrame(step);
   }
 
   function makeClusterIcon(cluster) {
@@ -163,8 +289,8 @@ const VoyageMap = (function () {
     const maxLat = Math.max.apply(null, lats);
     // One finite voyage window (includes unwrapped longitudes past ±180). No endless world copies.
     const maxBounds = L.latLngBounds(
-      [Math.max(-85, minLat - 20), minLng - 30],
-      [Math.min(85, maxLat + 20), maxLng + 30]
+      [Math.max(-85, minLat - 25), minLng - 40],
+      [Math.min(85, maxLat + 25), maxLng + 200]
     );
 
     map = L.map(containerId, {
@@ -179,7 +305,7 @@ const VoyageMap = (function () {
       attribution: '&copy; OpenStreetMap contributors'
     }).addTo(map);
 
-    drawVoyageRoute(unwrapped, map);
+    rememberRoute(unwrapped);
 
     clusterGroup = L.markerClusterGroup({
       maxClusterRadius: 55,
@@ -215,16 +341,18 @@ const VoyageMap = (function () {
   }
 
   function fitGlobalBounds() {
-    const latlngs = Object.values(markers).map((m) => m.getLatLng());
-    if (!latlngs.length || !map) return;
-    suppressViewChange = true;
-    map.fitBounds(L.latLngBounds(latlngs), { padding: [48, 48], maxZoom: 4, animate: false });
+    haltIntro();
+    restoreFullRoute();
+    if (!map) return;
+    frameDeparture(false);
     setTimeout(() => {
       suppressViewChange = false;
-    }, 150);
+    }, 200);
   }
 
   function fitStops(stops) {
+    haltIntro();
+    restoreFullRoute();
     if (!map || !stops.length) return;
     const latlngs = stops.map((s) => latLngForStop(s));
     suppressViewChange = true;
@@ -268,6 +396,8 @@ const VoyageMap = (function () {
   }
 
   function focusStop(n, immediate) {
+    haltIntro();
+    restoreFullRoute();
     if (!map || !markers[n]) return;
     const ll = markers[n].getLatLng();
     const dist = map.getCenter().distanceTo(ll);
@@ -301,6 +431,7 @@ const VoyageMap = (function () {
     focusStop,
     fitStops,
     fitGlobalBounds,
+    playRouteIntro,
     getBounds,
     getCenter,
     getZoom,

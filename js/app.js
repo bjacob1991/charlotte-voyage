@@ -34,6 +34,7 @@ let allStops = [];
 let photoAlbums = { albums: {} };
 let scanLayout = { entries: {} };
 let mapFocusTimer = null;
+let activeLegId = null;
 const syncLock = { fromMap: false, fromLog: false };
 const GLOBAL_ZOOM_THRESHOLD = 4;
 
@@ -127,6 +128,16 @@ function resolveStopPhotos(stop) {
 
 function hasPhotos(stop) {
   return (stop.photos && stop.photos.length > 0) || !!stop.photo_album;
+}
+
+function leadPhoto(stop) {
+  if (!stop.photos || !stop.photos.length) return null;
+  const key = stop.photo_set || 'stop-' + stop.globalN;
+  const siblings = allStops.filter(
+    (s) => (s.photo_set || 'stop-' + s.globalN) === key && s.photos && s.photos.length
+  );
+  const index = siblings.findIndex((s) => s.globalN === stop.globalN);
+  return stop.photos[(index < 0 ? 0 : index) % stop.photos.length];
 }
 
 function photoMeta(stop) {
@@ -654,6 +665,7 @@ function handleMapViewChange(zoom, bounds, center) {
     collapseAllSections();
     document.querySelectorAll('.stop').forEach((el) => el.classList.remove('active'));
     VoyageMap.clearActive();
+    setActiveChapter(null);
     syncLock.fromMap = false;
     return;
   }
@@ -695,10 +707,30 @@ function buildStopSection(stop) {
   if (hasPhotos(stop)) {
     const photosDiv = document.createElement('div');
     photosDiv.className = 'stop-photos';
+    const photo = leadPhoto(stop);
+    if (photo) {
+      const figure = document.createElement('figure');
+      figure.className = 'stop-photo';
+      const img = document.createElement('img');
+      const alt = photo.caption || stop.name;
+      img.src = photo.thumb || photo.file;
+      img.alt = alt;
+      img.loading = 'lazy';
+      img.decoding = 'async';
+      img.title = 'Click to enlarge';
+      img.addEventListener('click', () => openImageLightbox(photo.file, alt));
+      img.addEventListener('error', () => {
+        figure.hidden = true;
+      });
+      figure.appendChild(img);
+      photosDiv.appendChild(figure);
+    }
     const btn = document.createElement('button');
     btn.type = 'button';
     btn.className = 'btn-stop-gallery';
-    btn.innerHTML = ICON_CAMERA + ' View photo gallery';
+    const count = stop.photos ? stop.photos.length : 0;
+    const galleryLabel = count ? 'View ' + count + ' photo' + (count === 1 ? '' : 's') : 'View photo gallery';
+    btn.innerHTML = ICON_CAMERA + ' ' + galleryLabel;
     btn.addEventListener('click', () => openStopGallery(stop));
     photosDiv.appendChild(btn);
     section.appendChild(photosDiv);
@@ -853,10 +885,98 @@ function buildHero(manifest) {
   logEl.prepend(hero);
 }
 
+function revealChapter(card) {
+  const nav = card.parentElement;
+  if (!nav) return;
+  const navRect = nav.getBoundingClientRect();
+  const cardRect = card.getBoundingClientRect();
+  if (cardRect.left < navRect.left) {
+    nav.scrollLeft -= navRect.left - cardRect.left + 8;
+  } else if (cardRect.right > navRect.right) {
+    nav.scrollLeft += cardRect.right - navRect.right + 8;
+  }
+}
+
+function setActiveChapter(legId) {
+  const next = legId || null;
+  if (next === activeLegId) return;
+  activeLegId = next;
+  const nav = document.getElementById('chapters');
+  if (!nav) return;
+  nav.querySelectorAll('.chapter-card').forEach((el) => {
+    const on = !!next && el.dataset.legId === next;
+    el.classList.toggle('active', on);
+    if (on) {
+      el.setAttribute('aria-current', 'true');
+      revealChapter(el);
+    } else {
+      el.removeAttribute('aria-current');
+    }
+  });
+}
+
+function legChapters() {
+  const chapters = [];
+  const seen = new Set();
+  allStops.forEach((stop) => {
+    if (seen.has(stop.legId)) return;
+    seen.add(stop.legId);
+    const stops = allStops.filter((s) => s.legId === stop.legId);
+    const withPhoto = stops.find((s) => s.photos && s.photos.length);
+    chapters.push({
+      legId: stop.legId,
+      name: stop.legName,
+      n: chapters.length + 1,
+      photo: withPhoto ? withPhoto.photos[0] : null
+    });
+  });
+  return chapters;
+}
+
+function buildChapters() {
+  const nav = document.getElementById('chapters');
+  if (!nav) return;
+  nav.innerHTML = '';
+  legChapters().forEach((chapter) => {
+    const btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = 'chapter-card';
+    btn.dataset.legId = chapter.legId;
+    if (chapter.photo) {
+      const img = document.createElement('img');
+      img.src = chapter.photo.thumb || chapter.photo.file;
+      img.alt = '';
+      img.loading = 'lazy';
+      btn.appendChild(img);
+    } else {
+      const fallback = document.createElement('span');
+      fallback.className = 'chapter-fallback';
+      fallback.textContent = String(chapter.n);
+      btn.appendChild(fallback);
+    }
+    const label = document.createElement('span');
+    label.className = 'chapter-name';
+    label.textContent = chapter.name;
+    btn.appendChild(label);
+    btn.addEventListener('click', () => {
+      const first = allStops.find((s) => s.legId === chapter.legId);
+      if (first) goToStop(first.globalN);
+    });
+    nav.appendChild(btn);
+  });
+  nav.hidden = chaptersEmpty();
+}
+
+function chaptersEmpty() {
+  return !document.querySelector('#chapters .chapter-card');
+}
+
 function setActive(n, skipMapFocus) {
   document.querySelectorAll('.stop').forEach((el) => {
     el.classList.toggle('active', n && +el.dataset.n === n);
   });
+  const stop = n ? allStops.find((s) => s.globalN === n) : null;
+  setActiveChapter(stop ? stop.legId : null);
   if (n) VoyageMap.setActive(n);
   else VoyageMap.clearActive();
 
@@ -978,8 +1098,23 @@ async function init() {
     });
 
     document.getElementById('site-dates').textContent = formatDateRange(allStops);
+    const coverKicker = document.getElementById('cover-kicker');
+    const coverTitle = document.getElementById('cover-title');
+    const coverYears = document.getElementById('cover-years');
+    const coverPhoto = document.getElementById('cover-photo');
+    if (coverKicker) coverKicker.textContent = tagline;
+    if (coverTitle) {
+      coverTitle.innerHTML = escapeHtml(headline) + ' <em>' + escapeHtml(vessel) + '</em>';
+    }
+    if (coverYears && years) coverYears.textContent = years;
+    if (coverPhoto && manifest.vessel_image) {
+      coverPhoto.src = manifest.vessel_image;
+      coverPhoto.alt = manifest.vessel_image_alt || vessel + ' at anchor';
+    }
 
     buildLog(allStops);
+    buildChapters();
+    if (allStops.length) setActiveChapter(allStops[0].legId);
     buildHero(manifest);
     updateGalleryBadge();
     VoyageMap.init('map', allStops, goToStop, handleMapViewChange);
@@ -994,5 +1129,56 @@ async function init() {
       'Then open <code>http://localhost:8000</code></p></div>';
   }
 }
+
+function finishCoverHide() {
+  document.documentElement.classList.add('cover-seen');
+  const cover = document.getElementById('voyage-cover');
+  if (cover) cover.classList.remove('is-leaving');
+}
+
+function showVoyageStart() {
+  syncLock.fromLog = true;
+  collapseAllSections();
+  document.querySelectorAll('.stop').forEach((el) => el.classList.remove('active'));
+  if (logEl) logEl.scrollTop = 0;
+  VoyageMap.clearActive();
+  VoyageMap.invalidateSize();
+  activeLegId = null;
+  if (allStops.length) setActiveChapter(allStops[0].legId);
+  VoyageMap.playRouteIntro(() => {
+    syncLock.fromLog = false;
+  });
+}
+
+function dismissCover() {
+  const cover = document.getElementById('voyage-cover');
+  if (!cover || document.documentElement.classList.contains('cover-seen')) return;
+  if (cover.classList.contains('is-leaving')) return;
+  cover.classList.add('is-leaving');
+  cover.setAttribute('aria-hidden', 'true');
+  cover.addEventListener('transitionend', finishCoverHide, { once: true });
+  setTimeout(finishCoverHide, 500);
+  setTimeout(showVoyageStart, 60);
+}
+
+function showCover() {
+  const cover = document.getElementById('voyage-cover');
+  if (!cover) return;
+  document.documentElement.classList.remove('cover-seen');
+  cover.classList.remove('is-leaving');
+  cover.setAttribute('aria-hidden', 'false');
+  const openBtn = document.getElementById('cover-open');
+  if (openBtn) openBtn.focus();
+}
+
+const coverOpenBtn = document.getElementById('cover-open');
+const coverShowBtn = document.getElementById('btn-show-cover');
+if (coverOpenBtn) coverOpenBtn.addEventListener('click', dismissCover);
+if (coverShowBtn) coverShowBtn.addEventListener('click', showCover);
+document.addEventListener('keydown', (event) => {
+  if (event.key === 'Escape' && !document.documentElement.classList.contains('cover-seen')) {
+    dismissCover();
+  }
+});
 
 init();
